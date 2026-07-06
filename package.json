@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "tailwindcss -i ./src/input.css -o ./css/styles.css --watch",
     "build": "tailwindcss -i ./src/input.css -o ./css/styles.css --minify",
-    "preview": "npx serve ."
+    "preview": "serve ."
   },
   "devDependencies": {
+    "serve": "^14.2.4",
     "tailwindcss": "^3.4.17"
   }
 }
