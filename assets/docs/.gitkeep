@@ -1,0 +1,9 @@
+# Document assets — drop PDFs here
+#
+# Expected files (linked from Resources section):
+#   hal-e-whitepaper.pdf       — HAL-E architecture white paper
+#   aae-whitepaper.pdf         — AAE methodology white paper
+#   deployment-sop.pdf         — Enterprise deployment SOP
+#   api-reference.pdf          — API reference v1.0
+#   security-sop.pdf           — Security & compliance SOP
+#   integration-guide.pdf      — LMS integration guide

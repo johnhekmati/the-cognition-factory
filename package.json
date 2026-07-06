@@ -1,0 +1,14 @@
+{
+  "name": "the-cognition-factory",
+  "version": "1.0.0",
+  "description": "The Cognition Factory — HAL-E & AAE. High-agency learning intelligence.",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./css/styles.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./css/styles.css --minify",
+    "preview": "npx serve ."
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

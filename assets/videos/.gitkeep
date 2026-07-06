@@ -1,0 +1,11 @@
+# Video assets — drop files here
+#
+# Expected files (see index.html hero section):
+#   hero-loop.mp4   — Hero background video loop (H.264)
+#   hero-loop.webm  — Hero background video loop (WebM, optional fallback)
+#
+# Recommended specs:
+#   Resolution: 1920×1080 or 2560×1440
+#   Duration: 10–30 seconds, seamless loop
+#   No audio track (muted autoplay)
+#   File size: under 5 MB for fast load

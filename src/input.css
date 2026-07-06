@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-void text-gray-300 font-body antialiased;
+  }
+
+  ::selection {
+    @apply bg-electric/30 text-white;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 py-24 md:px-12 lg:px-20 xl:px-32;
+  }
+
+  .section-label {
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-electric mb-4 block;
+  }
+
+  .section-title {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-gray-400 mt-4 max-w-2xl leading-relaxed;
+  }
+
+  .glass-card {
+    @apply relative rounded-2xl border border-white/5 bg-void-100/60 backdrop-blur-xl shadow-card;
+  }
+
+  .glass-card::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl bg-card-glow opacity-50 pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg
+           bg-gradient-to-r from-electric to-signal text-void font-semibold text-sm
+           tracking-wide transition-all duration-300
+           hover:shadow-electric hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg
+           border border-electric/30 text-electric font-semibold text-sm
+           tracking-wide transition-all duration-300
+           hover:bg-electric/10 hover:border-electric/60 hover:shadow-electric;
+  }
+
+  .nav-link {
+    @apply text-sm text-gray-400 hover:text-electric transition-colors duration-200
+           relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px
+           after:bg-electric after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .nav-link.active {
+    @apply text-electric after:w-full;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-electric via-signal to-plasma bg-clip-text text-transparent;
+  }
+
+  .stat-value {
+    @apply font-display text-4xl md:text-5xl font-bold gradient-text;
+  }
+
+  .resource-tag {
+    @apply inline-block px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider
+           border border-plasma/30 text-plasma-glow bg-plasma/10;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

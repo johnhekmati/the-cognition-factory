@@ -1,0 +1,11 @@
+node_modules/
+tailwindcss.exe
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+
+# Local IDE / agent artifacts
+mcps/
+terminals/

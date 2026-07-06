@@ -1,0 +1,139 @@
+###HAL-E Brand Guidelines (One-Pager)
+
+Version: 1.0
+Audience (now): Solo learner
+Audience (later): Licensed partners (community colleges, consulting firms, nonprofit skilling / re-skilling)
+Products: HAL-E (depth engine) · AAE (exam-grade drilling) · Cartridges (domain packs)
+
+##1. Brand essence
+Element	        Definition
+Name	        HAL-E — always hyphenated in product lockup; spoken “HAL-E”
+Expansion	Hyper Accelerated Learning Engine — use on first mention or in formal headers
+One-liner	Schema-first learning partner for domains you can think through.
+Promise	        Build durable mental models; spar until understanding sticks.
+Enemy	        More content without architecture; fake mastery; tool sprawl.
+Personality	Architect + sparring partner — precise, curious, demanding, never mascot-cute.
+
+Positioning line (primary): Not more content. Better architecture.
+
+Supporting lines:
+
+Build mental models. Spar until it sticks.
+Depth first. Drills when you need them.
+One engine, many cartridges.
+
+##2. What we say / what we avoid
+
+Say:
+Mental models, schema maps, teach-back, spar, cross-lens, retention, cartridges, boot sequence
+“HAL-E for depth · AAE for exam fidelity” (when both exist)
+“Chapter One” framing for Accounting (engine is universal)
+Solo learner ownership; future licensing without changing the soul of the product
+
+Avoid:
+“AI tutor,” “guaranteed pass,” “easy,” “just ask HAL-E”
+Internal / cluster naming in customer-facing copy
+Competing with somatic craft or sacramental formation (HAL-E doesn’t claim those lanes)
+Replacing HAL-E depth with AAE drilling in messaging\
+
+##3. Voice & tone
+
+Dimension	Guideline
+Register	Confident, clean, technical-literacy friendly — no ed-tech fluff
+Sentence style	Short declarations + structured lists; commands in MONO CAPS when documenting rituals
+Challenge	Respect intelligence; push on fuzzy explanations (“teach it back,” “where on the map?”)
+Warmth	        Through seriousness and clarity — not through exclamation points or hype
+Export	        Prefer markdown artifacts users can keep (Drive, Obsidian, cartridges)
+Voice test: Would this sound right in a 60-second keynote manifesto? If it sounds like a friendly owl, rewrite.
+
+##4. Color
+
+Derived from hero / manifesto / motion system.
+
+Role	                 Description	                Usage
+Void	                 Near-black #0A0A0F – #000000	Backgrounds, slides, video letterbox
+Core blue	         Electric blue (vortex center)	Primary energy, links, accents
+Core cyan	         Bright cyan	                Highlights, graph edges, UI accents
+Core magenta / purple	 Magenta → purple gradients	Vortex trails, secondary energy
+Type white	         #FFFFFF at 90–100% opacity	Headlines, body on dark
+Type muted	         White at 60–75% opacity	Subheads, captions, footer caps
+
+Rules
+
+Dark-first: light type on void; never invert to “white page + rainbow” for primary brand moments.
+Gradient = energy, not decoration: one vortex or glow focal point per composition.
+No extra palette colors on hero/marketing without reason (status OK in product UI only).
+
+##5. Typography
+
+Level	                Treatment
+Wordmark	        HAL-E — bold geometric sans (clean, wide, keynote)
+Expansion	        HYPER ACCELERATED LEARNING ENGINE — small caps or uppercase, tracked, subordinate to wordmark
+Manifesto headline	Bold sans, 1–2 lines max
+Body / manifesto body	Refined sans, clear hierarchy (headline → 3 bullets → footer)
+Commands / rituals	Monospace or small-caps sans: SPAR, MAP, LOAD HAL-E CORE
+
+Rules
+
+Maximum one display weight + one text weight per asset.
+Footer beats: small caps, e.g. FOR THE SOLO LEARNER WHO WANTS OWNERSHIP, NOT MORE CONTENT.
+Do not stylize the E as a separate “circuit suffix” unless matching an approved logo file — use HAL-E consistently in new copy.
+6. Logo & mark usage
+Primary lockup: HAL-E wordmark + expanded name on vortex / void (reference: original hero JPEG).
+
+Do
+
+Keep clear space ≥ height of “H” around wordmark
+Use approved dark backgrounds only	
+Scale proportionally	
+Pair with schema graph motif (nodes + thin edges) for “depth” story	
+Co-branding (future licenses): Partner logo smaller, bottom or corner; HAL-E remains hero. Tagline stays HAL-E’s, not the institution’s jargon.
+
+Don’t
+
+Stretch, skew, or add drop-shadow clutter
+Place on busy photos without scrim
+Recreate vortex in off-brand colors
+Mix multiple competing glow centers
+
+##7. Imagery & motion
+
+Asset type	Direction
+Still hero	Symmetrical vortex, particles, high contrast, minimal text
+Manifesto 16:9	Left: mark; right: manifesto copy; bottom corner: audience line
+Vertical story	Vortex + floating schema nodes; three beats max
+Motion	        Slow push-in, subtle pulse, readable type — 6s keynote clip; no shake, no flash cuts
+Metaphors to use: singularity / convergence, schema graph, cartridge as swappable module.
+Metaphors to avoid: graduation caps, lightbulbs, robots waving, stock “student at laptop” as primary brand.
+
+##8. Product naming & architecture (messaging)
+
+HAL-E (engine)
+  └── Cartridges (e.g. Accounting Core, Dev Core …)
+  └── AAE (targeted drilling — escalated, not default)
+HAL-E = always the cognitive partner brand.
+Cartridge = domain pack; name format: HAL-E [Domain] Core or sprint name.
+AAE = separate mode; never imply HAL-E is AAE.
+Solo learner (today): “You boot, map, spar, export.”
+Licensing (tomorrow): “Same engine and cartridges; your cohort, your governance.”
+
+##9. Copy blocks (approved snippets)
+
+About (short):
+HAL-E is the Hyper Accelerated Learning Engine—a schema-first partner for building mental models, mapping connections, and sparring until you can teach it back. One engine, many cartridges. Depth here; exam drilling via AAE when you need it.
+
+CTA (solo):
+LOAD HAL-E CORE → MAP your first concept → SPAR until it’s clean.
+
+Footer (slides / video):
+FOR THE SOLO LEARNER WHO WANTS OWNERSHIP, NOT MORE CONTENT.
+
+##10. Checklist before ship
+
+ Dark void background, on-palette glow only
+ HAL-E + expansion spelled correctly
+ Manifesto line or “Not more content. Better architecture.” present on hero assets
+ No guaranteed outcomes; no “AI tutor” positioning
+ HAL-E vs AAE separation clear if both mentioned
+ Markdown/export path mentioned where relevant
+ Solo learner primary; licensing optional, secondary
