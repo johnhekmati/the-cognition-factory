@@ -100,8 +100,14 @@
   }
 
   .context-layout {
-    @apply grid gap-10 lg:gap-14 xl:gap-20 items-start;
+    @apply grid gap-8 sm:gap-10 lg:gap-14 xl:gap-16 items-center;
     grid-template-columns: 1fr;
+  }
+
+  @screen sm {
+    .context-layout {
+      grid-template-columns: minmax(11rem, 32%) 1fr;
+    }
   }
 
   @screen lg {
@@ -111,7 +117,7 @@
   }
 
   .context-video-banner {
-    @apply relative overflow-hidden rounded-2xl border border-white/5 bg-void mr-auto w-full;
+    @apply relative overflow-hidden rounded-2xl border border-white/5 bg-void mr-auto sm:mr-0 w-full;
     max-width: min(100%, 22rem);
     aspect-ratio: 9 / 16;
   }
@@ -122,11 +128,11 @@
   }
 
   .context-copy {
-    @apply flex flex-col justify-center lg:pt-2;
+    @apply flex flex-col justify-center items-center text-center;
   }
 
   .context-copy-inner {
-    @apply space-y-6 text-gray-400 leading-relaxed max-w-2xl w-full lg:ml-auto lg:mr-0 lg:pl-6 xl:pl-10;
+    @apply space-y-6 text-gray-400 leading-relaxed max-w-xl w-full sm:max-w-lg mx-auto;
   }
 }
 
