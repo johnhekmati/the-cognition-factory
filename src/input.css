@@ -98,47 +98,6 @@
       rgba(5, 8, 16, 0.55) 100%
     );
   }
-
-  .hero-copy-panel {
-    @apply relative w-full overflow-hidden border-b border-white/5;
-    min-height: clamp(420px, 58vh, 720px);
-  }
-
-  .hero-copy-bg {
-    @apply absolute inset-0 w-full h-full object-cover object-center;
-    filter: brightness(0.72) saturate(0.95);
-  }
-
-  .hero-copy-overlay {
-    @apply absolute inset-0 pointer-events-none;
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(5, 8, 16, 0.55) 0%,
-        rgba(5, 8, 16, 0.82) 45%,
-        rgba(5, 8, 16, 0.92) 100%
-      ),
-      radial-gradient(
-        ellipse 90% 70% at 50% 40%,
-        rgba(5, 8, 16, 0.35) 0%,
-        rgba(5, 8, 16, 0.75) 100%
-      );
-  }
-
-  .hero-copy-content {
-    @apply relative z-10 flex flex-col items-center justify-center text-center max-w-5xl mx-auto;
-    min-height: clamp(420px, 58vh, 720px);
-    padding: clamp(3rem, 8vw, 5rem) 1.5rem;
-  }
-
-  .hero-copy-content .hero-lead {
-    @apply text-gray-200;
-    text-shadow: 0 1px 24px rgba(5, 8, 16, 0.85);
-  }
-
-  .hero-copy-content .hero-headline {
-    text-shadow: 0 2px 32px rgba(5, 8, 16, 0.9);
-  }
 }
 
 @layer utilities {
