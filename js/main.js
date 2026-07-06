@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initRevealAnimations();
   initHeroVideos();
+  initSectionVideos();
 });
 
 /* ── Sticky nav background on scroll ── */
@@ -174,6 +175,41 @@ function initHeroVideos() {
   };
 
   setInterval(slideToNext, INTERVAL_MS);
+}
+
+/* ── Section video banners — play when in view ── */
+function initSectionVideos() {
+  const videos = document.querySelectorAll('[data-section-video]');
+  if (!videos.length) return;
+
+  const playVideo = (video) => video.play().catch(() => {});
+  const pauseVideo = (video) => {
+    video.pause();
+    video.currentTime = 0;
+  };
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    videos.forEach((video) => {
+      video.removeAttribute('autoplay');
+      pauseVideo(video);
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        entry.isIntersecting ? playVideo(video) : pauseVideo(video);
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  videos.forEach((video) => {
+    pauseVideo(video);
+    observer.observe(video);
+  });
 }
 
 /* ── Scroll-reveal for cards and sections ── */

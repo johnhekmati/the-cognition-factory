@@ -79,6 +79,25 @@
     @apply inline-block px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider
            border border-plasma/30 text-plasma-glow bg-plasma/10;
   }
+
+  .section-video-banner {
+    @apply relative w-full overflow-hidden rounded-2xl border border-white/5 bg-void;
+    height: clamp(200px, 42vw, 440px);
+  }
+
+  .section-video {
+    @apply absolute inset-0 w-full h-full object-cover object-center;
+    filter: brightness(1.06) saturate(1.1);
+  }
+
+  .section-video-fade {
+    @apply absolute inset-0 pointer-events-none;
+    background: linear-gradient(
+      to bottom,
+      transparent 55%,
+      rgba(5, 8, 16, 0.55) 100%
+    );
+  }
 }
 
 @layer utilities {
