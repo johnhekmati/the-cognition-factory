@@ -117,13 +117,11 @@
   }
 
   .context-video-banner {
-    @apply relative overflow-hidden rounded-2xl border border-white/5 bg-void mr-auto sm:mr-0 w-full;
-    max-width: min(100%, 22rem);
-    aspect-ratio: 9 / 16;
+    @apply relative overflow-hidden rounded-2xl border border-white/5 bg-void w-full aspect-square;
   }
 
   .context-video {
-    @apply absolute inset-0 w-full h-full object-contain object-left;
+    @apply absolute inset-0 w-full h-full object-cover object-center;
     filter: brightness(1.06) saturate(1.1);
   }
 
