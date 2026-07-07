@@ -88,31 +88,48 @@ function initMobileMenu() {
   });
 }
 
-/* ── Contact form (placeholder — wire to your backend or Formspree) ── */
+/* ── Contact form (submits to Cloudflare Pages Function → Email Routing) ── */
 function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    /*
-     * ASSET PLACEHOLDER: Connect form submission
-     * Options:
-     *   1. Formspree — action="https://formspree.io/f/YOUR_ID"
-     *   2. Cloudflare Workers endpoint
-     *   3. Custom API at api.thecognitionfactory.com
-     */
     const btn = form.querySelector('[type="submit"]');
     const originalText = btn.textContent;
-    btn.textContent = 'Message Sent';
+
+    btn.textContent = 'Sending...';
     btn.disabled = true;
 
+    try {
+      const formData = new FormData(form);
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await res.json().catch(() => ({}));
+
+      if (res.ok && result.success) {
+        btn.textContent = 'Message Sent';
+        form.reset();
+      } else {
+        const msg = result.error || 'Failed to send';
+        console.error('Contact form error:', msg);
+        btn.textContent = 'Error — Try Again';
+      }
+    } catch (err) {
+      console.error('Contact form network error:', err);
+      btn.textContent = 'Error — Try Again';
+    }
+
+    // Restore button after a short delay
     setTimeout(() => {
       btn.textContent = originalText;
       btn.disabled = false;
-      form.reset();
-    }, 3000);
+    }, 3500);
   });
 }
 

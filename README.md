@@ -110,14 +110,27 @@ See the `.gitkeep` files in each directory for the current list of expected file
 
 ## Contact Form
 
-The contact form on the site is currently a frontend-only stub.  
-It shows a temporary "Message Sent" state and resets.
+The contact form (`#contact-form`) posts to a Cloudflare Pages Function at `/api/contact`.
+
+The function:
+- Validates required fields
+- Sends the submission as an email via Cloudflare's Email Routing (using the `EMAIL` send_email binding)
+- Returns JSON `{ success: true }` or an error
 
 See:
+- `functions/api/contact.js`
 - `js/main.js` → `initContactForm()`
-- `index.html` → form comments
 
-To wire it up, connect it to Formspree, a Cloudflare Worker, or another backend.
+### Required setup (one-time)
+
+In the Cloudflare dashboard for the Pages project:
+
+1. Go to **Settings → Functions → Bindings**
+2. Add a **Send Email** binding
+   - Variable name: `EMAIL`
+3. Make sure Email Routing is enabled for `thecognitionfactory.com` and the destination address is verified.
+
+The form will then send real emails to your configured inbox.
 
 ## Notes & Gotchas
 
