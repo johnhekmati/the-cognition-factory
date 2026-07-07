@@ -166,11 +166,14 @@
           <div class="context-video-banner" data-reveal aria-label="Learning context preview">
             <video
               class="context-video"
-              data-section-video
-              autoplay muted loop playsinline
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
               poster="/assets/images/HAL-E1C.jpg"
             >
-              <source src="/assets/videos/context.mp4?v=395d77d" type="video/mp4" />
+              <source src="/assets/videos/context-395d77d.mp4" type="video/mp4" />
             </video>
             <div class="section-video-fade" aria-hidden="true"></div>
           </div>
@@ -299,14 +302,20 @@
           <!-- Visual (left on desktop) -->
           <div class="relative order-2 lg:order-1" data-reveal>
             <div class="glass-card p-1 overflow-hidden">
-              <img
-                src="/assets/images/AAE1A.jpg"
-                alt="AAE — Adaptive Assessment Engine. Precision assessment for genuine competency."
-                class="w-full rounded-xl object-cover aspect-square bg-void"
-                loading="lazy"
+              <video
+                class="w-full rounded-xl object-cover aspect-square bg-void block"
+                data-section-video
+                autoplay
+                muted
+                loop
+                playsinline
+                poster="/assets/images/AAE1A.jpg"
                 width="1024"
                 height="1024"
-              />
+                aria-label="AAE — Adaptive Assessment Engine. Precision assessment for genuine competency."
+              >
+                <source src="/assets/videos/video-9fbc8bf5-6bb3-4d02-a4b7-2fe912be4769.mp4" type="video/mp4" />
+              </video>
             </div>
             <div class="absolute -top-4 -left-4 w-32 h-32 bg-plasma/10 rounded-full blur-2xl -z-10" aria-hidden="true"></div>
           </div>
