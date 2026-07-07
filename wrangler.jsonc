@@ -3,9 +3,13 @@
   "name": "the-cognition-factory",
   "pages_build_output_dir": ".",
   "compatibility_date": "2026-07-07",
+  "vars": {
+    "CONTACT_TO_EMAIL": "phillipjohnhekmati@outlook.com"
+  },
   "send_email": [
     {
-      "name": "EMAIL"
+      "name": "EMAIL",
+      "destination_address": "phillipjohnhekmati@outlook.com"
     }
   ]
 }

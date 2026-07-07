@@ -125,9 +125,11 @@ See:
 
 **Email Routing (domain):** Enable Email Routing for `thecognitionfactory.com` and verify your destination address(es). This is configured under the domain dashboard → **Email** → **Email Routing**.
 
-**Send Email binding (Pages project):** The `EMAIL` binding is declared in `wrangler.jsonc` (Send Email is not available in the Pages dashboard binding picker). Deploying with this file in the repo attaches the binding automatically.
+**Send Email binding (Pages project):** Declared in `wrangler.jsonc` (Send Email is not in the Pages dashboard binding picker).
 
-After deploy, the form sends real emails to your configured inbox.
+**Destination address:** Set `CONTACT_TO_EMAIL` in `wrangler.jsonc` to the inbox you verified under **Compute → Email Service → Email Routing → Destination Addresses**. This must be your real inbox (e.g. `you@gmail.com`), **not** the `contact@thecognitionfactory.com` routing alias. On the free plan, outbound sends only deliver to verified destination addresses.
+
+After deploy, the form sends to that inbox with `Reply-To` set to the submitter.
 
 ## Notes & Gotchas
 
