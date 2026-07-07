@@ -106,7 +106,7 @@ Media files are stored in:
 
 See the `.gitkeep` files in each directory for the current list of expected files. These `.gitkeep` files are kept up to date with what `index.html` actually references.
 
-**Note**: Several PDFs linked from the Research section are intentional placeholders and have not been created yet.
+**Note**: The Knowledge Base links live PDFs from `assets/docs/`. Add new files there and update the Research section cards in `index.html`.
 
 ## Contact Form
 
