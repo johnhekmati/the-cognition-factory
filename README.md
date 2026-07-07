@@ -123,14 +123,11 @@ See:
 
 ### Required setup (one-time)
 
-In the Cloudflare dashboard for the Pages project:
+**Email Routing (domain):** Enable Email Routing for `thecognitionfactory.com` and verify your destination address(es). This is configured under the domain dashboard → **Email** → **Email Routing**.
 
-1. Go to **Settings → Functions → Bindings**
-2. Add a **Send Email** binding
-   - Variable name: `EMAIL`
-3. Make sure Email Routing is enabled for `thecognitionfactory.com` and the destination address is verified.
+**Send Email binding (Pages project):** The `EMAIL` binding is declared in `wrangler.jsonc` (Send Email is not available in the Pages dashboard binding picker). Deploying with this file in the repo attaches the binding automatically.
 
-The form will then send real emails to your configured inbox.
+After deploy, the form sends real emails to your configured inbox.
 
 ## Notes & Gotchas
 

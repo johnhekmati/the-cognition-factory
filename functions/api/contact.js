@@ -11,8 +11,8 @@ import { EmailMessage } from "cloudflare:email";
  * Binding required:
  *   - Name: EMAIL (type: Send Email)
  *
- * Configure the binding in the Cloudflare Pages dashboard:
- *   Project → Settings → Functions → Bindings → Add binding → Send Email
+ * Configure the binding in wrangler.jsonc (Send Email is not in the Pages dashboard UI):
+ *   "send_email": [{ "name": "EMAIL" }]
  *
  * The "from" address must be allowed by your Email Routing domain setup.
  */
