@@ -19,14 +19,7 @@ export async function onRequestPost({ request, env }) {
       );
     }
 
-    const toAddress = (env.CONTACT_TO_EMAIL || "").toString().trim();
-    if (!toAddress) {
-      console.error("Contact form: CONTACT_TO_EMAIL is not set.");
-      return json(
-        { success: false, error: "Email service is not configured. Please try again later." },
-        500
-      );
-    }
+    const toAddress = (env.CONTACT_TO_EMAIL || "phillipjohnhekmati@outlook.com").toString().trim();
 
     const formData = await request.formData();
 

@@ -131,6 +131,8 @@ See:
 
 After deploy, the form sends to that inbox with `Reply-To` set to the submitter.
 
+**Deploy note:** GitHub Actions uses `wrangler pages deploy` (Wrangler 4 from `package.json`) so `wrangler.jsonc` bindings are applied. The Pages project must use the **V2 build system** (project Settings → Build).
+
 ## Notes & Gotchas
 
 - **CSS cache busting**: `index.html` and `404.html` reference `css/styles.css?v=4281b51`. Update the version string (or remove it) when making significant CSS changes.
