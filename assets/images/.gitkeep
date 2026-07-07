@@ -1,11 +1,25 @@
 # Image assets — drop files here
 #
-# Expected files (see index.html for ASSET PLACEHOLDER comments):
-#   logo.svg              — Navigation & footer logo
-#   favicon.svg           — Browser favicon
-#   apple-touch-icon.png  — iOS home screen icon (180×180)
-#   og-image.jpg          — Open Graph social preview (1200×630)
-#   hero-poster.jpg       — Video poster frame for hero section
-#   hale-overview.png     — HAL-E architecture diagram
-#   aae-overview.png      — AAE assessment engine diagram
-#   about-team.jpg        — About section team/brand photo
+# These are the exact image files currently referenced by index.html.
+# This list is the source of truth for deployed media. Update when HTML references change.
+
+# Branding / identity
+#   - Navigation logo
+#   - Footer logo
+#   - Favicon (link rel="icon")
+#   - Apple touch icon
+#   - HAL-E hero video poster (multiple)
+#   - HAL-E section poster
+HAL-E2A.jpg
+
+# AAE hero video poster
+# AAE section poster
+AAE1A.jpg
+
+# Context video poster
+# Multiple section banners (systems, deployments, research/knowledge-base)
+# Open Graph image (og:image)
+HAL-E1C.jpg
+
+# Architect / leadership portrait
+John Hekmati Headshot.jpg

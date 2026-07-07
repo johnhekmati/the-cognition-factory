@@ -1,11 +1,19 @@
 # Video assets — drop files here
 #
-# Expected files (see index.html hero section):
-#   hero-loop.mp4   — Hero background video loop (H.264)
-#   hero-loop.webm  — Hero background video loop (WebM, optional fallback)
-#
-# Recommended specs:
-#   Resolution: 1920×1080 or 2560×1440
-#   Duration: 10–30 seconds, seamless loop
-#   No audio track (muted autoplay)
-#   File size: under 5 MB for fast load
+# These are the exact video files currently referenced by index.html.
+# All are used with autoplay, muted, loop, and poster frames.
+# This list is the source of truth for deployed media. Update when HTML references change.
+
+# Hero section — HAL-E ↔ AAE slide loop
+HAL-E2A.mp4
+AAE2A.mp4
+
+# Context / "The Current State of Learning" section
+context-portrait-395d77d.mp4
+
+# Section banner videos
+video-8c49ff60-07f6-47cf-ac6e-093ef979db80.mp4   # HAL-E overview
+video-9fbc8bf5-6bb3-4d02-a4b7-2fe912be4769.mp4   # AAE overview
+system-architecture.mp4                           # How HAL-E and AAE work together
+deployment.mp4                                    # Deployments section
+knowledge-base.mp4                                # Research & Documentation section
