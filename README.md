@@ -114,7 +114,7 @@ The contact form (`#contact-form`) posts to a Cloudflare Pages Function at `/api
 
 The function:
 - Validates required fields
-- Sends the submission as an email via Cloudflare's Email Routing (using the `EMAIL` send_email binding)
+- Proxies to the `contact-email` Worker, which sends mail via Cloudflare Email Routing
 - Returns JSON `{ success: true }` or an error
 
 See:
@@ -125,13 +125,11 @@ See:
 
 **Email Routing (domain):** Enable Email Routing for `thecognitionfactory.com` and verify your destination address(es). This is configured under the domain dashboard → **Email** → **Email Routing**.
 
-**Send Email binding (Pages project):** Declared in `wrangler.jsonc` (Send Email is not in the Pages dashboard binding picker).
+**Send Email (Worker):** Pages Functions cannot use `send_email` bindings. A separate Worker (`workers/contact-email`) sends mail and is bound to the Pages project via a service binding (`CONTACT_MAILER` in root `wrangler.jsonc`).
 
-**Destination address:** Set `CONTACT_TO_EMAIL` in `wrangler.jsonc` to the inbox you verified under **Compute → Email Service → Email Routing → Destination Addresses**. This must be your real inbox (e.g. `you@gmail.com`), **not** the `contact@thecognitionfactory.com` routing alias. On the free plan, outbound sends only deliver to verified destination addresses.
+**Destination address:** Set `CONTACT_TO_EMAIL` in `workers/contact-email/wrangler.jsonc` to the inbox verified under **Compute → Email Service → Email Routing → Destination Addresses** (your real inbox, not the `contact@` routing alias).
 
-After deploy, the form sends to that inbox with `Reply-To` set to the submitter.
-
-**Deploy note:** GitHub Actions uses `wrangler pages deploy` (Wrangler 4 from `package.json`) so `wrangler.jsonc` bindings are applied. The Pages project must use the **V2 build system** (project Settings → Build).
+GitHub Actions deploys the Worker first, then Pages. The Pages project must use the **V2 build system** (project Settings → Build).
 
 ## Notes & Gotchas
 

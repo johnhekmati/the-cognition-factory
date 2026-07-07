@@ -1,80 +1,17 @@
 /**
- * Contact form handler for The Cognition Factory.
- *
- * Expects a POST with form fields:
- *   first-name, last-name, email, organization, interest, message
- *
- * Sends via the EMAIL send_email binding (wrangler.jsonc).
- *
- * Important: `to` must be a verified Email Routing *destination address*
- * (e.g. your Gmail), not a custom routing alias like contact@yourdomain.com.
+ * Contact form handler — proxies to the contact-email Worker via service binding.
+ * Pages Functions cannot use send_email directly; the Worker sends mail.
  */
 export async function onRequestPost({ request, env }) {
-  try {
-    if (!env.EMAIL) {
-      console.error("Contact form: EMAIL binding is missing on this deployment.");
-      return json(
-        { success: false, error: "Email service is not configured. Please try again later." },
-        500
-      );
-    }
-
-    const toAddress = (env.CONTACT_TO_EMAIL || "phillipjohnhekmati@outlook.com").toString().trim();
-
-    const formData = await request.formData();
-
-    const firstName = (formData.get("first-name") || "").toString().trim();
-    const lastName = (formData.get("last-name") || "").toString().trim();
-    const email = (formData.get("email") || "").toString().trim();
-    const organization = (formData.get("organization") || "").toString().trim() || "Not provided";
-    const interest = (formData.get("interest") || "").toString().trim() || "Not specified";
-    const message = (formData.get("message") || "").toString().trim();
-
-    if (!firstName || !lastName || !email || !message) {
-      return json({ success: false, error: "Please fill out all required fields." }, 400);
-    }
-
-    if (!email.includes("@") || email.length < 5) {
-      return json({ success: false, error: "Please provide a valid email address." }, 400);
-    }
-
-    const subject = `Contact: ${firstName} ${lastName} — ${interest}`;
-
-    const text = [
-      `Name: ${firstName} ${lastName}`,
-      `Email: ${email}`,
-      `Organization: ${organization}`,
-      `Area of Interest: ${interest}`,
-      "",
-      "Message:",
-      message,
-      "",
-      "—",
-      "Sent from thecognitionfactory.com contact form",
-    ].join("\n");
-
-    const result = await env.EMAIL.send({
-      from: { email: "contact@thecognitionfactory.com", name: "The Cognition Factory" },
-      to: toAddress,
-      replyTo: email,
-      subject,
-      text,
-    });
-
-    console.log("Contact form sent:", { messageId: result?.messageId, to: toAddress });
-
-    return json({ success: true });
-  } catch (err) {
-    console.error("Contact form submission failed:", err?.message || err);
-
+  if (!env.CONTACT_MAILER) {
+    console.error("Contact form: CONTACT_MAILER service binding is missing.");
     return json(
-      {
-        success: false,
-        error: "Sorry, something went wrong while sending your message. Please try again or email us directly.",
-      },
+      { success: false, error: "Email service is not configured. Please try again later." },
       500
     );
   }
+
+  return env.CONTACT_MAILER.fetch(request);
 }
 
 function json(data, status = 200) {

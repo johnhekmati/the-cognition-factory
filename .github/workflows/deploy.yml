@@ -29,6 +29,12 @@ jobs:
       - name: Build Tailwind CSS
         run: npm run build
 
+      - name: Deploy contact email Worker
+        run: npx wrangler deploy --config workers/contact-email/wrangler.jsonc
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
       - name: Deploy to Cloudflare Pages
         run: npx wrangler pages deploy --project-name=the-cognition-factory --branch=main --commit-dirty=true
         env:

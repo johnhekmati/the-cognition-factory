@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "contact-email",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-07",
+  "vars": {
+    "CONTACT_TO_EMAIL": "phillipjohnhekmati@outlook.com"
+  },
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "destination_address": "phillipjohnhekmati@outlook.com"
+    }
+  ]
+}
