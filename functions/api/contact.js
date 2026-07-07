@@ -11,7 +11,14 @@ export async function onRequestPost({ request, env }) {
     );
   }
 
-  return env.CONTACT_MAILER.fetch(request);
+  // Forward body explicitly — safer than passing the browser URL through to the Worker.
+  return env.CONTACT_MAILER.fetch(
+    new Request("https://contact-email/", {
+      method: request.method,
+      headers: request.headers,
+      body: request.body,
+    })
+  );
 }
 
 function json(data, status = 200) {
