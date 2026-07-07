@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initRevealAnimations();
   initHeroVideos();
   initSectionVideos();
+  initContextVideo();
 });
 
 /* ── Sticky nav background on scroll ── */
@@ -210,6 +211,32 @@ function initSectionVideos() {
     pauseVideo(video);
     observer.observe(video);
   });
+}
+
+/* ── Context portrait — play in view, never pause on init ── */
+function initContextVideo() {
+  const video = document.querySelector('[data-context-video]');
+  if (!video) return;
+
+  const playVideo = () => video.play().catch(() => {});
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    video.removeAttribute('autoplay');
+    video.pause();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.isIntersecting ? playVideo() : video.pause();
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  observer.observe(video);
+  if (video.getBoundingClientRect().top < window.innerHeight) playVideo();
 }
 
 /* ── Scroll-reveal for cards and sections ── */
