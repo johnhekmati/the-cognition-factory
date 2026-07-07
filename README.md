@@ -24,7 +24,11 @@ AAE is a high-precision assessment operating system that measures mastery, class
 
 ```
 .
-├── .github/workflows/deploy.yml   # Cloudflare Pages deployment
+├── .github/workflows/deploy.yml   # Worker + Cloudflare Pages deployment
+├── functions/
+│   └── api/contact.js             # Pages Function — proxies to contact-email Worker
+├── workers/
+│   └── contact-email/             # Sends contact form mail via Email Routing
 ├── src/
 │   └── input.css                  # Tailwind source
 ├── css/
@@ -34,9 +38,10 @@ AAE is a high-precision assessment operating system that measures mastery, class
 ├── assets/
 │   ├── images/                    # Branding images + posters
 │   ├── videos/                    # Hero + section videos
-│   └── docs/                      # White papers & SOPs (some placeholders)
+│   └── docs/                      # Knowledge Base PDFs + brand reference files
 ├── index.html
 ├── 404.html
+├── wrangler.jsonc                 # Pages service binding (CONTACT_MAILER)
 ├── tailwind.config.js
 ├── package.json
 ├── _redirects                     # Legacy Netlify redirects (see notes)
@@ -87,14 +92,14 @@ Deployment is handled automatically by GitHub Actions:
 
 - Triggers on push to `main`
 - Also supports manual `workflow_dispatch`
-- Runs `npm ci` → `npm run build` → `wrangler pages deploy .`
+- Runs `npm ci` → `npm run build` → deploy `contact-email` Worker → `wrangler pages deploy`
 
 **Required repository secrets** (Settings → Secrets and variables → Actions):
 
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
-The site is deployed directly from the project root (no separate `dist` folder).
+The site is deployed directly from the project root (no separate `dist` folder). The Pages project must use the **V2 build system** so `wrangler.jsonc` service bindings apply.
 
 ## Assets
 
@@ -106,7 +111,19 @@ Media files are stored in:
 
 See the `.gitkeep` files in each directory for the current list of expected files. These `.gitkeep` files are kept up to date with what `index.html` actually references.
 
-**Note**: The Knowledge Base links live PDFs from `assets/docs/`. Add new files there and update the Research section cards in `index.html`.
+### Knowledge Base PDFs (`#resources`)
+
+These files in `assets/docs/` are linked from the Research section. Filenames must match exactly (URL-encode spaces and `+` in `index.html` hrefs):
+
+| Card title | File |
+|------------|------|
+| HAL-E + AAE Executive Whitepaper | `HAL-E + AAE Executive Whitepaper v1.2.pdf` |
+| HAL-E + AAE Methodology | `Methodology.pdf` |
+| Enterprise Deployment SOP | `Enterprise_Deployment_SOP.pdf` |
+| Security & Compliance SOP | `Security_and_Compliance_SOP.pdf` |
+| LMS Integration Guide | `LMS_Integration_Guide.pdf` |
+
+To add a new document: drop the PDF in `assets/docs/`, add a card in the Research section of `index.html`, and update `assets/docs/.gitkeep`.
 
 ## Contact Form
 
@@ -129,7 +146,7 @@ See:
 
 **Destination address:** Set `CONTACT_TO_EMAIL` in `workers/contact-email/wrangler.jsonc` to the inbox verified under **Compute → Email Service → Email Routing → Destination Addresses** (your real inbox, not the `contact@` routing alias).
 
-GitHub Actions deploys the Worker first, then Pages. The Pages project must use the **V2 build system** (project Settings → Build).
+GitHub Actions deploys the Worker first, then Pages (see Deployment above).
 
 ## Notes & Gotchas
 

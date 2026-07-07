@@ -1,9 +1,12 @@
-# Document assets — drop PDFs here
+# Document assets — PDFs linked from the Knowledge Base (#resources)
 #
-# Expected files (linked from Resources section):
-#   hal-e-whitepaper.pdf       — HAL-E architecture white paper
-#   aae-whitepaper.pdf         — AAE methodology white paper
-#   deployment-sop.pdf         — Enterprise deployment SOP
-#   api-reference.pdf          — API reference v1.0
-#   security-sop.pdf           — Security & compliance SOP
-#   integration-guide.pdf      — LMS integration guide
+# Linked from index.html (1:1 — filenames must match exactly):
+#   HAL-E + AAE Executive Whitepaper v1.2.pdf   — HAL-E + AAE Executive Whitepaper
+#   Methodology.pdf                              — HAL-E + AAE Methodology
+#   Enterprise_Deployment_SOP.pdf                — Enterprise Deployment SOP
+#   Security_and_Compliance_SOP.pdf              — Security & Compliance SOP
+#   LMS_Integration_Guide.pdf                    — LMS Integration Guide
+#
+# Brand reference (not linked from the site):
+#   AAE Brand System (HAL‑E Family).md
+#   HAL-E Brand Guidelines.txt
