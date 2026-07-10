@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroVideos();
   initSectionVideos();
   initContextVideo();
+  initResourceFilters();
 });
 
 /* ── Sticky nav background on scroll ── */
@@ -28,8 +29,17 @@ function initNavigation() {
 
 /* ── Active section highlighting ── */
 function initScrollSpy() {
-  const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('[data-nav]');
+  const navIds = new Set(
+    [...navLinks]
+      .map((link) => link.getAttribute('href'))
+      .filter((href) => href && href.startsWith('#'))
+      .map((href) => href.slice(1))
+  );
+
+  const sections = [...document.querySelectorAll('section[id]')].filter((s) =>
+    navIds.has(s.id)
+  );
 
   if (!sections.length || !navLinks.length) return;
 
@@ -88,19 +98,30 @@ function initMobileMenu() {
   });
 }
 
-/* ── Contact form (submits to Cloudflare Pages Function → Email Routing) ── */
+/* ── Contact form ── */
 function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
 
+  const statusEl = document.getElementById('form-status');
+  const btn = form.querySelector('[type="submit"]');
+
+  const showStatus = (ok, message) => {
+    if (!statusEl) return;
+    statusEl.classList.remove('hidden');
+    statusEl.textContent = message;
+    statusEl.className = ok
+      ? 'text-sm rounded-lg px-4 py-3 border border-electric/30 bg-electric/10 text-electric'
+      : 'text-sm rounded-lg px-4 py-3 border border-red-500/30 bg-red-500/10 text-red-300';
+  };
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const btn = form.querySelector('[type="submit"]');
     const originalText = btn.textContent;
-
     btn.textContent = 'Sending...';
     btn.disabled = true;
+    if (statusEl) statusEl.classList.add('hidden');
 
     try {
       const formData = new FormData(form);
@@ -113,19 +134,21 @@ function initContactForm() {
       const result = await res.json().catch(() => ({}));
 
       if (res.ok && result.success) {
-        btn.textContent = 'Message Sent';
+        btn.textContent = 'Message sent';
         form.reset();
+        showStatus(true, 'Message sent. We will respond if the inquiry is a fit.');
       } else {
         const msg = result.error || 'Failed to send';
         console.error('Contact form error:', msg);
-        btn.textContent = 'Error — Try Again';
+        btn.textContent = 'Error — try again';
+        showStatus(false, msg);
       }
     } catch (err) {
       console.error('Contact form network error:', err);
-      btn.textContent = 'Error — Try Again';
+      btn.textContent = 'Error — try again';
+      showStatus(false, 'Network error. Email contact@thecognitionfactory.com directly.');
     }
 
-    // Restore button after a short delay
     setTimeout(() => {
       btn.textContent = originalText;
       btn.disabled = false;
@@ -133,7 +156,32 @@ function initContactForm() {
   });
 }
 
-/* ── Hero video slide transition (HAL-E ↔ AAE), Gravatar-style ── */
+/* ── Resource filters ── */
+function initResourceFilters() {
+  const buttons = document.querySelectorAll('.resource-filter');
+  const cards = document.querySelectorAll('.resource-card');
+  if (!buttons.length || !cards.length) return;
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter || 'all';
+
+      buttons.forEach((b) => {
+        const active = b === button;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+
+      cards.forEach((card) => {
+        const category = card.dataset.category || '';
+        const show = filter === 'all' || category === filter;
+        card.classList.toggle('is-hidden', !show);
+      });
+    });
+  });
+}
+
+/* ── Hero video slide transition (HAL-E ↔ AAE) ── */
 function initHeroVideos() {
   const videos = [...document.querySelectorAll('[data-hero-video]')];
   const labelEl = document.getElementById('hero-engine-label');
@@ -195,7 +243,7 @@ function initHeroVideos() {
   setInterval(slideToNext, INTERVAL_MS);
 }
 
-/* ── Section video banners — play when in view ── */
+/* ── Section videos — play when in view ── */
 function initSectionVideos() {
   const videos = document.querySelectorAll('[data-section-video]');
   if (!videos.length) return;
@@ -230,7 +278,7 @@ function initSectionVideos() {
   });
 }
 
-/* ── Context portrait — play in view, never pause on init ── */
+/* ── Context portrait ── */
 function initContextVideo() {
   const video = document.querySelector('[data-context-video]');
   if (!video) return;
@@ -256,7 +304,7 @@ function initContextVideo() {
   if (video.getBoundingClientRect().top < window.innerHeight) playVideo();
 }
 
-/* ── Scroll-reveal for cards and sections ── */
+/* ── Scroll-reveal ── */
 function initRevealAnimations() {
   const targets = document.querySelectorAll('[data-reveal]');
 

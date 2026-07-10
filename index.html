@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="HAL-E and AAE are operating systems for accelerated mastery under real constraints — structured learning architecture and high-precision assessment." />
+  <meta name="description" content="HAL-E and AAE are operating systems for accelerated mastery under real constraints — build durable mental models, spar until they stick, measure genuine competence." />
   <meta name="theme-color" content="#050810" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="The Cognition Factory" />
-  <meta property="og:description" content="Systems for accelerated mastery under real constraints. HAL-E and AAE compress the time between exposure and embodied competence." />
+  <meta property="og:description" content="Not more content. Better architecture. HAL-E builds mental models. AAE measures mastery. For solo high-agency learners under real constraints." />
   <meta property="og:url" content="https://thecognitionfactory.com" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://thecognitionfactory.com/assets/images/HAL-E1C.jpg" />
 
-  <title>The Cognition Factory — Systems for Accelerated Mastery</title>
+  <title>The Cognition Factory — Not More Content. Better Architecture.</title>
 
   <link rel="icon" type="image/jpeg" href="/assets/images/HAL-E2A.jpg" />
   <link rel="apple-touch-icon" href="/assets/images/HAL-E2A.jpg" />
@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=4281b51" />
+  <link rel="stylesheet" href="/css/styles.css?v=hybrid20" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -35,8 +35,7 @@
     <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent" aria-label="Main navigation">
       <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between h-16 md:h-20">
 
-        <!-- Logo -->
-        <a href="#" class="flex items-center gap-3 group" aria-label="The Cognition Factory — Home">
+        <a href="#hero" class="flex items-center gap-3 group" aria-label="The Cognition Factory — Home">
           <img
             src="/assets/images/HAL-E2A.jpg"
             alt="HAL-E — Hyper Accelerated Learning Engine"
@@ -49,18 +48,16 @@
           </span>
         </a>
 
-        <!-- Desktop Nav -->
-        <div class="hidden lg:flex items-center gap-8">
+        <div class="hidden lg:flex items-center gap-7">
+          <a href="#loop" class="nav-link" data-nav>Loop</a>
           <a href="#hale" class="nav-link" data-nav>HAL-E</a>
           <a href="#aae" class="nav-link" data-nav>AAE</a>
-          <a href="#systems" class="nav-link" data-nav>Systems</a>
-          <a href="#products" class="nav-link" data-nav>Build</a>
+          <a href="#systems" class="nav-link" data-nav>Cores</a>
+          <a href="#platform" class="nav-link" data-nav>Platform</a>
           <a href="#resources" class="nav-link" data-nav>Research</a>
-          <a href="#architect" class="nav-link" data-nav>Architect</a>
-          <a href="#contact" class="btn-primary text-xs !px-5 !py-2.5">Briefing</a>
+          <a href="#contact" class="btn-primary text-xs !px-5 !py-2.5">Get Access</a>
         </div>
 
-        <!-- Mobile Toggle -->
         <button id="menu-toggle" class="lg:hidden p-2 text-gray-400 hover:text-electric transition-colors" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
           <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
@@ -71,16 +68,17 @@
         </button>
       </div>
 
-      <!-- Mobile Menu -->
       <div id="mobile-menu" class="hidden lg:hidden border-t border-white/5 bg-void/95 backdrop-blur-xl">
         <div class="px-6 py-6 flex flex-col gap-4">
+          <a href="#loop" class="nav-link py-2" data-nav>Loop</a>
           <a href="#hale" class="nav-link py-2" data-nav>HAL-E</a>
           <a href="#aae" class="nav-link py-2" data-nav>AAE</a>
-          <a href="#systems" class="nav-link py-2" data-nav>Systems</a>
-          <a href="#products" class="nav-link py-2" data-nav>Build</a>
+          <a href="#systems" class="nav-link py-2" data-nav>Cores</a>
+          <a href="#platform" class="nav-link py-2" data-nav>Platform</a>
           <a href="#resources" class="nav-link py-2" data-nav>Research</a>
           <a href="#architect" class="nav-link py-2" data-nav>Architect</a>
-          <a href="#contact" class="btn-primary text-center mt-2">Schedule a Briefing</a>
+          <a href="#contact" class="btn-primary text-center mt-2">Get Access</a>
+          <a href="#contact" class="text-center text-sm text-gray-500 hover:text-electric transition-colors">Institutional briefing</a>
         </div>
       </div>
     </nav>
@@ -89,210 +87,280 @@
   <main>
 
     <!-- ═══════════════════════════════════════════════════════════
-         HERO
+         HERO — Manifesto Keynote
          ═══════════════════════════════════════════════════════════ -->
-    <section id="hero" class="relative">
-      <!-- Video panel — HAL-E ↔ AAE slide loop (see js/main.js) -->
-      <div
-        id="hero-video-wrap"
-        class="relative w-full overflow-hidden mt-16 md:mt-20 border-b border-white/5"
-        aria-label="HAL-E and AAE engine preview"
-      >
-        <div class="hero-video-stage">
-          <video
-            data-hero-video
-            data-hero-label="HAL-E"
-            class="hero-video is-active"
-            autoplay muted loop playsinline
-            poster="/assets/images/HAL-E2A.jpg"
-          >
-            <source src="/assets/videos/HAL-E2A.mp4" type="video/mp4" />
-          </video>
-          <video
-            data-hero-video
-            data-hero-label="AAE"
-            class="hero-video"
-            autoplay muted loop playsinline
-            poster="/assets/images/AAE1A.jpg"
-          >
-            <source src="/assets/videos/AAE2A.mp4" type="video/mp4" />
-          </video>
+    <section id="hero" class="relative pt-16 md:pt-20">
+      <div class="hero-manifesto">
+        <!-- Restrained motion field (single energy center) -->
+        <div
+          id="hero-video-wrap"
+          class="hero-manifesto-media"
+          aria-label="HAL-E and AAE engine preview"
+        >
+          <div class="hero-video-stage">
+            <video
+              data-hero-video
+              data-hero-label="HAL-E"
+              class="hero-video is-active"
+              autoplay muted loop playsinline
+              poster="/assets/images/HAL-E2A.jpg"
+            >
+              <source src="/assets/videos/HAL-E2A.mp4" type="video/mp4" />
+            </video>
+            <video
+              data-hero-video
+              data-hero-label="AAE"
+              class="hero-video"
+              autoplay muted loop playsinline
+              poster="/assets/images/AAE1A.jpg"
+            >
+              <source src="/assets/videos/AAE2A.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="hero-video-fade" aria-hidden="true"></div>
+          <div class="absolute inset-0 bg-grid-pattern bg-grid opacity-10 pointer-events-none" aria-hidden="true"></div>
+          <p id="hero-engine-label" class="hero-engine-badge">Hyper Accelerated Learning Engine</p>
         </div>
-        <div class="hero-video-fade" aria-hidden="true"></div>
-        <div class="absolute inset-0 bg-grid-pattern bg-grid opacity-10 pointer-events-none" aria-hidden="true"></div>
-        <p id="hero-engine-label" class="hero-engine-badge">Hyper Accelerated Learning Engine</p>
+
+        <div class="hero-manifesto-copy section-padding !pt-10 md:!pt-14 !pb-12 md:!pb-16 max-w-5xl mx-auto text-center">
+          <p class="font-mono text-xs uppercase tracking-[0.28em] text-electric mb-2">
+            For the solo learner who wants ownership
+          </p>
+          <p class="font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.22em] text-plasma-glow mb-5">
+            For institutions that need capability transfer, not seat time
+          </p>
+
+          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.08] text-balance">
+            Not more content.<br class="hidden sm:block" />
+            <span class="gradient-text">Better architecture.</span>
+          </h1>
+
+          <p class="mt-6 md:mt-8 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed text-balance">
+            HAL-E builds durable mental models. AAE measures real mastery.
+            Both run on a capable LLM core you choose — local or cloud —
+            so sparring, teach-back, and exam fidelity have real cognitive weight.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#contact" class="btn-primary w-full sm:w-auto">
+              Get Access
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+            <a href="#loop" class="btn-secondary w-full sm:w-auto">See the closed loop</a>
+            <a href="#resources" class="btn-secondary w-full sm:w-auto border-plasma/30 text-plasma-glow hover:bg-plasma/10 hover:border-plasma/60">Read the research</a>
+          </div>
+
+          <div class="ritual-strip mt-12" aria-label="Core rituals">
+            <span class="ritual-chip">MAP</span>
+            <span class="ritual-chip">SPAR</span>
+            <span class="ritual-chip">TEACH-BACK</span>
+            <span class="ritual-chip">LOAD CORE</span>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Static hero copy — sits below the video loop -->
-      <div class="section-padding text-center max-w-5xl mx-auto pt-12 md:pt-16 pb-12 md:pb-16">
-        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] text-balance">
-          Systems for <span class="gradient-text">Accelerated Mastery</span> Under Real Constraints
-        </h1>
 
-        <p class="mt-6 md:mt-8 text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed text-balance">
-          HAL-E and AAE are not learning tools. They are operating systems designed to compress
-          the time between exposure and embodied competence.
+    <!-- ═══════════════════════════════════════════════════════════
+         CLOSED LOOP — Schema Laboratory
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="loop" class="section-padding relative bg-void-50/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16" data-reveal>
+          <span class="section-label">System architecture</span>
+          <h2 class="section-title">HAL-E teaches. AAE examines.</h2>
+          <p class="section-subtitle mx-auto">
+            Two engines. One closed loop. Use them together — or run either alone when the job demands it.
+          </p>
+        </div>
+
+        <div class="schema-lab" data-reveal>
+          <article class="schema-pane schema-pane--hale">
+            <div class="schema-pane-head">
+              <span class="font-mono text-xs uppercase tracking-[0.2em] text-electric">HAL-E</span>
+              <span class="text-gray-500 text-xs font-mono">Depth engine</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-white mt-3">Build the map</h3>
+            <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+              Schema-first construction: mental models, invariants, cross-lens links.
+              Spar until the architecture holds — not until a course bar fills.
+            </p>
+            <ul class="schema-nodes mt-6">
+              <li>Schema maps</li>
+              <li>Teach-back pressure</li>
+              <li>Retention re-entry</li>
+            </ul>
+          </article>
+
+          <div class="schema-loop-connector" aria-hidden="true">
+            <div class="schema-loop-line"></div>
+            <p class="schema-loop-label">Closed loop</p>
+            <div class="schema-loop-line"></div>
+          </div>
+
+          <article class="schema-pane schema-pane--aae">
+            <div class="schema-pane-head">
+              <span class="font-mono text-xs uppercase tracking-[0.2em] text-plasma-glow">AAE</span>
+              <span class="text-gray-500 text-xs font-mono">Exam fidelity</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-white mt-3">Measure the gaps</h3>
+            <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+              Blind assessment. Error classification — conceptual, mechanical, integrative.
+              Telemetry on mastery, stability, and drift over time.
+            </p>
+            <ul class="schema-nodes schema-nodes--aae mt-6">
+              <li>Blind sampling</li>
+              <li>Error taxonomy</li>
+              <li>Gap-driven drills</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="max-w-2xl mx-auto text-center text-white font-medium mt-12 md:mt-14 text-balance" data-reveal>
+          AAE surfaces precise gaps. HAL-E supplies the structured work to close them.
+          Architecture in. Mastery out.
         </p>
 
-        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#hale" class="btn-primary w-full sm:w-auto">
-            Explore HAL-E
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-          </a>
-          <a href="#aae" class="btn-secondary w-full sm:w-auto">Explore AAE</a>
-          <a href="#resources" class="btn-secondary w-full sm:w-auto border-plasma/30 text-plasma-glow hover:bg-plasma/10 hover:border-plasma/60">Review the Research</a>
-        </div>
-      </div>
-
-      <!-- Scroll indicator -->
-      <div class="flex flex-col items-center gap-2 text-gray-600 pb-10" aria-hidden="true">
-        <span class="text-xs font-mono uppercase tracking-widest">Scroll</span>
-        <div class="w-px h-8 bg-gradient-to-b from-electric/50 to-transparent animate-pulse"></div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════
-         THE CURRENT STATE OF LEARNING
-         ═══════════════════════════════════════════════════════════ -->
-    <section id="state" class="section-padding relative bg-void-50/50">
-      <div class="max-w-7xl mx-auto">
-        <div class="max-w-3xl mx-auto text-center mb-12" data-reveal>
-          <span class="section-label">Context</span>
-          <h2 class="section-title">The Current State of Learning</h2>
-        </div>
-
-        <div class="context-layout">
-          <div class="context-video-banner" aria-label="Learning context preview">
-            <video
-              class="context-video"
-              data-context-video
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="auto"
-              poster="/assets/images/HAL-E1C.jpg"
-            >
-              <source src="/assets/videos/context-portrait-395d77d.mp4" type="video/mp4" />
-            </video>
-            <div class="section-video-fade" aria-hidden="true"></div>
-          </div>
-
-          <div class="context-copy" data-reveal>
-            <div class="context-copy-inner">
-              <p>
-                Most organizational and academic learning systems are built on assumptions that no longer hold.
-              </p>
-              <p>
-                They optimize for content delivery, seat time, and subjective confidence. They rarely measure
-                whether knowledge has been converted into durable capability, especially when time, cognitive
-                load, and competing priorities are constrained.
-              </p>
-              <p>
-                The result is predictable: high training spend with low transfer. Professionals accumulate
-                credentials and exposure while critical gaps in reasoning, integration, and application remain
-                undetected until they surface in high-stakes work.
-              </p>
-              <p class="text-white font-medium">
-                This is not a technology problem. It is a systems design problem.
-              </p>
-            </div>
-          </div>
+        <div class="llm-core-note max-w-3xl mx-auto mt-10 md:mt-12" data-reveal>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-electric mb-3">Runtime requirement</p>
+          <p class="text-gray-400 text-sm md:text-base leading-relaxed">
+            <span class="text-white font-medium">HAL-E and AAE require an LLM core.</span>
+            Offline with a capable local model (e.g. Ollama), or online with a modern frontier model —
+            Grok, Claude, Gemini, Copilot, OpenAI, and peers. Cartridge craft without model depth
+            collapses into thin teach-back and repetitive mock exams. The engines supply architecture;
+            the model supplies judgment under pressure.
+          </p>
         </div>
       </div>
     </section>
 
 
     <!-- ═══════════════════════════════════════════════════════════
-         HAL-E OVERVIEW
+         THE ENEMY — centered manifesto block
          ═══════════════════════════════════════════════════════════ -->
-    <section id="hale" class="section-padding relative">
+    <section id="state" class="section-padding relative">
+      <div class="max-w-3xl mx-auto text-center">
+        <div data-reveal>
+          <span class="section-label">The enemy</span>
+          <h2 class="section-title">More content without architecture</h2>
+        </div>
+
+        <div class="enemy-media mx-auto mt-10 mb-10" data-reveal aria-label="Learning under constraint">
+          <video
+            class="enemy-media-video"
+            data-context-video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/assets/images/HAL-E1C.jpg"
+          >
+            <source src="/assets/videos/context-portrait-395d77d.mp4" type="video/mp4" />
+          </video>
+          <div class="section-video-fade" aria-hidden="true"></div>
+        </div>
+
+        <div class="space-y-5 text-gray-400 leading-relaxed text-base md:text-lg" data-reveal>
+          <p>
+            Most learning systems optimize for delivery, seat time, and subjective confidence.
+            They rarely ask whether knowledge became durable capability when time and working memory are scarce.
+          </p>
+          <p>
+            You already know the pattern: credentials stack up, tools sprawl, and high-stakes work still
+            exposes fuzzy explanations and missing structure.
+          </p>
+          <p class="text-white font-medium">
+            This is not a content problem. It is a systems design problem.
+          </p>
+          <p class="text-electric font-mono text-xs uppercase tracking-[0.2em] pt-2">
+            Fake mastery dies here.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         HAL-E
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="hale" class="section-padding relative bg-void-50/50">
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-electric/[0.02] to-transparent pointer-events-none" aria-hidden="true"></div>
 
       <div class="max-w-7xl mx-auto relative">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <!-- Content -->
           <div data-reveal>
-            <span class="section-label">Learning Operating System</span>
+            <span class="section-label">Learning operating system</span>
             <h2 class="section-title">HAL-E</h2>
             <p class="text-electric font-mono text-sm mt-2">Hyper Accelerated Learning Engine</p>
+            <p class="text-white font-medium mt-6 text-lg">
+              Schema-first learning partner for domains you can think through.
+            </p>
+            <p class="mt-4 text-gray-400 leading-relaxed">
+              HAL-E is not an AI tutor and not a content firehose. It is a depth engine:
+              build mental models, map relationships, identify invariants, then spar until
+              understanding sticks. <span class="text-gray-300">Cores</span> are long-term living artifacts;
+              <span class="text-gray-300">AAE cartridges</span> pull from them for built-to-spec assessment.
+              Always paired with an LLM core you control — local or cloud.
+            </p>
 
-            <div class="mt-6 space-y-4 text-gray-400 leading-relaxed">
-              <p class="text-white font-medium">HAL-E is a learning operating system.</p>
-              <p>
-                It is designed to build and maintain conceptual architecture across domains rather than
-                optimizing for isolated course completion. The system emphasizes the construction of
-                durable mental models, explicit mapping of relationships between concepts, identification
-                of invariants, and the disciplined conversion of exposure into long-term competence.
-              </p>
-            </div>
-
-            <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mt-8 mb-4">Core Functions</p>
+            <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mt-10 mb-4">Core functions</p>
             <ul class="space-y-4">
               <li class="flex items-start gap-4">
                 <div class="w-8 h-8 rounded-lg bg-electric/10 border border-electric/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg class="w-4 h-4 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
+                  <svg class="w-4 h-4 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
                 </div>
                 <div>
-                  <h3 class="text-white font-semibold">Structured Schema Development</h3>
-                  <p class="text-gray-500 text-sm mt-1">Cross-domain synthesis and explicit architecture of conceptual relationships.</p>
+                  <h3 class="text-white font-semibold">Structured schema development</h3>
+                  <p class="text-gray-500 text-sm mt-1">Explicit maps of concepts and relationships — architecture you can keep.</p>
                 </div>
               </li>
               <li class="flex items-start gap-4">
                 <div class="w-8 h-8 rounded-lg bg-electric/10 border border-electric/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg class="w-4 h-4 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                  <svg class="w-4 h-4 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                 </div>
                 <div>
-                  <h3 class="text-white font-semibold">Foundational Invariants</h3>
-                  <p class="text-gray-500 text-sm mt-1">Identification and reinforcement of the principles that persist across contexts.</p>
+                  <h3 class="text-white font-semibold">Foundational invariants</h3>
+                  <p class="text-gray-500 text-sm mt-1">What persists across contexts — the load-bearing principles of the domain.</p>
                 </div>
               </li>
               <li class="flex items-start gap-4">
                 <div class="w-8 h-8 rounded-lg bg-electric/10 border border-electric/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg class="w-4 h-4 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  <svg class="w-4 h-4 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
                 <div>
-                  <h3 class="text-white font-semibold">Scenario-Based Integration</h3>
-                  <p class="text-gray-500 text-sm mt-1">Concept integration under realistic constraints — not isolated drill.</p>
+                  <h3 class="text-white font-semibold">Spar &amp; teach-back</h3>
+                  <p class="text-gray-500 text-sm mt-1">Pressure on fuzzy explanations until the model holds under challenge.</p>
                 </div>
               </li>
               <li class="flex items-start gap-4">
                 <div class="w-8 h-8 rounded-lg bg-electric/10 border border-electric/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg class="w-4 h-4 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+                  <svg class="w-4 h-4 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
                 </div>
                 <div>
-                  <h3 class="text-white font-semibold">Retention Architecture</h3>
-                  <p class="text-gray-500 text-sm mt-1">Long-term retention with deliberate re-entry points to maintain competence.</p>
+                  <h3 class="text-white font-semibold">Retention architecture</h3>
+                  <p class="text-gray-500 text-sm mt-1">Deliberate re-entry points so competence does not quietly decay.</p>
                 </div>
               </li>
             </ul>
-
-            <p class="text-gray-500 text-sm mt-8 leading-relaxed">
-              HAL-E is built for individuals and organizations that need to develop genuine expertise
-              quickly and maintain it under pressure.
-            </p>
           </div>
 
-          <!-- Visual -->
           <div class="relative" data-reveal>
             <div class="glass-card p-1 overflow-hidden">
               <video
                 class="w-full rounded-xl object-cover aspect-square bg-void block"
                 data-section-video
-                autoplay
                 muted
                 loop
                 playsinline
                 poster="/assets/images/HAL-E2A.jpg"
                 width="1024"
                 height="1024"
-                aria-label="HAL-E — Hyper Accelerated Learning Engine. Electric vortex brand mark."
+                aria-label="HAL-E brand mark — electric vortex"
               >
                 <source src="/assets/videos/video-8c49ff60-07f6-47cf-ac6e-093ef979db80.mp4" type="video/mp4" />
               </video>
             </div>
-            <!-- Decorative accent -->
             <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-electric/10 rounded-full blur-2xl -z-10" aria-hidden="true"></div>
           </div>
         </div>
@@ -301,91 +369,86 @@
 
 
     <!-- ═══════════════════════════════════════════════════════════
-         AAE OVERVIEW
+         AAE — mirror HAL-E two-column (visual + content balanced)
          ═══════════════════════════════════════════════════════════ -->
-    <section id="aae" class="section-padding relative bg-void-50/50">
+    <section id="aae" class="section-padding relative">
       <div class="max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <!-- Visual (left on desktop) -->
           <div class="relative order-2 lg:order-1" data-reveal>
             <div class="glass-card p-1 overflow-hidden">
               <video
                 class="w-full rounded-xl object-cover aspect-square bg-void block"
                 data-section-video
-                autoplay
                 muted
                 loop
                 playsinline
                 poster="/assets/images/AAE1A.jpg"
                 width="1024"
                 height="1024"
-                aria-label="AAE — Adaptive Assessment Engine. Precision assessment for genuine competency."
+                aria-label="AAE — Adaptive Assessment Engine. Compass mark rotates; north star pulses."
               >
-                <source src="/assets/videos/video-9fbc8bf5-6bb3-4d02-a4b7-2fe912be4769.mp4" type="video/mp4" />
+                <source src="/assets/videos/AAE-mark-rotate.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="absolute -top-4 -left-4 w-32 h-32 bg-plasma/10 rounded-full blur-2xl -z-10" aria-hidden="true"></div>
           </div>
 
-          <!-- Content -->
           <div class="order-1 lg:order-2" data-reveal>
-            <span class="section-label text-plasma-glow">Assessment Operating System</span>
+            <span class="section-label text-plasma-glow">Assessment operating system</span>
             <h2 class="section-title">AAE</h2>
             <p class="text-plasma-glow font-mono text-sm mt-2">Adaptive Assessment Engine</p>
+            <p class="text-white font-medium mt-6 text-lg">
+              High-precision assessment for genuine competency — not familiarity theater.
+            </p>
+            <p class="mt-4 text-gray-400 leading-relaxed">
+              AAE exposes the gap between “I’ve seen this” and “I can do this.”
+              Cartridges are built-to-spec for a learner or org — exam weighting, lesson objectives,
+              error routing — drawing from a HAL-E Core as the living source of truth.
+              Pair with a capable LLM core; thin models produce thin exams.
+            </p>
 
-            <div class="mt-6 space-y-4 text-gray-400 leading-relaxed">
-              <p class="text-white font-medium">AAE is a high-precision assessment operating system.</p>
-              <p>
-                It is designed to expose the difference between familiarity and mastery through structured,
-                adaptive evaluation. The system classifies errors by type — conceptual, mechanical, or
-                integrative — routes remediation accordingly, and generates measurable telemetry on mastery,
-                stability, and drift over time.
-              </p>
-            </div>
-
-            <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mt-8 mb-4">Core Functions</p>
+            <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mt-10 mb-4">Core functions</p>
             <ul class="space-y-4">
               <li class="flex items-start gap-4">
                 <div class="w-8 h-8 rounded-lg bg-plasma/10 border border-plasma/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg class="w-4 h-4 text-plasma-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                  <svg class="w-4 h-4 text-plasma-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
                 </div>
                 <div>
-                  <h3 class="text-white font-semibold">Blind Assessment</h3>
-                  <p class="text-gray-500 text-sm mt-1">Weighted domain sampling without cueing or pattern recognition shortcuts.</p>
+                  <h3 class="text-white font-semibold">Blind assessment</h3>
+                  <p class="text-gray-500 text-sm mt-1">Weighted domain sampling without cueing or pattern shortcuts.</p>
                 </div>
               </li>
               <li class="flex items-start gap-4">
                 <div class="w-8 h-8 rounded-lg bg-plasma/10 border border-plasma/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg class="w-4 h-4 text-plasma-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
+                  <svg class="w-4 h-4 text-plasma-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
                 </div>
                 <div>
-                  <h3 class="text-white font-semibold">Error Classification</h3>
-                  <p class="text-gray-500 text-sm mt-1">Conceptual, mechanical, and integrative failure modes with targeted remediation pathways.</p>
+                  <h3 class="text-white font-semibold">Error classification</h3>
+                  <p class="text-gray-500 text-sm mt-1">Conceptual · mechanical · integrative — with targeted remediation pathways.</p>
                 </div>
               </li>
               <li class="flex items-start gap-4">
                 <div class="w-8 h-8 rounded-lg bg-plasma/10 border border-plasma/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg class="w-4 h-4 text-plasma-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  <svg class="w-4 h-4 text-plasma-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
                 <div>
-                  <h3 class="text-white font-semibold">Gap-Driven Generation</h3>
-                  <p class="text-gray-500 text-sm mt-1">Micro-drill and scenario generation based on demonstrated gaps, not generic coverage.</p>
+                  <h3 class="text-white font-semibold">Gap-driven generation</h3>
+                  <p class="text-gray-500 text-sm mt-1">Micro-drills and scenarios from demonstrated gaps, not generic coverage.</p>
                 </div>
               </li>
               <li class="flex items-start gap-4">
                 <div class="w-8 h-8 rounded-lg bg-plasma/10 border border-plasma/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg class="w-4 h-4 text-plasma-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                  <svg class="w-4 h-4 text-plasma-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                 </div>
                 <div>
-                  <h3 class="text-white font-semibold">Longitudinal Tracking</h3>
-                  <p class="text-gray-500 text-sm mt-1">Retention, stability, and conceptual integrity measured over time — not at a single checkpoint.</p>
+                  <h3 class="text-white font-semibold">Longitudinal tracking</h3>
+                  <p class="text-gray-500 text-sm mt-1">Retention, stability, and conceptual integrity over time — not one checkpoint.</p>
                 </div>
               </li>
             </ul>
 
-            <p class="text-gray-500 text-sm mt-8 leading-relaxed">
-              AAE can operate as a standalone system for exam preparation and competency validation,
-              or as the diagnostic layer that feeds HAL-E.
+            <p class="mt-8 font-mono text-xs uppercase tracking-[0.2em] text-gray-500">
+              HAL-E for depth · AAE for exam fidelity
             </p>
           </div>
         </div>
@@ -394,219 +457,275 @@
 
 
     <!-- ═══════════════════════════════════════════════════════════
-         HOW HAL-E AND AAE WORK TOGETHER
+         CORES + CARTRIDGES
          ═══════════════════════════════════════════════════════════ -->
-    <section id="systems" class="section-padding relative">
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-plasma/[0.02] to-transparent pointer-events-none" aria-hidden="true"></div>
-
-      <div class="max-w-7xl mx-auto relative">
-        <div class="max-w-3xl mx-auto text-center mb-12" data-reveal>
-          <span class="section-label">System Architecture</span>
-          <h2 class="section-title">How HAL-E and AAE Work Together</h2>
-        </div>
-
-        <div class="section-video-banner max-w-5xl mx-auto mb-12 md:mb-16" data-reveal aria-label="HAL-E and AAE system architecture preview">
-          <video
-            class="section-video"
-            data-section-video
-            autoplay muted loop playsinline
-            poster="/assets/images/HAL-E1C.jpg"
-          >
-            <source src="/assets/videos/system-architecture.mp4" type="video/mp4" />
-          </video>
-          <div class="section-video-fade" aria-hidden="true"></div>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto mb-12" data-reveal>
-          <div class="glass-card p-8 border-electric/10">
-            <p class="text-electric font-mono text-xs uppercase tracking-wider mb-3">HAL-E</p>
-            <p class="text-gray-400 text-sm leading-relaxed">
-              Construction and reinforcement of conceptual architecture.
-            </p>
-          </div>
-          <div class="glass-card p-8 border-plasma/10">
-            <p class="text-plasma-glow font-mono text-xs uppercase tracking-wider mb-3">AAE</p>
-            <p class="text-gray-400 text-sm leading-relaxed">
-              Rigorous measurement of that architecture and identification of specific failure points.
-            </p>
-          </div>
-        </div>
-
-        <div class="max-w-3xl mx-auto space-y-6 text-gray-400 leading-relaxed" data-reveal>
-          <p>
-            HAL-E and AAE are related but distinct systems.
-          </p>
-          <p>
-            When used together, AAE surfaces precise gaps in understanding. HAL-E then supplies the
-            structured work required to close those gaps and integrate new material into existing schemas.
-            The combination creates a closed loop between assessment and accelerated learning.
-          </p>
-          <p class="text-white font-medium">
-            Each system can also function independently depending on the objective.
-          </p>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════
-         WHAT WE BUILD
-         ═══════════════════════════════════════════════════════════ -->
-    <section id="products" class="section-padding relative bg-void-50/50">
+    <section id="systems" class="section-padding relative bg-void-50/50">
       <div class="max-w-7xl mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-12" data-reveal>
-          <span class="section-label">What We Build</span>
-          <h2 class="section-title">Deployments</h2>
+          <span class="section-label">What you get</span>
+          <h2 class="section-title">Cores + cartridges</h2>
           <p class="section-subtitle mx-auto">
-            We deploy these systems in two primary forms. Both are built on the same core principles:
-            explicit schema construction, precise error diagnosis, and measurable progress toward
-            embodied competence.
+            HAL-E Cores are long-term living domain architectures.
+            AAE cartridges are built-to-spec assessments that draw from those cores —
+            for a solo exam path or an institutional objective map.
           </p>
         </div>
 
-        <div class="section-video-banner max-w-5xl mx-auto mb-12 md:mb-16" data-reveal aria-label="Deployment systems preview">
-          <video
-            class="section-video"
-            data-section-video
-            autoplay muted loop playsinline
-            poster="/assets/images/AAE1A.jpg"
-          >
-            <source src="/assets/videos/deployment.mp4" type="video/mp4" />
-          </video>
-          <div class="section-video-fade" aria-hidden="true"></div>
+        <div class="cartridge-console glass-card p-6 md:p-10 mb-10" data-reveal>
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 border-b border-white/5 pb-6">
+            <div>
+              <p class="font-mono text-xs uppercase tracking-[0.2em] text-electric">Architecture stack</p>
+              <p class="text-white font-display text-lg mt-1">Depth first · drills when you need them</p>
+            </div>
+            <a href="#contact" class="btn-primary text-xs !px-5 !py-2.5 w-full md:w-auto">Load access</a>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            <article class="cartridge-tile">
+              <span class="cartridge-tile-mark bg-electric/15 text-electric border-electric/25">H</span>
+              <h3 class="text-white font-semibold text-sm mt-4">HAL-E Core</h3>
+              <p class="text-gray-500 text-xs mt-2 leading-relaxed">Living domain artifact — single source of truth for depth work.</p>
+            </article>
+            <article class="cartridge-tile">
+              <span class="cartridge-tile-mark bg-plasma/15 text-plasma-glow border-plasma/25">A</span>
+              <h3 class="text-white font-semibold text-sm mt-4">AAE cartridge</h3>
+              <p class="text-gray-500 text-xs mt-2 leading-relaxed">Built-to-spec exam / competency pack off a Core — not a fork of the truth.</p>
+            </article>
+            <article class="cartridge-tile">
+              <span class="cartridge-tile-mark bg-signal/15 text-signal border-signal/25">L</span>
+              <h3 class="text-white font-semibold text-sm mt-4">LLM core</h3>
+              <p class="text-gray-500 text-xs mt-2 leading-relaxed">Your model — local or cloud. Required runtime, not optional spice.</p>
+            </article>
+            <article class="cartridge-tile">
+              <span class="cartridge-tile-mark bg-white/5 text-gray-300 border-white/10">S</span>
+              <h3 class="text-white font-semibold text-sm mt-4">Solo or org</h3>
+              <p class="text-gray-500 text-xs mt-2 leading-relaxed">Same engines; different cartridge specs and ramp goals.</p>
+            </article>
+          </div>
+
+          <div class="layer-strip" aria-label="Knowledge layers overview">
+            <p class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-gray-500 mb-4 text-center sm:text-left">
+              Knowledge layers · high-level
+            </p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div class="layer-chip">
+                <span class="layer-chip-id text-electric">L0</span>
+                <span class="layer-chip-title">Invariants</span>
+                <span class="layer-chip-desc">Atomic techniques of the domain</span>
+              </div>
+              <div class="layer-chip">
+                <span class="layer-chip-id text-signal">L1</span>
+                <span class="layer-chip-title">Core concepts</span>
+                <span class="layer-chip-desc">Combinations built on invariants</span>
+              </div>
+              <div class="layer-chip">
+                <span class="layer-chip-id text-plasma-glow">L2</span>
+                <span class="layer-chip-title">Schema maps</span>
+                <span class="layer-chip-desc">Structured forms — how pieces move together</span>
+              </div>
+              <div class="layer-chip">
+                <span class="layer-chip-id text-gray-300">L3</span>
+                <span class="layer-chip-title">Knowledge graph</span>
+                <span class="layer-chip-desc">Curricular spine across the Core</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-xs mt-5 leading-relaxed max-w-3xl">
+              Think technique → combination → form → curriculum. Cores hold the stack;
+              cartridges sample and stress-test it for a defined end-user outcome.
+            </p>
+          </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <article class="glass-card p-8 md:p-10 group hover:border-electric/20 transition-all duration-300" data-reveal>
-            <div class="w-12 h-12 rounded-xl bg-electric/10 border border-electric/20 flex items-center justify-center mb-6 group-hover:shadow-electric transition-shadow">
-              <svg class="w-6 h-6 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-            </div>
-            <h3 class="font-display text-xl font-semibold text-white mb-4">Enterprise &amp; Institutional Deployments</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">
-              Custom configurations of HAL-E and AAE for organizations that need accelerated upskilling,
-              competency validation, or internal knowledge architecture at scale.
-            </p>
-            <a href="#contact" class="inline-flex items-center gap-1 text-electric text-sm font-medium mt-8 hover:gap-2 transition-all">
-              Schedule a Briefing <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </a>
-          </article>
-
-          <article class="glass-card p-8 md:p-10 group hover:border-plasma/20 transition-all duration-300" data-reveal>
-            <div class="w-12 h-12 rounded-xl bg-plasma/10 border border-plasma/20 flex items-center justify-center mb-6 group-hover:shadow-plasma transition-shadow">
-              <svg class="w-6 h-6 text-plasma-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-            </div>
-            <h3 class="font-display text-xl font-semibold text-white mb-4">Individual &amp; Small Team Systems</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">
-              Portable, high-fidelity implementations designed for professionals and small teams
-              operating under significant time and cognitive constraints.
-            </p>
-            <a href="#contact" class="inline-flex items-center gap-1 text-plasma-glow text-sm font-medium mt-8 hover:gap-2 transition-all">
-              Schedule a Briefing <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </a>
-          </article>
+        <div class="max-w-3xl mx-auto glass-card p-6 md:p-8 border-white/5" data-reveal>
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-gray-500 mb-3">Licensed partners</p>
+          <h3 class="font-display text-lg font-semibold text-white">Institutions &amp; enterprise</h3>
+          <p class="text-gray-500 text-sm mt-3 leading-relaxed">
+            Custom Core and cartridge configurations for accelerated upskilling, competency validation,
+            or multi-domain ramp — without changing the soul of the product.
+          </p>
+          <a href="#contact" class="inline-flex items-center gap-1 text-electric text-sm font-medium mt-5 hover:gap-2 transition-all">
+            Request an institutional briefing
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </a>
         </div>
       </div>
     </section>
 
 
     <!-- ═══════════════════════════════════════════════════════════
-         RESOURCES
+         PLATFORM — CSS + CMS (high-level, no secret sauce)
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="platform" class="section-padding relative">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-electric/[0.02] to-transparent pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto relative">
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16" data-reveal>
+          <span class="section-label">Platform scaffolding</span>
+          <h2 class="section-title">CSS + CMS</h2>
+          <p class="section-subtitle mx-auto">
+            Background systems that make long-horizon mastery workable:
+            re-entry without amnesia, routing without thrash, and Core-to-cartridge alignment
+            without forking the truth.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 mb-12" data-reveal>
+          <article class="glass-card p-8 md:p-10 border-electric/10 h-full">
+            <div class="platform-mark">
+              <img
+                src="/assets/images/CSS1A.jpg"
+                alt="CSS — Cognitive Save States mark"
+                class="!border-electric/25"
+                width="512"
+                height="512"
+                loading="lazy"
+              />
+            </div>
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-electric mb-3 text-center">CSS</p>
+            <h3 class="font-display text-2xl font-semibold text-white text-center">Cognitive Save States</h3>
+            <p class="text-gray-400 text-sm mt-4 leading-relaxed">
+              Restore points for deep work. Long sessions hit token ceilings; models compress lossily;
+              life interrupts flow. CSS reduces the re-entry tax when you return the next day,
+              switch Cores or cartridges, or get pulled out of a dialed-in assessment run.
+            </p>
+            <ul class="mt-6 space-y-3 text-sm text-gray-500 leading-relaxed">
+              <li class="flex gap-3">
+                <span class="text-electric font-mono text-xs mt-1 shrink-0">01</span>
+                <span>Capture session substance so restart is intentional — not a full cold boot of context.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-electric font-mono text-xs mt-1 shrink-0">02</span>
+                <span>Respect session intent: resume depth, resume drill, or hand off to assessment without cognitive drift.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-electric font-mono text-xs mt-1 shrink-0">03</span>
+                <span>Tight version history so you and your LLM core reload only what the next hour needs.</span>
+              </li>
+            </ul>
+            <p class="mt-8 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-gray-600">
+              Continuity · not surveillance
+            </p>
+          </article>
+
+          <article class="glass-card p-8 md:p-10 border-plasma/10 h-full">
+            <div class="platform-mark">
+              <img
+                src="/assets/images/CMS1A.jpg"
+                alt="CMS — Cognitive Mapping System mark"
+                class="!border-plasma/25"
+                width="512"
+                height="512"
+                loading="lazy"
+              />
+            </div>
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-plasma-glow mb-3 text-center">CMS</p>
+            <h3 class="font-display text-2xl font-semibold text-white text-center">Cognitive Mapping System</h3>
+            <p class="text-gray-400 text-sm mt-4 leading-relaxed">
+              Routing and orientation across the stack. CMS surfaces where you are in a Core,
+              how concepts connect, and when to offtake into an AAE cartridge — so assessment
+              stays grounded in the same architecture that taught you.
+            </p>
+            <ul class="mt-6 space-y-3 text-sm text-gray-500 leading-relaxed">
+              <li class="flex gap-3">
+                <span class="text-plasma-glow font-mono text-xs mt-1 shrink-0">01</span>
+                <span><span class="text-gray-400">HAL-E → AAE offramps</span> — leave depth work into a built-to-spec cart when the objective is exam fidelity.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-plasma-glow font-mono text-xs mt-1 shrink-0">02</span>
+                <span><span class="text-gray-400">Bridges inside a domain</span> — move concept-to-concept without losing the map.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-plasma-glow font-mono text-xs mt-1 shrink-0">03</span>
+                <span><span class="text-gray-400">Crosswalks between Cores</span> — e.g. accounting × supply chain × consulting ramp for multi-skill orgs.</span>
+              </li>
+            </ul>
+            <p class="mt-8 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-gray-600">
+              Orientation · not a second LMS
+            </p>
+          </article>
+        </div>
+
+        <div class="max-w-3xl mx-auto text-center" data-reveal>
+          <p class="text-gray-400 text-sm md:text-base leading-relaxed text-balance">
+            Together, CSS and CMS keep learners and models oriented across sessions and domains —
+            so the closed loop stays closed when real life is messy.
+            Implementation detail stays under the hood; what you feel is less re-entry tax and cleaner routes.
+          </p>
+          <a href="#contact" class="btn-secondary mt-8 inline-flex">Ask about platform access</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         RESEARCH
          ═══════════════════════════════════════════════════════════ -->
     <section id="resources" class="section-padding relative">
       <div class="max-w-7xl mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-12" data-reveal>
-          <span class="section-label">Knowledge Base</span>
-          <h2 class="section-title">Research &amp; Documentation</h2>
+          <span class="section-label">Knowledge base</span>
+          <h2 class="section-title">Research &amp; documentation</h2>
           <p class="section-subtitle mx-auto">
-            We publish the underlying frameworks, methodologies, and technical documentation
-            that support these systems.
+            Frameworks and operational docs for practitioners who need theory and mechanics —
+            not marketing PDFs.
           </p>
         </div>
 
-        <div class="section-video-banner max-w-5xl mx-auto mb-12 md:mb-16" data-reveal aria-label="Knowledge base preview">
-          <video
-            class="section-video"
-            data-section-video
-            autoplay muted loop playsinline
-            poster="/assets/images/HAL-E1C.jpg"
-          >
-            <source src="/assets/videos/knowledge-base.mp4" type="video/mp4" />
-          </video>
-          <div class="section-video-fade" aria-hidden="true"></div>
+        <div class="flex flex-wrap justify-center gap-3 mb-12" data-reveal role="tablist" aria-label="Filter resources">
+          <button type="button" class="resource-filter is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="resource-filter" data-filter="whitepaper" aria-pressed="false">White papers</button>
+          <button type="button" class="resource-filter" data-filter="sop" aria-pressed="false">SOPs</button>
+          <button type="button" class="resource-filter" data-filter="technical" aria-pressed="false">Technical</button>
         </div>
 
-        <div class="max-w-3xl mx-auto mb-12" data-reveal>
-          <p class="text-gray-500 text-sm leading-relaxed text-center">
-            Available resources include technical white papers on cognitive architecture and accelerated
-            learning systems, standard operating procedures for implementation and maintenance, research
-            notes and case documentation, and detailed system specifications and integration guides.
-            All materials are written for practitioners who need to understand both the theory and the
-            operational mechanics.
-          </p>
-        </div>
-
-        <!-- Filter tabs (visual only — extend with JS filtering as needed) -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12" data-reveal>
-          <button class="px-4 py-2 rounded-lg text-sm font-medium bg-electric/10 text-electric border border-electric/30">All</button>
-          <button class="px-4 py-2 rounded-lg text-sm font-medium text-gray-500 border border-white/5 hover:border-electric/20 hover:text-electric transition-colors">White Papers</button>
-          <button class="px-4 py-2 rounded-lg text-sm font-medium text-gray-500 border border-white/5 hover:border-electric/20 hover:text-electric transition-colors">SOPs</button>
-          <button class="px-4 py-2 rounded-lg text-sm font-medium text-gray-500 border border-white/5 hover:border-electric/20 hover:text-electric transition-colors">Technical Docs</button>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Resource 1 -->
-          <a href="/assets/docs/HAL-E%20%2B%20AAE%20Executive%20Whitepaper%20v1.2.pdf" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block" data-reveal>
+        <div id="resource-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a href="/assets/docs/Methodology.pdf" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block resource-card" data-reveal data-category="whitepaper">
             <div class="flex items-start justify-between mb-4">
-              <span class="resource-tag">White Paper</span>
-              <svg class="w-5 h-5 text-gray-600 group-hover:text-electric transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+              <span class="resource-tag">White paper</span>
+              <svg class="w-5 h-5 text-gray-600 group-hover:text-electric transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-white group-hover:text-electric transition-colors">HAL-E + AAE Executive Whitepaper</h3>
-            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Executive overview of the HAL-E learning engine and AAE assessment architecture — v1.2.</p>
+            <h3 class="font-display text-lg font-semibold text-white group-hover:text-electric transition-colors">HAL-E + AAE Methodology</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Core architecture, assessment design, and operational methodology — start here.</p>
+            <p class="text-gray-600 text-xs font-mono mt-4">Learner-first</p>
+          </a>
+
+          <a href="/assets/docs/HAL-E%20%2B%20AAE%20Executive%20Whitepaper%20v1.2.pdf" class="glass-card p-6 group hover:border-plasma/20 transition-all duration-300 block resource-card" data-reveal data-category="whitepaper">
+            <div class="flex items-start justify-between mb-4">
+              <span class="resource-tag">White paper</span>
+              <svg class="w-5 h-5 text-gray-600 group-hover:text-plasma-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            </div>
+            <h3 class="font-display text-lg font-semibold text-white group-hover:text-plasma-glow transition-colors">HAL-E + AAE Executive Whitepaper</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Executive overview of both engines — v1.2.</p>
             <p class="text-gray-600 text-xs font-mono mt-4">Executive Whitepaper v1.2</p>
           </a>
 
-          <!-- Resource 2 -->
-          <a href="/assets/docs/Methodology.pdf" class="glass-card p-6 group hover:border-plasma/20 transition-all duration-300 block" data-reveal>
+          <a href="/assets/docs/LMS_Integration_Guide.pdf" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block resource-card" data-reveal data-category="technical">
             <div class="flex items-start justify-between mb-4">
-              <span class="resource-tag">White Paper</span>
-              <svg class="w-5 h-5 text-gray-600 group-hover:text-plasma-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-            </div>
-            <h3 class="font-display text-lg font-semibold text-white group-hover:text-plasma-glow transition-colors">HAL-E + AAE Methodology</h3>
-            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Core learning architecture, assessment design principles, and the operational methodology behind both engines.</p>
-            <p class="text-gray-600 text-xs font-mono mt-4">Methodology</p>
-          </a>
-
-          <!-- Resource 3 -->
-          <a href="/assets/docs/Enterprise_Deployment_SOP.pdf" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block" data-reveal>
-            <div class="flex items-start justify-between mb-4">
-              <span class="resource-tag" style="border-color: rgba(59,130,246,0.3); color: #60a5fa; background: rgba(59,130,246,0.1);">SOP</span>
-              <svg class="w-5 h-5 text-gray-600 group-hover:text-electric transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-            </div>
-            <h3 class="font-display text-lg font-semibold text-white group-hover:text-electric transition-colors">Enterprise Deployment SOP</h3>
-            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Step-by-step procedures for onboarding, integration, and go-live across enterprise environments.</p>
-            <p class="text-gray-600 text-xs font-mono mt-4">Enterprise Deployment SOP</p>
-          </a>
-
-          <!-- Resource 4 -->
-          <a href="/assets/docs/Security_and_Compliance_SOP.pdf" class="glass-card p-6 group hover:border-plasma/20 transition-all duration-300 block" data-reveal>
-            <div class="flex items-start justify-between mb-4">
-              <span class="resource-tag" style="border-color: rgba(59,130,246,0.3); color: #60a5fa; background: rgba(59,130,246,0.1);">SOP</span>
-              <svg class="w-5 h-5 text-gray-600 group-hover:text-plasma-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-            </div>
-            <h3 class="font-display text-lg font-semibold text-white group-hover:text-plasma-glow transition-colors">Security &amp; Compliance SOP</h3>
-            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Data handling, encryption standards, access controls, and audit trail requirements.</p>
-            <p class="text-gray-600 text-xs font-mono mt-4">Security &amp; Compliance SOP</p>
-          </a>
-
-          <!-- Resource 5 -->
-          <a href="/assets/docs/LMS_Integration_Guide.pdf" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block" data-reveal>
-            <div class="flex items-start justify-between mb-4">
-              <span class="resource-tag" style="border-color: rgba(0,212,255,0.3); color: #33e0ff; background: rgba(0,212,255,0.1);">Technical</span>
-              <svg class="w-5 h-5 text-gray-600 group-hover:text-electric transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+              <span class="resource-tag resource-tag--tech">Technical</span>
+              <svg class="w-5 h-5 text-gray-600 group-hover:text-electric transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
             </div>
             <h3 class="font-display text-lg font-semibold text-white group-hover:text-electric transition-colors">LMS Integration Guide</h3>
-            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Connect HAL-E and AAE to SCORM, xAPI, and major LMS platforms with pre-built connectors.</p>
-            <p class="text-gray-600 text-xs font-mono mt-4">LMS Integration Guide</p>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed">SCORM, xAPI, and major LMS connectors.</p>
+            <p class="text-gray-600 text-xs font-mono mt-4">Technical</p>
+          </a>
+
+          <a href="/assets/docs/Enterprise_Deployment_SOP.pdf" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block resource-card" data-reveal data-category="sop">
+            <div class="flex items-start justify-between mb-4">
+              <span class="resource-tag resource-tag--sop">SOP</span>
+              <svg class="w-5 h-5 text-gray-600 group-hover:text-electric transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            </div>
+            <h3 class="font-display text-lg font-semibold text-white group-hover:text-electric transition-colors">Enterprise Deployment SOP</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Onboarding, integration, and go-live for partner environments.</p>
+            <p class="text-gray-600 text-xs font-mono mt-4">Partners</p>
+          </a>
+
+          <a href="/assets/docs/Security_and_Compliance_SOP.pdf" class="glass-card p-6 group hover:border-plasma/20 transition-all duration-300 block resource-card" data-reveal data-category="sop">
+            <div class="flex items-start justify-between mb-4">
+              <span class="resource-tag resource-tag--sop">SOP</span>
+              <svg class="w-5 h-5 text-gray-600 group-hover:text-plasma-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            </div>
+            <h3 class="font-display text-lg font-semibold text-white group-hover:text-plasma-glow transition-colors">Security &amp; Compliance SOP</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Data handling, encryption, access controls, audit trails.</p>
+            <p class="text-gray-600 text-xs font-mono mt-4">Partners</p>
           </a>
         </div>
       </div>
@@ -614,14 +733,13 @@
 
 
     <!-- ═══════════════════════════════════════════════════════════
-         THE ARCHITECT
+         ARCHITECT
          ═══════════════════════════════════════════════════════════ -->
     <section id="architect" class="section-padding relative bg-void-50/50">
       <div class="absolute inset-0 bg-gradient-to-r from-plasma/[0.03] via-transparent to-electric/[0.03] pointer-events-none" aria-hidden="true"></div>
 
       <div class="max-w-7xl mx-auto relative">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <!-- Portrait -->
           <div class="relative order-2 lg:order-1" data-reveal>
             <div class="glass-card p-2 overflow-hidden max-w-md mx-auto lg:mx-0">
               <img
@@ -634,32 +752,25 @@
               />
             </div>
             <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-plasma/10 rounded-full blur-3xl -z-10 hidden lg:block" aria-hidden="true"></div>
-            <div class="absolute -top-6 -left-6 w-32 h-32 bg-electric/10 rounded-full blur-3xl -z-10 hidden lg:block" aria-hidden="true"></div>
           </div>
 
-          <!-- Bio -->
           <div class="order-1 lg:order-2" data-reveal>
             <span class="section-label">Leadership</span>
             <h2 class="section-title">The Architect</h2>
             <p class="text-electric font-mono text-sm mt-2">John Hekmati · Founder</p>
 
-            <div class="mt-6 space-y-6 text-gray-400 leading-relaxed">
+            <div class="mt-6 space-y-5 text-gray-400 leading-relaxed">
               <p>
-                The Cognition Factory was developed by John Hekmati.
-              </p>
-              <p>
-                The systems emerged from the practical requirement to accelerate mastery across multiple
-                technical and professional domains while operating under extreme constraints on time,
-                attention, and working memory.
+                These systems came from a practical need: accelerate mastery across technical and
+                professional domains while time, attention, and working memory are constrained.
               </p>
               <p class="text-white font-medium">
-                The work prioritizes measurable transfer over consumption and durable architecture
-                over temporary performance.
+                Can you still do the work a month later — or did you only finish the material?
+                We optimize for skill that sticks, not short-term scores.
               </p>
             </div>
 
             <div class="mt-10 flex flex-wrap items-center gap-4">
-              <span class="text-xs font-mono uppercase tracking-wider text-gray-500 w-full sm:w-auto">Connect</span>
               <a
                 href="https://linkedin.com/in/philliphekmati"
                 target="_blank"
@@ -680,19 +791,9 @@
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
                 <span class="text-sm font-medium">GitHub</span>
               </a>
-              <a
-                href="https://gravatar.com/phillipjohnhekmati"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/10 bg-void-100/40 text-gray-400 hover:text-plasma-glow hover:border-plasma/30 transition-colors"
-                aria-label="John Hekmati on Gravatar"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 3.6a3.6 3.6 0 110 7.2 3.6 3.6 0 010-7.2zm0 16.8c-3.24 0-6.12-1.656-7.8-4.176.036-2.52 5.16-3.912 7.8-3.912 2.628 0 7.764 1.392 7.8 3.912A8.976 8.976 0 0112 20.4z"/></svg>
-                <span class="text-sm font-medium">Gravatar</span>
-              </a>
             </div>
 
-            <a href="#contact" class="btn-primary mt-10">Schedule a Briefing</a>
+            <a href="#contact" class="btn-primary mt-10">Get Access</a>
           </div>
         </div>
       </div>
@@ -700,96 +801,79 @@
 
 
     <!-- ═══════════════════════════════════════════════════════════
-         CONTACT
+         CONTACT — dual path
          ═══════════════════════════════════════════════════════════ -->
-    <section id="contact" class="section-padding relative bg-void-50/50">
+    <section id="contact" class="section-padding relative">
       <div class="absolute inset-0 bg-gradient-to-t from-electric/[0.03] to-transparent pointer-events-none" aria-hidden="true"></div>
 
       <div class="max-w-7xl mx-auto relative">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          <!-- Contact info -->
           <div data-reveal>
             <span class="section-label">Connect</span>
-            <h2 class="section-title">Contact</h2>
+            <h2 class="section-title">Get access</h2>
             <p class="section-subtitle !max-w-none">
-              For enterprise deployments, institutional partnerships, or detailed briefings
-              on HAL-E and AAE.
+              Solo learners and small teams: tell us your domain and constraints.
+              Institutions: request a briefing for licensed deployment.
             </p>
             <p class="text-gray-500 mt-6 leading-relaxed text-sm">
-              We respond to serious inquiries only. Please include relevant context about
-              your objectives and constraints.
+              Serious inquiries only. Include objectives, timeline, and what “mastery” means in your context.
             </p>
-            <a href="#contact-form" class="btn-primary mt-8">Schedule a Briefing</a>
 
             <div class="mt-10 space-y-6">
               <div class="flex items-center gap-4">
                 <div class="w-10 h-10 rounded-lg bg-electric/10 border border-electric/20 flex items-center justify-center">
-                  <svg class="w-5 h-5 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                  <svg class="w-5 h-5 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                 </div>
                 <div>
                   <div class="text-xs text-gray-500 font-mono uppercase tracking-wider">Email</div>
                   <a href="mailto:contact@thecognitionfactory.com" class="text-white hover:text-electric transition-colors">contact@thecognitionfactory.com</a>
                 </div>
               </div>
-
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-lg bg-plasma/10 border border-plasma/20 flex items-center justify-center">
-                  <svg class="w-5 h-5 text-plasma-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
-                </div>
-                <div>
-                  <div class="text-xs text-gray-500 font-mono uppercase tracking-wider">Web</div>
-                  <a href="https://thecognitionfactory.com" class="text-white hover:text-electric transition-colors">thecognitionfactory.com</a>
-                </div>
-              </div>
             </div>
           </div>
 
-          <!-- Contact form -->
           <div class="glass-card p-8 md:p-10" data-reveal>
-            <!--
-              Backend: Cloudflare Pages Function at /api/contact
-              Sends via Email Routing (send_email binding "EMAIL").
-              See functions/api/contact.js for details.
-            -->
             <form id="contact-form" class="space-y-6" aria-label="Contact form">
+              <div id="form-status" class="hidden text-sm rounded-lg px-4 py-3 border" role="status" aria-live="polite"></div>
+
               <div class="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label for="first-name" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">First Name</label>
+                  <label for="first-name" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">First name</label>
                   <input type="text" id="first-name" name="first-name" required
-                    class="w-full px-4 py-3 rounded-lg bg-void-200 border border-white/5 text-white placeholder-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-colors"
-                    placeholder="Jane" />
+                    class="form-input"
+                    placeholder="Jane" autocomplete="given-name" />
                 </div>
                 <div>
-                  <label for="last-name" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Last Name</label>
+                  <label for="last-name" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Last name</label>
                   <input type="text" id="last-name" name="last-name" required
-                    class="w-full px-4 py-3 rounded-lg bg-void-200 border border-white/5 text-white placeholder-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-colors"
-                    placeholder="Smith" />
+                    class="form-input"
+                    placeholder="Smith" autocomplete="family-name" />
                 </div>
               </div>
 
               <div>
-                <label for="email" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Work Email</label>
+                <label for="email" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Email</label>
                 <input type="email" id="email" name="email" required
-                  class="w-full px-4 py-3 rounded-lg bg-void-200 border border-white/5 text-white placeholder-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-colors"
-                  placeholder="jane@organization.com" />
+                  class="form-input"
+                  placeholder="you@domain.com" autocomplete="email" />
               </div>
 
               <div>
-                <label for="organization" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Organization</label>
+                <label for="organization" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Organization <span class="text-gray-600 normal-case tracking-normal">(optional)</span></label>
                 <input type="text" id="organization" name="organization"
-                  class="w-full px-4 py-3 rounded-lg bg-void-200 border border-white/5 text-white placeholder-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-colors"
-                  placeholder="Your organization" />
+                  class="form-input"
+                  placeholder="Solo · team · institution" autocomplete="organization" />
               </div>
 
               <div>
-                <label for="interest" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Area of Interest</label>
-                <select id="interest" name="interest"
-                  class="w-full px-4 py-3 rounded-lg bg-void-200 border border-white/5 text-white focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-colors appearance-none">
+                <label for="interest" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Path</label>
+                <select id="interest" name="interest" required class="form-input appearance-none">
                   <option value="" class="bg-void-200">Select an option</option>
-                  <option value="hale" class="bg-void-200">HAL-E Platform</option>
-                  <option value="aae" class="bg-void-200">AAE Assessment</option>
-                  <option value="enterprise" class="bg-void-200">Enterprise Deployment</option>
-                  <option value="advisory" class="bg-void-200">Strategic Advisory</option>
+                  <option value="solo" class="bg-void-200">Solo learner / cartridge access</option>
+                  <option value="exam" class="bg-void-200">Exam prep / AAE</option>
+                  <option value="hale" class="bg-void-200">HAL-E depth engine</option>
+                  <option value="team" class="bg-void-200">Small team system</option>
+                  <option value="enterprise" class="bg-void-200">Institutional / enterprise briefing</option>
                   <option value="other" class="bg-void-200">Other</option>
                 </select>
               </div>
@@ -797,11 +881,11 @@
               <div>
                 <label for="message" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Message</label>
                 <textarea id="message" name="message" rows="4" required
-                  class="w-full px-4 py-3 rounded-lg bg-void-200 border border-white/5 text-white placeholder-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-colors resize-none"
-                  placeholder="Tell us about your learning intelligence needs..."></textarea>
+                  class="form-input resize-none"
+                  placeholder="Domain, constraints, and what mastery looks like for you..."></textarea>
               </div>
 
-              <button type="submit" class="btn-primary w-full">Send Message</button>
+              <button type="submit" class="btn-primary w-full">Send message</button>
             </form>
           </div>
         </div>
@@ -811,9 +895,6 @@
   </main>
 
 
-  <!-- ═══════════════════════════════════════════════════════════
-       FOOTER
-       ═══════════════════════════════════════════════════════════ -->
   <footer class="border-t border-white/5 bg-void">
     <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-12">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -829,19 +910,27 @@
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-6">
+          <a href="#loop" class="text-gray-500 hover:text-electric text-sm transition-colors">Loop</a>
           <a href="#hale" class="text-gray-500 hover:text-electric text-sm transition-colors">HAL-E</a>
           <a href="#aae" class="text-gray-500 hover:text-electric text-sm transition-colors">AAE</a>
-          <a href="#systems" class="text-gray-500 hover:text-electric text-sm transition-colors">Systems</a>
+          <a href="#systems" class="text-gray-500 hover:text-electric text-sm transition-colors">Cores</a>
+          <a href="#platform" class="text-gray-500 hover:text-electric text-sm transition-colors">Platform</a>
           <a href="#resources" class="text-gray-500 hover:text-electric text-sm transition-colors">Research</a>
-          <a href="#architect" class="text-gray-500 hover:text-electric text-sm transition-colors">Architect</a>
-          <a href="#contact" class="text-gray-500 hover:text-electric text-sm transition-colors">Contact</a>
+          <a href="#contact" class="text-gray-500 hover:text-electric text-sm transition-colors">Access</a>
         </div>
+      </div>
+      <div class="text-center md:text-left mt-8 space-y-2">
+        <p class="text-gray-500 text-xs font-mono uppercase tracking-widest">
+          For the solo learner who wants ownership, not more content.
+        </p>
+        <p class="text-gray-600 text-xs font-mono uppercase tracking-widest">
+          For institutions that need capability transfer, not seat time.
+        </p>
       </div>
     </div>
   </footer>
 
 
-  <!-- Nav scroll state + hero video styles -->
   <style>
     #main-nav.nav-scrolled {
       background: rgba(5, 8, 16, 0.85);
@@ -849,21 +938,18 @@
       border-color: rgba(255, 255, 255, 0.05);
     }
 
-    #hero-video-wrap {
+    #hero-video-wrap.hero-manifesto-media {
       width: 100%;
-      height: clamp(280px, 62vh, 820px);
+      height: clamp(200px, 38vh, 420px);
       background: #050810;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     @media (min-width: 768px) {
-      #hero-video-wrap {
-        height: clamp(380px, 74vh, 900px);
-      }
-    }
-
-    @media (min-width: 1280px) {
-      #hero-video-wrap {
-        height: clamp(420px, 78vh, 960px);
+      #hero-video-wrap.hero-manifesto-media {
+        height: clamp(240px, 42vh, 480px);
       }
     }
 
@@ -907,17 +993,17 @@
       inset: 0;
       z-index: 4;
       pointer-events: none;
-      background: linear-gradient(to bottom, transparent 78%, rgba(5, 8, 16, 0.65) 100%);
+      background: linear-gradient(to bottom, transparent 70%, rgba(5, 8, 16, 0.85) 100%);
     }
 
     .hero-engine-badge {
       position: absolute;
-      bottom: 1rem;
+      bottom: 0.75rem;
       left: 50%;
       transform: translateX(-50%);
       z-index: 5;
       margin: 0;
-      padding: 0.4rem 1rem;
+      padding: 0.35rem 0.9rem;
       border-radius: 9999px;
       border: 1px solid rgba(0, 212, 255, 0.35);
       background: rgba(5, 8, 16, 0.72);
@@ -929,13 +1015,6 @@
       color: #00d4ff;
       white-space: nowrap;
       transition: opacity 0.4s ease;
-    }
-
-    @media (min-width: 768px) {
-      .hero-engine-badge {
-        bottom: 1.25rem;
-        font-size: 0.7rem;
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -962,8 +1041,12 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    .resource-card.is-hidden {
+      display: none;
+    }
   </style>
 
-  <script src="/js/main.js?v=33d672e" defer></script>
+  <script src="/js/main.js?v=hybrid20" defer></script>
 </body>
 </html>
