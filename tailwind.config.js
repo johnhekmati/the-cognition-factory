@@ -25,6 +25,15 @@ module.exports = {
           DEFAULT: '#3b82f6',
           dim: '#2563eb',
         },
+        // AAE aperture family (aligns with household app)
+        amber: {
+          DEFAULT: '#f5b942',
+          dim: '#e8a317',
+          glow: '#ffd06a',
+        },
+        gold: {
+          DEFAULT: '#e8a317',
+        },
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
@@ -44,8 +53,8 @@ module.exports = {
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 3s ease-in-out infinite alternate',
+        float: 'float 6s ease-in-out infinite',
+        glow: 'glow 3s ease-in-out infinite alternate',
       },
       keyframes: {
         float: {
@@ -58,8 +67,12 @@ module.exports = {
         },
       },
       boxShadow: {
-        electric: '0 0 40px rgba(0, 212, 255, 0.15), 0 0 80px rgba(0, 212, 255, 0.05)',
-        plasma: '0 0 40px rgba(124, 58, 237, 0.15), 0 0 80px rgba(124, 58, 237, 0.05)',
+        electric:
+          '0 0 40px rgba(0, 212, 255, 0.15), 0 0 80px rgba(0, 212, 255, 0.05)',
+        plasma:
+          '0 0 40px rgba(124, 58, 237, 0.15), 0 0 80px rgba(124, 58, 237, 0.05)',
+        amber:
+          '0 0 40px rgba(245, 185, 66, 0.18), 0 0 80px rgba(232, 163, 23, 0.06)',
         card: '0 4px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04)',
       },
     },

@@ -181,8 +181,8 @@
   }
 
   .schema-pane--aae {
-    @apply border-plasma/15;
-    box-shadow: 0 0 40px rgba(124, 58, 237, 0.06);
+    @apply border-amber/20;
+    box-shadow: 0 0 40px rgba(245, 185, 66, 0.08);
   }
 
   .schema-pane-head {
@@ -199,7 +199,7 @@
   }
 
   .schema-nodes--aae li {
-    @apply text-plasma-glow/90 border-plasma/40;
+    @apply text-amber-glow/90 border-amber/40;
   }
 
   .schema-loop-connector {
@@ -208,7 +208,7 @@
 
   .schema-loop-line {
     @apply h-px w-8 lg:w-px lg:h-10 bg-gradient-to-r lg:bg-gradient-to-b
-           from-electric/50 via-white/20 to-plasma/50;
+           from-electric/50 via-white/20 to-amber/50;
   }
 
   .schema-loop-label {
@@ -218,8 +218,8 @@
 
   /* AAE differentiated slab */
   .aae-metric {
-    @apply rounded-xl border border-plasma/15 bg-void-200/40 p-5
-           hover:border-plasma/30 transition-colors;
+    @apply rounded-xl border border-amber/15 bg-void-200/40 p-5
+           hover:border-amber/30 transition-colors;
   }
 
   /* Cartridge console */
@@ -244,6 +244,15 @@
     @apply bg-electric/10 text-electric border-electric/30;
   }
 
+  /* Solo filter — AAE amber/gold (same family as carts / AAE rail) */
+  .resource-filter--solo {
+    @apply hover:border-amber/35 hover:text-amber-glow;
+  }
+
+  .resource-filter--solo.is-active {
+    @apply bg-amber/10 text-amber-glow border-amber/40;
+  }
+
   .resource-tag--sop {
     border-color: rgba(59, 130, 246, 0.3);
     color: #60a5fa;
@@ -251,7 +260,7 @@
   }
 
   .resource-tag--solo {
-    @apply border-electric/25 bg-electric/10 text-electric;
+    @apply border-amber/35 bg-amber/10 text-amber-glow;
   }
 
   .resource-tag--tech {

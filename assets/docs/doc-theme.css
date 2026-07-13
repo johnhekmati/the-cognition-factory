@@ -4,6 +4,8 @@
   --void-100: #0c1220;
   --electric: #3b9eff;
   --plasma: #a78bfa;
+  --amber: #f5b942;
+  --amber-glow: #ffd06a;
   --gray-300: #d1d5db;
   --gray-400: #9ca3af;
   --gray-500: #6b7280;
@@ -41,6 +43,11 @@ body {
 }
 
 .eyebrow--plasma { color: var(--plasma); }
+.eyebrow--amber { color: var(--amber); }
+
+.callout.amber { border-left-color: var(--amber); }
+.card-label--amber { color: var(--amber); }
+.day-label--amber { color: var(--amber); }
 
 h1 {
   font-size: clamp(1.75rem, 4vw, 2.25rem);
