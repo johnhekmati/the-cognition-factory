@@ -2,12 +2,17 @@
 
 **Systems for accelerated mastery under real constraints.**
 
+**Local path:** `C:\Grok\tcf-site`  
+**Session spine (multi-repo):** `C:\Grok\tcf-ground-truth`
+
 This repository contains the public marketing site for [The Cognition Factory](https://thecognitionfactory.com), featuring **HAL-E** (Hyper Accelerated Learning Engine) and **AAE** (Adaptive Assessment Engine).
 
 HAL-E is a learning operating system focused on building durable conceptual architecture.  
 AAE is a high-precision assessment operating system that measures mastery, classifies errors, and drives targeted remediation.
 
-> HAL-E teaches. AAE examines.
+> HAL-E teaches. AAE examines. Between sessions (CSS + CMS) keep the loop closed.
+
+**Funnel (page order):** Hero → Enemy → Loop → HAL-E → AAE → Cores → Between sessions → Research → Architect → Contact.
 
 ## Live Site
 
@@ -111,19 +116,26 @@ Media files are stored in:
 
 See the `.gitkeep` files in each directory for the current list of expected files. These `.gitkeep` files are kept up to date with what `index.html` actually references.
 
-### Knowledge Base PDFs (`#resources`)
+### Knowledge base (`#resources`)
 
-These files in `assets/docs/` are linked from the Research section. Filenames must match exactly (URL-encode spaces and `+` in `index.html` hrefs):
+**Browser-native HTML** (preferred entry) plus PDFs where available.
 
-| Card title | File |
-|------------|------|
-| HAL-E + AAE Executive Whitepaper | `HAL-E + AAE Executive Whitepaper v1.2.pdf` |
-| HAL-E + AAE Methodology | `Methodology.pdf` |
-| Enterprise Deployment SOP | `Enterprise_Deployment_SOP.pdf` |
-| Security & Compliance SOP | `Security_and_Compliance_SOP.pdf` |
-| LMS Integration Guide | `LMS_Integration_Guide.pdf` |
+| Card | File | Notes |
+|------|------|--------|
+| Solo Path for Busy Adults | `Solo_Learner_Everyday.html` | Everyday · amber Solo filter |
+| Solo Path for Power Users | `Solo_Learner_Guide.html` | Operator depth · v1.1 |
+| HAL-E + AAE Methodology | `Methodology.html` (+ PDF) | |
+| HAL-E + AAE Executive Whitepaper | `Executive_Whitepaper.html` (+ PDF) | |
+| LMS Integration Guide | `LMS_Integration_Guide.html` (+ PDF) | |
+| Enterprise Deployment SOP | `Enterprise_Deployment_SOP.html` (+ PDF) | |
+| Security & Compliance SOP | `Security_and_Compliance_SOP.html` (+ PDF) | |
 
-To add a new document: drop the PDF in `assets/docs/`, add a card in the Research section of `index.html`, and update `assets/docs/.gitkeep`.
+Shared theme: `assets/docs/doc-theme.css` (includes AAE amber).  
+Solo filter/tag: amber/gold (`resource-filter--solo`, `resource-tag--solo`).
+
+To add a doc: drop under `assets/docs/`, add a kbase card in `index.html`, filter category as needed.
+
+See **`CHANGELOG.md`** for the 2026-07-13 funnel + branding pass.
 
 ## Contact Form
 
@@ -150,7 +162,7 @@ GitHub Actions deploys the Worker first, then Pages (see Deployment above).
 
 ## Notes & Gotchas
 
-- **CSS cache busting**: `index.html` and `404.html` reference `css/styles.css?v=4281b51`. Update the version string (or remove it) when making significant CSS changes.
+- **CSS cache busting**: `index.html` references `css/styles.css?v=hybrid*` (bump when styles change).
 - **Redirects**: `_redirects` uses Netlify syntax. It currently only contains legacy video filename redirects. These have no effect on Cloudflare Pages unless converted to Cloudflare-compatible routing.
 - **Headers**: `_headers` provides security headers and caching rules for Cloudflare Pages.
 - **Built CSS is committed**: `css/styles.css` is checked in so the site can be served directly from the repo root.
