@@ -1,0 +1,8 @@
+core_id: domain-core
+# In-domain concept-to-concept bridges
+bridges: []
+  # - id: BRIDGE-A-B
+  #   from: CONCEPT-A
+  #   to: CONCEPT-B
+  #   shared_invariants: [INV-...]
+  #   notes: ""

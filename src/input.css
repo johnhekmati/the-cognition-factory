@@ -212,7 +212,8 @@
   }
 
   .schema-loop-label {
-    @apply font-mono text-[0.6rem] uppercase tracking-[0.25em] text-gray-500 whitespace-nowrap;
+    @apply font-mono text-[0.6rem] uppercase tracking-[0.2em] text-gray-500
+           text-center leading-snug max-w-[7.5rem] lg:max-w-[8.5rem];
   }
 
   /* AAE differentiated slab */
@@ -247,6 +248,10 @@
     border-color: rgba(59, 130, 246, 0.3);
     color: #60a5fa;
     background: rgba(59, 130, 246, 0.1);
+  }
+
+  .resource-tag--solo {
+    @apply border-electric/25 bg-electric/10 text-electric;
   }
 
   .resource-tag--tech {

@@ -1,0 +1,6 @@
+core_id: domain-core
+layer: L1
+items: []
+  # - id: CONCEPT-EXAMPLE
+  #   title: "Example core concept"
+  #   path: CONCEPT-EXAMPLE.md

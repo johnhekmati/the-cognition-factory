@@ -1,11 +1,19 @@
+# Dependencies & build tooling
 node_modules/
-tailwindcss.exe
+.wrangler/
+.dev.vars
+*.log
 .DS_Store
 Thumbs.db
-*.log
-.env
-.env.*
 
-# Local IDE / agent artifacts
-mcps/
+# Local binary (use npm tailwindcss on CI)
+tailwindcss.exe
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+
+# Local session noise (do not ship)
 terminals/
+.wrangler/

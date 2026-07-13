@@ -1,0 +1,7 @@
+# List all L0 IDs in this Core
+core_id: domain-core
+layer: L0
+items: []
+  # - id: INV-EXAMPLE
+  #   title: "Example invariant"
+  #   path: INV-EXAMPLE.md

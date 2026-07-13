@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LMS Integration Guide — The Cognition Factory</title>
+  <meta name="description" content="High-level overview of integrating HAL-E and AAE with Learning Management Systems." />
+  <link rel="stylesheet" href="doc-theme.css" />
+</head>
+<body>
+  <article class="wrap">
+    <div class="doc-actions">
+      <a class="back" href="/#resources">← Back to Knowledge Base</a>
+      <a class="pdf-link" href="LMS_Integration_Guide.pdf" download>Download PDF</a>
+    </div>
+    <p class="eyebrow">Technical · The Cognition Factory</p>
+    <h1>LMS Integration Guide</h1>
+    <p class="lede">
+      A high-level overview for learning leaders, IT stakeholders, and decision-makers
+      evaluating how HAL-E and AAE sit alongside an existing Learning Management System.
+    </p>
+
+    <h2>Integration approaches</h2>
+    <div class="card">
+      <p class="card-label card-label--electric">Standalone</p>
+      <p>
+        Users access HAL-E and AAE directly. Minimal technical integration.
+        Best for pilots or when you want clean separation from the existing LMS stack.
+      </p>
+    </div>
+    <div class="card">
+      <p class="card-label">LTI</p>
+      <p>
+        Integrate as LTI (Learning Tools Interoperability) tools inside many modern LMS platforms.
+        Launch from the existing learning environment with single sign-on where configured.
+      </p>
+    </div>
+    <div class="card">
+      <p class="card-label">API-driven</p>
+      <p>
+        For custom platforms or specific workflows: automated provisioning, progress sync, custom reporting.
+        Deeper work, deeper fit.
+      </p>
+    </div>
+
+    <h2>Common LMS platforms</h2>
+    <p>Experience integrating with a range of environments, including:</p>
+    <ul>
+      <li>Canvas (Instructure)</li>
+      <li>Blackboard Learn</li>
+      <li>Moodle</li>
+      <li>Cornerstone OnDemand</li>
+      <li>Docebo</li>
+      <li>Custom or proprietary learning platforms</li>
+    </ul>
+
+    <h2>Data flow and security</h2>
+    <p>
+      Integrations follow data minimization. Typical exchange includes user identifiers,
+      course or domain mappings, and progress or assessment results.
+      Detailed data-flow diagrams and controls are provided during technical discovery —
+      not in a public brochure.
+    </p>
+
+    <div class="callout">
+      <strong>Recommended starting pattern.</strong>
+      Begin with LTI where supported — strong balance of experience and effort.
+      Complex ecosystems or strict compliance often phase from standalone access into deeper API work.
+    </div>
+
+    <h2>What shapes the choice</h2>
+    <ul>
+      <li>Existing identity provider (SSO) infrastructure</li>
+      <li>Current LMS capabilities and roadmap</li>
+      <li>Data residency or sovereignty requirements</li>
+      <li>Desired automation vs. manual administration</li>
+      <li>Timeline and internal technical capacity</li>
+    </ul>
+
+    <h2>Next steps</h2>
+    <p>
+      Detailed specifications, architecture recommendations, and timelines are developed in the
+      Discovery phase of an enterprise deployment. See the
+      <a href="Enterprise_Deployment_SOP.html">Enterprise Deployment SOP</a>
+      for the phase model, or
+      <a href="/#contact">request a briefing</a>.
+    </p>
+
+    <p class="meta">
+      The Cognition Factory · LMS Integration Guide · Version 1.0 family · July 2026
+    </p>
+  </article>
+</body>
+</html>

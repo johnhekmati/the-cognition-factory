@@ -1,0 +1,7 @@
+core_id: domain-core
+# Links to other HAL-E Cores (multi-skill ramp)
+crosswalks: []
+  # - target_core: scm
+  #   from: CONCEPT-...
+  #   to: CONCEPT-...   # id in target core
+  #   rationale: "Consultant ramp / dual skill"

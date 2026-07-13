@@ -1,0 +1,15 @@
+id: SPINE-DOMAIN
+layer: L3
+core_id: domain-core
+title: "<Domain> curricular spine"
+version: "0.1.0"
+# Ordered or graph-shaped coverage. Prefer IDs from L0–L2.
+sequence: []
+  # - id: CONCEPT-EXAMPLE
+  #   kind: concept
+  #   notes: "Early path node"
+nodes: []
+edges: []
+  # - from: CONCEPT-A
+  #   to: CONCEPT-B
+  #   relation: builds_on

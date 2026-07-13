@@ -1,0 +1,20 @@
+# Copy to cores/<Domain>-Core/meta/core.yaml and edit.
+id: domain-core          # e.g. accounting
+title: "<Domain> Core"
+engine: HAL-E
+status: draft            # draft | active | deprecated
+version: "0.1.0"
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+owners: []
+llm_runtime_notes: "Requires capable LLM core (local or cloud)."
+description: >
+  Living single source of truth for <domain> depth work.
+  AAE cartridges draw from this Core; they do not fork it.
+layers:
+  L0: invariants
+  L1: core_concepts
+  L2: schema_maps
+  L3: knowledge_graph
+tags: []
+related_cores: []        # e.g. [scm, functional-consulting]

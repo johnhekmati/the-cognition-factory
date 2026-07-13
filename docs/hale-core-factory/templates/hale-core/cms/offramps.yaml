@@ -1,0 +1,8 @@
+core_id: domain-core
+# HAL-E → AAE offramps (policy + target cart ids)
+offramps: []
+  # - id: OFFRAMP-EXAMPLE
+  #   from_core: domain-core
+  #   to_cart: cart-example
+  #   when: "Exam fidelity required for outcome X"
+  #   required_concepts: [CONCEPT-...]
