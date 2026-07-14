@@ -4,6 +4,22 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-13 — Contact form → Proton (Web3Forms) + light plain-English
+
+### Contact
+- Removed Cloudflare Email Routing / `contact-email` Worker from deploy path
+- `/api/contact` Pages Function delivers via **Web3Forms** to Proton inbox
+- Secret: `WEB3FORMS_ACCESS_KEY` on Pages project (see README)
+- Honeypot field on form; direct `mailto:contact@…` remains as fallback
+
+### Prose (surgical)
+- Hero institutional line: skill on the job, not hours logged
+- Loop: “two tools / one loop”; between-session save language
+- CTA: “How each tool works”
+- Architect + contact micro-copy slightly plainer
+
+---
+
 ## 2026-07-13 — Funnel polish, dual Solo paths, Between sessions
 
 **Ship:** `main` `2335a7b` (and follow-on copy if any).

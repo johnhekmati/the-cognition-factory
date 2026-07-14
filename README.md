@@ -31,9 +31,9 @@ AAE is a high-precision assessment operating system that measures mastery, class
 .
 ├── .github/workflows/deploy.yml   # Worker + Cloudflare Pages deployment
 ├── functions/
-│   └── api/contact.js             # Pages Function — proxies to contact-email Worker
+│   └── api/contact.js             # Pages Function → Web3Forms → Proton inbox
 ├── workers/
-│   └── contact-email/             # Sends contact form mail via Email Routing
+│   └── contact-email/             # Deprecated (CF Email Routing removed)
 ├── src/
 │   └── input.css                  # Tailwind source
 ├── css/
@@ -46,7 +46,7 @@ AAE is a high-precision assessment operating system that measures mastery, class
 │   └── docs/                      # Knowledge Base PDFs + brand reference files
 ├── index.html
 ├── 404.html
-├── wrangler.jsonc                 # Pages service binding (CONTACT_MAILER)
+├── wrangler.jsonc                 # Cloudflare Pages project config
 ├── tailwind.config.js
 ├── package.json
 ├── _redirects                     # Legacy Netlify redirects (see notes)
@@ -97,14 +97,14 @@ Deployment is handled automatically by GitHub Actions:
 
 - Triggers on push to `main`
 - Also supports manual `workflow_dispatch`
-- Runs `npm ci` → `npm run build` → deploy `contact-email` Worker → `wrangler pages deploy`
+- Runs `npm ci` → `npm run build` → `wrangler pages deploy`
 
 **Required repository secrets** (Settings → Secrets and variables → Actions):
 
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
-The site is deployed directly from the project root (no separate `dist` folder). The Pages project must use the **V2 build system** so `wrangler.jsonc` service bindings apply.
+The site is deployed directly from the project root (no separate `dist` folder).
 
 ## Assets
 
@@ -139,12 +139,9 @@ See **`CHANGELOG.md`** for the 2026-07-13 funnel + branding pass.
 
 ## Contact Form
 
-The contact form (`#contact-form`) posts to a Cloudflare Pages Function at `/api/contact`.
+Domain mail is **Proton** (MX / TXT as Proton requires). Cloudflare Email Routing is **not** used.
 
-The function:
-- Validates required fields
-- Proxies to the `contact-email` Worker, which sends mail via Cloudflare Email Routing
-- Returns JSON `{ success: true }` or an error
+The contact form (`#contact-form`) posts to Pages Function `/api/contact`, which validates fields and submits via [Web3Forms](https://web3forms.com) to your Proton inbox.
 
 See:
 - `functions/api/contact.js`
@@ -152,11 +149,14 @@ See:
 
 ### Required setup (one-time)
 
-**Email Routing (domain):** Enable Email Routing for `thecognitionfactory.com` and verify your destination address(es). This is configured under the domain dashboard → **Email** → **Email Routing**.
+1. Create a free access key at [web3forms.com](https://web3forms.com) using **`contact@thecognitionfactory.com`** (or another catch-all you read).
+2. In Cloudflare dashboard → **Workers & Pages** → project **the-cognition-factory** → **Settings** → **Environment variables**:
+   - Secret: `WEB3FORMS_ACCESS_KEY` = your access key
+   - Optional plain var: `CONTACT_TO_EMAIL` = `contact@thecognitionfactory.com` (label only; Web3Forms delivers to the email used when the key was created)
+3. Redeploy Pages (or push to `main`) so the Function picks up the secret.
+4. Test the live form; confirm mail arrives in Proton.
 
-**Send Email (Worker):** Pages Functions cannot use `send_email` bindings. A separate Worker (`workers/contact-email`) sends mail and is bound to the Pages project via a service binding (`CONTACT_MAILER` in root `wrangler.jsonc`).
-
-**Destination address:** Set `CONTACT_TO_EMAIL` in `workers/contact-email/wrangler.jsonc` to the inbox verified under **Compute → Email Service → Email Routing → Destination Addresses** (your real inbox, not the `contact@` routing alias).
+Direct email fallback (always on the page): `mailto:contact@thecognitionfactory.com`.
 
 GitHub Actions deploys the Worker first, then Pages (see Deployment above).
 

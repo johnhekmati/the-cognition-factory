@@ -138,7 +138,9 @@ function initContactForm() {
         form.reset();
         showStatus(true, 'Message sent. We will respond if the inquiry is a fit.');
       } else {
-        const msg = result.error || 'Failed to send';
+        const msg =
+          result.error ||
+          'Failed to send. Email contact@thecognitionfactory.com directly.';
         console.error('Contact form error:', msg);
         btn.textContent = 'Error — try again';
         showStatus(false, msg);
@@ -146,7 +148,10 @@ function initContactForm() {
     } catch (err) {
       console.error('Contact form network error:', err);
       btn.textContent = 'Error — try again';
-      showStatus(false, 'Network error. Email contact@thecognitionfactory.com directly.');
+      showStatus(
+        false,
+        'Network error. Email contact@thecognitionfactory.com directly.'
+      );
     }
 
     setTimeout(() => {
