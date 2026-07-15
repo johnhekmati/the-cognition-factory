@@ -62,20 +62,33 @@ export async function onRequestPost({ request, env }) {
 
   const toAddress = (env.CONTACT_TO_EMAIL || DEFAULT_TO).toString().trim();
   const fullName = `${firstName} ${lastName}`;
-  const subject = `TCF contact: ${fullName} — ${interest}`;
+  const interestLower = interest.toLowerCase();
+  const isPartnerPacket =
+    interest === 'partner-packet' ||
+    (interestLower.includes('partner') && interestLower.includes('packet'));
+  const subject = isPartnerPacket
+    ? `TCF partner packet request: ${fullName}`
+    : `TCF contact: ${fullName} — ${interest}`;
   const body = [
     `Name: ${fullName}`,
     `Email: ${email}`,
     `Organization: ${organization}`,
     `Path: ${interest}`,
+    isPartnerPacket
+      ? 'Artifact: Partner & media prospectus (lineage map) — share out of band; not on public site'
+      : null,
     '',
     'Message:',
     message,
     '',
     '—',
-    'Sent from thecognitionfactory.com contact form',
+    isPartnerPacket
+      ? 'Sent from thecognitionfactory.com partner-packet request'
+      : 'Sent from thecognitionfactory.com contact form',
     `Deliver-to preference: ${toAddress}`,
-  ].join('\n');
+  ]
+    .filter((line) => line !== null)
+    .join('\n');
 
   try {
     const res = await fetch('https://api.web3forms.com/submit', {

@@ -5,14 +5,26 @@
 **Local path:** `C:\Grok\tcf-site`  
 **Session spine (multi-repo):** `C:\Grok\tcf-ground-truth`
 
-This repository contains the public marketing site for [The Cognition Factory](https://thecognitionfactory.com), featuring **HAL-E** (Hyper Accelerated Learning Engine) and **AAE** (Adaptive Assessment Engine).
+Public marketing site for [The Cognition Factory](https://thecognitionfactory.com).
 
-HAL-E is a learning operating system focused on building durable conceptual architecture.  
-AAE is a high-precision assessment operating system that measures mastery, classifies errors, and drives targeted remediation.
+## Offering hierarchy (copy SSOT)
 
-> HAL-E teaches. AAE examines. Between sessions (CSS + CMS) keep the loop closed.
+| Layer | Nouns | Role |
+|-------|--------|------|
+| **Offering** | **The Cognition Factory (TCF)** | The product — closed-loop mastery under real constraints |
+| **Engines** | **HAL-E** (deep learning) · **AAE** (practice) · **CSS** (save place) | How work moves inside TCF |
+| **Lattice** | **CMS** | Orientation, bridges, offramps — not a peer SKU |
 
-**Funnel (page order):** Hero → Enemy → Loop → HAL-E → AAE → Cores → Between sessions → Research → Architect → Contact.
+> Depth builds. Practice proves. Save place keeps the loop alive. **That is TCF.**
+
+**Funnel (page order):** Hero → Enemy → How it works → Deep learning → Practice → Cores → Save place → Research → Architect → Contact.
+
+### Selective collateral (private · request only)
+
+| Item | Where | Notes |
+|------|--------|--------|
+| **Partner & media packet** | **`C:\Grok\tcf-private\partner-media\`** (sibling folder — **not** in this public repo / not deployed) | Lineage map + partner brief. Guides shows a **request-only** card → `/api/contact` (Web3Forms) with `interest=partner-packet`. Share out of band after review. |
+| Public site | No downloadable HTML for this packet | Filter: **Request only** |
 
 ## Live Site
 

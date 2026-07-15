@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollSpy();
   initMobileMenu();
   initContactForm();
+  initPartnerPacketForm();
   initRevealAnimations();
   initHeroVideos();
   initSectionVideos();
@@ -98,13 +99,14 @@ function initMobileMenu() {
   });
 }
 
-/* ── Contact form ── */
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-
-  const statusEl = document.getElementById('form-status');
-  const btn = form.querySelector('[type="submit"]');
+/* ── Shared POST to /api/contact (Web3Forms via Pages Function) ── */
+async function submitContactForm(form, { statusEl, btn, successMessage }) {
+  const originalText = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  if (statusEl) {
+    statusEl.classList.add('hidden');
+  }
 
   const showStatus = (ok, message) => {
     if (!statusEl) return;
@@ -115,49 +117,85 @@ function initContactForm() {
       : 'text-sm rounded-lg px-4 py-3 border border-red-500/30 bg-red-500/10 text-red-300';
   };
 
+  try {
+    const formData = new FormData(form);
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      body: formData,
+    });
+    const result = await res.json().catch(() => ({}));
+
+    if (res.ok && result.success) {
+      btn.textContent = 'Request sent';
+      form.reset();
+      // Restore hidden defaults after reset (partner form interest field)
+      const interest = form.querySelector('input[name="interest"][type="hidden"]');
+      if (interest && interest.dataset.defaultValue) {
+        interest.value = interest.dataset.defaultValue;
+      }
+      showStatus(true, successMessage);
+    } else {
+      const msg =
+        result.error ||
+        'Failed to send. Email contact@thecognitionfactory.com directly.';
+      console.error('Contact form error:', msg);
+      btn.textContent = 'Error — try again';
+      showStatus(false, msg);
+    }
+  } catch (err) {
+    console.error('Contact form network error:', err);
+    btn.textContent = 'Error — try again';
+    showStatus(
+      false,
+      'Network error. Email contact@thecognitionfactory.com directly.'
+    );
+  }
+
+  setTimeout(() => {
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }, 3500);
+}
+
+/* ── Contact form ── */
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  const statusEl = document.getElementById('form-status');
+  const btn = form.querySelector('[type="submit"]');
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    await submitContactForm(form, {
+      statusEl,
+      btn,
+      successMessage: 'Message sent. We will respond if the inquiry is a fit.',
+    });
+  });
+}
 
-    const originalText = btn.textContent;
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    if (statusEl) statusEl.classList.add('hidden');
+/* ── Partner packet request (Guides card → same Web3Forms pipeline) ── */
+function initPartnerPacketForm() {
+  const form = document.getElementById('partner-packet-form');
+  if (!form) return;
 
-    try {
-      const formData = new FormData(form);
+  const interest = form.querySelector('input[name="interest"]');
+  if (interest) {
+    interest.dataset.defaultValue = interest.value || 'partner-packet';
+  }
 
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        body: formData,
-      });
+  const statusEl = document.getElementById('partner-packet-status');
+  const btn = form.querySelector('[type="submit"]');
 
-      const result = await res.json().catch(() => ({}));
-
-      if (res.ok && result.success) {
-        btn.textContent = 'Message sent';
-        form.reset();
-        showStatus(true, 'Message sent. We will respond if the inquiry is a fit.');
-      } else {
-        const msg =
-          result.error ||
-          'Failed to send. Email contact@thecognitionfactory.com directly.';
-        console.error('Contact form error:', msg);
-        btn.textContent = 'Error — try again';
-        showStatus(false, msg);
-      }
-    } catch (err) {
-      console.error('Contact form network error:', err);
-      btn.textContent = 'Error — try again';
-      showStatus(
-        false,
-        'Network error. Email contact@thecognitionfactory.com directly.'
-      );
-    }
-
-    setTimeout(() => {
-      btn.textContent = originalText;
-      btn.disabled = false;
-    }, 3500);
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    await submitContactForm(form, {
+      statusEl,
+      btn,
+      successMessage:
+        'Request sent. If it is a fit, we will share the packet out of band.',
+    });
   });
 }
 
@@ -193,8 +231,8 @@ function initHeroVideos() {
   if (videos.length < 2) return;
 
   const LABELS = {
-    'HAL-E': 'Hyper Accelerated Learning Engine',
-    AAE: 'Adaptive Assessment Engine',
+    'HAL-E': 'HAL-E · Deep Learning — build the map',
+    AAE: 'AAE · Practice — check what you know',
   };
 
   const setLabel = (video) => {
