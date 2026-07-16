@@ -4,6 +4,21 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-15 — Hero funnel, kbase product docs, motion mark
+
+### Funnel
+- Dual-hemisphere logo motion: `cogfacheromotion.mp4` + still poster
+- Hero copy: upskilling taglines + reverse gradient; H1 “A way to upskill that just works”
+- Problem: text-only (no brand brain video)
+- **The solution** section bridges Problem → How it works
+
+### Guides
+- `Desktop_App_Overview.html` · `Between_Sessions.html` (public-safe, shallow)
+- Partner media form full-width under grid
+- Security SOP blurb densified
+
+---
+
 ## 2026-07-15 — TCF hero banner (cogfag)
 
 - Replace dual HAL-E/AAE hero crossfade with single **The Cognition Factory** banner loop

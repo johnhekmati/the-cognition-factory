@@ -224,21 +224,37 @@ function initResourceFilters() {
   });
 }
 
-/* ── Hero video (single TCF banner loop, restrained band) ── */
+/* ── Hero banner (static image and/or video, restrained band) ── */
 function initHeroVideos() {
   const videos = [...document.querySelectorAll('[data-hero-video]')];
+  const bannerImg = document.querySelector('[data-hero-banner]');
   const labelEl = document.getElementById('hero-engine-label');
   const wrap = document.getElementById('hero-video-wrap');
-  if (!videos.length) return;
 
   if (labelEl) {
     labelEl.textContent = 'The Cognition Factory';
   }
 
+  // Static hero image trial — lock frame AR to intrinsic size
+  if (bannerImg && wrap) {
+    bannerImg.classList.add('is-active');
+    const syncImgAspect = () => {
+      const w = bannerImg.naturalWidth;
+      const h = bannerImg.naturalHeight;
+      if (w > 0 && h > 0) {
+        wrap.style.setProperty('--hero-ar', `${w} / ${h}`);
+      }
+    };
+    if (bannerImg.complete) syncImgAspect();
+    else bannerImg.addEventListener('load', syncImgAspect);
+  }
+
+  if (!videos.length) return;
+
   const video = videos[0];
   video.classList.add('is-active');
 
-  // Keep card aspect-ratio locked to the file so video fills the border (no side pillars)
+  // Keep card aspect-ratio locked to the file so media fills the border
   const syncHeroAspect = () => {
     if (!wrap) return;
     const w = video.videoWidth;

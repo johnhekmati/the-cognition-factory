@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=tcf-hero8" />
+  <link rel="stylesheet" href="/css/styles.css?v=tcf-hero20" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -99,32 +99,33 @@
           aria-label="The Cognition Factory"
         >
           <div class="hero-video-stage">
+            <!-- Dual-hemisphere logo motion loop (Imagine) -->
             <video
               data-hero-video
               data-hero-label="TCF"
               class="hero-video is-active"
               autoplay muted loop playsinline
-              poster="/assets/images/cogfacherobanner.jpg"
+              poster="/assets/images/cogfacherobanner-v2.jpg"
             >
-              <source src="/assets/videos/cogfagherobanner.mp4" type="video/mp4" />
+              <source src="/assets/videos/cogfacheromotion.mp4" type="video/mp4" />
             </video>
           </div>
           <div class="hero-video-fade" aria-hidden="true"></div>
           <div class="absolute inset-0 bg-grid-pattern bg-grid opacity-10 pointer-events-none" aria-hidden="true"></div>
-          <p id="hero-engine-label" class="hero-engine-badge">The Cognition Factory</p>
+          <!-- hero-engine-badge removed for cleaner banner trial -->
         </div>
 
         <div class="hero-manifesto-copy section-padding !pt-10 md:!pt-14 !pb-12 md:!pb-16 max-w-5xl mx-auto text-center">
-          <p class="font-mono text-xs uppercase tracking-[0.28em] text-electric mb-2">
-            For busy adults who need skill that sticks
+          <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight gradient-text-rev mb-2">
+            For busy adults who need upskilling that sticks
           </p>
-          <p class="font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.22em] text-plasma-glow mb-5">
-            For institutions: upskilling · proof under pressure · retention
+          <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight gradient-text-rev mb-5 max-w-2xl mx-auto leading-snug">
+            For institutions that need upskilling, proof under pressure, and retention that holds.
           </p>
 
           <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.08] text-balance">
             Not more content.<br class="hidden sm:block" />
-            <span class="gradient-text">A way to get better that holds.</span>
+            <span class="gradient-text">A way to upskill that just works.</span>
           </h1>
 
           <p class="mt-6 md:mt-8 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed text-balance">
@@ -165,7 +166,7 @@
 
 
     <!-- ═══════════════════════════════════════════════════════════
-         THE ENEMY — centered manifesto block
+         THE PROBLEM — centered manifesto (no brand media; hero owns the mark)
          ═══════════════════════════════════════════════════════════ -->
     <section id="enemy" class="section-padding relative">
       <div class="max-w-3xl mx-auto text-center">
@@ -174,23 +175,7 @@
           <h2 class="section-title">More content doesn’t mean more skill</h2>
         </div>
 
-        <div class="enemy-media mx-auto mt-10 mb-10" data-reveal aria-label="Learning under constraint">
-          <video
-            class="enemy-media-video"
-            data-context-video
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="/assets/images/HAL-E1C.jpg"
-          >
-            <source src="/assets/videos/context-portrait-395d77d.mp4" type="video/mp4" />
-          </video>
-          <div class="section-video-fade" aria-hidden="true"></div>
-        </div>
-
-        <div class="space-y-5 text-gray-400 leading-relaxed text-base md:text-lg" data-reveal>
+        <div class="mt-8 md:mt-10 space-y-5 text-gray-400 leading-relaxed text-base md:text-lg" data-reveal>
           <p>
             Most learning products care about hours logged and how confident you feel
             at the end of a module. They rarely ask whether you can still do the work
@@ -203,13 +188,46 @@
           <p class="text-white font-medium">
             This is not a “need more videos” problem. It is a
             <span class="text-gray-200">how skill is built, checked, and kept alive</span> problem.
-            That is what The Cognition Factory is for.
           </p>
           <p class="text-electric font-mono text-xs uppercase tracking-[0.2em] pt-2">
             Recognizing material is not the same as owning it.
           </p>
           <p class="pt-4">
-            <a href="#loop" class="btn-secondary inline-flex">So what do we do instead? →</a>
+            <a href="#solution" class="btn-secondary inline-flex">So what do we do instead? →</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         THE SOLUTION — bridge into How it works
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="solution" class="section-padding relative bg-void-50/50">
+      <div class="max-w-3xl mx-auto text-center">
+        <div data-reveal>
+          <span class="section-label">The solution</span>
+          <h2 class="section-title">A closed loop that holds under real life</h2>
+        </div>
+
+        <div class="mt-8 md:mt-10 space-y-5 text-gray-400 leading-relaxed text-base md:text-lg" data-reveal>
+          <p>
+            <span class="text-gray-300">The Cognition Factory</span> is not more content and not “just another chatbot.”
+            It is one system with three moves:
+            <span class="text-gray-300">build a map</span> of the subject,
+            <span class="text-gray-300">practice under honest pressure</span>,
+            and <span class="text-gray-300">save your place</span> when life interrupts —
+            so teaching and testing stay on the same story, and tomorrow’s you does not pay restart tax.
+          </p>
+          <p class="text-white font-medium">
+            Upskilling that sticks: structure for deep work, proof when you need it,
+            and continuity when the calendar is loud.
+          </p>
+          <p class="text-electric font-mono text-xs uppercase tracking-[0.2em] pt-2">
+            Map · practice · save place — that is the whole idea
+          </p>
+          <p class="pt-4">
+            <a href="#loop" class="btn-secondary inline-flex">See how the three moves work →</a>
           </p>
         </div>
       </div>
@@ -219,7 +237,7 @@
     <!-- ═══════════════════════════════════════════════════════════
          CLOSED LOOP — Schema Laboratory
          ═══════════════════════════════════════════════════════════ -->
-    <section id="loop" class="section-padding relative bg-void-50/50">
+    <section id="loop" class="section-padding relative">
       <div class="max-w-7xl mx-auto">
         <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16" data-reveal>
           <span class="section-label">How it works</span>
@@ -717,59 +735,6 @@
         </div>
 
         <div id="resource-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Partner packet: request only — HTML lives in C:\Grok\tcf-private (not deployed) -->
-          <div
-            class="glass-card p-6 border-plasma/15 resource-card"
-            data-reveal
-            data-category="request"
-            id="partner-packet-card"
-          >
-            <div class="flex items-start justify-between mb-4">
-              <span class="resource-tag" style="border-color:rgba(167,139,250,0.35);color:#c4b5fd">Request only</span>
-              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-            </div>
-            <h3 class="font-display text-lg font-semibold text-white">Partner &amp; media packet</h3>
-            <p class="text-gray-500 text-sm mt-2 leading-relaxed">
-              Selective brief for partners, press, and institutions — including formation lineage.
-              Not published on this site. Request access; we share out of band if it is a fit.
-            </p>
-            <form id="partner-packet-form" class="mt-5 space-y-3" aria-label="Request partner and media packet">
-              <div id="partner-packet-status" class="hidden text-xs rounded-lg px-3 py-2 border" role="status" aria-live="polite"></div>
-              <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
-              <input type="hidden" name="interest" value="partner-packet" />
-              <div class="grid grid-cols-2 gap-2">
-                <div>
-                  <label for="pp-first" class="sr-only">First name</label>
-                  <input id="pp-first" name="first-name" required type="text" autocomplete="given-name"
-                    class="form-input !py-2 !text-sm" placeholder="First name" />
-                </div>
-                <div>
-                  <label for="pp-last" class="sr-only">Last name</label>
-                  <input id="pp-last" name="last-name" required type="text" autocomplete="family-name"
-                    class="form-input !py-2 !text-sm" placeholder="Last name" />
-                </div>
-              </div>
-              <div>
-                <label for="pp-email" class="sr-only">Email</label>
-                <input id="pp-email" name="email" required type="email" autocomplete="email"
-                  class="form-input !py-2 !text-sm" placeholder="Email" />
-              </div>
-              <div>
-                <label for="pp-org" class="sr-only">Organization</label>
-                <input id="pp-org" name="organization" type="text" autocomplete="organization"
-                  class="form-input !py-2 !text-sm" placeholder="Organization (optional)" />
-              </div>
-              <div>
-                <label for="pp-message" class="sr-only">Why you need it</label>
-                <textarea id="pp-message" name="message" required rows="2"
-                  class="form-input resize-none !py-2 !text-sm"
-                  placeholder="Role / outlet and why you need the packet…"></textarea>
-              </div>
-              <button type="submit" class="btn-secondary w-full !text-xs !py-2.5">Request access</button>
-            </form>
-            <p class="text-gray-600 text-xs font-mono mt-4">Email via site · not a public download</p>
-          </div>
-
           <a href="/assets/docs/Solo_Learner_Everyday.html" class="glass-card p-6 group hover:border-amber/25 transition-all duration-300 block resource-card" data-reveal data-category="solo">
             <div class="flex items-start justify-between mb-4">
               <span class="resource-tag resource-tag--solo">Solo</span>
@@ -788,6 +753,26 @@
             <h3 class="font-display text-lg font-semibold text-white group-hover:text-amber-glow transition-colors">Solo Path — More Detail</h3>
             <p class="text-gray-500 text-sm mt-2 leading-relaxed">Same loop, denser detail — for people who already run complex work and want the full picture.</p>
             <p class="text-gray-600 text-xs font-mono mt-4">More detail · v1.2</p>
+          </a>
+
+          <a href="/assets/docs/Desktop_App_Overview.html" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block resource-card" data-reveal data-category="solo">
+            <div class="flex items-start justify-between mb-4">
+              <span class="resource-tag resource-tag--solo">Solo</span>
+              <svg class="w-5 h-5 text-gray-600 group-hover:text-electric transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            </div>
+            <h3 class="font-display text-lg font-semibold text-white group-hover:text-electric transition-colors">Desktop App Overview</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed">What the household app is: main doors, quieter tools, short session recipe — features without the sausage.</p>
+            <p class="text-gray-600 text-xs font-mono mt-4">Product · shallow · v1.0</p>
+          </a>
+
+          <a href="/assets/docs/Between_Sessions.html" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block resource-card" data-reveal data-category="solo">
+            <div class="flex items-start justify-between mb-4">
+              <span class="resource-tag resource-tag--solo">Solo</span>
+              <svg class="w-5 h-5 text-gray-600 group-hover:text-electric transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+            <h3 class="font-display text-lg font-semibold text-white group-hover:text-electric transition-colors">Between Sessions</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Leave a clean stop and pick up without thrash — Save place, park notes, re-entry when life interrupts.</p>
+            <p class="text-gray-600 text-xs font-mono mt-4">Continuity · shallow · v1.0</p>
           </a>
 
           <a href="/assets/docs/Methodology.html" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block resource-card" data-reveal data-category="whitepaper">
@@ -836,9 +821,72 @@
               <svg class="w-5 h-5 text-gray-600 group-hover:text-plasma-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
             </div>
             <h3 class="font-display text-lg font-semibold text-white group-hover:text-plasma-glow transition-colors">Security &amp; Compliance SOP</h3>
-            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Data handling, encryption, access controls, audit trails.</p>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed">
+              How data is handled end to end: encryption in transit and at rest, access controls,
+              audit trails, and the checks partners need before go-live. Written for operators and
+              security reviewers — not a marketing one-pager.
+            </p>
             <p class="text-gray-600 text-xs font-mono mt-4">Read in browser · PDF available</p>
           </a>
+        </div>
+
+        <!-- Full-width under the grid so SOP cards keep even height (form no longer sits beside them) -->
+        <div
+          class="glass-card p-6 md:p-8 border-plasma/15 mt-8 resource-card"
+          data-reveal
+          data-category="request"
+          id="partner-packet-card"
+        >
+          <div class="flex flex-col lg:flex-row lg:items-start lg:gap-10">
+            <div class="lg:w-2/5 lg:shrink-0 mb-6 lg:mb-0">
+              <div class="flex items-start justify-between mb-4">
+                <span class="resource-tag" style="border-color:rgba(167,139,250,0.35);color:#c4b5fd">Request only</span>
+                <svg class="w-5 h-5 text-gray-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+              </div>
+              <h3 class="font-display text-lg md:text-xl font-semibold text-white">Partner &amp; media packet</h3>
+              <p class="text-gray-500 text-sm mt-2 leading-relaxed">
+                Selective brief for partners, press, and institutions — including formation lineage.
+                Not published on this site. Request access; we share out of band if it is a fit.
+              </p>
+              <p class="text-gray-600 text-xs font-mono mt-4">Email via site · not a public download</p>
+            </div>
+            <form id="partner-packet-form" class="flex-1 space-y-3" aria-label="Request partner and media packet">
+              <div id="partner-packet-status" class="hidden text-xs rounded-lg px-3 py-2 border" role="status" aria-live="polite"></div>
+              <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <input type="hidden" name="interest" value="partner-packet" />
+              <div class="grid sm:grid-cols-2 gap-3">
+                <div>
+                  <label for="pp-first" class="sr-only">First name</label>
+                  <input id="pp-first" name="first-name" required type="text" autocomplete="given-name"
+                    class="form-input !py-2 !text-sm" placeholder="First name" />
+                </div>
+                <div>
+                  <label for="pp-last" class="sr-only">Last name</label>
+                  <input id="pp-last" name="last-name" required type="text" autocomplete="family-name"
+                    class="form-input !py-2 !text-sm" placeholder="Last name" />
+                </div>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-3">
+                <div>
+                  <label for="pp-email" class="sr-only">Email</label>
+                  <input id="pp-email" name="email" required type="email" autocomplete="email"
+                    class="form-input !py-2 !text-sm" placeholder="Email" />
+                </div>
+                <div>
+                  <label for="pp-org" class="sr-only">Organization</label>
+                  <input id="pp-org" name="organization" type="text" autocomplete="organization"
+                    class="form-input !py-2 !text-sm" placeholder="Organization (optional)" />
+                </div>
+              </div>
+              <div>
+                <label for="pp-message" class="sr-only">Why you need it</label>
+                <textarea id="pp-message" name="message" required rows="2"
+                  class="form-input resize-none !py-2 !text-sm"
+                  placeholder="Role / outlet and why you need the packet…"></textarea>
+              </div>
+              <button type="submit" class="btn-secondary w-full sm:w-auto !text-xs !py-2.5 !px-8">Request access</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -1091,6 +1139,14 @@
       background: rgba(5, 8, 16, 0.85);
       backdrop-filter: blur(20px);
       border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Taglines: reverse of .gradient-text (plasma → signal → electric) */
+    .gradient-text-rev {
+      background-image: linear-gradient(to right, #7c3aed, #3b82f6, #00d4ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     /* Restrained hero banner — box matches video AR so media fills the border (no side voids) */

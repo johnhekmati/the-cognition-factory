@@ -71,6 +71,11 @@
     @apply bg-gradient-to-r from-electric via-signal to-plasma bg-clip-text text-transparent;
   }
 
+  /* Taglines / secondary: reverse sweep (plasma → electric) */
+  .gradient-text-rev {
+    @apply bg-gradient-to-r from-plasma via-signal to-electric bg-clip-text text-transparent;
+  }
+
   .stat-value {
     @apply font-display text-4xl md:text-5xl font-bold gradient-text;
   }
