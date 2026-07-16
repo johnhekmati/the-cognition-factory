@@ -4,6 +4,15 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-15 — TCF hero banner (cogfag)
+
+- Replace dual HAL-E/AAE hero crossfade with single **The Cognition Factory** banner loop
+- Assets: `assets/videos/cogfagherobanner.mp4` + poster `assets/images/cogfacherobanner.jpg`
+- Restrained centered card (max ~56rem); aspect-ratio locked to video so media fills the frame border
+- Badge fixed to product name; no full-bleed wall
+
+---
+
 ## 2026-07-15 — Partner packet request-only + plain-English brand pass
 
 ### Guides

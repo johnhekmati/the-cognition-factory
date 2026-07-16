@@ -224,20 +224,52 @@ function initResourceFilters() {
   });
 }
 
-/* ── Hero video slide transition (HAL-E ↔ AAE) ── */
+/* ── Hero video (single TCF banner loop, restrained band) ── */
 function initHeroVideos() {
   const videos = [...document.querySelectorAll('[data-hero-video]')];
   const labelEl = document.getElementById('hero-engine-label');
-  if (videos.length < 2) return;
+  const wrap = document.getElementById('hero-video-wrap');
+  if (!videos.length) return;
 
+  if (labelEl) {
+    labelEl.textContent = 'The Cognition Factory';
+  }
+
+  const video = videos[0];
+  video.classList.add('is-active');
+
+  // Keep card aspect-ratio locked to the file so video fills the border (no side pillars)
+  const syncHeroAspect = () => {
+    if (!wrap) return;
+    const w = video.videoWidth;
+    const h = video.videoHeight;
+    if (w > 0 && h > 0) {
+      wrap.style.setProperty('--hero-ar', `${w} / ${h}`);
+    }
+  };
+  video.addEventListener('loadedmetadata', syncHeroAspect);
+  if (video.readyState >= 1) syncHeroAspect();
+
+  // Single banner — no HAL-E ↔ AAE crossfade
+  if (videos.length < 2) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.pause();
+      return;
+    }
+    video.play().catch(() => {});
+    return;
+  }
+
+  // Legacy multi-video path (unused when only one hero asset is present)
   const LABELS = {
+    TCF: 'The Cognition Factory',
     'HAL-E': 'HAL-E · Deep Learning — build the map',
     AAE: 'AAE · Practice — check what you know',
   };
 
-  const setLabel = (video) => {
+  const setLabel = (v) => {
     if (!labelEl) return;
-    const key = video.dataset.heroLabel;
+    const key = v.dataset.heroLabel;
     labelEl.textContent = LABELS[key] || key || labelEl.textContent;
   };
 
@@ -253,9 +285,9 @@ function initHeroVideos() {
   const INTERVAL_MS = 8000;
   const TRANSITION_MS = 1400;
 
-  const playVideo = (video) => {
-    video.currentTime = 0;
-    return video.play().catch(() => {});
+  const playVideo = (v) => {
+    v.currentTime = 0;
+    return v.play().catch(() => {});
   };
 
   playVideo(videos[0]);

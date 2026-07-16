@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=tcf-brand9" />
+  <link rel="stylesheet" href="/css/styles.css?v=tcf-hero5" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -92,30 +92,21 @@
          ═══════════════════════════════════════════════════════════ -->
     <section id="hero" class="relative pt-16 md:pt-20">
       <div class="hero-manifesto">
-        <!-- Restrained motion field (single energy center) -->
+        <!-- Restrained TCF hero banner (not full-bleed) -->
         <div
           id="hero-video-wrap"
           class="hero-manifesto-media"
-          aria-label="The Cognition Factory — depth and practice engines"
+          aria-label="The Cognition Factory"
         >
           <div class="hero-video-stage">
             <video
               data-hero-video
-              data-hero-label="HAL-E"
+              data-hero-label="TCF"
               class="hero-video is-active"
               autoplay muted loop playsinline
-              poster="/assets/images/HAL-E2A.jpg"
+              poster="/assets/images/cogfacherobanner.jpg"
             >
-              <source src="/assets/videos/HAL-E2A.mp4" type="video/mp4" />
-            </video>
-            <video
-              data-hero-video
-              data-hero-label="AAE"
-              class="hero-video"
-              autoplay muted loop playsinline
-              poster="/assets/images/AAE1A.jpg"
-            >
-              <source src="/assets/videos/AAE2A.mp4" type="video/mp4" />
+              <source src="/assets/videos/cogfagherobanner.mp4" type="video/mp4" />
             </video>
           </div>
           <div class="hero-video-fade" aria-hidden="true"></div>
@@ -1102,18 +1093,25 @@
       border-color: rgba(255, 255, 255, 0.05);
     }
 
+    /* Restrained hero banner — box matches video AR so media fills the border (no side voids) */
     #hero-video-wrap.hero-manifesto-media {
-      width: 100%;
-      height: clamp(200px, 38vh, 420px);
-      background: #050810;
+      --hero-ar: 16 / 9;
       position: relative;
+      width: min(100% - 2rem, 56rem);
+      max-width: 56rem;
+      margin-left: auto;
+      margin-right: auto;
+      height: auto;
+      aspect-ratio: var(--hero-ar);
+      background: #050810;
       overflow: hidden;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     @media (min-width: 768px) {
       #hero-video-wrap.hero-manifesto-media {
-        height: clamp(240px, 42vh, 480px);
+        width: min(100% - 3rem, 56rem);
       }
     }
 
@@ -1121,35 +1119,37 @@
       position: absolute;
       inset: 0;
       overflow: hidden;
+      width: 100%;
+      height: 100%;
     }
 
     .hero-video {
       position: absolute;
       inset: 0;
+      display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: center;
+      /* Frame AR matches video → fills the border; cover covers 1px AR drift without letterbox */
+      object-fit: cover;
+      object-position: center center;
       opacity: 0;
       z-index: 1;
-      filter: brightness(1.08) saturate(1.12);
-      transform: translateX(14%);
-      transition:
-        transform 1.4s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 1.1s ease;
-      will-change: transform, opacity;
+      filter: brightness(1.06) saturate(1.1);
+      transform: none;
+      transition: opacity 0.6s ease;
+      will-change: opacity;
     }
 
     .hero-video.is-active {
       opacity: 1;
       z-index: 3;
-      transform: translateX(0);
+      transform: none;
     }
 
     .hero-video.is-exiting {
-      opacity: 0.5;
+      opacity: 0;
       z-index: 2;
-      transform: translateX(-8%);
+      transform: none;
     }
 
     .hero-video-fade {
@@ -1157,7 +1157,8 @@
       inset: 0;
       z-index: 4;
       pointer-events: none;
-      background: linear-gradient(to bottom, transparent 70%, rgba(5, 8, 16, 0.85) 100%);
+      background: linear-gradient(to bottom, transparent 65%, rgba(5, 8, 16, 0.8) 100%);
+      border-radius: inherit;
     }
 
     .hero-engine-badge {
@@ -1179,6 +1180,9 @@
       color: #00d4ff;
       white-space: nowrap;
       transition: opacity 0.4s ease;
+      max-width: calc(100% - 1.5rem);
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     @media (prefers-reduced-motion: reduce) {
