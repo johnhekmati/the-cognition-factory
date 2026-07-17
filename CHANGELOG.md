@@ -4,6 +4,22 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-17 — Copy bonsai (idioms & one-liners)
+
+### Narrative clarity (`index.html`)
+- **Canon once:** hero ritual strip owns “Map · practice · save place — that is the whole idea”
+- **Prune loop restarts:** cut duplicate “whole idea” / three-moves stackers in Solution + How it works
+- **Plain language:** closed loop → *loop that holds when life interrupts*; honest pressure (not “real”); You — alone or with a team
+- **Skill stickiness:** one phrase — *still works next month* (drop “survives the calendar” on first path)
+- **Save place first-time path:** lead with public names; demote CSS/CMS monograms; surveillance → chat archive
+- **Guides blurbs:** no *sausage* / *thrash* — plain product / re-finding yourself
+- **Why:** quality bar alone as closer; less engine recitation
+
+### Cache
+- `styles.css?v=tcf-copy-bonsai1`
+
+---
+
 ## 2026-07-15 — Hero funnel, kbase product docs, motion mark
 
 ### Funnel
