@@ -4,6 +4,26 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-19 — Product gallery (real SSes, sharp scrub)
+
+### `#product`
+- Live desktop screenshots: Deep · Practice · Save place · thin SoR · Help/shell
+- Story order matches the ritual: map · practice · save place, then workflow, then shell
+- Public scrub: no school chip (WGU→Accounting), LLM label = **Assistant** (provider customizable), no last-name chrome
+- Sharp pipeline: `scripts/scrub_product_screenshots.py` from original W11 PNGs (no multi-pass generative smear)
+- Image cache bust `?v=pg1`
+- Profiles tile **skipped** (parked)
+- **Click-to-enlarge lightbox:** full-res `object-contain` popup (Esc / backdrop / ×); `cursor-zoom-in` + “Click to enlarge” hint
+- Top-bar display name → **Learner** (pixel scrub from originals; no generative smear); image cache `?v=pg2`
+- Footer site map: **Product** → `#product` (same order as top nav)
+- Product platforms: **Windows + Android** now; **macOS & iOS — coming soon** (readiness, not Capes)
+- Android gallery strip: Deep · Practice · Save · chat (from device SSes; Grok→Assistant pixel scrub); `scripts/scrub_android_screenshots.py`
+
+### Docs
+- `docs/SITE_PRODUCT_GALLERY_NOTES.md` — brand rules, scrub policy, legibility rule
+
+---
+
 ## 2026-07-17 — Copy bonsai (idioms & one-liners)
 
 ### Narrative clarity (`index.html`)

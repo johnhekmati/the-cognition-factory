@@ -336,6 +336,137 @@
     @apply block w-full aspect-square object-contain rounded-xl bg-void
            border border-white/10 mx-auto;
   }
+
+  /* Product gallery — click-to-enlarge */
+  .product-shot {
+    position: relative;
+  }
+
+  .product-shot::after {
+    content: 'Click to enlarge';
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    padding: 0.3rem 0.55rem;
+    border-radius: 0.375rem;
+    font-family: ui-monospace, 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(226, 232, 240, 0.85);
+    background: rgba(5, 8, 16, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+  }
+
+  .product-shot:hover::after,
+  .product-shot:focus-visible::after {
+    opacity: 1;
+  }
+
+  @media (max-width: 640px) {
+    .product-shot::after {
+      opacity: 0.85;
+      font-size: 0.58rem;
+    }
+  }
+
+  .product-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .product-lightbox.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .product-lightbox[hidden] {
+    display: none !important;
+  }
+
+  .product-lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: zoom-out;
+    background: rgba(5, 8, 16, 0.88);
+    backdrop-filter: blur(8px);
+  }
+
+  .product-lightbox__frame {
+    position: relative;
+    z-index: 1;
+    max-width: min(96vw, 1400px);
+    max-height: min(92vh, 1000px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .product-lightbox__img {
+    display: block;
+    max-width: 100%;
+    max-height: min(84vh, 920px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+    background: #0a0e18;
+  }
+
+  .product-lightbox__caption {
+    font-family: ui-monospace, 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(148, 163, 184, 0.95);
+    text-align: center;
+    margin: 0;
+  }
+
+  .product-lightbox__close {
+    position: absolute;
+    top: -0.35rem;
+    right: -0.35rem;
+    z-index: 2;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(5, 8, 16, 0.9);
+    color: #e2e8f0;
+    font-size: 1.35rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+
+  .product-lightbox__close:hover,
+  .product-lightbox__close:focus-visible {
+    border-color: rgba(0, 212, 255, 0.45);
+    color: #fff;
+    background: rgba(10, 16, 28, 0.95);
+    outline: none;
+  }
 }
 
 @layer utilities {

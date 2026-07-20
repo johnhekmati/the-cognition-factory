@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSectionVideos();
   initContextVideo();
   initResourceFilters();
+  initProductLightbox();
 });
 
 /* ── Sticky nav background on scroll ── */
@@ -414,4 +415,62 @@ function initRevealAnimations() {
   );
 
   targets.forEach((el) => observer.observe(el));
+}
+
+/* ── Product gallery lightbox (full-res screenshots) ── */
+function initProductLightbox() {
+  const root = document.getElementById('product-lightbox');
+  const img = document.getElementById('product-lightbox-img');
+  const caption = document.getElementById('product-lightbox-caption');
+  const triggers = document.querySelectorAll('[data-lightbox-src]');
+
+  if (!root || !img || !triggers.length) return;
+
+  let lastFocus = null;
+
+  const close = () => {
+    if (root.hasAttribute('hidden')) return;
+    root.setAttribute('hidden', '');
+    root.classList.remove('is-open');
+    document.body.style.overflow = '';
+    img.removeAttribute('src');
+    img.alt = '';
+    if (caption) caption.textContent = '';
+    if (lastFocus && typeof lastFocus.focus === 'function') {
+      lastFocus.focus();
+    }
+    lastFocus = null;
+  };
+
+  const open = (trigger) => {
+    const src = trigger.getAttribute('data-lightbox-src');
+    if (!src) return;
+    lastFocus = document.activeElement;
+    img.src = src;
+    img.alt = trigger.getAttribute('data-lightbox-alt') || '';
+    if (caption) {
+      caption.textContent = trigger.getAttribute('data-lightbox-caption') || '';
+    }
+    root.removeAttribute('hidden');
+    // next frame so CSS can transition
+    requestAnimationFrame(() => root.classList.add('is-open'));
+    document.body.style.overflow = 'hidden';
+    const closeBtn = root.querySelector('.product-lightbox__close');
+    closeBtn?.focus();
+  };
+
+  triggers.forEach((btn) => {
+    btn.addEventListener('click', () => open(btn));
+  });
+
+  root.querySelectorAll('[data-lightbox-close]').forEach((el) => {
+    el.addEventListener('click', close);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !root.hasAttribute('hidden')) {
+      e.preventDefault();
+      close();
+    }
+  });
 }
