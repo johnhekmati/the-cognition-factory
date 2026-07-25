@@ -3,3 +3,6 @@ tailwindcss.exe
 terminals/
 mcps/
 .git/
+
+# Operator docs — versioned in repo, never deployed to the public site
+docs/

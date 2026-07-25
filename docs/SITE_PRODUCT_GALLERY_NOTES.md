@@ -27,6 +27,15 @@
 **One-line public:**  
 *After the map and the quiz, some skills need hands on a process — we run a thin, Dynamics-shaped practice floor for that muscle. Not a Microsoft product. Not full ERP theater.*
 
+## Imagine marketing (2026-07-20 reset spend)
+
+| File | Use | Note |
+|------|-----|------|
+| `assets/images/tcf-mark-void-electric-v1.jpg` | LI square / optional OG trial | Dual-hemisphere void+electric; **no text** |
+| `assets/images/tcf-three-doors-banner-v1.jpg` | Mail header / LI wide | Map · practice · park abstract triad; **no text** |
+
+Product UI screenshots still use **pixel scrub only** — never multi-pass gen.
+
 ## Assets (operator pick — 2026-07-20)
 
 | File | Source | Subject | Scrub |
