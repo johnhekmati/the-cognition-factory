@@ -4,6 +4,33 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-25 — Dojo + Who trains here (funnel pass)
+
+### New sections (`index.html`)
+- **`#dojo`** (after `#aae`, plasma accent): scenario-pack practice — *deliver it when it's messy*
+  - Recognize → recall → **deliver** ladder strip
+  - Three public-safe scenario teasers (closed period / 3-way disagreement / messy dump → plan) — flavor only, no cart IDs or core paths from `tcf-production`
+  - CMS as quiet layer: one line ("same map … all three telling one story"); no ERP/Dynamics, no cert claims, no job guarantees
+- **`#who`** (after `#dojo`): three ICP cards — Solo learners (electric) · Teams ramp/cross-skill (amber) · Partners screening for delivery over cert walls (plasma); each with `#contact` CTA
+
+### Tie-ins
+- Nav + mobile menu + footer site map: **Dojo** link after Practice (desktop nav gap 7→6)
+- Hero: third register line — *For partners who need proof of delivery — not a wall of certs*
+- `#loop`: map/pack paragraph now points to the Dojo for real-world reps
+- `#aae`: "Then step into the Dojo →" handoff link
+- `#systems`: teams glass-card trimmed to a one-line briefing link (was duplicating `#who`)
+
+### Hero — stick the landing
+- Hero banner no longer loops forever: **two full passes → decelerate (~1.6s window, down to 0.45×) → hold the composed CF mark**
+- Frame chrome settles with the landing: border + soft electric bloom ease in over 1.6s (`#hero-video-wrap.is-landed`)
+- Click the landed banner for one quiet replay pass; reduced-motion still gets the static poster
+- `js/main.js` single-video path only; section/context videos untouched
+
+### Cache
+- `styles.css?v=tcf-dojo1` · `main.js?v=hero-land1`
+
+---
+
 ## 2026-07-19 — Product gallery (real SSes, sharp scrub)
 
 ### `#product`

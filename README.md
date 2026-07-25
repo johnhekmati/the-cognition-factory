@@ -17,7 +17,9 @@ Public marketing site for [The Cognition Factory](https://thecognitionfactory.co
 
 > Depth builds. Practice proves. Save place keeps the loop alive. **That is TCF.**
 
-**Funnel (page order):** Hero → Enemy → How it works → Deep learning → Practice → Cores → Save place → Research → Architect → Contact.
+**Funnel (page order):** Hero → Enemy → Solution → How it works → Deep learning → Practice → **Dojo** → **Who trains here** → Your map → Save place → Product → Guides → Why → Contact.
+
+**Dojo (`#dojo`):** public name for the app's scenario-pack surface — deliver under pressure, plasma accent. (Gym Floor is the SoR companion site's surface — never on this site.)
 
 ### Selective collateral (private · request only)
 

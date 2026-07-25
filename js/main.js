@@ -267,12 +267,58 @@ function initHeroVideos() {
   video.addEventListener('loadedmetadata', syncHeroAspect);
   if (video.readyState >= 1) syncHeroAspect();
 
-  // Single banner — no HAL-E ↔ AAE crossfade
+  // Single banner — play like a title sequence, then stick the landing.
+  // Two full passes, decelerate on final approach, hold the composed mark.
   if (videos.length < 2) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       video.pause();
       return;
     }
+
+    const HERO_PLAYS = 2; // full passes before landing
+    const LAND_WINDOW_S = 1.6; // deceleration window on the final pass
+    const LAND_MIN_RATE = 0.45; // slowest speed as it settles
+
+    video.loop = false;
+
+    let pass = 1;
+    let landed = false;
+
+    video.addEventListener('timeupdate', () => {
+      if (pass < HERO_PLAYS || !Number.isFinite(video.duration)) return;
+      const remaining = video.duration - video.currentTime;
+      if (remaining <= LAND_WINDOW_S) {
+        const t = Math.max(remaining / LAND_WINDOW_S, 0);
+        video.playbackRate = LAND_MIN_RATE + (1 - LAND_MIN_RATE) * t;
+      }
+    });
+
+    video.addEventListener('ended', () => {
+      if (pass < HERO_PLAYS) {
+        pass += 1;
+        video.currentTime = 0;
+        video.play().catch(() => {});
+        return;
+      }
+      // Landed: hold the final frame; frame chrome settles via CSS
+      landed = true;
+      video.playbackRate = 1;
+      if (wrap) wrap.classList.add('is-landed');
+    });
+
+    // Quiet affordance: click the landed banner to run one more pass
+    if (wrap) {
+      wrap.addEventListener('click', () => {
+        if (!landed) return;
+        landed = false;
+        pass = HERO_PLAYS;
+        wrap.classList.remove('is-landed');
+        video.currentTime = 0;
+        video.playbackRate = 1;
+        video.play().catch(() => {});
+      });
+    }
+
     video.play().catch(() => {});
     return;
   }

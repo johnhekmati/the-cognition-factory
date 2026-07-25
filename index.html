@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=tcf-product-lb1" />
+  <link rel="stylesheet" href="/css/styles.css?v=tcf-dojo1" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -58,10 +58,11 @@
           </span>
         </a>
 
-        <div class="hidden lg:flex items-center gap-7">
+        <div class="hidden lg:flex items-center gap-6">
           <a href="#loop" class="nav-link" data-nav>How it works</a>
           <a href="#hale" class="nav-link" data-nav>Deep learning</a>
           <a href="#aae" class="nav-link" data-nav>Practice</a>
+          <a href="#dojo" class="nav-link" data-nav>Dojo</a>
           <a href="#systems" class="nav-link" data-nav>Your map</a>
           <a href="#platform" class="nav-link" data-nav>Save place</a>
           <a href="#product" class="nav-link" data-nav>Product</a>
@@ -85,6 +86,7 @@
           <a href="#loop" class="nav-link py-2" data-nav>How it works</a>
           <a href="#hale" class="nav-link py-2" data-nav>Deep learning</a>
           <a href="#aae" class="nav-link py-2" data-nav>Practice</a>
+          <a href="#dojo" class="nav-link py-2" data-nav>Dojo</a>
           <a href="#systems" class="nav-link py-2" data-nav>Your map</a>
           <a href="#platform" class="nav-link py-2" data-nav>Save place</a>
           <a href="#product" class="nav-link py-2" data-nav>Product</a>
@@ -112,11 +114,12 @@
         >
           <div class="hero-video-stage">
             <!-- CF monogram hero loop (Path A brand swap) -->
+            <!-- No loop attr: JS runs a title-sequence (two passes, decelerate, land on final frame) -->
             <video
               data-hero-video
               data-hero-label="TCF"
               class="hero-video is-active"
-              autoplay muted loop playsinline
+              autoplay muted playsinline
               poster="/assets/images/CogFacHeroBanner-Update.jpg?v=cf2"
             >
               <!-- Landscape 1280×720. Black variant is portrait 640×1408 — cover in 16:9 blows up the mark. -->
@@ -132,8 +135,11 @@
           <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight gradient-text-rev mb-2">
             For busy adults who need upskilling that sticks
           </p>
-          <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight gradient-text-rev mb-5 max-w-2xl mx-auto leading-snug">
+          <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight gradient-text-rev mb-2 max-w-2xl mx-auto leading-snug">
             For institutions that need upskilling, proof under pressure, and retention that holds.
+          </p>
+          <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight gradient-text-rev mb-5 max-w-2xl mx-auto leading-snug">
+            For partners who need proof of delivery — not a wall of certs.
           </p>
 
           <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.08] text-balance">
@@ -302,6 +308,8 @@
           Your <span class="text-gray-300">map</span> is the long-term picture of a subject.
           Your <span class="text-gray-300">practice pack</span> is a quiz set built from that map —
           so what you learn and what you get tested on stay the same story.
+          And when you need real-world reps, <a href="#dojo" class="text-plasma-glow hover:text-plasma transition-colors">the Dojo</a>
+          runs scenario packs from that same map.
         </p>
 
         <div class="llm-core-note max-w-3xl mx-auto mt-10 md:mt-12" data-reveal>
@@ -493,7 +501,152 @@
             <p class="mt-8 font-mono text-xs uppercase tracking-[0.2em] text-gray-500">
               HAL-E Deep Learning builds · AAE Practice proves
             </p>
+            <a href="#dojo" class="inline-flex items-center gap-1 text-plasma-glow text-sm font-medium mt-5 hover:gap-2 transition-all">
+              Then step into the Dojo
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </a>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         DOJO — scenario packs · deliver under pressure
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="dojo" class="section-padding relative bg-void-50/50">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-plasma/[0.03] to-transparent pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto relative">
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16" data-reveal>
+          <span class="section-label text-plasma-glow">The Dojo · Scenario practice</span>
+          <h2 class="section-title">Deliver it when it’s messy</h2>
+          <p class="text-plasma-glow font-mono text-sm mt-2">Real scenarios · not another quiz</p>
+          <p class="text-white font-medium mt-6 text-lg">
+            For skills you need to <em>use</em> — not just pass.
+          </p>
+          <p class="mt-4 text-gray-400 leading-relaxed text-balance">
+            Practice proves you know it. The <span class="text-gray-300">Dojo</span> proves you can deliver it.
+            Scenario packs drop you into the middle of real work — half-finished, on a clock,
+            with something at stake — and ask for the call you would have to make on the job.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-3 max-w-3xl mx-auto mb-12 md:mb-16" data-reveal aria-label="From recognizing to delivering">
+          <div class="rounded-lg border border-white/10 bg-white/[0.02] px-4 py-4 text-center">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-gray-500 block">Most content stops at</span>
+            <span class="text-gray-300 text-sm font-medium mt-1.5 block">Recognizing it</span>
+          </div>
+          <div class="rounded-lg border border-amber/20 bg-amber/[0.03] px-4 py-4 text-center">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-gray-500 block">Practice gets you to</span>
+            <span class="text-amber-glow text-sm font-medium mt-1.5 block">Recalling it</span>
+          </div>
+          <div class="rounded-lg border border-plasma/25 bg-plasma/[0.05] px-4 py-4 text-center">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-gray-500 block">The Dojo asks for</span>
+            <span class="text-plasma-glow text-sm font-medium mt-1.5 block">Delivering it</span>
+          </div>
+        </div>
+
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-gray-500 text-center mb-6" data-reveal>
+          From real scenario packs — the flavor, not the answer key
+        </p>
+        <div class="grid md:grid-cols-3 gap-4 mb-12 md:mb-16" data-reveal>
+          <article class="glass-card p-6 md:p-7 border-plasma/10 h-full flex flex-col">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-plasma-glow">Scenario 01</span>
+            <h3 class="text-white font-semibold mt-3">The period is closed. The invoice isn’t.</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed flex-1">
+              A late invoice lands with pressure behind it. Post it, defer it, or escalate —
+              and defend the call without rewriting the books.
+            </p>
+            <p class="mt-5 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-gray-600">Trains · judgment under pressure</p>
+          </article>
+          <article class="glass-card p-6 md:p-7 border-plasma/10 h-full flex flex-col">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-plasma-glow">Scenario 02</span>
+            <h3 class="text-white font-semibold mt-3">Three documents. One disagreement.</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed flex-1">
+              An invoice, an order, and a receipt don’t agree. Find which one is wrong
+              and fix the right thing — forcing the match is not an option.
+            </p>
+            <p class="mt-5 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-gray-600">Trains · root-cause discipline</p>
+          </article>
+          <article class="glass-card p-6 md:p-7 border-plasma/10 h-full flex flex-col">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-plasma-glow">Scenario 03</span>
+            <h3 class="text-white font-semibold mt-3">A messy dump becomes a plan.</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed flex-1">
+              A wall of half-organized notes lands on you. Turn it into work someone
+              could actually build against — with acceptance criteria that hold up.
+            </p>
+            <p class="mt-5 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-gray-600">Trains · structure out of chaos</p>
+          </article>
+        </div>
+
+        <div class="max-w-3xl mx-auto text-center" data-reveal>
+          <p class="text-gray-400 text-sm md:text-base leading-relaxed text-balance">
+            Same factory, harder floor. Every scenario pack is built from the same map as your
+            deep learning and practice — the quiet layer underneath keeps all three telling one story,
+            so the Dojo tests what you actually built. No trick questions from nowhere.
+          </p>
+          <p class="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-gray-500">
+            Practice asks “do you know it?” · The Dojo asks “can you deliver it?”
+          </p>
+          <a href="#who" class="btn-secondary mt-8 inline-flex">See who trains here →</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         WHO TRAINS HERE — solo · teams · partners
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="who" class="section-padding relative">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16" data-reveal>
+          <span class="section-label">Who trains here</span>
+          <h2 class="section-title">Three ways in — same factory</h2>
+          <p class="section-subtitle mx-auto">
+            One loop of map, practice, and save place — pointed at different jobs to be done.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6" data-reveal>
+          <article class="glass-card p-8 h-full flex flex-col">
+            <span class="font-mono text-xs uppercase tracking-[0.2em] text-electric">Solo learners</span>
+            <h3 class="font-display text-xl font-semibold text-white mt-3">Upskill through real life</h3>
+            <p class="text-gray-400 text-sm mt-3 leading-relaxed flex-1">
+              You bring the dedication; life brings the interruptions. For motivated self-learners
+              accelerating a skill around work, family, and a budget — the loop holds through messy
+              weeks, and save place makes short sessions count.
+            </p>
+            <a href="#contact" class="inline-flex items-center gap-1 text-electric text-sm font-medium mt-6 hover:gap-2 transition-all">
+              Start the conversation
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </a>
+          </article>
+          <article class="glass-card p-8 h-full flex flex-col">
+            <span class="font-mono text-xs uppercase tracking-[0.2em] text-amber-glow">Teams</span>
+            <h3 class="font-display text-xl font-semibold text-white mt-3">Ramp and cross-skill, faster</h3>
+            <p class="text-gray-400 text-sm mt-3 leading-relaxed flex-1">
+              Shave time off onboarding and cross-skilling without seat-time theater.
+              Custom maps and practice packs on your standards, Dojo scenarios on your real
+              work — so day one on the new job is a context switch, not a cold start.
+            </p>
+            <a href="#contact" class="inline-flex items-center gap-1 text-amber-glow text-sm font-medium mt-6 hover:gap-2 transition-all">
+              Request a team briefing
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </a>
+          </article>
+          <article class="glass-card p-8 h-full flex flex-col">
+            <span class="font-mono text-xs uppercase tracking-[0.2em] text-plasma-glow">Partners</span>
+            <h3 class="font-display text-xl font-semibold text-white mt-3">Screen for delivery, not decoration</h3>
+            <p class="text-gray-400 text-sm mt-3 leading-relaxed flex-1">
+              A wall of certificates says what someone finished — not what they can do under
+              pressure. Put a candidate in a Dojo scenario and watch how they work,
+              before you put them in front of a client.
+            </p>
+            <a href="#contact" class="inline-flex items-center gap-1 text-plasma-glow text-sm font-medium mt-6 hover:gap-2 transition-all">
+              Ask about screening
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </a>
+          </article>
         </div>
       </div>
     </section>
@@ -583,18 +736,10 @@
           </div>
         </div>
 
-        <div class="max-w-3xl mx-auto glass-card p-6 md:p-8 border-white/5" data-reveal>
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-gray-500 mb-3">Teams &amp; institutions</p>
-          <h3 class="font-display text-lg font-semibold text-white">Same loop · your outcomes</h3>
-          <p class="text-gray-500 text-sm mt-3 leading-relaxed">
-            Custom maps and practice packs for faster training, skill checks,
-            or learning several skills at once — same Cognition Factory, fitted to your goals.
-          </p>
-          <a href="#contact" class="inline-flex items-center gap-1 text-electric text-sm font-medium mt-5 hover:gap-2 transition-all">
-            Request a team or institutional briefing
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-          </a>
-        </div>
+        <p class="text-center text-gray-500 text-sm leading-relaxed" data-reveal>
+          Teams &amp; institutions: same loop, fitted to your outcomes —
+          <a href="#contact" class="text-electric hover:text-electric/80 transition-colors">request a briefing</a>.
+        </p>
       </div>
     </section>
 
@@ -1366,6 +1511,7 @@
           <a href="#loop" class="text-gray-500 hover:text-electric text-sm transition-colors">How it works</a>
           <a href="#hale" class="text-gray-500 hover:text-electric text-sm transition-colors">Deep learning</a>
           <a href="#aae" class="text-gray-500 hover:text-electric text-sm transition-colors">Practice</a>
+          <a href="#dojo" class="text-gray-500 hover:text-electric text-sm transition-colors">Dojo</a>
           <a href="#systems" class="text-gray-500 hover:text-electric text-sm transition-colors">Your map</a>
           <a href="#platform" class="text-gray-500 hover:text-electric text-sm transition-colors">Save place</a>
           <a href="#product" class="text-gray-500 hover:text-electric text-sm transition-colors">Product</a>
@@ -1412,6 +1558,14 @@
       overflow: hidden;
       border-radius: 0.75rem;
       border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: border-color 1.6s ease, box-shadow 1.6s ease;
+    }
+
+    /* Stick the landing — after the final pass the frame chrome settles too */
+    #hero-video-wrap.is-landed {
+      border-color: rgba(0, 212, 255, 0.22);
+      box-shadow: 0 0 48px rgba(0, 212, 255, 0.1), 0 0 120px rgba(0, 212, 255, 0.05);
+      cursor: pointer;
     }
 
     @media (min-width: 768px) {
@@ -1539,6 +1693,6 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=product-lb1" defer></script>
+  <script src="/js/main.js?v=hero-land1" defer></script>
 </body>
 </html>
