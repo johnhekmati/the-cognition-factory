@@ -29,6 +29,11 @@ jobs:
       - name: Build Tailwind CSS
         run: npm run build
 
+      # wrangler pages deploy uploads the whole directory and does NOT honor
+      # .wranglerignore — prune operator-only folders so they never go public.
+      - name: Prune non-public files
+        run: rm -rf docs mcps
+
       - name: Deploy to Cloudflare Pages
         run: npx wrangler pages deploy --project-name=the-cognition-factory --branch=main --commit-dirty=true
         env:
