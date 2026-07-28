@@ -31,14 +31,16 @@ jobs:
 
       # wrangler pages deploy uploads the whole directory and does NOT honor
       # .wranglerignore — prune operator-only folders so they never go public.
+      # Keep wrangler.jsonc (pages_build_output_dir). Always pass "." to deploy.
       - name: Prune non-public files
         run: |
           rm -rf docs mcps workers scripts src node_modules terminals
-          rm -f package.json package-lock.json wrangler.jsonc tailwind.config.js
+          rm -f package.json package-lock.json tailwind.config.js
           rm -f CHANGELOG.md README.md .gitignore .wranglerignore
           rm -rf .github
+
       - name: Deploy to Cloudflare Pages
-        run: npx wrangler pages deploy --project-name=the-cognition-factory --branch=main --commit-dirty=true
+        run: npx wrangler pages deploy . --project-name=the-cognition-factory --branch=main --commit-dirty=true
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
