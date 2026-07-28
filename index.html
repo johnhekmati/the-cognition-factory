@@ -1567,18 +1567,18 @@
         linear-gradient(#050810, #050810),
         linear-gradient(
           125deg,
-          var(--hero-electric) 0%,
-          rgba(0, 212, 255, 0.75) 32%,
-          rgba(124, 58, 237, 0.55) 48%,
-          var(--hero-plasma) 62%,
-          var(--hero-plasma-pink) 82%,
-          var(--hero-plasma-glow) 100%
+          rgba(0, 212, 255, 0.55) 0%,
+          rgba(0, 212, 255, 0.35) 32%,
+          rgba(124, 58, 237, 0.32) 48%,
+          rgba(124, 58, 237, 0.45) 62%,
+          rgba(217, 70, 239, 0.4) 82%,
+          rgba(167, 139, 250, 0.4) 100%
         );
       background-origin: border-box;
       background-clip: padding-box, border-box;
     }
 
-    /* Soft bloom layers — separate L/R so cyan does not wash out purple */
+    /* Soft bloom — half the prior silhouette; same L/R split */
     #hero-video-wrap.hero-manifesto-media::before,
     #hero-video-wrap.hero-manifesto-media::after {
       content: "";
@@ -1590,48 +1590,48 @@
 
     /* Electric: left edge → bottom-left half */
     #hero-video-wrap.hero-manifesto-media::before {
-      inset: -12% -8% -14% -18%;
+      inset: -6% -4% -7% -9%;
       background:
         radial-gradient(
-          ellipse 70% 90% at 0% 45%,
-          rgba(0, 212, 255, 0.55) 0%,
-          rgba(0, 212, 255, 0.22) 38%,
+          ellipse 55% 75% at 0% 45%,
+          rgba(0, 212, 255, 0.28) 0%,
+          rgba(0, 212, 255, 0.1) 40%,
           transparent 68%
         ),
         radial-gradient(
-          ellipse 65% 70% at 8% 100%,
-          rgba(51, 224, 255, 0.42) 0%,
-          rgba(0, 168, 204, 0.16) 45%,
+          ellipse 50% 55% at 8% 100%,
+          rgba(51, 224, 255, 0.2) 0%,
+          rgba(0, 168, 204, 0.08) 45%,
           transparent 70%
         );
-      filter: blur(18px);
-      opacity: 0.95;
+      filter: blur(11px);
+      opacity: 0.55;
     }
 
     /* Plasma: top-right → right edge → bottom-right half */
     #hero-video-wrap.hero-manifesto-media::after {
-      inset: -14% -18% -12% -8%;
+      inset: -7% -9% -6% -4%;
       background:
         radial-gradient(
-          ellipse 70% 85% at 100% 28%,
-          rgba(167, 139, 250, 0.5) 0%,
-          rgba(124, 58, 237, 0.28) 40%,
+          ellipse 55% 70% at 100% 28%,
+          rgba(167, 139, 250, 0.24) 0%,
+          rgba(124, 58, 237, 0.12) 40%,
           transparent 68%
         ),
         radial-gradient(
-          ellipse 75% 90% at 100% 55%,
-          rgba(124, 58, 237, 0.58) 0%,
-          rgba(192, 38, 211, 0.28) 42%,
+          ellipse 58% 75% at 100% 55%,
+          rgba(124, 58, 237, 0.28) 0%,
+          rgba(192, 38, 211, 0.12) 42%,
           transparent 70%
         ),
         radial-gradient(
-          ellipse 70% 75% at 92% 100%,
-          rgba(217, 70, 239, 0.52) 0%,
-          rgba(124, 58, 237, 0.26) 42%,
+          ellipse 55% 60% at 92% 100%,
+          rgba(217, 70, 239, 0.26) 0%,
+          rgba(124, 58, 237, 0.12) 42%,
           transparent 70%
         );
-      filter: blur(18px);
-      opacity: 1;
+      filter: blur(11px);
+      opacity: 0.58;
     }
 
     /* Legacy class kept for parity; glow is default now */
