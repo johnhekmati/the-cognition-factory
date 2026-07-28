@@ -7,8 +7,10 @@
  *
  * Optional var: CONTACT_TO_EMAIL (defaults to contact@thecognitionfactory.com)
  *
- * Abuse controls: Origin/Referer allowlist, field length caps, subject sanitize,
- * per-isolate IP rate limit (pair with Cloudflare WAF rate rules in dashboard).
+ * Abuse controls:
+ * - Origin/Referer allowlist (fail closed if both missing)
+ * - Field length caps + subject sanitize
+ * - Dual rate limit: isolate Map + Cache API (edge), still pair with CF WAF
  */
 
 const DEFAULT_TO = 'contact@thecognitionfactory.com';
@@ -31,7 +33,21 @@ const CAPS = {
 /** @type {Map<string, { count: number, reset: number }>} */
 const rateBuckets = new Map();
 const RATE_WINDOW_MS = 60_000;
-const RATE_MAX = 8;
+const RATE_MAX = 5;
+
+/** POST only — reject GET form fallbacks. */
+export async function onRequest(context) {
+  if (context.request.method !== 'POST') {
+    return json(
+      {
+        success: false,
+        error: 'Method not allowed. Use POST.',
+      },
+      405
+    );
+  }
+  return onRequestPost(context);
+}
 
 export async function onRequestPost({ request, env }) {
   const accessKey = (env.WEB3FORMS_ACCESS_KEY || '').toString().trim();
@@ -52,7 +68,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   const ip = clientIp(request);
-  if (!rateAllow(ip)) {
+  if (!(await rateAllow(ip))) {
     return json(
       {
         success: false,
@@ -83,9 +99,8 @@ export async function onRequestPost({ request, env }) {
     (formData.get('last-name') || '').toString().trim(),
     CAPS.lastName
   );
-  const email = clip(
-    (formData.get('email') || '').toString().trim(),
-    CAPS.email
+  const email = sanitizeHeader(
+    clip((formData.get('email') || '').toString().trim(), CAPS.email)
   );
   const organization =
     clip(
@@ -211,18 +226,25 @@ function isPlausibleEmail(email) {
   return true;
 }
 
+/**
+ * Fail closed: require Origin and/or Referer, and hostname must be allowlisted.
+ * Bare curl without those headers is rejected (RED-01).
+ */
 function originAllowed(request) {
   const origin = request.headers.get('Origin');
   const referer = request.headers.get('Referer');
-  // Non-browser / curl: allow (rate limit still applies). Browsers send Origin or Referer.
-  if (!origin && !referer) return true;
+  if (!origin && !referer) return false;
+
   const candidates = [origin, referer].filter(Boolean);
   for (const raw of candidates) {
     try {
       const u = new URL(raw);
       if (ALLOWED_HOSTS.has(u.hostname)) return true;
       // Cloudflare Pages preview deploys
-      if (u.hostname.endsWith('.pages.dev') && u.hostname.includes('the-cognition-factory')) {
+      if (
+        u.hostname.endsWith('.pages.dev') &&
+        u.hostname.includes('the-cognition-factory')
+      ) {
         return true;
       }
     } catch {
@@ -240,21 +262,63 @@ function clientIp(request) {
   );
 }
 
-function rateAllow(ip) {
+/**
+ * Dual rate limit: isolate memory + Cache API (shareder across isolates/colos).
+ * Still pair with Cloudflare WAF rate rules for hard multi-IP defense.
+ */
+async function rateAllow(ip) {
   const now = Date.now();
-  let bucket = rateBuckets.get(ip);
+  const key = String(ip || 'unknown');
+
+  // Layer 1 — this isolate (fast fail)
+  let bucket = rateBuckets.get(key);
   if (!bucket || now > bucket.reset) {
     bucket = { count: 0, reset: now + RATE_WINDOW_MS };
-    rateBuckets.set(ip, bucket);
+    rateBuckets.set(key, bucket);
   }
   bucket.count += 1;
-  // Bound map growth
   if (rateBuckets.size > 5000) {
     for (const [k, v] of rateBuckets) {
       if (now > v.reset) rateBuckets.delete(k);
     }
   }
-  return bucket.count <= RATE_MAX;
+  if (bucket.count > RATE_MAX) return false;
+
+  // Layer 2 — Cache API (edge, survives isolate recycle better than Map alone)
+  try {
+    const cache = caches.default;
+    const cacheKey = new Request(
+      `https://tcf-rate-limit.internal/contact/${encodeURIComponent(key)}`
+    );
+    const hit = await cache.match(cacheKey);
+    let count = 0;
+    let reset = now + RATE_WINDOW_MS;
+    if (hit) {
+      const data = await hit.json().catch(() => null);
+      if (data && typeof data.count === 'number' && typeof data.reset === 'number') {
+        if (now <= data.reset) {
+          count = data.count;
+          reset = data.reset;
+        }
+      }
+    }
+    count += 1;
+    const ttlSec = Math.max(1, Math.ceil((reset - now) / 1000));
+    await cache.put(
+      cacheKey,
+      new Response(JSON.stringify({ count, reset }), {
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': `public, max-age=${ttlSec}`,
+        },
+      })
+    );
+    if (count > RATE_MAX) return false;
+  } catch {
+    // Cache API unavailable (local) — isolate Map already applied
+  }
+
+  return true;
 }
 
 function json(data, status = 200) {
@@ -263,6 +327,7 @@ function json(data, status = 200) {
     headers: {
       'Content-Type': 'application/json',
       'Cache-Control': 'no-store',
+      'X-Content-Type-Options': 'nosniff',
     },
   });
 }

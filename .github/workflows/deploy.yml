@@ -38,6 +38,9 @@ jobs:
           rm -f package.json package-lock.json tailwind.config.js
           rm -f CHANGELOG.md README.md .gitignore .wranglerignore
           rm -rf .github
+          rm -f tailwindcss.exe tailwindcss
+          # Belt: never ship nested git metadata if present
+          rm -rf .git 2>/dev/null || true
 
       - name: Deploy to Cloudflare Pages
         run: npx wrangler pages deploy . --project-name=the-cognition-factory --branch=main --commit-dirty=true

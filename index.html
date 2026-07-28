@@ -1462,7 +1462,7 @@
                 </p>
                 <p class="text-gray-600 text-xs font-mono mt-3">Email via site · not a public download</p>
               </div>
-              <form id="partner-packet-form" class="flex-1 space-y-3 min-w-0" aria-label="Request partner and media packet">
+              <form id="partner-packet-form" class="flex-1 space-y-3 min-w-0" method="post" action="/api/contact" aria-label="Request partner and media packet">
                 <div id="partner-packet-status" class="hidden text-xs rounded-lg px-3 py-2 border" role="status" aria-live="polite"></div>
                 <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
                 <input type="hidden" name="interest" value="partner-packet" />
@@ -1579,7 +1579,7 @@
           </div>
 
           <div class="glass-card p-8 md:p-10" data-reveal>
-            <form id="contact-form" class="space-y-6" aria-label="Contact form">
+            <form id="contact-form" class="space-y-6" method="post" action="/api/contact" aria-label="Contact form">
               <div id="form-status" class="hidden text-sm rounded-lg px-4 py-3 border" role="status" aria-live="polite"></div>
 
               <!-- Honeypot — leave empty; bots that fill it are dropped server-side -->

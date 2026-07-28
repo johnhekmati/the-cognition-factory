@@ -6,6 +6,15 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-28 — Contact API abuse harden (audit re-gate)
+
+- **Origin fail-closed:** reject POST when Origin and Referer both missing (no bare curl spam)
+- **Dual rate limit:** isolate Map + Cache API; cap 5/min/IP (still pair CF WAF)
+- **POST only:** `onRequest` rejects non-POST; forms `method="post" action="/api/contact"`
+- Email field header-sanitized for replyto
+
+---
+
 ## 2026-07-28 — Guides legal triad + media row
 
 - Guides: separate **Privacy / Terms / EULA** cards (full 3-col row)
