@@ -109,26 +109,24 @@
         <!-- Restrained TCF hero banner (not full-bleed) -->
         <div
           id="hero-video-wrap"
-          class="hero-manifesto-media"
+          class="hero-manifesto-media is-landed"
           aria-label="The Cognition Factory"
         >
           <div class="hero-video-stage">
-            <!-- CF monogram hero loop (Path A brand swap) -->
-            <!-- No loop attr: JS runs a title-sequence (two passes, decelerate, land on final frame) -->
-            <video
-              data-hero-video
-              data-hero-label="TCF"
+            <!-- Static CF monogram banner; dual-tone edge glow always on (electric L / plasma R) -->
+            <img
+              data-hero-banner
               class="hero-video is-active"
-              autoplay muted playsinline
-              poster="/assets/images/cog-fac-hero-banner-new.jpg?v=cf3"
-            >
-              <!-- Landscape 1280×720 CF monogram loop. -->
-              <source src="/assets/videos/cog-fac-hero-video.mp4?v=cf3" type="video/mp4" />
-            </video>
+              src="/assets/images/cog-fac-hero-banner-new.jpg?v=cf5"
+              alt="The Cognition Factory — CF monogram"
+              width="1280"
+              height="720"
+              decoding="async"
+              fetchpriority="high"
+            />
           </div>
           <div class="hero-video-fade" aria-hidden="true"></div>
           <div class="absolute inset-0 bg-grid-pattern bg-grid opacity-10 pointer-events-none" aria-hidden="true"></div>
-          <!-- hero-engine-badge removed for cleaner banner trial -->
         </div>
 
         <div class="hero-manifesto-copy section-padding !pt-10 md:!pt-14 !pb-12 md:!pb-16 max-w-5xl mx-auto text-center">
@@ -1544,9 +1542,13 @@
       color: transparent;
     }
 
-    /* Restrained hero banner — box matches video AR so media fills the border (no side voids) */
+    /* Restrained hero banner — box matches media AR so image fills the border (no side voids) */
     #hero-video-wrap.hero-manifesto-media {
       --hero-ar: 16 / 9;
+      --hero-electric: rgba(0, 212, 255, 0.42);
+      --hero-electric-soft: rgba(0, 212, 255, 0.14);
+      --hero-plasma: rgba(124, 58, 237, 0.42);
+      --hero-plasma-soft: rgba(167, 139, 250, 0.14);
       position: relative;
       width: min(100% - 2rem, 56rem);
       max-width: 56rem;
@@ -1554,18 +1556,39 @@
       margin-right: auto;
       height: auto;
       aspect-ratio: var(--hero-ar);
-      background: #050810;
       overflow: hidden;
       border-radius: 0.75rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: border-color 1.6s ease, box-shadow 1.6s ease;
+      /* Electric (L / bottom-L) · plasma (R / top-R / bottom-R) — always on */
+      border: 1px solid transparent;
+      background-color: #050810;
+      background-image:
+        linear-gradient(#050810, #050810),
+        linear-gradient(
+          115deg,
+          rgba(0, 212, 255, 0.55) 0%,
+          rgba(0, 212, 255, 0.28) 38%,
+          rgba(124, 58, 237, 0.22) 52%,
+          rgba(167, 139, 250, 0.5) 100%
+        );
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      box-shadow:
+        /* left + bottom-left electric */
+        -28px 0 56px var(--hero-electric-soft),
+        -14px 18px 48px rgba(0, 212, 255, 0.1),
+        -6px 0 28px rgba(51, 224, 255, 0.08),
+        /* right + top/bottom-right plasma */
+        28px 0 56px var(--hero-plasma-soft),
+        14px -10px 48px rgba(124, 58, 237, 0.1),
+        10px 18px 48px rgba(167, 139, 250, 0.09),
+        /* soft ambient */
+        0 0 80px rgba(0, 212, 255, 0.04),
+        0 0 80px rgba(124, 58, 237, 0.04);
     }
 
-    /* Stick the landing — after the final pass the frame chrome settles too */
+    /* Legacy class kept for parity; glow is default now */
     #hero-video-wrap.is-landed {
-      border-color: rgba(0, 212, 255, 0.22);
-      box-shadow: 0 0 48px rgba(0, 212, 255, 0.1), 0 0 120px rgba(0, 212, 255, 0.05);
-      cursor: pointer;
+      /* no-op — dual-tone chrome is always applied above */
     }
 
     @media (min-width: 768px) {
@@ -1588,7 +1611,7 @@
       display: block;
       width: 100%;
       height: 100%;
-      /* Frame AR matches video → fills the border; cover covers 1px AR drift without letterbox */
+      /* Frame AR matches media → fills the border; cover covers 1px AR drift without letterbox */
       object-fit: cover;
       object-position: center center;
       opacity: 0;
@@ -1597,6 +1620,12 @@
       transform: none;
       transition: opacity 0.6s ease;
       will-change: opacity;
+    }
+
+    img.hero-video {
+      /* Static banner: visible immediately (no video fade-in gate) */
+      opacity: 1;
+      z-index: 3;
     }
 
     .hero-video.is-active {
@@ -1693,6 +1722,6 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=hero-land1" defer></script>
+  <script src="/js/main.js?v=hero-static1" defer></script>
 </body>
 </html>

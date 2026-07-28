@@ -225,7 +225,7 @@ function initResourceFilters() {
   });
 }
 
-/* ── Hero banner (static image and/or video, restrained band) ── */
+/* ── Hero banner (static default; optional video if re-enabled in HTML) ── */
 function initHeroVideos() {
   const videos = [...document.querySelectorAll('[data-hero-video]')];
   const bannerImg = document.querySelector('[data-hero-banner]');
@@ -236,9 +236,10 @@ function initHeroVideos() {
     labelEl.textContent = 'The Cognition Factory';
   }
 
-  // Static hero image trial — lock frame AR to intrinsic size
+  // Static hero — dual-tone glow is CSS default; lock AR to intrinsic size
   if (bannerImg && wrap) {
     bannerImg.classList.add('is-active');
+    wrap.classList.add('is-landed');
     const syncImgAspect = () => {
       const w = bannerImg.naturalWidth;
       const h = bannerImg.naturalHeight;
@@ -250,6 +251,7 @@ function initHeroVideos() {
     else bannerImg.addEventListener('load', syncImgAspect);
   }
 
+  // No hero <video> in DOM → static path only
   if (!videos.length) return;
 
   const video = videos[0];
@@ -267,17 +269,17 @@ function initHeroVideos() {
   video.addEventListener('loadedmetadata', syncHeroAspect);
   if (video.readyState >= 1) syncHeroAspect();
 
-  // Single banner — play like a title sequence, then stick the landing.
-  // Two full passes, decelerate on final approach, hold the composed mark.
+  // Optional video path — title sequence then land (glow already default in CSS)
   if (videos.length < 2) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       video.pause();
+      if (wrap) wrap.classList.add('is-landed');
       return;
     }
 
-    const HERO_PLAYS = 2; // full passes before landing
-    const LAND_WINDOW_S = 1.6; // deceleration window on the final pass
-    const LAND_MIN_RATE = 0.45; // slowest speed as it settles
+    const HERO_PLAYS = 2;
+    const LAND_WINDOW_S = 1.6;
+    const LAND_MIN_RATE = 0.45;
 
     video.loop = false;
 
@@ -300,19 +302,16 @@ function initHeroVideos() {
         video.play().catch(() => {});
         return;
       }
-      // Landed: hold the final frame; frame chrome settles via CSS
       landed = true;
       video.playbackRate = 1;
       if (wrap) wrap.classList.add('is-landed');
     });
 
-    // Quiet affordance: click the landed banner to run one more pass
     if (wrap) {
       wrap.addEventListener('click', () => {
         if (!landed) return;
         landed = false;
         pass = HERO_PLAYS;
-        wrap.classList.remove('is-landed');
         video.currentTime = 0;
         video.playbackRate = 1;
         video.play().catch(() => {});
