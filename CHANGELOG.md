@@ -17,6 +17,7 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 - CF monogram hero: static → spinner one-shot + quiet click-to-replay; dual-tone electric/plasma edge glow (half-weight)
 - Flat OS-style mark for favicon / header / footer; Connect **three-doors** banner v2 + full-width MAP / PRACTICE / SAVE PLACE chips
 - Hero reduced-motion fix (no empty frame)
+- **How we show up** rails on `#promise` — what we do / what we don’t (no theater, no cape, no guaranteed outcomes, no logo endorsement claims); Connect walk-away tightened
 
 ### Human maturity (not feature sprawl)
 - **First 10 minutes** definition of done on hero
