@@ -101,21 +101,36 @@ function initMobileMenu() {
 }
 
 /* ── Shared POST to /api/contact (Web3Forms via Pages Function) ── */
-async function submitContactForm(form, { statusEl, btn, successMessage }) {
-  const originalText = btn.textContent;
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
+async function submitContactForm(
+  form,
+  { statusEl, btn, successMessage, statusTone = 'default' }
+) {
+  if (btn?.dataset.busy === '1') return;
+  const originalText = btn?.textContent || 'Send';
+  if (btn) {
+    btn.dataset.busy = '1';
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
+  }
   if (statusEl) {
     statusEl.classList.add('hidden');
   }
+
+  const okClass =
+    statusTone === 'compact'
+      ? 'text-xs rounded-lg px-3 py-2 border border-electric/30 bg-electric/10 text-electric'
+      : 'text-sm rounded-lg px-4 py-3 border border-electric/30 bg-electric/10 text-electric';
+  const errClass =
+    statusTone === 'compact'
+      ? 'text-xs rounded-lg px-3 py-2 border border-red-500/30 bg-red-500/10 text-red-300'
+      : 'text-sm rounded-lg px-4 py-3 border border-red-500/30 bg-red-500/10 text-red-300';
 
   const showStatus = (ok, message) => {
     if (!statusEl) return;
     statusEl.classList.remove('hidden');
     statusEl.textContent = message;
-    statusEl.className = ok
-      ? 'text-sm rounded-lg px-4 py-3 border border-electric/30 bg-electric/10 text-electric'
-      : 'text-sm rounded-lg px-4 py-3 border border-red-500/30 bg-red-500/10 text-red-300';
+    statusEl.className = ok ? okClass : errClass;
   };
 
   try {
@@ -127,7 +142,7 @@ async function submitContactForm(form, { statusEl, btn, successMessage }) {
     const result = await res.json().catch(() => ({}));
 
     if (res.ok && result.success) {
-      btn.textContent = 'Request sent';
+      if (btn) btn.textContent = 'Request sent';
       form.reset();
       // Restore hidden defaults after reset (partner form interest field)
       const interest = form.querySelector('input[name="interest"][type="hidden"]');
@@ -140,22 +155,27 @@ async function submitContactForm(form, { statusEl, btn, successMessage }) {
         result.error ||
         'Failed to send. Email contact@thecognitionfactory.com directly.';
       console.error('Contact form error:', msg);
-      btn.textContent = 'Error — try again';
+      if (btn) btn.textContent = 'Error — try again';
       showStatus(false, msg);
     }
   } catch (err) {
     console.error('Contact form network error:', err);
-    btn.textContent = 'Error — try again';
+    if (btn) btn.textContent = 'Error — try again';
     showStatus(
       false,
       'Network error. Email contact@thecognitionfactory.com directly.'
     );
+  } finally {
+    // Re-enable only after the request settles (no fixed 3.5s race)
+    if (btn) {
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        btn.dataset.busy = '0';
+        btn.removeAttribute('aria-busy');
+      }, 1200);
+    }
   }
-
-  setTimeout(() => {
-    btn.textContent = originalText;
-    btn.disabled = false;
-  }, 3500);
 }
 
 /* ── Contact form ── */
@@ -196,6 +216,7 @@ function initPartnerPacketForm() {
       btn,
       successMessage:
         'Request sent. If it is a fit, we will share the packet out of band.',
+      statusTone: 'compact',
     });
   });
 }
@@ -496,6 +517,9 @@ function initProductLightbox() {
 
   let lastFocus = null;
 
+  const focusableSelector =
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
   const close = () => {
     if (root.hasAttribute('hidden')) return;
     root.setAttribute('hidden', '');
@@ -536,9 +560,26 @@ function initProductLightbox() {
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !root.hasAttribute('hidden')) {
+    if (root.hasAttribute('hidden')) return;
+    if (e.key === 'Escape') {
       e.preventDefault();
       close();
+      return;
+    }
+    // Focus trap while open
+    if (e.key !== 'Tab') return;
+    const nodes = [...root.querySelectorAll(focusableSelector)].filter(
+      (el) => !el.hasAttribute('disabled') && el.offsetParent !== null
+    );
+    if (!nodes.length) return;
+    const first = nodes[0];
+    const last = nodes[nodes.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
     }
   });
 }

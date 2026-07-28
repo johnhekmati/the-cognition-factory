@@ -38,6 +38,10 @@
 
 <body class="overflow-x-hidden">
 
+  <a href="#hero" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-void focus:text-electric focus:border focus:border-electric/40 focus:rounded-md">
+    Skip to content
+  </a>
+
   <!-- ═══════════════════════════════════════════════════════════
        NAVIGATION
        ═══════════════════════════════════════════════════════════ -->
@@ -1303,30 +1307,30 @@
               <div class="grid sm:grid-cols-2 gap-3">
                 <div>
                   <label for="pp-first" class="sr-only">First name</label>
-                  <input id="pp-first" name="first-name" required type="text" autocomplete="given-name"
+                  <input id="pp-first" name="first-name" required type="text" autocomplete="given-name" maxlength="100"
                     class="form-input !py-2 !text-sm" placeholder="First name" />
                 </div>
                 <div>
                   <label for="pp-last" class="sr-only">Last name</label>
-                  <input id="pp-last" name="last-name" required type="text" autocomplete="family-name"
+                  <input id="pp-last" name="last-name" required type="text" autocomplete="family-name" maxlength="100"
                     class="form-input !py-2 !text-sm" placeholder="Last name" />
                 </div>
               </div>
               <div class="grid sm:grid-cols-2 gap-3">
                 <div>
                   <label for="pp-email" class="sr-only">Email</label>
-                  <input id="pp-email" name="email" required type="email" autocomplete="email"
+                  <input id="pp-email" name="email" required type="email" autocomplete="email" maxlength="254"
                     class="form-input !py-2 !text-sm" placeholder="Email" />
                 </div>
                 <div>
                   <label for="pp-org" class="sr-only">Organization</label>
-                  <input id="pp-org" name="organization" type="text" autocomplete="organization"
+                  <input id="pp-org" name="organization" type="text" autocomplete="organization" maxlength="200"
                     class="form-input !py-2 !text-sm" placeholder="Organization (optional)" />
                 </div>
               </div>
               <div>
                 <label for="pp-message" class="sr-only">Why you need it</label>
-                <textarea id="pp-message" name="message" required rows="2"
+                <textarea id="pp-message" name="message" required rows="2" maxlength="5000"
                   class="form-input resize-none !py-2 !text-sm"
                   placeholder="Role / outlet and why you need the packet…"></textarea>
               </div>
@@ -1444,13 +1448,13 @@
               <div class="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label for="first-name" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">First name</label>
-                  <input type="text" id="first-name" name="first-name" required
+                  <input type="text" id="first-name" name="first-name" required maxlength="100"
                     class="form-input"
                     placeholder="Jane" autocomplete="given-name" />
                 </div>
                 <div>
                   <label for="last-name" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Last name</label>
-                  <input type="text" id="last-name" name="last-name" required
+                  <input type="text" id="last-name" name="last-name" required maxlength="100"
                     class="form-input"
                     placeholder="Smith" autocomplete="family-name" />
                 </div>
@@ -1458,14 +1462,14 @@
 
               <div>
                 <label for="email" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Email</label>
-                <input type="email" id="email" name="email" required
+                <input type="email" id="email" name="email" required maxlength="254"
                   class="form-input"
                   placeholder="you@domain.com" autocomplete="email" />
               </div>
 
               <div>
                 <label for="organization" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Organization <span class="text-gray-600 normal-case tracking-normal">(optional)</span></label>
-                <input type="text" id="organization" name="organization"
+                <input type="text" id="organization" name="organization" maxlength="200"
                   class="form-input"
                   placeholder="Solo · team · institution" autocomplete="organization" />
               </div>
@@ -1486,7 +1490,7 @@
 
               <div>
                 <label for="message" class="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Message</label>
-                <textarea id="message" name="message" rows="4" required
+                <textarea id="message" name="message" rows="4" required maxlength="5000"
                   class="form-input resize-none"
                   placeholder="Subject, constraints (time / money / attention), and what success looks like..."></textarea>
               </div>
@@ -1779,12 +1783,14 @@
         transition: none;
         transform: none;
         filter: brightness(1.05) saturate(1.05);
+        /* Single-clip hero: keep the only video visible (show poster / paused frame) */
+        opacity: 1 !important;
+        display: block !important;
       }
-      .hero-video-stage video:last-of-type {
-        display: none;
-      }
-      .hero-video-stage video:first-of-type {
-        opacity: 1;
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
       }
     }
 
@@ -1797,6 +1803,14 @@
     [data-reveal].revealed {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* No-JS / script blocked: content still readable */
+    @media (scripting: none) {
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
     }
 
     .resource-card.is-hidden {
@@ -1823,6 +1837,11 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=hero-spin1" defer></script>
+  <script src="/js/main.js?v=audit-march1" defer></script>
+  <noscript>
+    <style>
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
 </body>
 </html>

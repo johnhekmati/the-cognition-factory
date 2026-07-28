@@ -6,9 +6,32 @@
  *   Create free key at https://web3forms.com with contact@thecognitionfactory.com
  *
  * Optional var: CONTACT_TO_EMAIL (defaults to contact@thecognitionfactory.com)
+ *
+ * Abuse controls: Origin/Referer allowlist, field length caps, subject sanitize,
+ * per-isolate IP rate limit (pair with Cloudflare WAF rate rules in dashboard).
  */
 
 const DEFAULT_TO = 'contact@thecognitionfactory.com';
+const ALLOWED_HOSTS = new Set([
+  'thecognitionfactory.com',
+  'www.thecognitionfactory.com',
+  'localhost',
+  '127.0.0.1',
+]);
+
+const CAPS = {
+  firstName: 100,
+  lastName: 100,
+  email: 254,
+  organization: 200,
+  interest: 120,
+  message: 5000,
+};
+
+/** @type {Map<string, { count: number, reset: number }>} */
+const rateBuckets = new Map();
+const RATE_WINDOW_MS = 60_000;
+const RATE_MAX = 8;
 
 export async function onRequestPost({ request, env }) {
   const accessKey = (env.WEB3FORMS_ACCESS_KEY || '').toString().trim();
@@ -24,6 +47,21 @@ export async function onRequestPost({ request, env }) {
     );
   }
 
+  if (!originAllowed(request)) {
+    return json({ success: false, error: 'Invalid request origin.' }, 403);
+  }
+
+  const ip = clientIp(request);
+  if (!rateAllow(ip)) {
+    return json(
+      {
+        success: false,
+        error: 'Too many requests. Please wait a minute and try again.',
+      },
+      429
+    );
+  }
+
   let formData;
   try {
     formData = await request.formData();
@@ -31,14 +69,36 @@ export async function onRequestPost({ request, env }) {
     return json({ success: false, error: 'Invalid form submission.' }, 400);
   }
 
-  const firstName = (formData.get('first-name') || '').toString().trim();
-  const lastName = (formData.get('last-name') || '').toString().trim();
-  const email = (formData.get('email') || '').toString().trim();
+  // Honeypot — bots fill hidden "botcheck"
+  const bot = (formData.get('botcheck') || '').toString().trim();
+  if (bot) {
+    return json({ success: true });
+  }
+
+  const firstName = clip(
+    (formData.get('first-name') || '').toString().trim(),
+    CAPS.firstName
+  );
+  const lastName = clip(
+    (formData.get('last-name') || '').toString().trim(),
+    CAPS.lastName
+  );
+  const email = clip(
+    (formData.get('email') || '').toString().trim(),
+    CAPS.email
+  );
   const organization =
-    (formData.get('organization') || '').toString().trim() || 'Not provided';
+    clip(
+      (formData.get('organization') || '').toString().trim(),
+      CAPS.organization
+    ) || 'Not provided';
   const interest =
-    (formData.get('interest') || '').toString().trim() || 'Not specified';
-  const message = (formData.get('message') || '').toString().trim();
+    clip((formData.get('interest') || '').toString().trim(), CAPS.interest) ||
+    'Not specified';
+  const message = clip(
+    (formData.get('message') || '').toString().trim(),
+    CAPS.message
+  );
 
   if (!firstName || !lastName || !email || !message) {
     return json(
@@ -47,33 +107,31 @@ export async function onRequestPost({ request, env }) {
     );
   }
 
-  if (!email.includes('@') || email.length < 5) {
+  if (!isPlausibleEmail(email)) {
     return json(
       { success: false, error: 'Please provide a valid email address.' },
       400
     );
   }
 
-  // Honeypot (optional field) — bots fill hidden "botcheck"
-  const bot = (formData.get('botcheck') || '').toString().trim();
-  if (bot) {
-    return json({ success: true });
-  }
-
   const toAddress = (env.CONTACT_TO_EMAIL || DEFAULT_TO).toString().trim();
-  const fullName = `${firstName} ${lastName}`;
-  const interestLower = interest.toLowerCase();
+  const fullName = sanitizeHeader(`${firstName} ${lastName}`);
+  const interestSafe = sanitizeHeader(interest);
+  const interestLower = interestSafe.toLowerCase();
   const isPartnerPacket =
-    interest === 'partner-packet' ||
+    interestSafe === 'partner-packet' ||
     (interestLower.includes('partner') && interestLower.includes('packet'));
-  const subject = isPartnerPacket
-    ? `TCF partner packet request: ${fullName}`
-    : `TCF contact: ${fullName} — ${interest}`;
+  const subject = sanitizeHeader(
+    isPartnerPacket
+      ? `TCF partner packet request: ${fullName}`
+      : `TCF contact: ${fullName} — ${interestSafe}`
+  ).slice(0, 180);
+
   const body = [
     `Name: ${fullName}`,
     `Email: ${email}`,
     `Organization: ${organization}`,
-    `Path: ${interest}`,
+    `Path: ${interestSafe}`,
     isPartnerPacket
       ? 'Artifact: Partner & media prospectus (lineage map) — share out of band; not on public site'
       : null,
@@ -104,7 +162,6 @@ export async function onRequestPost({ request, env }) {
         email,
         from_name: 'The Cognition Factory site',
         message: body,
-        // Helps some inboxes; reply goes to submitter via Web3Forms reply-to
         replyto: email,
       }),
     });
@@ -120,7 +177,6 @@ export async function onRequestPost({ request, env }) {
       {
         success: false,
         error:
-          result.message ||
           'Sorry, something went wrong while sending your message. Please email contact@thecognitionfactory.com directly.',
       },
       502
@@ -138,9 +194,75 @@ export async function onRequestPost({ request, env }) {
   }
 }
 
+function clip(s, max) {
+  if (s.length <= max) return s;
+  return s.slice(0, max);
+}
+
+function sanitizeHeader(s) {
+  return s.replace(/[\r\n\x00-\x1f\x7f]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function isPlausibleEmail(email) {
+  if (email.length < 5 || email.length > 254) return false;
+  // Single @, local + domain with a dot; no spaces/control chars
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return false;
+  if ((email.match(/@/g) || []).length !== 1) return false;
+  return true;
+}
+
+function originAllowed(request) {
+  const origin = request.headers.get('Origin');
+  const referer = request.headers.get('Referer');
+  // Non-browser / curl: allow (rate limit still applies). Browsers send Origin or Referer.
+  if (!origin && !referer) return true;
+  const candidates = [origin, referer].filter(Boolean);
+  for (const raw of candidates) {
+    try {
+      const u = new URL(raw);
+      if (ALLOWED_HOSTS.has(u.hostname)) return true;
+      // Cloudflare Pages preview deploys
+      if (u.hostname.endsWith('.pages.dev') && u.hostname.includes('the-cognition-factory')) {
+        return true;
+      }
+    } catch {
+      /* ignore */
+    }
+  }
+  return false;
+}
+
+function clientIp(request) {
+  return (
+    request.headers.get('CF-Connecting-IP') ||
+    request.headers.get('X-Forwarded-For')?.split(',')[0]?.trim() ||
+    'unknown'
+  );
+}
+
+function rateAllow(ip) {
+  const now = Date.now();
+  let bucket = rateBuckets.get(ip);
+  if (!bucket || now > bucket.reset) {
+    bucket = { count: 0, reset: now + RATE_WINDOW_MS };
+    rateBuckets.set(ip, bucket);
+  }
+  bucket.count += 1;
+  // Bound map growth
+  if (rateBuckets.size > 5000) {
+    for (const [k, v] of rateBuckets) {
+      if (now > v.reset) rateBuckets.delete(k);
+    }
+  }
+  return bucket.count <= RATE_MAX;
+}
+
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store',
+    },
   });
 }
