@@ -6,6 +6,12 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-28 — Hero ritual chips brand color
+
+- Hero MAP / PRACTICE / SAVE PLACE chips use triad colorway (electric / amber / plasma), shared modifiers with Connect doors
+
+---
+
 ## 2026-07-28 — Story spine reorg
 
 ### Information architecture

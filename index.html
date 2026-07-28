@@ -171,9 +171,9 @@
           </p>
 
           <div class="ritual-strip mt-12" aria-label="Map, practice, and save place">
-            <span class="ritual-chip">MAP</span>
-            <span class="ritual-chip">PRACTICE</span>
-            <span class="ritual-chip">SAVE PLACE</span>
+            <span class="ritual-chip ritual-chip--map">MAP</span>
+            <span class="ritual-chip ritual-chip--practice">PRACTICE</span>
+            <span class="ritual-chip ritual-chip--save">SAVE PLACE</span>
           </div>
           <p class="mt-4 text-gray-500 text-xs md:text-sm max-w-lg mx-auto leading-relaxed">
             Map · practice · save place — that is the whole idea
@@ -1801,19 +1801,20 @@
       box-sizing: border-box;
     }
 
-    .doors-caption .ritual-chip--map {
+    /* Brand triad — hero strip + Connect doors (electric / amber / plasma) */
+    .ritual-chip--map {
       border-color: rgba(0, 212, 255, 0.45);
       color: #00d4ff;
       background: rgba(0, 212, 255, 0.08);
     }
 
-    .doors-caption .ritual-chip--practice {
+    .ritual-chip--practice {
       border-color: rgba(245, 185, 66, 0.45);
       color: #ffd06a;
       background: rgba(245, 185, 66, 0.08);
     }
 
-    .doors-caption .ritual-chip--save {
+    .ritual-chip--save {
       border-color: rgba(124, 58, 237, 0.5);
       color: #a78bfa;
       background: rgba(124, 58, 237, 0.1);
