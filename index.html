@@ -1398,15 +1398,38 @@
             <p class="text-gray-600 text-xs font-mono mt-4">Read in browser · PDF available</p>
           </a>
 
+          <!-- Legal triad — full 3-col row -->
           <a href="/assets/docs/Privacy_Policy.html" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block resource-card" data-reveal data-category="sop">
-            <div class="flex items-start gap-3 mb-3">
+            <div class="flex items-start justify-between mb-4">
+              <span class="resource-tag resource-tag--sop">Legal</span>
               <svg class="w-5 h-5 text-gray-600 group-hover:text-electric transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-white group-hover:text-electric transition-colors">Privacy · Terms · EULA</h3>
-            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Site and app legal basics — privacy, terms of service, end-user license.</p>
-            <p class="text-electric text-xs font-mono mt-4 uppercase tracking-wider">Legal pack →</p>
+            <h3 class="font-display text-lg font-semibold text-white group-hover:text-electric transition-colors">Privacy Policy</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed">How we handle site and app data — local-first defaults, contact forms, and retention basics.</p>
+            <p class="text-gray-600 text-xs font-mono mt-4">Read in browser</p>
           </a>
 
+          <a href="/assets/docs/Terms_of_Service.html" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block resource-card" data-reveal data-category="sop">
+            <div class="flex items-start justify-between mb-4">
+              <span class="resource-tag resource-tag--sop">Legal</span>
+              <svg class="w-5 h-5 text-gray-600 group-hover:text-electric transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            </div>
+            <h3 class="font-display text-lg font-semibold text-white group-hover:text-electric transition-colors">Terms of Service</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed">Site use, acceptable use, and the limits of what we promise — no outcome guarantees.</p>
+            <p class="text-gray-600 text-xs font-mono mt-4">Read in browser</p>
+          </a>
+
+          <a href="/assets/docs/EULA.html" class="glass-card p-6 group hover:border-electric/20 transition-all duration-300 block resource-card" data-reveal data-category="sop">
+            <div class="flex items-start justify-between mb-4">
+              <span class="resource-tag resource-tag--sop">Legal</span>
+              <svg class="w-5 h-5 text-gray-600 group-hover:text-electric transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+            </div>
+            <h3 class="font-display text-lg font-semibold text-white group-hover:text-electric transition-colors">EULA</h3>
+            <p class="text-gray-500 text-sm mt-2 leading-relaxed">End-user license for the desktop and mobile apps — what you can run, keep, and not resell.</p>
+            <p class="text-gray-600 text-xs font-mono mt-4">Read in browser</p>
+          </a>
+
+          <!-- Tail row: S&amp;C (1/3) + media request (2/3) -->
           <a href="/assets/docs/Security_and_Compliance_SOP.html" class="glass-card p-6 group hover:border-plasma/20 transition-all duration-300 block resource-card" data-reveal data-category="sop">
             <div class="flex items-start justify-between mb-4">
               <span class="resource-tag resource-tag--sop">SOP</span>
@@ -1414,70 +1437,68 @@
             </div>
             <h3 class="font-display text-lg font-semibold text-white group-hover:text-plasma-glow transition-colors">Security &amp; Compliance SOP</h3>
             <p class="text-gray-500 text-sm mt-2 leading-relaxed">
-              How data is handled end to end: encryption in transit and at rest, access controls,
-              audit trails, and the checks partners need before go-live. Written for operators and
-              security reviewers — not a marketing one-pager.
+              Encryption, access controls, audit trails, and checks partners need before go-live —
+              for operators and security reviewers, not a marketing one-pager.
             </p>
             <p class="text-gray-600 text-xs font-mono mt-4">Read in browser · PDF available</p>
           </a>
-        </div>
 
-        <!-- Full-width under the grid so SOP cards keep even height (form no longer sits beside them) -->
-        <div
-          class="glass-card p-6 md:p-8 border-plasma/15 mt-8 resource-card"
-          data-reveal
-          data-category="request"
-          id="partner-packet-card"
-        >
-          <div class="flex flex-col lg:flex-row lg:items-start lg:gap-10">
-            <div class="lg:w-2/5 lg:shrink-0 mb-6 lg:mb-0">
-              <div class="flex items-start justify-between mb-4">
-                <span class="resource-tag" style="border-color:rgba(167,139,250,0.35);color:#c4b5fd">Request only</span>
-                <svg class="w-5 h-5 text-gray-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          <div
+            class="glass-card p-6 md:p-7 border-plasma/15 resource-card md:col-span-2"
+            data-reveal
+            data-category="request"
+            id="partner-packet-card"
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start sm:gap-8 h-full">
+              <div class="sm:w-[38%] sm:shrink-0 mb-5 sm:mb-0">
+                <div class="flex items-start justify-between mb-3">
+                  <span class="resource-tag" style="border-color:rgba(167,139,250,0.35);color:#c4b5fd">Request only</span>
+                  <svg class="w-5 h-5 text-gray-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                </div>
+                <h3 class="font-display text-lg font-semibold text-white">Partner &amp; media packet</h3>
+                <p class="text-gray-500 text-sm mt-2 leading-relaxed">
+                  Selective brief for partners, press, and institutions — including formation lineage.
+                  Not on this site; we share out of band if it is a fit.
+                </p>
+                <p class="text-gray-600 text-xs font-mono mt-3">Email via site · not a public download</p>
               </div>
-              <h3 class="font-display text-lg md:text-xl font-semibold text-white">Partner &amp; media packet</h3>
-              <p class="text-gray-500 text-sm mt-2 leading-relaxed">
-                Selective brief for partners, press, and institutions — including formation lineage.
-                Not published on this site. Request access; we share out of band if it is a fit.
-              </p>
-              <p class="text-gray-600 text-xs font-mono mt-4">Email via site · not a public download</p>
+              <form id="partner-packet-form" class="flex-1 space-y-3 min-w-0" aria-label="Request partner and media packet">
+                <div id="partner-packet-status" class="hidden text-xs rounded-lg px-3 py-2 border" role="status" aria-live="polite"></div>
+                <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                <input type="hidden" name="interest" value="partner-packet" />
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label for="pp-first" class="sr-only">First name</label>
+                    <input id="pp-first" name="first-name" required type="text" autocomplete="given-name" maxlength="100"
+                      class="form-input !py-2 !text-sm" placeholder="First name" />
+                  </div>
+                  <div>
+                    <label for="pp-last" class="sr-only">Last name</label>
+                    <input id="pp-last" name="last-name" required type="text" autocomplete="family-name" maxlength="100"
+                      class="form-input !py-2 !text-sm" placeholder="Last name" />
+                  </div>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label for="pp-email" class="sr-only">Email</label>
+                    <input id="pp-email" name="email" required type="email" autocomplete="email" maxlength="254"
+                      class="form-input !py-2 !text-sm" placeholder="Email" />
+                  </div>
+                  <div>
+                    <label for="pp-org" class="sr-only">Organization</label>
+                    <input id="pp-org" name="organization" type="text" autocomplete="organization" maxlength="200"
+                      class="form-input !py-2 !text-sm" placeholder="Organization (optional)" />
+                  </div>
+                </div>
+                <div>
+                  <label for="pp-message" class="sr-only">Why you need it</label>
+                  <textarea id="pp-message" name="message" required rows="2" maxlength="5000"
+                    class="form-input resize-none !py-2 !text-sm"
+                    placeholder="Role / outlet and why you need the packet…"></textarea>
+                </div>
+                <button type="submit" class="btn-secondary w-full sm:w-auto !text-xs !py-2.5 !px-8">Request access</button>
+              </form>
             </div>
-            <form id="partner-packet-form" class="flex-1 space-y-3" aria-label="Request partner and media packet">
-              <div id="partner-packet-status" class="hidden text-xs rounded-lg px-3 py-2 border" role="status" aria-live="polite"></div>
-              <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
-              <input type="hidden" name="interest" value="partner-packet" />
-              <div class="grid sm:grid-cols-2 gap-3">
-                <div>
-                  <label for="pp-first" class="sr-only">First name</label>
-                  <input id="pp-first" name="first-name" required type="text" autocomplete="given-name" maxlength="100"
-                    class="form-input !py-2 !text-sm" placeholder="First name" />
-                </div>
-                <div>
-                  <label for="pp-last" class="sr-only">Last name</label>
-                  <input id="pp-last" name="last-name" required type="text" autocomplete="family-name" maxlength="100"
-                    class="form-input !py-2 !text-sm" placeholder="Last name" />
-                </div>
-              </div>
-              <div class="grid sm:grid-cols-2 gap-3">
-                <div>
-                  <label for="pp-email" class="sr-only">Email</label>
-                  <input id="pp-email" name="email" required type="email" autocomplete="email" maxlength="254"
-                    class="form-input !py-2 !text-sm" placeholder="Email" />
-                </div>
-                <div>
-                  <label for="pp-org" class="sr-only">Organization</label>
-                  <input id="pp-org" name="organization" type="text" autocomplete="organization" maxlength="200"
-                    class="form-input !py-2 !text-sm" placeholder="Organization (optional)" />
-                </div>
-              </div>
-              <div>
-                <label for="pp-message" class="sr-only">Why you need it</label>
-                <textarea id="pp-message" name="message" required rows="2" maxlength="5000"
-                  class="form-input resize-none !py-2 !text-sm"
-                  placeholder="Role / outlet and why you need the packet…"></textarea>
-              </div>
-              <button type="submit" class="btn-secondary w-full sm:w-auto !text-xs !py-2.5 !px-8">Request access</button>
-            </form>
           </div>
         </div>
       </div>

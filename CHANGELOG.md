@@ -6,6 +6,13 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-28 — Guides legal triad + media row
+
+- Guides: separate **Privacy / Terms / EULA** cards (full 3-col row)
+- **Security & Compliance** + **Partner & media packet** share a tail row (1/3 + 2/3 via `md:col-span-2`)
+
+---
+
 ## 2026-07-28 — Hero ritual chips brand color
 
 - Hero MAP / PRACTICE / SAVE PLACE chips use triad colorway (electric / amber / plasma), shared modifiers with Connect doors
