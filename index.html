@@ -1404,10 +1404,10 @@
                 loading="lazy"
                 decoding="async"
               />
-              <figcaption class="mt-3 flex flex-wrap gap-2" aria-hidden="true">
-                <span class="ritual-chip">MAP</span>
-                <span class="ritual-chip">PRACTICE</span>
-                <span class="ritual-chip">SAVE PLACE</span>
+              <figcaption class="doors-caption" aria-hidden="true">
+                <span class="ritual-chip ritual-chip--map">MAP</span>
+                <span class="ritual-chip ritual-chip--practice">PRACTICE</span>
+                <span class="ritual-chip ritual-chip--save">SAVE PLACE</span>
               </figcaption>
             </figure>
             <p class="section-subtitle !max-w-none">
@@ -1652,6 +1652,42 @@
     #hero-video-wrap.is-landed:focus-visible {
       outline: 2px solid rgba(0, 212, 255, 0.45);
       outline-offset: 4px;
+    }
+
+    /* Connect triad labels — full width under banner, brand borders */
+    .doors-caption {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+      width: 100%;
+      margin-top: 0.75rem;
+    }
+
+    .doors-caption .ritual-chip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .doors-caption .ritual-chip--map {
+      border-color: rgba(0, 212, 255, 0.45);
+      color: #00d4ff;
+      background: rgba(0, 212, 255, 0.08);
+    }
+
+    .doors-caption .ritual-chip--practice {
+      border-color: rgba(245, 185, 66, 0.45);
+      color: #ffd06a;
+      background: rgba(245, 185, 66, 0.08);
+    }
+
+    .doors-caption .ritual-chip--save {
+      border-color: rgba(124, 58, 237, 0.5);
+      color: #a78bfa;
+      background: rgba(124, 58, 237, 0.1);
     }
 
     @media (min-width: 768px) {
