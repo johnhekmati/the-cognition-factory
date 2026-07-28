@@ -109,21 +109,24 @@
         <!-- Restrained TCF hero banner (not full-bleed) -->
         <div
           id="hero-video-wrap"
-          class="hero-manifesto-media is-landed"
+          class="hero-manifesto-media"
           aria-label="The Cognition Factory"
+          title=""
         >
           <div class="hero-video-stage">
-            <!-- Static CF monogram banner; dual-tone edge glow always on (electric L / plasma R) -->
-            <img
-              data-hero-banner
+            <!-- Spinner once; dual-tone glow always on; click (when landed) replays quietly — no play chrome -->
+            <video
+              data-hero-video
+              data-hero-label="TCF"
               class="hero-video is-active"
-              src="/assets/images/cog-fac-hero-banner-new.jpg?v=cf5"
-              alt="The Cognition Factory — CF monogram"
-              width="1280"
-              height="720"
-              decoding="async"
-              fetchpriority="high"
-            />
+              autoplay
+              muted
+              playsinline
+              preload="auto"
+              poster="/assets/images/cog-fac-hero-banner-new.jpg?v=cf5"
+            >
+              <source src="/assets/videos/tcf-hero-spinner.mp4?v=cf6" type="video/mp4" />
+            </video>
           </div>
           <div class="hero-video-fade" aria-hidden="true"></div>
           <div class="absolute inset-0 bg-grid-pattern bg-grid opacity-10 pointer-events-none" aria-hidden="true"></div>
@@ -1634,9 +1637,14 @@
       opacity: 0.58;
     }
 
-    /* Legacy class kept for parity; glow is default now */
+    /* Landed = final frame held; quiet click-to-replay (no play button) */
     #hero-video-wrap.is-landed {
-      /* no-op — dual-tone chrome is always applied above */
+      cursor: pointer;
+    }
+
+    #hero-video-wrap.is-landed:focus-visible {
+      outline: 2px solid rgba(0, 212, 255, 0.45);
+      outline-offset: 4px;
     }
 
     @media (min-width: 768px) {
@@ -1772,6 +1780,6 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=hero-static1" defer></script>
+  <script src="/js/main.js?v=hero-spin1" defer></script>
 </body>
 </html>

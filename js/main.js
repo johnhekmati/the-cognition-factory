@@ -225,7 +225,7 @@ function initResourceFilters() {
   });
 }
 
-/* ── Hero banner (static default; optional video if re-enabled in HTML) ── */
+/* ── Hero banner: one-shot spinner, dual-tone glow always on, click to replay ── */
 function initHeroVideos() {
   const videos = [...document.querySelectorAll('[data-hero-video]')];
   const bannerImg = document.querySelector('[data-hero-banner]');
@@ -236,7 +236,7 @@ function initHeroVideos() {
     labelEl.textContent = 'The Cognition Factory';
   }
 
-  // Static hero — dual-tone glow is CSS default; lock AR to intrinsic size
+  // Static-only fallback (no <video> in DOM)
   if (bannerImg && wrap) {
     bannerImg.classList.add('is-active');
     wrap.classList.add('is-landed');
@@ -251,13 +251,14 @@ function initHeroVideos() {
     else bannerImg.addEventListener('load', syncImgAspect);
   }
 
-  // No hero <video> in DOM → static path only
   if (!videos.length) return;
 
   const video = videos[0];
   video.classList.add('is-active');
+  video.loop = false;
+  video.muted = true;
+  video.playsInline = true;
 
-  // Keep card aspect-ratio locked to the file so media fills the border
   const syncHeroAspect = () => {
     if (!wrap) return;
     const w = video.videoWidth;
@@ -269,56 +270,78 @@ function initHeroVideos() {
   video.addEventListener('loadedmetadata', syncHeroAspect);
   if (video.readyState >= 1) syncHeroAspect();
 
-  // Optional video path — title sequence then land (glow already default in CSS)
+  // Single hero clip — play once, hold final frame; click quietly replays
   if (videos.length < 2) {
+    let landed = false;
+
+    const setLanded = (on) => {
+      landed = on;
+      if (!wrap) return;
+      wrap.classList.toggle('is-landed', on);
+      // Subtle a11y hint only when replay is available (no visible chrome)
+      if (on) {
+        wrap.setAttribute('role', 'button');
+        wrap.setAttribute('tabindex', '0');
+        wrap.setAttribute(
+          'aria-label',
+          'The Cognition Factory — click or press Enter to play again'
+        );
+      } else {
+        wrap.removeAttribute('role');
+        wrap.removeAttribute('tabindex');
+        wrap.setAttribute('aria-label', 'The Cognition Factory');
+      }
+    };
+
+    const playOnce = () => {
+      setLanded(false);
+      video.currentTime = 0;
+      video.playbackRate = 1;
+      return video.play().catch(() => {
+        // Autoplay blocked → hold poster / first frame
+        setLanded(true);
+      });
+    };
+
+    const land = () => {
+      video.pause();
+      // Hold last frame
+      if (Number.isFinite(video.duration) && video.duration > 0) {
+        try {
+          video.currentTime = Math.max(video.duration - 0.05, 0);
+        } catch (_) {
+          /* ignore seek race */
+        }
+      }
+      setLanded(true);
+    };
+
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       video.pause();
-      if (wrap) wrap.classList.add('is-landed');
+      video.removeAttribute('autoplay');
+      setLanded(true);
       return;
     }
 
-    const HERO_PLAYS = 2;
-    const LAND_WINDOW_S = 1.6;
-    const LAND_MIN_RATE = 0.45;
+    video.addEventListener('ended', land);
 
-    video.loop = false;
-
-    let pass = 1;
-    let landed = false;
-
-    video.addEventListener('timeupdate', () => {
-      if (pass < HERO_PLAYS || !Number.isFinite(video.duration)) return;
-      const remaining = video.duration - video.currentTime;
-      if (remaining <= LAND_WINDOW_S) {
-        const t = Math.max(remaining / LAND_WINDOW_S, 0);
-        video.playbackRate = LAND_MIN_RATE + (1 - LAND_MIN_RATE) * t;
-      }
-    });
-
-    video.addEventListener('ended', () => {
-      if (pass < HERO_PLAYS) {
-        pass += 1;
-        video.currentTime = 0;
-        video.play().catch(() => {});
-        return;
-      }
-      landed = true;
-      video.playbackRate = 1;
-      if (wrap) wrap.classList.add('is-landed');
-    });
+    const tryReplay = () => {
+      if (!landed) return;
+      playOnce();
+    };
 
     if (wrap) {
-      wrap.addEventListener('click', () => {
-        if (!landed) return;
-        landed = false;
-        pass = HERO_PLAYS;
-        video.currentTime = 0;
-        video.playbackRate = 1;
-        video.play().catch(() => {});
+      wrap.addEventListener('click', tryReplay);
+      wrap.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          tryReplay();
+        }
       });
     }
 
-    video.play().catch(() => {});
+    // Start (autoplay attr + explicit play for reliability)
+    playOnce();
     return;
   }
 
