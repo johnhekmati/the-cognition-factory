@@ -2,6 +2,40 @@
 
 Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
+**Release rule:** every ship to `main` that changes public behavior or legal/surface copy gets an entry here *before or with* the commit. Date = ship day (operator local).
+
+---
+
+## 2026-07-28 — Maturity pack (legal, brand, human loops, harden)
+
+### Legal
+- Knowledge-base HTML: **Privacy Policy**, **Terms of Service**, **EULA** (`assets/docs/`, doc-theme)
+- Footer links + Guides card (Privacy · Terms · EULA)
+- **Install & updates** guide for second machine / second person
+
+### Brand / UI
+- CF monogram hero: static → spinner one-shot + quiet click-to-replay; dual-tone electric/plasma edge glow (half-weight)
+- Flat OS-style mark for favicon / header / footer; Connect **three-doors** banner v2 + full-width MAP / PRACTICE / SAVE PLACE chips
+- Hero reduced-motion fix (no empty frame)
+
+### Human maturity (not feature sprawl)
+- **First 10 minutes** definition of done on hero
+- Connect **offer ladder** (solo · team · institution · walk-away) + support ritual copy
+- **Proof of a loop** section (`#proof`) — park note as proof, not fake metrics
+
+### Security / ops
+- Contact API: rate limit, origin allowlist, field caps, subject sanitize, safe errors
+- Headers: CSP, HSTS, tighter Permissions-Policy
+- Deploy prune: keep `wrangler.jsonc`, pass `.` to Pages deploy (fixes failed Actions after over-prune)
+- Form: no double-submit race; lightbox focus trap; noscript reveal
+
+### Cache
+- Prefer `main.js?v=audit-march1` (and later) for JS after form/hero changes
+
+### Release hygiene
+- Changelog required on ship; footer **Changelog** link to this file on GitHub
+- Operator ship checklist: `tcf-private/John-eyes-only/SHIP_CHECKLIST.md` (not public)
+
 ---
 
 ## 2026-07-25 — Dojo + Who trains here (funnel pass)
