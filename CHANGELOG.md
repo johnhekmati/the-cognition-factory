@@ -6,6 +6,15 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-28 — Story spine reorg
+
+### Information architecture
+- Section order: Hero → Problem → Solution → How → HAL-E → AAE → Dojo → **Save place** → Who → What you work with → Product → **Proof + First 10** → Why → **Guides** → Connect → footer
+- **First 10 minutes** moved out of hero into `#proof` (hero stays banner + H1 + loop strip)
+- Nav / footer / hero secondary CTAs slimmed to story spine: Problem · How · Product · Proof · Why · Guides · Talk
+
+---
+
 ## 2026-07-28 — Maturity pack (legal, brand, human loops, harden)
 
 ### Legal
