@@ -104,7 +104,7 @@
          ═══════════════════════════════════════════════════════════ -->
     <section id="hero" class="relative pt-16 md:pt-20">
       <div class="hero-manifesto">
-        <!-- Hero: full-bleed audience slides (height-capped so charcoal thesis peeks on landing) -->
+        <!-- Hero: full-bleed audience slides — fill first viewport; charcoal thesis on next scroll -->
         <div
           id="hero-video-wrap"
           class="hero-manifesto-media hero-manifesto-media--banner hero-manifesto-media--bleed"
@@ -2022,15 +2022,17 @@
     }
 
     /*
-     * Hero banner: full-bleed width · height-capped (not full viewport).
-     * Rationale: edge-to-edge sells the audience art; capped height keeps
-     * “Skill that sticks” / charcoal thesis on the first screen.
+     * Hero banner: full-bleed · first viewport under fixed nav.
+     * Next scroll = charcoal manifesto. 16:9 art fills desktop nearly complete;
+     * cover only crops when viewport AR diverges (tall phones / ultra-wide).
      */
     #hero-video-wrap.hero-manifesto-media {
       --mark-map: #c9a227;
       --mark-practice: #3d8c5a;
       --mark-save: #b03030;
       --mark-dojo: #2b5f9e;
+      /* Match #main-nav .h-16 / md:h-20 */
+      --hero-nav-h: 4rem;
       position: relative;
       width: 100%;
       max-width: none;
@@ -2043,6 +2045,12 @@
       background: transparent;
       border: none;
       box-shadow: none;
+    }
+
+    @media (min-width: 768px) {
+      #hero-video-wrap.hero-manifesto-media {
+        --hero-nav-h: 5rem;
+      }
     }
 
     #hero-video-wrap.hero-manifesto-media--banner,
@@ -2068,7 +2076,7 @@
       box-shadow: none;
     }
 
-    /* Soft mark wash along the bottom edge into charcoal (no floating card glows) */
+    /* Soft mark line into charcoal on next scroll */
     .hero-banner-plate::after {
       content: "";
       position: absolute;
@@ -2088,15 +2096,22 @@
       opacity: 0.85;
     }
 
-    /* ── Audience slide loop (full width, capped height) ── */
+    /* ── Audience slide loop: fill landing viewport under nav ── */
     .hero-slide-stage {
       position: relative;
       width: 100%;
-      /* ~38–48vh — cinematic strip, not full-screen takeover */
-      height: clamp(11.5rem, 42vh, 26rem);
+      height: calc(100svh - var(--hero-nav-h));
+      min-height: 18rem;
+      max-height: none;
       aspect-ratio: auto;
       background: #0f1419;
       overflow: hidden;
+    }
+
+    @supports not (height: 100svh) {
+      .hero-slide-stage {
+        height: calc(100vh - var(--hero-nav-h));
+      }
     }
 
     .hero-slides {
@@ -2123,10 +2138,17 @@
     .hero-slide img {
       width: 100%;
       height: 100%;
+      /* Full-frame fill; near 16:9 viewports show almost the whole asset */
       object-fit: cover;
-      /* Prefer left copy + subject framing on audience art */
-      object-position: center 40%;
+      object-position: center center;
       display: block;
+    }
+
+    /* Tall phones: bias left so slide copy stays in frame */
+    @media (max-aspect-ratio: 3/4) {
+      .hero-slide img {
+        object-position: left center;
+      }
     }
 
     .hero-slide-dots {
@@ -2245,26 +2267,9 @@
     }
 
     @media (min-width: 768px) {
-      .hero-slide-stage {
-        height: clamp(14rem, 44vh, 28rem);
-      }
-
       .hero-slide-dots {
-        bottom: 0.85rem;
+        bottom: 1rem;
         gap: 0.5rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .hero-slide-stage {
-        /* Wide desktops: still a band, not a 16:9 wall */
-        height: clamp(16rem, 40vh, 30rem);
-      }
-    }
-
-    @media (min-width: 1440px) {
-      .hero-slide-stage {
-        height: clamp(18rem, 38vh, 32rem);
       }
     }
 
