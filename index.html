@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp27" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp28" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -1880,21 +1880,22 @@
       overflow: hidden;
       aspect-ratio: 16 / 9;
       width: 100%;
-      max-height: min(34vh, 15.5rem);
+      /* Room for full CF — prior max-heights + hard zoom clipped top of C / F stem */
+      max-height: min(40vh, 18.5rem);
       z-index: 1;
     }
 
     /*
-     * Source monogram is small on a 16:9 plate.
-     * Mild zoom fills empty sides; keep scale low enough not to clip C top / F tail.
+     * Source monogram sits small on a 16:9 plate.
+     * Gentle zoom fills letterbox without cropping C crown or F tail.
      */
     .hero-mark-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 48%;
+      object-position: center center;
       display: block;
-      transform: scale(1.32);
+      transform: scale(1.14);
       transform-origin: center center;
     }
 
@@ -1942,11 +1943,11 @@
       }
 
       .hero-mark-stage {
-        max-height: min(32vh, 17rem);
+        max-height: min(38vh, 20rem);
       }
 
       .hero-mark-img {
-        transform: scale(1.28);
+        transform: scale(1.12);
       }
     }
 
@@ -1957,7 +1958,11 @@
       }
 
       .hero-mark-stage {
-        max-height: min(30vh, 18rem);
+        max-height: min(36vh, 21rem);
+      }
+
+      .hero-mark-img {
+        transform: scale(1.1);
       }
     }
 
