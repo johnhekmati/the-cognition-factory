@@ -1339,9 +1339,7 @@
     <!-- ═══════════════════════════════════════════════════════════
          PROMISE — near-closer (founder story lives on johnhekmati.com)
          ═══════════════════════════════════════════════════════════ -->
-    <section id="promise" class="section-padding relative">
-      <div class="absolute inset-0 bg-gradient-to-r from-plasma/[0.03] via-transparent to-electric/[0.03] pointer-events-none" aria-hidden="true"></div>
-
+    <section id="promise" class="section-padding relative band-charcoal">
       <div class="max-w-3xl mx-auto relative text-center">
         <div data-reveal>
           <span class="section-label">Why it exists</span>
@@ -1371,7 +1369,7 @@
             How we show up
           </p>
           <div class="grid sm:grid-cols-2 gap-4 md:gap-5">
-            <div class="rounded-lg border border-ink/15 bg-white p-5 md:p-6">
+            <div class="band-charcoal-card rounded-lg border border-ink/15 bg-white p-5 md:p-6">
               <h3 class="font-display text-ink text-base font-semibold mb-3 tracking-tight">What we do</h3>
               <ul class="space-y-2.5 text-sm text-ink-muted leading-relaxed list-none">
                 <li class="flex gap-2"><span class="accent-map shrink-0" aria-hidden="true">·</span><span>Give structure: Learn (build the map), honest practice, a clean place to park when life interrupts.</span></li>
@@ -1380,7 +1378,7 @@
                 <li class="flex gap-2"><span class="accent-dojo shrink-0" aria-hidden="true">·</span><span>Leave dedication and results with you. We build the runway; you own the run.</span></li>
               </ul>
             </div>
-            <div class="rounded-lg border border-ink/10 bg-void-100/40 p-5 md:p-6">
+            <div class="band-charcoal-card rounded-lg border border-ink/10 bg-white p-5 md:p-6">
               <h3 class="font-display text-ink text-base font-semibold mb-3 tracking-tight">What we don’t</h3>
               <ul class="space-y-2.5 text-sm text-ink-muted leading-relaxed list-none">
                 <li class="flex gap-2"><span class="text-ink-muted shrink-0" aria-hidden="true">·</span><span>Sell seat-time, completion theater, or a wall of badges as if that were skill.</span></li>
@@ -2044,6 +2042,32 @@
     }
     .band-charcoal a.text-electric:hover {
       color: #c5daf0 !important;
+    }
+
+    /* Why it exists / plain white cards on charcoal */
+    .band-charcoal .band-charcoal-card {
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+    }
+    .band-charcoal .band-charcoal-card .text-ink,
+    .band-charcoal .band-charcoal-card h3 {
+      color: #000000 !important;
+    }
+    .band-charcoal .band-charcoal-card .text-ink-muted,
+    .band-charcoal .band-charcoal-card .text-ink-soft {
+      color: #000000 !important;
+      font-weight: inherit;
+    }
+    .band-charcoal .band-charcoal-card .accent-map {
+      color: #5c4a0c !important;
+    }
+    .band-charcoal .band-charcoal-card .accent-practice {
+      color: #145032 !important;
+    }
+    .band-charcoal .band-charcoal-card .accent-save {
+      color: #6e1818 !important;
+    }
+    .band-charcoal .band-charcoal-card .accent-dojo {
+      color: #12355c !important;
     }
 
     /*
