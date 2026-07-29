@@ -745,8 +745,8 @@
     <!-- ═══════════════════════════════════════════════════════════
          WHO TRAINS HERE — solo · teams · partners
          ═══════════════════════════════════════════════════════════ -->
-    <!-- Mid-funnel charcoal: Who trains here + What you work with (product mockups stay light) -->
-    <div class="band-charcoal">
+    <!-- Mid-funnel: Who trains here + What you work with (ink type on light field) -->
+    <div class="band-charcoal band-charcoal--ink">
     <section id="who" class="section-padding relative">
       <div class="max-w-7xl mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16" data-reveal>
@@ -1339,7 +1339,7 @@
     <!-- ═══════════════════════════════════════════════════════════
          PROMISE — near-closer (founder story lives on johnhekmati.com)
          ═══════════════════════════════════════════════════════════ -->
-    <section id="promise" class="section-padding relative band-charcoal">
+    <section id="promise" class="section-padding relative band-charcoal band-charcoal--ink">
       <div class="max-w-3xl mx-auto relative text-center">
         <div data-reveal>
           <span class="section-label">Why it exists</span>
@@ -1888,8 +1888,9 @@
     }
 
     /*
-     * Shared charcoal band — hero manifesto + mid-funnel (Who trains / What you work with).
-     * Product mockups stay on light field so device shells read cleanly.
+     * Shared charcoal band — hero manifesto stays dark + light type.
+     * Mid-funnel / Why use .band-charcoal--ink (light field + black type) so white
+     * section-label plates and body copy never go white-on-white.
      */
     .band-charcoal {
       width: 100%;
@@ -1902,6 +1903,64 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.04),
         0 12px 40px rgba(25, 28, 34, 0.18);
       color: #e8eaee;
+    }
+
+    /* Light field + pure black type (Who trains / What you work with / Why it exists) */
+    .band-charcoal.band-charcoal--ink {
+      background: #e8eaee;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: none;
+      color: #000000;
+    }
+
+    .band-charcoal.band-charcoal--ink .section-title,
+    .band-charcoal.band-charcoal--ink .section-subtitle,
+    .band-charcoal.band-charcoal--ink .text-ink,
+    .band-charcoal.band-charcoal--ink .text-ink-muted,
+    .band-charcoal.band-charcoal--ink .text-ink-soft,
+    .band-charcoal.band-charcoal--ink h1,
+    .band-charcoal.band-charcoal--ink h2,
+    .band-charcoal.band-charcoal--ink h3,
+    .band-charcoal.band-charcoal--ink p,
+    .band-charcoal.band-charcoal--ink li,
+    .band-charcoal.band-charcoal--ink a.text-sm {
+      color: #000000 !important;
+    }
+
+    .band-charcoal.band-charcoal--ink a.text-sm:hover {
+      color: #3b6f9e !important;
+    }
+
+    .band-charcoal.band-charcoal--ink a.text-electric {
+      color: #3b6f9e !important;
+    }
+
+    .band-charcoal.band-charcoal--ink a.text-electric:hover {
+      color: #2f5a80 !important;
+    }
+
+    .band-charcoal.band-charcoal--ink .btn-secondary {
+      border-color: rgba(0, 0, 0, 0.2);
+      color: #000000;
+      background: #ffffff;
+    }
+
+    .band-charcoal.band-charcoal--ink .btn-secondary:hover {
+      background: #f4f5f7;
+      border-color: rgba(0, 0, 0, 0.35);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .band-charcoal.band-charcoal--ink .glass-card,
+    .band-charcoal.band-charcoal--ink .aio-copy,
+    .band-charcoal.band-charcoal--ink .band-charcoal-card,
+    .band-charcoal.band-charcoal--ink .cartridge-tile {
+      box-shadow: 0 4px 20px rgba(45, 50, 60, 0.08);
+    }
+
+    .band-charcoal.band-charcoal--ink .cartridge-console {
+      border-color: rgba(0, 0, 0, 0.1);
     }
 
     .hero-manifesto-copy.band-charcoal {
