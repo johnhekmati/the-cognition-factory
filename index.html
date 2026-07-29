@@ -164,47 +164,50 @@
           </div>
         </div>
 
-        <div class="hero-manifesto-copy section-padding !pt-10 md:!pt-14 !pb-12 md:!pb-16 max-w-5xl mx-auto text-center">
-          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-ink tracking-tight leading-[1.08] text-balance">
-            Skill that sticks when life is loud.<br class="hidden sm:block" />
-            <span class="hero-grad hero-grad--map">Map</span><span class="text-ink">.</span>
-            <span class="hero-grad hero-grad--practice">Practice</span><span class="text-ink">.</span>
-            <span class="hero-grad hero-grad--save">Save</span>
-            <span class="hero-grad hero-grad--dojo">your place</span><span class="text-ink">.</span>
-          </h1>
+        <!-- Charcoal band: manifesto copy only (slides above stay light; problem section below stays light) -->
+        <div class="hero-manifesto-copy hero-manifesto-copy--charcoal">
+          <div class="hero-manifesto-copy-inner section-padding !pt-12 md:!pt-16 !pb-14 md:!pb-20 max-w-5xl mx-auto text-center">
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-ink tracking-tight leading-[1.08] text-balance">
+              Skill that sticks when life is loud.<br class="hidden sm:block" />
+              <span class="hero-grad hero-grad--map">Map</span><span class="text-ink">.</span>
+              <span class="hero-grad hero-grad--practice">Practice</span><span class="text-ink">.</span>
+              <span class="hero-grad hero-grad--save">Save</span>
+              <span class="hero-grad hero-grad--dojo">your place</span><span class="text-ink">.</span>
+            </h1>
 
-          <p class="mt-6 md:mt-8 text-lg md:text-xl text-ink-muted max-w-2xl mx-auto leading-relaxed text-balance">
-            The Cognition Factory is a simple loop: <span class="text-ink-soft">learn with structure</span>,
-            <span class="text-ink-soft">practice under honest pressure</span>, and
-            <span class="text-ink-soft">save your place</span> when life interrupts.
-            You bring dedication and a plan. We give you the structure to use it.
-          </p>
+            <p class="mt-6 md:mt-8 text-lg md:text-xl text-ink-muted max-w-2xl mx-auto leading-relaxed text-balance">
+              The Cognition Factory is a simple loop: <span class="text-ink-soft">learn with structure</span>,
+              <span class="text-ink-soft">practice under honest pressure</span>, and
+              <span class="text-ink-soft">save your place</span> when life interrupts.
+              You bring dedication and a plan. We give you the structure to use it.
+            </p>
 
-          <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#contact" class="btn-primary w-full sm:w-auto">
-              Talk with us
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </a>
-            <a href="#enemy" class="btn-secondary w-full sm:w-auto">See the problem first</a>
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="#contact" class="btn-primary w-full sm:w-auto">
+                Talk with us
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </a>
+              <a href="#enemy" class="btn-secondary w-full sm:w-auto">See the problem first</a>
+            </div>
+            <p class="mt-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+              <a href="#loop" class="text-sm text-ink-muted hover:text-electric transition-colors">
+                How it works →
+              </a>
+              <span class="hidden sm:inline hero-copy-sep" aria-hidden="true">·</span>
+              <a href="#proof" class="text-sm text-ink-muted hover:text-plasma-glow transition-colors">
+                What done looks like →
+              </a>
+            </p>
+
+            <div class="ritual-strip mt-12" aria-label="Map, Practice, Save">
+              <span class="ritual-chip ritual-chip--map">Map</span>
+              <span class="ritual-chip ritual-chip--practice">Practice</span>
+              <span class="ritual-chip ritual-chip--save">Save</span>
+            </div>
+            <p class="ritual-tagline">
+              Map · Practice · Save — that is the whole idea
+            </p>
           </div>
-          <p class="mt-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-            <a href="#loop" class="text-sm text-ink-muted hover:text-electric transition-colors">
-              How it works →
-            </a>
-            <span class="hidden sm:inline text-ink/10" aria-hidden="true">·</span>
-            <a href="#proof" class="text-sm text-ink-muted hover:text-plasma-glow transition-colors">
-              What done looks like →
-            </a>
-          </p>
-
-          <div class="ritual-strip mt-12" aria-label="Map, Practice, Save">
-            <span class="ritual-chip ritual-chip--map">Map</span>
-            <span class="ritual-chip ritual-chip--practice">Practice</span>
-            <span class="ritual-chip ritual-chip--save">Save</span>
-          </div>
-          <p class="ritual-tagline">
-            Map · Practice · Save — that is the whole idea
-          </p>
         </div>
       </div>
     </section>
@@ -1826,8 +1829,8 @@
     }
 
     /*
-     * Hero mark words — clean metal gradients (deep yellow / forest / crimson / royal).
-     * Map lightened toward deep yellow so it pops on the light-gray field.
+     * Hero mark words — metal gradients (gold / forest / crimson / royal).
+     * Tuned to read on the charcoal manifesto band.
      */
     .hero-grad {
       display: inline;
@@ -1841,38 +1844,113 @@
     .hero-grad--map {
       background-image: linear-gradient(
         125deg,
-        #8a6a10 0%,
-        #d4b04a 38%,
-        #c9a227 62%,
-        #7a5c0e 100%
+        #a88420 0%,
+        #e0c060 38%,
+        #d4b04a 62%,
+        #9a7818 100%
       );
     }
     .hero-grad--practice {
       background-image: linear-gradient(
         125deg,
-        #0f3d28 0%,
-        #2a7a4a 42%,
-        #1f5c38 68%,
-        #0c3222 100%
+        #1a5c38 0%,
+        #4aaa6a 42%,
+        #2f8a52 68%,
+        #145032 100%
       );
     }
     .hero-grad--save {
       background-image: linear-gradient(
         125deg,
-        #5a1212 0%,
-        #c04040 40%,
-        #8f2424 65%,
-        #4a0e0e 100%
+        #8a2020 0%,
+        #e05858 40%,
+        #c04040 65%,
+        #7a1818 100%
       );
     }
     .hero-grad--dojo {
       background-image: linear-gradient(
         125deg,
-        #0e2a4a 0%,
-        #3a7bc8 42%,
-        #1e4a7a 68%,
-        #0a2238 100%
+        #1a4a7a 0%,
+        #5a9ae0 42%,
+        #3a7bc8 68%,
+        #163a62 100%
       );
+    }
+
+    /*
+     * Manifesto copy band only — charcoal field between gallery (above)
+     * and Problem / solution sections (below). Does not recolor the whole hero.
+     */
+    .hero-manifesto-copy--charcoal {
+      width: 100%;
+      margin-top: 1.75rem;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(59, 111, 158, 0.12), transparent 60%),
+        linear-gradient(180deg, #323842 0%, #2a2f38 45%, #252a32 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 12px 40px rgba(25, 28, 34, 0.18);
+      color: #e8eaee;
+    }
+
+    .hero-manifesto-copy--charcoal .hero-manifesto-copy-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-manifesto-copy--charcoal .text-ink,
+    .hero-manifesto-copy--charcoal h1 {
+      color: #f4f5f7 !important;
+    }
+
+    .hero-manifesto-copy--charcoal .text-ink-muted {
+      color: rgba(232, 234, 238, 0.78) !important;
+    }
+
+    .hero-manifesto-copy--charcoal .text-ink-soft {
+      color: #f0f2f5 !important;
+      font-weight: 500;
+    }
+
+    .hero-manifesto-copy--charcoal .hero-copy-sep {
+      color: rgba(232, 234, 238, 0.28);
+    }
+
+    .hero-manifesto-copy--charcoal a.text-sm {
+      color: rgba(232, 234, 238, 0.72);
+    }
+
+    .hero-manifesto-copy--charcoal a.text-sm:hover {
+      color: #9ec0e0;
+    }
+
+    .hero-manifesto-copy--charcoal .btn-secondary {
+      border-color: rgba(232, 234, 238, 0.32);
+      color: #eef0f3;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .hero-manifesto-copy--charcoal .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(232, 234, 238, 0.55);
+      box-shadow: 0 0 24px rgba(59, 111, 158, 0.2);
+    }
+
+    .hero-manifesto-copy--charcoal .ritual-tagline {
+      color: rgba(232, 234, 238, 0.68);
+    }
+
+    .hero-manifesto-copy--charcoal .ritual-chip {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+    }
+
+    @media (min-width: 768px) {
+      .hero-manifesto-copy--charcoal {
+        margin-top: 2.25rem;
+      }
     }
 
     /*
