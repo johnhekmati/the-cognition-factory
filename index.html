@@ -106,7 +106,7 @@
       <div class="hero-manifesto">
         <!--
           Landing panel: full-width slides at native ~16:9 (object-fit contain = zero crop).
-          Scroll cue always on first screen → charcoal thesis.
+          Soft-gray ticker under banner → charcoal thesis.
         -->
         <div class="hero-landing">
           <div
@@ -164,12 +164,17 @@
             </div>
           </div>
 
-          <a href="#skill-thesis" class="hero-scroll-cue" aria-label="Scroll to Skill that sticks">
-            <span class="hero-scroll-cue-label">Continue</span>
-            <span class="hero-scroll-cue-chevron" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-            </span>
-          </a>
+          <!-- Ticker under banner (PMMAI marquee pattern) — replaces Continue cue -->
+          <div class="hero-marquee" aria-hidden="true">
+            <div class="hero-marquee-track">
+              <span>Learn</span><i>·</i><span>Map</span><i>·</i><span>Practice</span><i>·</i><span>Save your place</span><i>·</i><span>Upskill</span><i>·</i>
+              <span>Learn</span><i>·</i><span>Map</span><i>·</i><span>Practice</span><i>·</i><span>Save your place</span><i>·</i><span>Upskill</span><i>·</i>
+              <span>Learn</span><i>·</i><span>Map</span><i>·</i><span>Practice</span><i>·</i><span>Save your place</span><i>·</i><span>Upskill</span><i>·</i>
+              <span>Learn</span><i>·</i><span>Map</span><i>·</i><span>Practice</span><i>·</i><span>Save your place</span><i>·</i><span>Upskill</span><i>·</i>
+              <span>Learn</span><i>·</i><span>Map</span><i>·</i><span>Practice</span><i>·</i><span>Save your place</span><i>·</i><span>Upskill</span><i>·</i>
+              <span>Learn</span><i>·</i><span>Map</span><i>·</i><span>Practice</span><i>·</i><span>Save your place</span><i>·</i><span>Upskill</span><i>·</i>
+            </div>
+          </div>
         </div>
 
         <!-- Charcoal band: manifesto copy only -->
@@ -2152,7 +2157,7 @@
       display: flex;
       flex-direction: column;
       min-height: calc(100svh - var(--hero-nav-h));
-      /* Match header/footer white chrome above the mark line + Continue cue */
+      /* White stage + soft-gray ticker (hinge canvas) under banner */
       background: #ffffff;
     }
 
@@ -2205,7 +2210,7 @@
       box-shadow: none;
     }
 
-    /* Soft mark line above Continue cue / into charcoal on next scroll */
+    /* Soft mark line above ticker / into charcoal on next scroll */
     .hero-banner-plate::after {
       content: "";
       position: absolute;
@@ -2226,7 +2231,7 @@
     }
 
     /*
-     * Height = min(full 16:9 of viewport width, room under nav + scroll cue).
+     * Height = min(full 16:9 of viewport width, room under nav + ticker bar).
      * Width always 100% (edge-to-edge stage). contain = full slide art, no crop.
      */
     .hero-slide-stage {
@@ -2234,7 +2239,7 @@
       width: 100%;
       height: min(
         calc(100vw * 9 / 16),
-        calc(100svh - var(--hero-nav-h) - 3.25rem)
+        calc(100svh - var(--hero-nav-h) - 3.5rem)
       );
       min-height: 12rem;
       max-height: none;
@@ -2247,7 +2252,7 @@
       .hero-slide-stage {
         height: min(
           calc(100vw * 9 / 16),
-          calc(100vh - var(--hero-nav-h) - 3.25rem)
+          calc(100vh - var(--hero-nav-h) - 3.5rem)
         );
       }
     }
@@ -2298,52 +2303,51 @@
       pointer-events: auto;
     }
 
-    /* Scroll cue on white field under mark line */
-    .hero-scroll-cue {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.2rem;
+    /*
+     * Hero ticker — ape of PMMAI .marquee / .marquee-track
+     * (professionalmmainstitute.com). Soft-gray hinge canvas, not navy/gold.
+     */
+    .hero-marquee {
+      overflow: hidden;
       margin-top: auto;
-      padding: 0.65rem 1rem 0.85rem;
-      color: rgba(45, 50, 60, 0.55);
-      text-decoration: none;
-      font-family: "JetBrains Mono", ui-monospace, monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      background: #ffffff;
-      transition: color 0.2s ease;
+      border-top: 1px solid rgba(45, 50, 60, 0.08);
+      border-bottom: 1px solid rgba(45, 50, 60, 0.1);
+      /* Hinge canvas = Tailwind void DEFAULT */
+      background: #e8eaee;
+      padding: 0.8rem 0;
     }
 
-    .hero-scroll-cue:hover,
-    .hero-scroll-cue:focus-visible {
-      color: #2d323c;
-      outline: none;
-    }
-
-    .hero-scroll-cue:focus-visible {
-      box-shadow: inset 0 0 0 2px rgba(59, 111, 158, 0.45);
-    }
-
-    .hero-scroll-cue-chevron {
+    .hero-marquee-track {
       display: flex;
-      animation: hero-cue-bob 1.6s ease-in-out infinite;
+      align-items: center;
+      gap: 2.5rem;
+      width: max-content;
+      animation: hero-marquee 90s linear infinite;
     }
 
-    @keyframes hero-cue-bob {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(5px);
+    .hero-marquee span {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #000000;
+      white-space: nowrap;
+    }
+
+    .hero-marquee i {
+      font-style: normal;
+      color: rgba(45, 50, 60, 0.45);
+      font-size: 1.05rem;
+    }
+
+    @keyframes hero-marquee {
+      to {
+        transform: translateX(-50%);
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-scroll-cue-chevron {
+      .hero-marquee-track {
         animation: none;
       }
     }

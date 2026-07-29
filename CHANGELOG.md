@@ -6,6 +6,15 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-29 — Hero ticker (PMMAI marquee under banner)
+
+- Replaced **Continue** scroll cue under hero slides with an infinite ticker bar (pattern from professionalmmainstitute.com marquee)
+- Soft-gray hinge canvas (`#e8eaee` / void) — not navy
+- Track: **Learn · Map · Practice · Save your place · Upskill** (×6 for seamless loop)
+- Reduced-motion: animation off
+
+---
+
 ## 2026-07-29 — Brand redesign ship (light room + mark system)
 
 Major public-face redesign: paper room over cyberpunk stream, four door-mark primaries, new hero slides, Learn language, chiasmus layout. Shipped through the day on `main` (Cloudflare Pages).
@@ -20,7 +29,7 @@ Major public-face redesign: paper room over cyberpunk stream, four door-mark pri
 
 ### Hero
 - Monogram banner → **24s audience slide loop** (Adult / Team / Partner; 8s each, crossfade)
-- First-viewport full-bleed slides; white field behind slides + Continue cue; pin cover so TCF mark stays uncropped
+- First-viewport full-bleed slides; white field behind slides; pin cover so TCF mark stays uncropped (Continue cue later replaced by ticker — see above)
 - Charcoal band under manifesto copy only (slides stay light)
 - Slide colorway aligned to Learn gold / Practice green / Save red; path-busted slide assets
 - Cache: `main.js?v=hero-slides1`
