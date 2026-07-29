@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp31" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp32" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -141,10 +141,10 @@
         <div class="hero-manifesto-copy section-padding !pt-10 md:!pt-14 !pb-12 md:!pb-16 max-w-5xl mx-auto text-center">
           <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-ink tracking-tight leading-[1.08] text-balance">
             Skill that sticks when life is loud.<br class="hidden sm:block" />
-            <span class="accent-map">Map</span><span class="text-ink">.</span>
-            <span class="accent-practice">Practice</span><span class="text-ink">.</span>
-            <span class="accent-save">Save</span>
-            <span class="accent-dojo">your place</span><span class="text-ink">.</span>
+            <span class="hero-grad hero-grad--map">Map</span><span class="text-ink">.</span>
+            <span class="hero-grad hero-grad--practice">Practice</span><span class="text-ink">.</span>
+            <span class="hero-grad hero-grad--save">Save</span>
+            <span class="hero-grad hero-grad--dojo">your place</span><span class="text-ink">.</span>
           </h1>
 
           <p class="mt-6 md:mt-8 text-lg md:text-xl text-ink-muted max-w-2xl mx-auto leading-relaxed text-balance">
@@ -1566,7 +1566,7 @@
             </div>
           </div>
 
-          <div class="glass-card p-8 md:p-10" data-reveal>
+          <div class="glass-card p-8 md:p-10 resource-card resource-card--neutral" data-reveal>
             <form id="contact-form" class="space-y-6" method="post" action="/api/contact" aria-label="Contact form">
               <div id="form-status" class="hidden text-sm rounded-lg px-4 py-3 border" role="status" aria-live="polite"></div>
 
@@ -1711,6 +1711,56 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+    }
+
+    /*
+     * Hero mark words — clean metal gradients (deep yellow / forest / crimson / royal).
+     * Map lightened toward deep yellow so it pops on the light-gray field.
+     */
+    .hero-grad {
+      display: inline;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-grad--map {
+      background-image: linear-gradient(
+        125deg,
+        #8a6a10 0%,
+        #d4b04a 38%,
+        #c9a227 62%,
+        #7a5c0e 100%
+      );
+    }
+    .hero-grad--practice {
+      background-image: linear-gradient(
+        125deg,
+        #0f3d28 0%,
+        #2a7a4a 42%,
+        #1f5c38 68%,
+        #0c3222 100%
+      );
+    }
+    .hero-grad--save {
+      background-image: linear-gradient(
+        125deg,
+        #5a1212 0%,
+        #c04040 40%,
+        #8f2424 65%,
+        #4a0e0e 100%
+      );
+    }
+    .hero-grad--dojo {
+      background-image: linear-gradient(
+        125deg,
+        #0e2a4a 0%,
+        #3a7bc8 42%,
+        #1e4a7a 68%,
+        #0a2238 100%
+      );
     }
 
     /*
