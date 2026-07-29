@@ -733,7 +733,9 @@
     <!-- ═══════════════════════════════════════════════════════════
          WHO TRAINS HERE — solo · teams · partners
          ═══════════════════════════════════════════════════════════ -->
-    <section id="who" class="section-padding relative section-charcoal">
+    <!-- Mid-funnel charcoal: Who trains here + What you work with (product mockups stay light) -->
+    <div class="band-charcoal">
+    <section id="who" class="section-padding relative">
       <div class="max-w-7xl mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16" data-reveal>
           <span class="section-label">Who trains here</span>
@@ -792,7 +794,7 @@
     <!-- ═══════════════════════════════════════════════════════════
          CORES + CARTRIDGES
          ═══════════════════════════════════════════════════════════ -->
-    <section id="systems" class="section-padding relative section-charcoal">
+    <section id="systems" class="section-padding relative pt-8 md:pt-10">
       <div class="max-w-7xl mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-12" data-reveal>
           <span class="section-label">What you work with</span>
@@ -879,12 +881,13 @@
         </p>
       </div>
     </section>
+    </div><!-- /mid-funnel band-charcoal -->
 
 
     <!-- ═══════════════════════════════════════════════════════════
          PRODUCT GALLERY — desktop shell + workflow practice floor
          ═══════════════════════════════════════════════════════════ -->
-    <section id="product" class="section-padding relative band-charcoal">
+    <section id="product" class="section-padding relative border-t border-ink/10">
       <div class="max-w-7xl mx-auto">
         <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16" data-reveal>
           <span class="section-label">Product</span>
@@ -1127,7 +1130,7 @@
         </div><!-- /Windows -->
 
         <!-- Android — same three doors, phone shell -->
-        <div class="mt-24 md:mt-32 pt-16 md:pt-20 border-t border-white/10" data-reveal>
+        <div class="mt-24 md:mt-32 pt-16 md:pt-20 border-t border-ink/10" data-reveal>
           <div class="max-w-2xl mx-auto text-center mb-10 md:mb-12">
             <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted mb-3">Android</p>
             <h3 class="font-display text-2xl font-semibold text-ink">Same loop in your pocket</h3>
@@ -1255,7 +1258,7 @@
 
         <p class="max-w-2xl mx-auto text-center text-ink-muted text-sm mt-10 md:mt-12 leading-relaxed" data-reveal>
           Windows and Android first; macOS and iOS when the same loop is solid there.
-          Screens stay light — gold · green · red · blue only for the engines they name.
+          Canvas stays light — gold · green · red · blue only for the engines they name.
           The workflow floor stays light and dense on purpose — first day on a real system is a
           <span class="text-ink-soft">context switch</span>, not a cold start.
         </p>
@@ -1875,8 +1878,8 @@
     }
 
     /*
-     * Shared charcoal band — hero manifesto + product gallery (Windows/Android).
-     * Light field sections above/below keep the funnel rhythm: light → dark pop → light.
+     * Shared charcoal band — hero manifesto + mid-funnel (Who trains / What you work with).
+     * Product mockups stay on light field so device shells read cleanly.
      */
     .band-charcoal {
       width: 100%;
@@ -1977,7 +1980,7 @@
       font-weight: inherit;
     }
 
-    /* Keep mark accent colors on product kicker labels inside cards */
+    /* Keep mark accent colors on kicker labels / CTAs inside white cards */
     .band-charcoal .aio-copy .accent-map,
     .band-charcoal .glass-card .accent-map {
       color: #5c4a0c !important;
@@ -1995,30 +1998,40 @@
       color: #12355c !important;
     }
 
-    /* Android figcaptions sit on charcoal field */
-    .band-charcoal .pixel-phone-cap {
-      color: rgba(232, 234, 238, 0.88);
+    /* Cartridge tiles + layer chips stay light surfaces on charcoal */
+    .band-charcoal .cartridge-tile {
+      background: #ffffff;
+      border-color: rgba(45, 50, 60, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
     }
-    .band-charcoal .pixel-phone-cap.accent-map {
-      color: #e0c060 !important;
+    .band-charcoal .cartridge-tile .text-ink,
+    .band-charcoal .cartridge-tile h3 {
+      color: #000000 !important;
     }
-    .band-charcoal .pixel-phone-cap.accent-practice {
-      color: #6aba84 !important;
+    .band-charcoal .cartridge-tile .text-ink-muted {
+      color: #000000 !important;
+      font-weight: inherit;
     }
-    .band-charcoal .pixel-phone-cap.accent-save {
-      color: #e07070 !important;
+    .band-charcoal .layer-chip {
+      background: #ffffff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
     }
-    .band-charcoal .pixel-phone-cap.accent-dojo {
-      color: #7aade0 !important;
+    .band-charcoal .layer-chip-title,
+    .band-charcoal .layer-chip-desc {
+      color: #000000;
     }
-
-    /* Device chrome lifts on charcoal */
-    .band-charcoal .aio-stand-base,
-    .band-charcoal .aio-stand-neck {
-      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+    .band-charcoal .cartridge-console {
+      border-color: rgba(255, 255, 255, 0.08);
     }
-    .band-charcoal .pixel-phone {
-      filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.4));
+    .band-charcoal .cartridge-console .border-ink\/10 {
+      border-color: rgba(0, 0, 0, 0.08) !important;
+    }
+    /* Field links (outside cards) */
+    .band-charcoal a.text-electric {
+      color: #9ec0e0 !important;
+    }
+    .band-charcoal a.text-electric:hover {
+      color: #c5daf0 !important;
     }
 
     /*
