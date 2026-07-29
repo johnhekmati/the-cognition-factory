@@ -535,13 +535,71 @@
   }
 
   .schema-nodes li {
-    @apply font-mono text-xs uppercase tracking-wider text-electric/90
-           pl-3 border-l-2 border-electric/40;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-left: 0.75rem;
+    border-left: 2px solid #c9a227;
+    color: #8a6a12;
   }
 
-  .schema-nodes--aae li {
-    @apply text-amber-glow/90 border-amber/40;
+  .schema-nodes--aae li,
+  .schema-nodes--practice li {
+    border-left-color: #3d8c5a;
+    color: #246640;
   }
+
+  .schema-nodes--save li {
+    border-left-color: #b03030;
+    color: #8f2424;
+  }
+
+  /* Icon tiles inside white cards — mark families */
+  .icon-tile {
+    @apply w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border;
+  }
+
+  .icon-tile-map {
+    background: rgba(201, 162, 39, 0.12);
+    border-color: rgba(201, 162, 39, 0.4);
+    color: #8a6a12;
+  }
+
+  .icon-tile-practice {
+    background: rgba(61, 140, 90, 0.12);
+    border-color: rgba(61, 140, 90, 0.4);
+    color: #246640;
+  }
+
+  .icon-tile-save {
+    background: rgba(176, 48, 48, 0.1);
+    border-color: rgba(176, 48, 48, 0.4);
+    color: #8f2424;
+  }
+
+  .icon-tile-orient {
+    background: rgba(59, 111, 158, 0.1);
+    border-color: rgba(59, 111, 158, 0.4);
+    color: #2f5a80;
+  }
+
+  .icon-tile svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .num-mark {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  .num-mark-map { color: #8a6a12; }
+  .num-mark-practice { color: #246640; }
+  .num-mark-save { color: #8f2424; }
+  .num-mark-orient { color: #2f5a80; }
 
   .schema-loop-connector {
     @apply flex flex-row lg:flex-col items-center justify-center gap-2 py-2;
@@ -553,8 +611,32 @@
   }
 
   .schema-loop-label {
-    @apply font-mono text-[0.6rem] uppercase tracking-[0.2em] text-gray-500
+    @apply font-mono text-[0.6rem] uppercase tracking-[0.2em]
            text-center leading-snug max-w-[7.5rem] lg:max-w-[8.5rem];
+    color: #8f2424;
+  }
+
+  .schema-loop-line {
+    @apply h-px w-8 lg:w-px lg:h-10 bg-gradient-to-r lg:bg-gradient-to-b;
+    --tw-gradient-from: #c9a227;
+    --tw-gradient-to: #3d8c5a;
+    background-image: linear-gradient(
+      to right,
+      #c9a227,
+      #b03030,
+      #3d8c5a
+    );
+  }
+
+  @screen lg {
+    .schema-loop-line {
+      background-image: linear-gradient(
+        to bottom,
+        #c9a227,
+        #b03030,
+        #3d8c5a
+      );
+    }
   }
 
   /* Metric / step slabs — always white + soft border */
