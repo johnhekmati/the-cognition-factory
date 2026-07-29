@@ -36,8 +36,7 @@
 
   /*
    * White content boxes with mark-aligned borders (site-wide).
-   * Map = gold · Practice = green · Save = red · Lattice/orient = blue.
-   * Dojo = temporary slate until Principal ships dojo mark.
+   * Map = gold · Practice = green · Save = deep red · Lattice = coral-red · Dojo = blue.
    */
   .surface-card {
     border-radius: 0.75rem;
@@ -66,14 +65,14 @@
   }
 
   .surface-card--orient {
-    border-color: #3b6f9e;
-    box-shadow: 0 6px 20px rgba(59, 111, 158, 0.16);
+    border-color: #c94a40;
+    box-shadow: 0 6px 20px rgba(201, 74, 64, 0.16);
   }
 
   .surface-card--dojo {
-    /* Dojo mark purple (octagon pad) */
-    border-color: #5c3d7a;
-    box-shadow: 0 6px 20px rgba(92, 61, 122, 0.18);
+    /* Dojo mark blue (octagon pad) */
+    border-color: #2b5f9e;
+    box-shadow: 0 6px 20px rgba(43, 95, 158, 0.18);
   }
 
   .surface-card .surface-card-kicker {
@@ -106,11 +105,11 @@
   }
 
   .surface-card--orient .surface-card-title {
-    color: #2f5a80;
+    color: #a83830;
   }
 
   .surface-card--dojo .surface-card-title {
-    color: #4a315b;
+    color: #1e4a7a;
   }
 
   .glass-card {
@@ -231,38 +230,38 @@
   .card-border-orient,
   .section-charcoal .card-border-orient,
   .schema-pane.card-border-orient {
-    border-color: #3b6f9e !important;
+    border-color: #c94a40 !important;
     border-width: 2px !important;
   }
 
   .card-border-dojo,
   .section-charcoal .card-border-dojo,
   .schema-pane.card-border-dojo {
-    border-color: #5c3d7a !important;
+    border-color: #2b5f9e !important;
     border-width: 2px !important;
   }
 
 
 
   .num-mark-dojo {
-    color: #4a315b;
+    color: #1e4a7a;
   }
 
   .section-charcoal .num-mark-dojo {
-    color: #4a315b !important;
+    color: #1e4a7a !important;
   }
 
   /* Dojo / partners accent on charcoal field */
   .section-charcoal .text-dojo {
-    color: #b8a0d4 !important;
+    color: #8bb0d9 !important;
   }
 
   .text-dojo {
-    color: #5c3d7a;
+    color: #2b5f9e;
   }
 
   .text-dojo-deep {
-    color: #4a315b;
+    color: #1e4a7a;
   }
 
   /* Force dark ink inside white cards (beats field light overrides) */
@@ -319,11 +318,11 @@
   }
 
   .section-charcoal .surface-card--orient .surface-card-title {
-    color: #2f5a80 !important;
+    color: #a83830 !important;
   }
 
   .section-charcoal .surface-card--dojo .surface-card-title {
-    color: #4a315b !important;
+    color: #1e4a7a !important;
   }
 
   /* Icon tiles: light mark tints even on charcoal field */
@@ -346,15 +345,15 @@
   }
 
   .section-charcoal .icon-tile-orient {
-    background: #e5eef6 !important;
-    border-color: #3b6f9e !important;
-    color: #2a5078 !important;
+    background: #fce8e4 !important;
+    border-color: #c94a40 !important;
+    color: #a83830 !important;
   }
 
   .section-charcoal .icon-tile-dojo {
-    background: #efe8f5 !important;
-    border-color: #5c3d7a !important;
-    color: #4a315b !important;
+    background: #e3edf7 !important;
+    border-color: #2b5f9e !important;
+    color: #1e4a7a !important;
   }
 
   .section-charcoal .num-mark-save {
@@ -362,7 +361,7 @@
   }
 
   .section-charcoal .num-mark-orient {
-    color: #2f5a80 !important;
+    color: #a83830 !important;
   }
 
   .section-charcoal .btn-secondary {
@@ -653,15 +652,15 @@
   }
 
   .icon-tile-orient {
-    background: #e5eef6;
-    border-color: #3b6f9e;
-    color: #2a5078;
+    background: #fce8e4;
+    border-color: #c94a40;
+    color: #a83830;
   }
 
   .icon-tile-dojo {
-    background: #efe8f5;
-    border-color: #5c3d7a;
-    color: #4a315b;
+    background: #e3edf7;
+    border-color: #2b5f9e;
+    color: #1e4a7a;
   }
 
   .icon-tile svg {
@@ -680,7 +679,7 @@
   .num-mark-map { color: #8a6a12; }
   .num-mark-practice { color: #246640; }
   .num-mark-save { color: #8f2424; }
-  .num-mark-orient { color: #2f5a80; }
+  .num-mark-orient { color: #a83830; }
 
   .schema-loop-connector {
     @apply flex flex-row lg:flex-col items-center justify-center gap-2 py-2;
