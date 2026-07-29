@@ -9,11 +9,11 @@
   }
 
   body {
-    @apply bg-void text-gray-300 font-body antialiased;
+    @apply bg-void text-ink font-body antialiased;
   }
 
   ::selection {
-    @apply bg-electric/30 text-white;
+    @apply bg-electric/20 text-ink;
   }
 }
 
@@ -27,15 +27,15 @@
   }
 
   .section-title {
-    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight;
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-ink tracking-tight;
   }
 
   .section-subtitle {
-    @apply text-lg md:text-xl text-gray-400 mt-4 max-w-2xl leading-relaxed;
+    @apply text-lg md:text-xl text-ink-muted mt-4 max-w-2xl leading-relaxed;
   }
 
   .glass-card {
-    @apply relative rounded-2xl border border-white/5 bg-void-100/60 backdrop-blur-xl shadow-card;
+    @apply relative rounded-2xl border border-ink/10 bg-void-50/90 backdrop-blur-xl shadow-card;
   }
 
   .glass-card::before {
@@ -45,20 +45,20 @@
 
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg
-           bg-gradient-to-r from-electric to-signal text-void font-semibold text-sm
+           bg-gradient-to-r from-electric to-signal text-white font-semibold text-sm
            tracking-wide transition-all duration-300
            hover:shadow-electric hover:scale-[1.02] active:scale-[0.98];
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg
-           border border-electric/30 text-electric font-semibold text-sm
+           border border-electric/35 text-electric font-semibold text-sm
            tracking-wide transition-all duration-300
            hover:bg-electric/10 hover:border-electric/60 hover:shadow-electric;
   }
 
   .nav-link {
-    @apply text-sm text-gray-400 hover:text-electric transition-colors duration-200
+    @apply text-sm text-ink-muted hover:text-electric transition-colors duration-200
            relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px
            after:bg-electric after:transition-all after:duration-300 hover:after:w-full;
   }
@@ -82,17 +82,17 @@
 
   .resource-tag {
     @apply inline-block px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider
-           border border-plasma/30 text-plasma-glow bg-plasma/10;
+           border border-plasma/30 text-plasma bg-plasma/10;
   }
 
   .section-video-banner {
-    @apply relative w-full overflow-hidden rounded-2xl border border-white/5 bg-void;
+    @apply relative w-full overflow-hidden rounded-2xl border border-ink/10 bg-void-200;
     height: clamp(200px, 42vw, 440px);
   }
 
   .section-video {
     @apply absolute inset-0 w-full h-full object-cover object-center;
-    filter: brightness(1.06) saturate(1.1);
+    filter: brightness(1.02) saturate(0.95);
   }
 
   .section-video-fade {
@@ -100,7 +100,7 @@
     background: linear-gradient(
       to bottom,
       transparent 55%,
-      rgba(5, 8, 16, 0.55) 100%
+      rgba(244, 245, 247, 0.85) 100%
     );
   }
 
