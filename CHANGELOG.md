@@ -6,6 +6,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
+
 ## 2026-07-28 — Contact API abuse harden (audit re-gate)
 
 - **Origin fail-closed:** reject POST when Origin and Referer both missing (no bare curl spam)
@@ -15,6 +20,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
+
 ## 2026-07-28 — Guides legal triad + media row
 
 - Guides: separate **Privacy / Terms / EULA** cards (full 3-col row)
@@ -22,11 +32,21 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
+
 ## 2026-07-28 — Hero ritual chips brand color
 
 - Hero MAP / PRACTICE / SAVE PLACE chips use triad colorway (electric / amber / plasma), shared modifiers with Connect doors
 
 ---
+
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
 
 ## 2026-07-28 — Story spine reorg
 
@@ -36,6 +56,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 - Nav / footer / hero secondary CTAs slimmed to story spine: Problem · How · Product · Proof · Why · Guides · Talk
 
 ---
+
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
 
 ## 2026-07-28 — Maturity pack (legal, brand, human loops, harden)
 
@@ -70,6 +95,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
+
 ## 2026-07-25 — Dojo + Who trains here (funnel pass)
 
 ### New sections (`index.html`)
@@ -97,6 +127,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
+
 ## 2026-07-19 — Product gallery (real SSes, sharp scrub)
 
 ### `#product`
@@ -117,6 +152,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
+
 ## 2026-07-17 — Copy bonsai (idioms & one-liners)
 
 ### Narrative clarity (`index.html`)
@@ -133,6 +173,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
+
 ## 2026-07-15 — Hero funnel, kbase product docs, motion mark
 
 ### Funnel
@@ -148,6 +193,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
+
 ## 2026-07-15 — TCF hero banner (cogfag)
 
 - Replace dual HAL-E/AAE hero crossfade with single **The Cognition Factory** banner loop
@@ -156,6 +206,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 - Badge fixed to product name; no full-bleed wall
 
 ---
+
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
 
 ## 2026-07-15 — Partner packet request-only + plain-English brand pass
 
@@ -174,6 +229,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
+
 ## 2026-07-15 — Learner-clarity editorial pass
 
 ### Voice (Kristi-class / busy adult first)
@@ -188,6 +248,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 - Solo everyday + power guides already dual-path
 
 ---
+
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
 
 ## 2026-07-15 — TCF is the offering (comprehensive copy pass)
 
@@ -209,6 +274,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
+
 ## 2026-07-13 — Contact form → Proton (Web3Forms) + light plain-English
 
 ### Contact
@@ -224,6 +294,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 - Architect + contact micro-copy slightly plainer
 
 ---
+
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
 
 ## 2026-07-13 — Funnel polish, dual Solo paths, Between sessions
 
@@ -252,6 +327,11 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 - Curriculum Client_0 still owned by Production (not this repo)
 
 ---
+
+## 2026-07-29 — Meta / title slogan clean
+
+- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
+- No literal `\n` / broken hero string in share cards
 
 ## Earlier
 
