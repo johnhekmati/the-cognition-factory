@@ -2210,24 +2210,30 @@
       box-shadow: none;
     }
 
-    /* Soft mark line above ticker / into charcoal on next scroll */
-    .hero-banner-plate::after {
+    /*
+     * Four primary mark rails — soft gradient fades (not hard bands):
+     * Dojo blue → Map gold → Practice green → Save red.
+     * Top: under banner (plate::after); bottom: ticker underside (marquee::after).
+     */
+    .hero-banner-plate::after,
+    .hero-marquee::after {
       content: "";
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
-      height: 3px;
+      height: 6px;
       z-index: 3;
       pointer-events: none;
       background: linear-gradient(
         90deg,
-        var(--mark-dojo) 0%,
-        var(--mark-map) 33%,
-        var(--mark-practice) 66%,
-        var(--mark-save) 100%
+        var(--mark-dojo, #2b5f9e) 0%,
+        var(--mark-map, #c9a227) 33%,
+        var(--mark-practice, #3d8c5a) 66%,
+        var(--mark-save, #b03030) 100%
       );
-      opacity: 0.9;
+      opacity: 1;
+      box-shadow: 0 0 12px rgba(45, 50, 60, 0.12);
     }
 
     /*
@@ -2306,15 +2312,20 @@
     /*
      * Hero ticker — ape of PMMAI .marquee / .marquee-track
      * (professionalmmainstitute.com). Soft-gray hinge canvas, not navy/gold.
+     * Framed by gradient primary rails (shared rule above).
      */
     .hero-marquee {
+      --mark-map: #c9a227;
+      --mark-practice: #3d8c5a;
+      --mark-save: #b03030;
+      --mark-dojo: #2b5f9e;
+      position: relative;
       overflow: hidden;
       margin-top: auto;
-      border-top: 1px solid rgba(45, 50, 60, 0.08);
-      border-bottom: 1px solid rgba(45, 50, 60, 0.1);
+      border: 0;
       /* Hinge canvas = Tailwind void DEFAULT */
       background: #e8eaee;
-      padding: 0.8rem 0;
+      padding: 0.85rem 0 1.05rem;
     }
 
     .hero-marquee-track {
