@@ -161,7 +161,7 @@
         </div>
 
         <!-- Charcoal band: manifesto copy only (slides above stay light; problem section below stays light) -->
-        <div class="hero-manifesto-copy hero-manifesto-copy--charcoal">
+        <div class="hero-manifesto-copy band-charcoal">
           <div class="hero-manifesto-copy-inner section-padding !pt-12 md:!pt-16 !pb-14 md:!pb-20 max-w-5xl mx-auto text-center">
             <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-ink tracking-tight leading-[1.08] text-balance">
               Skill that sticks when life is loud.<br class="hidden sm:block" />
@@ -884,7 +884,7 @@
     <!-- ═══════════════════════════════════════════════════════════
          PRODUCT GALLERY — desktop shell + workflow practice floor
          ═══════════════════════════════════════════════════════════ -->
-    <section id="product" class="section-padding relative section-charcoal border-t border-ink/10">
+    <section id="product" class="section-padding relative band-charcoal">
       <div class="max-w-7xl mx-auto">
         <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16" data-reveal>
           <span class="section-label">Product</span>
@@ -1127,7 +1127,7 @@
         </div><!-- /Windows -->
 
         <!-- Android — same three doors, phone shell -->
-        <div class="mt-24 md:mt-32 pt-16 md:pt-20 border-t border-ink/10" data-reveal>
+        <div class="mt-24 md:mt-32 pt-16 md:pt-20 border-t border-white/10" data-reveal>
           <div class="max-w-2xl mx-auto text-center mb-10 md:mb-12">
             <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted mb-3">Android</p>
             <h3 class="font-display text-2xl font-semibold text-ink">Same loop in your pocket</h3>
@@ -1255,7 +1255,7 @@
 
         <p class="max-w-2xl mx-auto text-center text-ink-muted text-sm mt-10 md:mt-12 leading-relaxed" data-reveal>
           Windows and Android first; macOS and iOS when the same loop is solid there.
-          Canvas stays light — gold · green · red · blue only for the engines they name.
+          Screens stay light — gold · green · red · blue only for the engines they name.
           The workflow floor stays light and dense on purpose — first day on a real system is a
           <span class="text-ink-soft">context switch</span>, not a cold start.
         </p>
@@ -1875,12 +1875,11 @@
     }
 
     /*
-     * Manifesto copy band only — charcoal field between gallery (above)
-     * and Problem / solution sections (below). Does not recolor the whole hero.
+     * Shared charcoal band — hero manifesto + product gallery (Windows/Android).
+     * Light field sections above/below keep the funnel rhythm: light → dark pop → light.
      */
-    .hero-manifesto-copy--charcoal {
+    .band-charcoal {
       width: 100%;
-      margin-top: 0; /* flush under full-bleed banner */
       background:
         radial-gradient(ellipse 70% 55% at 50% 0%, rgba(59, 111, 158, 0.12), transparent 60%),
         linear-gradient(180deg, #323842 0%, #2a2f38 45%, #252a32 100%);
@@ -1892,55 +1891,134 @@
       color: #e8eaee;
     }
 
-    .hero-manifesto-copy--charcoal .hero-manifesto-copy-inner {
+    .hero-manifesto-copy.band-charcoal {
+      margin-top: 0; /* flush under full-bleed banner */
+    }
+
+    .band-charcoal .hero-manifesto-copy-inner {
       position: relative;
       z-index: 1;
     }
 
-    .hero-manifesto-copy--charcoal .text-ink,
-    .hero-manifesto-copy--charcoal h1 {
+    /* Field type on charcoal (not inside white cards) */
+    .band-charcoal .section-label,
+    .band-charcoal .section-title,
+    .band-charcoal .section-subtitle,
+    .band-charcoal .text-ink,
+    .band-charcoal h1,
+    .band-charcoal h2,
+    .band-charcoal h3 {
       color: #f4f5f7 !important;
     }
 
-    .hero-manifesto-copy--charcoal .text-ink-muted {
+    .band-charcoal .text-ink-muted {
       color: rgba(232, 234, 238, 0.78) !important;
     }
 
-    .hero-manifesto-copy--charcoal .text-ink-soft {
+    .band-charcoal .text-ink-soft {
       color: #f0f2f5 !important;
       font-weight: 500;
     }
 
-    .hero-manifesto-copy--charcoal .hero-copy-sep {
+    .band-charcoal .hero-copy-sep {
       color: rgba(232, 234, 238, 0.28);
     }
 
-    .hero-manifesto-copy--charcoal a.text-sm {
+    .band-charcoal a.text-sm {
       color: rgba(232, 234, 238, 0.72);
     }
 
-    .hero-manifesto-copy--charcoal a.text-sm:hover {
+    .band-charcoal a.text-sm:hover {
       color: #9ec0e0;
     }
 
-    .hero-manifesto-copy--charcoal .btn-secondary {
+    .band-charcoal .btn-secondary {
       border-color: rgba(232, 234, 238, 0.32);
       color: #eef0f3;
       background: rgba(255, 255, 255, 0.04);
     }
 
-    .hero-manifesto-copy--charcoal .btn-secondary:hover {
+    .band-charcoal .btn-secondary:hover {
       background: rgba(255, 255, 255, 0.1);
       border-color: rgba(232, 234, 238, 0.55);
       box-shadow: 0 0 24px rgba(59, 111, 158, 0.2);
     }
 
-    .hero-manifesto-copy--charcoal .ritual-tagline {
+    .band-charcoal .ritual-tagline {
       color: rgba(232, 234, 238, 0.68);
     }
 
-    .hero-manifesto-copy--charcoal .ritual-chip {
+    .band-charcoal .ritual-chip {
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+    }
+
+    /* White product cards stay light — restore dark ink inside */
+    .band-charcoal .glass-card,
+    .band-charcoal .aio-copy {
+      box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.35),
+        0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .band-charcoal .glass-card .text-ink,
+    .band-charcoal .glass-card .section-title,
+    .band-charcoal .glass-card h2,
+    .band-charcoal .glass-card h3,
+    .band-charcoal .aio-copy .text-ink,
+    .band-charcoal .aio-copy h3 {
+      color: #000000 !important;
+    }
+
+    .band-charcoal .glass-card .text-ink-muted,
+    .band-charcoal .glass-card .text-ink-soft,
+    .band-charcoal .aio-copy .text-ink-muted,
+    .band-charcoal .aio-copy .text-ink-soft {
+      color: #000000 !important;
+      font-weight: inherit;
+    }
+
+    /* Keep mark accent colors on product kicker labels inside cards */
+    .band-charcoal .aio-copy .accent-map,
+    .band-charcoal .glass-card .accent-map {
+      color: #5c4a0c !important;
+    }
+    .band-charcoal .aio-copy .accent-practice,
+    .band-charcoal .glass-card .accent-practice {
+      color: #145032 !important;
+    }
+    .band-charcoal .aio-copy .accent-save,
+    .band-charcoal .glass-card .accent-save {
+      color: #6e1818 !important;
+    }
+    .band-charcoal .aio-copy .accent-dojo,
+    .band-charcoal .glass-card .accent-dojo {
+      color: #12355c !important;
+    }
+
+    /* Android figcaptions sit on charcoal field */
+    .band-charcoal .pixel-phone-cap {
+      color: rgba(232, 234, 238, 0.88);
+    }
+    .band-charcoal .pixel-phone-cap.accent-map {
+      color: #e0c060 !important;
+    }
+    .band-charcoal .pixel-phone-cap.accent-practice {
+      color: #6aba84 !important;
+    }
+    .band-charcoal .pixel-phone-cap.accent-save {
+      color: #e07070 !important;
+    }
+    .band-charcoal .pixel-phone-cap.accent-dojo {
+      color: #7aade0 !important;
+    }
+
+    /* Device chrome lifts on charcoal */
+    .band-charcoal .aio-stand-base,
+    .band-charcoal .aio-stand-neck {
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+    }
+    .band-charcoal .pixel-phone {
+      filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.4));
     }
 
     /*
