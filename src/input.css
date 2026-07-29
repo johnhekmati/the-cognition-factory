@@ -897,12 +897,12 @@
     background: rgba(176, 48, 48, 0.1);
   }
 
-  /* Technical = Dojo blue (filter chrome; LMS cards stay ink-neutral) */
+  /* Technical = charcoal (same family as LMS card / Request only utility) */
   .resource-filter--tech:hover,
   .resource-filter--tech.is-active {
-    border-color: rgba(43, 95, 158, 0.6);
-    color: #12355c;
-    background: rgba(43, 95, 158, 0.1);
+    border-color: rgba(45, 50, 60, 0.75);
+    color: #000000;
+    background: rgba(45, 50, 60, 0.08);
   }
 
   /* Request only = charcoal (gated utility, not a door mark) */
