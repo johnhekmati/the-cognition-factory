@@ -855,7 +855,7 @@
     @apply absolute inset-0 pointer-events-none;
   }
 
-  /* Map-build ladder — white cards, Map gold accents (readable on charcoal) */
+  /* Map-build ladder — one primary per step: Map · Practice · Save · Dojo */
   .layer-chip {
     border-radius: 0.75rem;
     border: 2px solid #c9a227;
@@ -874,7 +874,6 @@
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #8a6a12 !important;
   }
 
   .layer-chip-title {
@@ -889,12 +888,44 @@
     color: #4a5160 !important;
   }
 
-  .section-charcoal .layer-chip {
-    background: #ffffff !important;
+  .layer-chip--map {
+    border-color: #c9a227 !important;
+    box-shadow: 0 6px 20px rgba(201, 162, 39, 0.16);
   }
 
-  .section-charcoal .layer-chip-id {
+  .layer-chip--map .layer-chip-id {
     color: #8a6a12 !important;
+  }
+
+  .layer-chip--practice {
+    border-color: #3d8c5a !important;
+    box-shadow: 0 6px 20px rgba(61, 140, 90, 0.14);
+  }
+
+  .layer-chip--practice .layer-chip-id {
+    color: #246640 !important;
+  }
+
+  .layer-chip--save {
+    border-color: #b03030 !important;
+    box-shadow: 0 6px 20px rgba(176, 48, 48, 0.14);
+  }
+
+  .layer-chip--save .layer-chip-id {
+    color: #8f2424 !important;
+  }
+
+  .layer-chip--dojo {
+    border-color: #2b5f9e !important;
+    box-shadow: 0 6px 20px rgba(43, 95, 158, 0.16);
+  }
+
+  .layer-chip--dojo .layer-chip-id {
+    color: #1e4a7a !important;
+  }
+
+  .section-charcoal .layer-chip {
+    background: #ffffff !important;
   }
 
   .section-charcoal .layer-chip-title {
@@ -902,6 +933,24 @@
   }
 
   .section-charcoal .layer-chip-desc {
+    color: #4a5160 !important;
+  }
+
+  /* Dojo ladder card — force blue (never leftover purple) */
+  .surface-card--dojo {
+    border-color: #2b5f9e !important;
+    box-shadow: 0 6px 20px rgba(43, 95, 158, 0.2) !important;
+  }
+
+  .surface-card--dojo .surface-card-title {
+    color: #1e4a7a !important;
+  }
+
+  .section-charcoal .surface-card--dojo .surface-card-title {
+    color: #1e4a7a !important;
+  }
+
+  .section-charcoal .surface-card--dojo .surface-card-kicker {
     color: #4a5160 !important;
   }
 
