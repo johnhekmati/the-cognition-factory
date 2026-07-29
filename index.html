@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp11" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp12" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -112,7 +112,7 @@
         >
           <div class="hero-video-stage hero-mark-stage">
             <img
-              src="/assets/images/brand/tcf-mark-cf-metal-hero.jpg?v=brand-exp11"
+              src="/assets/images/brand/tcf-mark-cf-metal-hero.jpg?v=brand-exp12"
               alt="The Cognition Factory monogram"
               class="hero-mark-img"
               width="1200"
@@ -1751,12 +1751,18 @@
       border-radius: inherit;
     }
 
+    /*
+     * Source is 16:9 but monogram sits small in the center (lots of plate padding).
+     * Cover + scale crops empty sides so CF fills the banner without full-bleed hero.
+     */
     .hero-mark-img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: center;
+      object-fit: cover;
+      object-position: center center;
       display: block;
+      transform: scale(1.65);
+      transform-origin: center center;
     }
 
     /* Connect triad labels — full width under banner */
