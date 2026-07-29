@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp35" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp36" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -888,28 +888,39 @@
             </p>
           </div>
 
-        <!-- Story order: map · practice · save place · workflow · shell -->
-        <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
-          
-          <article class="glass-card overflow-hidden group" data-reveal>
-            <button
-              type="button"
-              class="product-shot block w-full text-left aspect-[16/10] bg-void-100 border-b border-ink/10 overflow-hidden cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a227]/50 focus-visible:ring-inset"
-              data-lightbox-src="/assets/images/product/tcf-desktop-app-mockup.jpg?v=pg2"
-              data-lightbox-alt="Windows household app: Map with library topics and side chat"
-              data-lightbox-caption="1 · Map — Map the subject"
-              aria-label="Enlarge: Map screenshot"
-            >
-              <img
-                src="/assets/images/product/tcf-desktop-app-mockup.jpg?v=pg2"
-                alt="Windows household app: Map with library topics and side chat"
-                class="w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                width="1280"
-                height="800"
-                loading="lazy"
-              />
-            </button>
-            <div class="p-6 md:p-7">
+        <!-- Story order: map · practice · save place · workflow · shell — AiO monitor chrome -->
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-12">
+
+          <article class="aio-product" data-reveal>
+            <div class="aio-device">
+              <button
+                type="button"
+                class="product-shot aio-monitor-btn"
+                data-lightbox-src="/assets/images/product/tcf-desktop-app-mockup.jpg?v=pg2"
+                data-lightbox-alt="Windows household app: Map with library topics and side chat"
+                data-lightbox-caption="1 · Map — Map the subject"
+                aria-label="Enlarge: Map screenshot"
+              >
+                <span class="aio-monitor-shell" aria-hidden="true">
+                  <span class="aio-monitor-cam"></span>
+                </span>
+                <span class="aio-monitor-screen">
+                  <img
+                    src="/assets/images/product/tcf-desktop-app-mockup.jpg?v=pg2"
+                    alt="Windows household app: Map with library topics and side chat"
+                    class="aio-monitor-img"
+                    width="1280"
+                    height="800"
+                    loading="lazy"
+                  />
+                </span>
+              </button>
+              <div class="aio-stand" aria-hidden="true">
+                <span class="aio-stand-neck"></span>
+                <span class="aio-stand-base"></span>
+              </div>
+            </div>
+            <div class="aio-copy glass-card p-6 md:p-7">
               <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] accent-map mb-2">1 · Map</p>
               <h3 class="font-display text-xl font-semibold text-ink">Map the subject</h3>
               <p class="text-ink-muted text-sm mt-3 leading-relaxed">
@@ -924,26 +935,36 @@
             </div>
           </article>
 
-          <!-- 2 · Practice -->
-          <article class="glass-card overflow-hidden group" data-reveal>
-            <button
-              type="button"
-              class="product-shot block w-full text-left aspect-[16/10] bg-void-100 border-b border-ink/10 overflow-hidden cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3d8c5a]/50 focus-visible:ring-inset"
-              data-lightbox-src="/assets/images/product/tcf-practice-aae-screenshot.jpg?v=pg2"
-              data-lightbox-alt="Practice surface: honest right/wrong scoring and exam-style questions"
-              data-lightbox-caption="2 · Practice — Prove the gaps"
-              aria-label="Enlarge: Practice screenshot"
-            >
-              <img
-                src="/assets/images/product/tcf-practice-aae-screenshot.jpg?v=pg2"
-                alt="Practice surface: honest right/wrong scoring and exam-style questions"
-                class="w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                width="1280"
-                height="800"
-                loading="lazy"
-              />
-            </button>
-            <div class="p-6 md:p-7">
+          <article class="aio-product" data-reveal>
+            <div class="aio-device">
+              <button
+                type="button"
+                class="product-shot aio-monitor-btn"
+                data-lightbox-src="/assets/images/product/tcf-practice-aae-screenshot.jpg?v=pg2"
+                data-lightbox-alt="Practice surface: honest right/wrong scoring and exam-style questions"
+                data-lightbox-caption="2 · Practice — Prove the gaps"
+                aria-label="Enlarge: Practice screenshot"
+              >
+                <span class="aio-monitor-shell" aria-hidden="true">
+                  <span class="aio-monitor-cam"></span>
+                </span>
+                <span class="aio-monitor-screen">
+                  <img
+                    src="/assets/images/product/tcf-practice-aae-screenshot.jpg?v=pg2"
+                    alt="Practice surface: honest right/wrong scoring and exam-style questions"
+                    class="aio-monitor-img"
+                    width="1280"
+                    height="800"
+                    loading="lazy"
+                  />
+                </span>
+              </button>
+              <div class="aio-stand" aria-hidden="true">
+                <span class="aio-stand-neck"></span>
+                <span class="aio-stand-base"></span>
+              </div>
+            </div>
+            <div class="aio-copy glass-card p-6 md:p-7">
               <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] accent-practice mb-2">2 · Practice</p>
               <h3 class="font-display text-xl font-semibold text-ink">Prove the gaps</h3>
               <p class="text-ink-muted text-sm mt-3 leading-relaxed">
@@ -953,26 +974,36 @@
             </div>
           </article>
 
-          <!-- 3 · Save place -->
-          <article class="glass-card overflow-hidden group" data-reveal>
-            <button
-              type="button"
-              class="product-shot block w-full text-left aspect-[16/10] bg-void-100 border-b border-ink/10 overflow-hidden cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b03030]/50 focus-visible:ring-inset"
-              data-lightbox-src="/assets/images/product/tcf-save-place-screenshot.jpg?v=pg2"
-              data-lightbox-alt="Save place: resume board with live practice, next steps, and side chat for a clean handoff"
-              data-lightbox-caption="3 · Save place — Park clean when life hits"
-              aria-label="Enlarge: Save place screenshot"
-            >
-              <img
-                src="/assets/images/product/tcf-save-place-screenshot.jpg?v=pg2"
-                alt="Save place: resume board with live practice, next steps, and side chat for a clean handoff"
-                class="w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                width="1280"
-                height="800"
-                loading="lazy"
-              />
-            </button>
-            <div class="p-6 md:p-7">
+          <article class="aio-product" data-reveal>
+            <div class="aio-device">
+              <button
+                type="button"
+                class="product-shot aio-monitor-btn"
+                data-lightbox-src="/assets/images/product/tcf-save-place-screenshot.jpg?v=pg2"
+                data-lightbox-alt="Save place: resume board with live practice, next steps, and side chat for a clean handoff"
+                data-lightbox-caption="3 · Save place — Park clean when life hits"
+                aria-label="Enlarge: Save place screenshot"
+              >
+                <span class="aio-monitor-shell" aria-hidden="true">
+                  <span class="aio-monitor-cam"></span>
+                </span>
+                <span class="aio-monitor-screen">
+                  <img
+                    src="/assets/images/product/tcf-save-place-screenshot.jpg?v=pg2"
+                    alt="Save place: resume board with live practice, next steps, and side chat for a clean handoff"
+                    class="aio-monitor-img"
+                    width="1280"
+                    height="800"
+                    loading="lazy"
+                  />
+                </span>
+              </button>
+              <div class="aio-stand" aria-hidden="true">
+                <span class="aio-stand-neck"></span>
+                <span class="aio-stand-base"></span>
+              </div>
+            </div>
+            <div class="aio-copy glass-card p-6 md:p-7">
               <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] accent-save mb-2">3 · Save place</p>
               <h3 class="font-display text-xl font-semibold text-ink">Park clean when life hits</h3>
               <p class="text-ink-muted text-sm mt-3 leading-relaxed">
@@ -987,26 +1018,36 @@
             </div>
           </article>
 
-          <!-- 4 · Thin SoR (careful — not Capes) · Dojo blue (floor / pressure) -->
-          <article class="glass-card overflow-hidden group" data-reveal>
-            <button
-              type="button"
-              class="product-shot block w-full text-left aspect-[16/10] bg-void-100 border-b border-ink/10 overflow-hidden cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2b5f9e]/50 focus-visible:ring-inset"
-              data-lightbox-src="/assets/images/product/tcf-ops-sor-mockup.jpg?v=pg2"
-              data-lightbox-alt="TCF Ops practice floor: light enterprise Finance workspace with navy sitemap"
-              data-lightbox-caption="4 · Workflow floor — Hands on a process"
-              aria-label="Enlarge: Workflow floor screenshot"
-            >
-              <img
-                src="/assets/images/product/tcf-ops-sor-mockup.jpg?v=pg2"
-                alt="TCF Ops practice floor: light enterprise Finance workspace with navy sitemap"
-                class="w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                width="1280"
-                height="800"
-                loading="lazy"
-              />
-            </button>
-            <div class="p-6 md:p-7">
+          <article class="aio-product" data-reveal>
+            <div class="aio-device">
+              <button
+                type="button"
+                class="product-shot aio-monitor-btn"
+                data-lightbox-src="/assets/images/product/tcf-ops-sor-mockup.jpg?v=pg2"
+                data-lightbox-alt="TCF Ops practice floor: light enterprise Finance workspace with navy sitemap"
+                data-lightbox-caption="4 · Workflow floor — Hands on a process"
+                aria-label="Enlarge: Workflow floor screenshot"
+              >
+                <span class="aio-monitor-shell" aria-hidden="true">
+                  <span class="aio-monitor-cam"></span>
+                </span>
+                <span class="aio-monitor-screen">
+                  <img
+                    src="/assets/images/product/tcf-ops-sor-mockup.jpg?v=pg2"
+                    alt="TCF Ops practice floor: light enterprise Finance workspace with navy sitemap"
+                    class="aio-monitor-img"
+                    width="1280"
+                    height="800"
+                    loading="lazy"
+                  />
+                </span>
+              </button>
+              <div class="aio-stand" aria-hidden="true">
+                <span class="aio-stand-neck"></span>
+                <span class="aio-stand-base"></span>
+              </div>
+            </div>
+            <div class="aio-copy glass-card p-6 md:p-7">
               <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] accent-dojo mb-2">4 · Workflow floor</p>
               <h3 class="font-display text-xl font-semibold text-ink">Hands on a process</h3>
               <p class="text-ink-muted text-sm mt-3 leading-relaxed">
@@ -1017,27 +1058,37 @@
             </div>
           </article>
 
-          <!-- 5 · Shell / Help (secondary, spans on large when alone in row) -->
-          <article class="glass-card overflow-hidden group md:col-span-2 md:max-w-2xl md:mx-auto w-full" data-reveal>
-            <div class="md:grid md:grid-cols-2 md:items-stretch">
-              <button
-                type="button"
-                class="product-shot block w-full text-left aspect-[16/10] md:aspect-auto md:min-h-[14rem] bg-void-100 border-b md:border-b-0 md:border-r border-ink/10 overflow-hidden cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-electric/50 focus-visible:ring-inset"
-                data-lightbox-src="/assets/images/product/tcf-settings-help-screenshot.jpg?v=pg2"
-                data-lightbox-alt="Help surface with plain 60-second study recipe and More menu for Settings and related tools"
-                data-lightbox-caption="Shell · Help — Plain house tools"
-                aria-label="Enlarge: Help screenshot"
-              >
-                <img
-                  src="/assets/images/product/tcf-settings-help-screenshot.jpg?v=pg2"
-                  alt="Help surface with plain 60-second study recipe and More menu for Settings and related tools"
-                  class="w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  width="1280"
-                  height="800"
-                  loading="lazy"
-                />
-              </button>
-              <div class="p-6 md:p-7 flex flex-col justify-center">
+          <article class="aio-product aio-product--wide md:col-span-2" data-reveal>
+            <div class="aio-product-wide-inner">
+              <div class="aio-device aio-device--wide">
+                <button
+                  type="button"
+                  class="product-shot aio-monitor-btn"
+                  data-lightbox-src="/assets/images/product/tcf-settings-help-screenshot.jpg?v=pg2"
+                  data-lightbox-alt="Help surface with plain 60-second study recipe and More menu for Settings and related tools"
+                  data-lightbox-caption="Shell · Help — Plain house tools"
+                  aria-label="Enlarge: Help screenshot"
+                >
+                  <span class="aio-monitor-shell" aria-hidden="true">
+                    <span class="aio-monitor-cam"></span>
+                  </span>
+                  <span class="aio-monitor-screen">
+                    <img
+                      src="/assets/images/product/tcf-settings-help-screenshot.jpg?v=pg2"
+                      alt="Help surface with plain 60-second study recipe and More menu for Settings and related tools"
+                      class="aio-monitor-img"
+                      width="1280"
+                      height="800"
+                      loading="lazy"
+                    />
+                  </span>
+                </button>
+                <div class="aio-stand" aria-hidden="true">
+                  <span class="aio-stand-neck"></span>
+                  <span class="aio-stand-base"></span>
+                </div>
+              </div>
+              <div class="aio-copy glass-card p-6 md:p-7 flex flex-col justify-center">
                 <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted mb-2">Shell · Help</p>
                 <h3 class="font-display text-xl font-semibold text-ink">Plain house tools</h3>
                 <p class="text-ink-muted text-sm mt-3 leading-relaxed">

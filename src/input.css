@@ -1295,6 +1295,176 @@
     }
   }
 
+  /*
+   * Generic AiO / desk monitor mock — charcoal bezel, top cam, stand.
+   * Screenshot sits on the display. Temporary until reworked captures.
+   */
+  .aio-product {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .aio-device {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
+
+  .aio-monitor-btn {
+    display: block;
+    width: 100%;
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: zoom-in;
+    text-align: left;
+    position: relative;
+  }
+
+  .aio-monitor-btn:focus {
+    outline: none;
+  }
+
+  .aio-monitor-btn:focus-visible {
+    outline: 2px solid #2b5f9e;
+    outline-offset: 4px;
+    border-radius: 0.85rem;
+  }
+
+  .aio-monitor-shell {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 0.75rem;
+    background: linear-gradient(165deg, #3c3f46 0%, #1c1e24 45%, #0f1014 100%);
+    box-shadow:
+      0 20px 44px rgba(0, 0, 0, 0.2),
+      0 4px 14px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+  }
+
+  .aio-monitor-cam {
+    position: absolute;
+    top: 0.42rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 999px;
+    background: radial-gradient(circle at 35% 35%, #4a5160 0%, #0a0b0e 72%);
+    box-shadow:
+      0 0 0 1.5px rgba(0, 0, 0, 0.4),
+      inset 0 0 0 1px rgba(90, 130, 180, 0.2);
+    z-index: 2;
+  }
+
+  .aio-monitor-screen {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    padding: 0.85rem 0.65rem 0.7rem;
+    box-sizing: border-box;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .aio-monitor-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 0.28rem;
+    background: #0a0b0e;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .aio-monitor-btn::after {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .aio-stand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 36rem;
+    margin: 0 auto;
+    pointer-events: none;
+  }
+
+  .aio-stand-neck {
+    display: block;
+    width: 18%;
+    min-width: 2.25rem;
+    max-width: 3.5rem;
+    height: 1.15rem;
+    background: linear-gradient(90deg, #2a2c32 0%, #4a4e58 45%, #2a2c32 100%);
+    border-radius: 0 0 0.15rem 0.15rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .aio-stand-base {
+    display: block;
+    width: 42%;
+    min-width: 5.5rem;
+    max-width: 9rem;
+    height: 0.45rem;
+    margin-top: -0.05rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #3a3d44 0%, #1a1c20 100%);
+    box-shadow:
+      0 6px 14px rgba(0, 0, 0, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .aio-copy {
+    margin-top: 1.15rem;
+  }
+
+  .aio-product--wide .aio-product-wide-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .aio-device--wide {
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 768px) {
+    .aio-product--wide .aio-product-wide-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .aio-device--wide {
+      max-width: none;
+      margin: 0;
+    }
+
+    .aio-product--wide .aio-copy {
+      margin-top: 0;
+      min-height: 100%;
+    }
+  }
+
   .product-lightbox {
     position: fixed;
     inset: 0;
