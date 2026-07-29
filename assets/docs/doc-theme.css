@@ -1,121 +1,241 @@
-/* Shared theme for Cognition Factory knowledge-base HTML docs */
+/* Knowledge-base docs — aligned to main-site brand experiment
+ * Canvas: light gray · white paper box · mark-colored border/accents
+ * Lanes: personal (Map gold) · exec (Practice green) · sop (Save red)
+ *        legal (Dojo blue) · neutral (ink black — LMS / utility)
+ */
+
 :root {
-  --void: #050810;
-  --void-100: #0c1220;
-  --electric: #3b9eff;
-  --plasma: #a78bfa;
-  --amber: #f5b942;
-  --amber-glow: #ffd06a;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --border: rgba(255, 255, 255, 0.08);
+  --field: #e8eaee;
+  --paper: #ffffff;
+  --ink: #000000;
+  --ink-soft: #1a1a1a;
+  --border-quiet: rgba(0, 0, 0, 0.08);
+
+  /* Mark primaries (borders / glow) */
+  --mark-map: #c9a227;
+  --mark-practice: #3d8c5a;
+  --mark-save: #b03030;
+  --mark-dojo: #2b5f9e;
+  --mark-neutral: #2d323c;
+
+  /* Deep inks for text accents */
+  --deep-map: #5c4a0c;
+  --deep-practice: #145032;
+  --deep-save: #6e1818;
+  --deep-dojo: #12355c;
+  --deep-neutral: #000000;
+
+  /* Active lane (overridden per body class) */
+  --theme: var(--mark-neutral);
+  --theme-ink: var(--deep-neutral);
+  --theme-tint: rgba(45, 50, 60, 0.06);
+  --theme-shadow: rgba(45, 50, 60, 0.1);
+
+  --electric: #3b6f9e;
+  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
 }
 
-* { box-sizing: border-box; }
+/* ── Lane themes (match k-base card borders) ── */
+body.doc-theme--personal {
+  --theme: var(--mark-map);
+  --theme-ink: var(--deep-map);
+  --theme-tint: rgba(201, 162, 39, 0.1);
+  --theme-shadow: rgba(201, 162, 39, 0.16);
+}
+
+body.doc-theme--exec {
+  --theme: var(--mark-practice);
+  --theme-ink: var(--deep-practice);
+  --theme-tint: rgba(61, 140, 90, 0.1);
+  --theme-shadow: rgba(61, 140, 90, 0.14);
+}
+
+body.doc-theme--sop {
+  --theme: var(--mark-save);
+  --theme-ink: var(--deep-save);
+  --theme-tint: rgba(176, 48, 48, 0.08);
+  --theme-shadow: rgba(176, 48, 48, 0.14);
+}
+
+body.doc-theme--legal {
+  --theme: var(--mark-dojo);
+  --theme-ink: var(--deep-dojo);
+  --theme-tint: rgba(43, 95, 158, 0.08);
+  --theme-shadow: rgba(43, 95, 158, 0.14);
+}
+
+body.doc-theme--neutral {
+  --theme: var(--mark-neutral);
+  --theme-ink: var(--deep-neutral);
+  --theme-tint: rgba(45, 50, 60, 0.06);
+  --theme-shadow: rgba(45, 50, 60, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-  background: var(--void);
-  color: var(--gray-300);
+  min-height: 100vh;
+  font-family: var(--font-body);
+  background: var(--field);
+  color: var(--ink);
   line-height: 1.65;
   font-size: 1.05rem;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Outer field padding; white paper card is .wrap */
 .wrap {
   max-width: 42rem;
-  margin: 0 auto;
-  padding: 2.5rem 1.25rem 4rem;
+  margin: 1.75rem auto 3rem;
+  padding: 2rem 1.35rem 3rem;
+  background: var(--paper);
+  border: 2px solid var(--theme);
+  border-radius: 0.85rem;
+  box-shadow:
+    0 10px 32px var(--theme-shadow),
+    0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .wrap--wide {
   max-width: 48rem;
 }
 
+@media (min-width: 640px) {
+  .wrap {
+    margin: 2.25rem auto 3.5rem;
+    padding: 2.5rem 2.25rem 3.25rem;
+  }
+}
+
 .eyebrow {
-  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--electric);
+  color: var(--theme-ink);
   margin: 0 0 0.75rem;
+  font-weight: 600;
 }
 
-.eyebrow--plasma { color: var(--plasma); }
-.eyebrow--amber { color: var(--amber); }
-
-.callout.amber { border-left-color: var(--amber); }
-.card-label--amber { color: var(--amber); }
-.day-label--amber { color: var(--amber); }
+/* Legacy class hooks → active lane (or explicit mark) */
+.eyebrow--plasma,
+.eyebrow--amber,
+.eyebrow--map,
+.eyebrow--practice,
+.eyebrow--save,
+.eyebrow--dojo {
+  color: var(--theme-ink);
+}
 
 h1 {
+  font-family: var(--font-display);
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   line-height: 1.2;
-  color: #fff;
+  color: var(--ink);
   margin: 0 0 1rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 h2 {
+  font-family: var(--font-display);
   font-size: 1.2rem;
-  color: #fff;
+  color: var(--ink);
   margin: 2.25rem 0 0.75rem;
   font-weight: 600;
 }
 
 h3 {
+  font-family: var(--font-display);
   font-size: 1rem;
-  color: #fff;
+  color: var(--ink);
   margin: 1.5rem 0 0.5rem;
   font-weight: 600;
 }
 
-p, li { color: var(--gray-400); }
-strong { color: var(--gray-300); font-weight: 600; }
-a { color: var(--electric); }
-a:hover { text-decoration: underline; }
+p,
+li {
+  color: var(--ink);
+}
+
+strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+a {
+  color: var(--theme-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--theme);
+}
 
 .lede {
   font-size: 1.125rem;
-  color: var(--gray-300);
+  color: var(--ink);
   margin: 0 0 1.5rem;
 }
 
+/* White nested boxes, mark left-edge */
 .callout {
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--electric);
-  background: var(--void-100);
-  border-radius: 0.5rem;
+  border: 1px solid var(--border-quiet);
+  border-left: 3px solid var(--theme);
+  background: var(--paper);
+  border-radius: 0.55rem;
   padding: 1rem 1.15rem;
   margin: 1.5rem 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 }
 
-.callout.plasma { border-left-color: var(--plasma); }
+.callout.amber,
+.callout.plasma {
+  border-left-color: var(--theme);
+  background: linear-gradient(90deg, var(--theme-tint), var(--paper) 40%);
+}
 
-ul, ol { padding-left: 1.2rem; }
-li { margin: 0.4rem 0; }
+ul,
+ol {
+  padding-left: 1.2rem;
+}
+
+li {
+  margin: 0.4rem 0;
+}
 
 .day,
 .card {
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--theme);
   border-radius: 0.65rem;
   padding: 1rem 1.15rem;
   margin: 0.85rem 0;
-  background: rgba(12, 18, 32, 0.6);
+  background: var(--paper);
+  box-shadow: 0 4px 16px var(--theme-shadow);
 }
 
 .day-label,
 .card-label {
-  font-family: ui-monospace, Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--plasma);
+  color: var(--theme-ink);
   margin: 0 0 0.35rem;
+  font-weight: 700;
 }
 
-.card-label--electric { color: var(--electric); }
+.card-label--amber,
+.card-label--electric,
+.day-label--amber {
+  color: var(--theme-ink);
+}
 
 table {
   width: 100%;
@@ -124,28 +244,34 @@ table {
   margin: 1rem 0 1.5rem;
 }
 
-th, td {
-  border: 1px solid var(--border);
+th,
+td {
+  border: 1px solid var(--border-quiet);
   padding: 0.55rem 0.65rem;
   text-align: left;
   vertical-align: top;
 }
 
 th {
-  background: var(--void-100);
-  color: var(--gray-300);
+  background: var(--theme-tint);
+  color: var(--ink);
   font-weight: 600;
   font-size: 0.8rem;
 }
 
-td { color: var(--gray-400); }
+td {
+  color: var(--ink);
+  background: var(--paper);
+}
 
 .quote {
-  border-left: 3px solid var(--plasma);
+  border-left: 3px solid var(--theme);
   margin: 1.5rem 0;
-  padding: 0.25rem 0 0.25rem 1rem;
-  color: var(--gray-300);
+  padding: 0.35rem 0 0.35rem 1rem;
+  color: var(--ink-soft);
   font-style: italic;
+  background: var(--theme-tint);
+  border-radius: 0 0.4rem 0.4rem 0;
 }
 
 .doc-actions {
@@ -160,37 +286,80 @@ td { color: var(--gray-400); }
   display: inline-block;
   font-size: 0.9rem;
   text-decoration: none;
+  color: var(--theme-ink);
+  font-weight: 600;
 }
 
-.back:hover { text-decoration: underline; }
+.back:hover {
+  color: var(--theme);
+  text-decoration: underline;
+}
 
 .pdf-link {
   font-size: 0.85rem;
-  color: var(--gray-500);
+  color: var(--ink);
   text-decoration: none;
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--theme);
   border-radius: 0.4rem;
   padding: 0.35rem 0.7rem;
+  background: var(--paper);
+  font-weight: 500;
 }
 
 .pdf-link:hover {
-  color: var(--plasma);
-  border-color: rgba(167, 139, 250, 0.35);
+  color: var(--theme-ink);
+  background: var(--theme-tint);
   text-decoration: none;
 }
 
 .meta {
   font-size: 0.85rem;
-  color: var(--gray-500);
+  color: var(--ink);
   margin-top: 2.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-quiet);
+}
+
+/* Top brand strip on field (outside paper card) */
+.doc-chrome {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.doc-chrome-mark {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.doc-chrome-lane {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--theme-ink);
+  font-weight: 700;
 }
 
 @media print {
-  body { background: #fff; color: #111; }
-  p, li, td, .lede { color: #333; }
-  h1, h2, h3, strong { color: #000; }
-  .callout, .day, .card { background: #f5f5f5; border-color: #ddd; }
-  .doc-actions .pdf-link { display: none; }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .wrap {
+    border-color: #ccc;
+    box-shadow: none;
+    margin: 0;
+    max-width: none;
+  }
+  .doc-actions .pdf-link {
+    display: none;
+  }
 }
