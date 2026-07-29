@@ -1,38 +1,49 @@
 /** @type {import('tailwindcss').Config} */
+/** experiment/brand-copy — stamp, don't stream (light professional room) */
 module.exports = {
   content: ['./index.html', './js/**/*.js'],
   theme: {
     extend: {
       colors: {
+        // Paper / ink canvas (was cyber void)
+        // Uniform light-gray canvas (white cards + mark primaries sit on top)
         void: {
-          DEFAULT: '#050810',
-          50: '#0a0f1a',
-          100: '#0d1220',
-          200: '#111827',
-          300: '#1a2235',
+          DEFAULT: '#e8eaee',
+          50: '#e8eaee',
+          100: '#eef0f3',
+          200: '#e0e3e9',
+          300: '#d0d4dc',
         },
+        // Trust steel-blue (was neon cyan) — token name kept for class compatibility
         electric: {
-          DEFAULT: '#00d4ff',
-          dim: '#00a8cc',
-          glow: '#33e0ff',
+          DEFAULT: '#3b6f9e',
+          dim: '#2f5a80',
+          glow: '#5b8fbe',
         },
+        // Quiet indigo (was plasma neon)
         plasma: {
-          DEFAULT: '#7c3aed',
-          dim: '#6d28d9',
-          glow: '#a78bfa',
+          DEFAULT: '#5c6b8a',
+          dim: '#4a5670',
+          glow: '#7a8aab',
         },
         signal: {
-          DEFAULT: '#3b82f6',
-          dim: '#2563eb',
+          DEFAULT: '#4a7ab0',
+          dim: '#3a6290',
         },
-        // AAE aperture family (aligns with household app)
+        // Muted brass (was neon amber)
         amber: {
-          DEFAULT: '#f5b942',
-          dim: '#e8a317',
-          glow: '#ffd06a',
+          DEFAULT: '#b8954a',
+          dim: '#9a7a38',
+          glow: '#d4b06a',
         },
         gold: {
-          DEFAULT: '#e8a317',
+          DEFAULT: '#a6843c',
+        },
+        // Field + prose: pure black (sizes/fonts carry hierarchy, not mid-gray)
+        ink: {
+          DEFAULT: '#000000',
+          soft: '#000000',
+          muted: '#000000',
         },
       },
       fontFamily: {
@@ -42,11 +53,11 @@ module.exports = {
       },
       backgroundImage: {
         'grid-pattern':
-          'linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px)',
+          'linear-gradient(rgba(59, 111, 158, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 111, 158, 0.04) 1px, transparent 1px)',
         'hero-gradient':
-          'radial-gradient(ellipse 80% 60% at 50% -20%, rgba(0, 212, 255, 0.15), transparent), radial-gradient(ellipse 60% 50% at 80% 50%, rgba(124, 58, 237, 0.12), transparent)',
+          'radial-gradient(ellipse 80% 60% at 50% -20%, rgba(59, 111, 158, 0.08), transparent), radial-gradient(ellipse 60% 50% at 80% 50%, rgba(92, 107, 138, 0.06), transparent)',
         'card-glow':
-          'linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%)',
+          'linear-gradient(135deg, rgba(59, 111, 158, 0.04) 0%, rgba(92, 107, 138, 0.04) 100%)',
       },
       backgroundSize: {
         grid: '64px 64px',
@@ -68,12 +79,12 @@ module.exports = {
       },
       boxShadow: {
         electric:
-          '0 0 40px rgba(0, 212, 255, 0.15), 0 0 80px rgba(0, 212, 255, 0.05)',
+          '0 0 24px rgba(59, 111, 158, 0.1), 0 0 48px rgba(59, 111, 158, 0.04)',
         plasma:
-          '0 0 40px rgba(124, 58, 237, 0.15), 0 0 80px rgba(124, 58, 237, 0.05)',
+          '0 0 24px rgba(92, 107, 138, 0.1), 0 0 48px rgba(92, 107, 138, 0.04)',
         amber:
-          '0 0 40px rgba(245, 185, 66, 0.18), 0 0 80px rgba(232, 163, 23, 0.06)',
-        card: '0 4px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04)',
+          '0 0 24px rgba(184, 149, 74, 0.12), 0 0 48px rgba(166, 132, 60, 0.04)',
+        card: '0 4px 20px rgba(45, 50, 60, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
       },
     },
   },

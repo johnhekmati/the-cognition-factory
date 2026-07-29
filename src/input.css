@@ -9,11 +9,12 @@
   }
 
   body {
-    @apply bg-void text-gray-300 font-body antialiased;
+    @apply bg-void text-ink font-body antialiased;
+    color: #000000;
   }
 
   ::selection {
-    @apply bg-electric/30 text-white;
+    @apply bg-electric/20 text-ink;
   }
 }
 
@@ -22,45 +23,424 @@
     @apply px-6 py-24 md:px-12 lg:px-20 xl:px-32;
   }
 
+  /*
+   * Neutral chrome by default. Mark primaries only on engines / lattices / associated UI.
+   * Palette: Map gold · Practice green · Save red · Dojo blue · Lattice coral
+   * Canvas: white cards on light gray / charcoal bands.
+   */
   .section-label {
-    @apply font-mono text-xs uppercase tracking-[0.25em] text-electric mb-4 block;
+    @apply font-mono text-xs uppercase tracking-[0.25em] mb-4 block;
+    color: #000000;
+  }
+
+  /*
+   * Mark accent TEXT on light gray / white — deeper than border primaries so copy pops.
+   * Borders / glows keep #c9a227 · #3d8c5a · #b03030 · #2b5f9e.
+   */
+  .accent-map {
+    color: #5c4a0c;
+  }
+  .accent-practice {
+    color: #145032;
+  }
+  .accent-save {
+    color: #6e1818;
+  }
+  .accent-dojo {
+    color: #12355c;
+  }
+  .accent-lattice {
+    color: #7a221c;
+  }
+
+  .hover-accent-map:hover {
+    color: #8a6a12;
+  }
+  .hover-accent-practice:hover {
+    color: #1f5c38;
+  }
+  .hover-accent-save:hover {
+    color: #8f2424;
+  }
+  .hover-accent-dojo:hover {
+    color: #1e4a7a;
   }
 
   .section-title {
-    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight;
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-ink tracking-tight;
+    color: #000000;
   }
 
   .section-subtitle {
-    @apply text-lg md:text-xl text-gray-400 mt-4 max-w-2xl leading-relaxed;
+    @apply text-lg md:text-xl text-ink mt-4 max-w-2xl leading-relaxed;
+    color: #000000;
+  }
+
+  /*
+   * White content boxes with mark-aligned borders (site-wide).
+   * Map = gold · Practice = green · Save = deep red · Lattice = coral-red · Dojo = blue.
+   */
+  .surface-card {
+    border-radius: 0.75rem;
+    background: #ffffff;
+    padding: 1rem 1rem;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #2d323c;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .surface-card--map {
+    border-color: #c9a227;
+    box-shadow: 0 6px 20px rgba(201, 162, 39, 0.18);
+  }
+
+  .surface-card--practice {
+    border-color: #3d8c5a;
+    box-shadow: 0 6px 20px rgba(61, 140, 90, 0.16);
+  }
+
+  .surface-card--save {
+    border-color: #b03030;
+    box-shadow: 0 6px 20px rgba(176, 48, 48, 0.16);
+  }
+
+  .surface-card--orient {
+    border-color: #c94a40;
+    box-shadow: 0 6px 20px rgba(201, 74, 64, 0.16);
+  }
+
+  .surface-card--dojo {
+    /* Dojo mark blue (octagon pad) */
+    border-color: #2b5f9e;
+    box-shadow: 0 6px 20px rgba(43, 95, 158, 0.18);
+  }
+
+  .surface-card .surface-card-kicker {
+    display: block;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #000000;
+  }
+
+  .surface-card .surface-card-title {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #000000;
+  }
+
+  .surface-card--map .surface-card-title {
+    color: #5c4a0c;
+  }
+
+  .surface-card--practice .surface-card-title {
+    color: #145032;
+  }
+
+  .surface-card--save .surface-card-title {
+    color: #6e1818;
+  }
+
+  .surface-card--orient .surface-card-title {
+    color: #7a221c;
+  }
+
+  .surface-card--dojo .surface-card-title {
+    color: #12355c;
   }
 
   .glass-card {
-    @apply relative rounded-2xl border border-white/5 bg-void-100/60 backdrop-blur-xl shadow-card;
+    @apply relative rounded-2xl border border-ink/10 bg-white backdrop-blur-xl shadow-card;
   }
 
   .glass-card::before {
     content: '';
-    @apply absolute inset-0 rounded-2xl bg-card-glow opacity-50 pointer-events-none;
+    @apply absolute inset-0 rounded-2xl bg-card-glow opacity-40 pointer-events-none;
+  }
+
+  /*
+   * Uniform light-gray field (experiment): no charcoal bands.
+   * White cards + Y→G→R→B mark primaries carry contrast.
+   * Class name kept so HTML need not thrash.
+   */
+  .section-charcoal {
+    background-color: transparent; /* inherits body light gray */
+    color: #000000;
+  }
+
+  .section-charcoal .section-title {
+    color: #000000;
+  }
+
+  .section-charcoal .section-label {
+    color: #000000;
+  }
+
+  .section-charcoal .section-subtitle {
+    color: #000000;
+  }
+
+  .section-charcoal .text-ink {
+    color: #000000;
+  }
+
+  .section-charcoal .text-ink-muted {
+    color: #000000;
+  }
+
+  .section-charcoal .text-ink-soft {
+    color: #000000;
+  }
+
+  .section-charcoal .text-electric {
+    color: #3b6f9e;
+  }
+
+  .section-charcoal .text-amber-glow,
+  .section-charcoal .text-amber {
+    color: #5c4a0c;
+  }
+
+  .section-charcoal .text-plasma-glow,
+  .section-charcoal .text-plasma {
+    color: #4a5160;
+  }
+
+  /* White cards on light gray — soft lift, not charcoal-drop */
+  .section-charcoal .glass-card,
+  .section-charcoal .surface-card,
+  .section-charcoal .schema-pane,
+  .section-charcoal .cartridge-tile,
+  .section-charcoal .aae-metric,
+  .section-charcoal .llm-core-note {
+    background-color: #ffffff !important;
+    color: #2d323c;
+    box-shadow:
+      0 8px 28px rgba(45, 50, 60, 0.08),
+      0 2px 8px rgba(45, 50, 60, 0.04);
+  }
+
+  /* Mark borders — solid, visible */
+  .card-border-map,
+  .section-charcoal .card-border-map,
+  .schema-pane.card-border-map {
+    border-color: #c9a227 !important;
+    border-width: 2px !important;
+  }
+
+  .card-border-practice,
+  .section-charcoal .card-border-practice,
+  .schema-pane.card-border-practice {
+    border-color: #3d8c5a !important;
+    border-width: 2px !important;
+  }
+
+  .card-border-save,
+  .section-charcoal .card-border-save,
+  .schema-pane.card-border-save {
+    border-color: #b03030 !important;
+    border-width: 2px !important;
+  }
+
+  .card-border-orient,
+  .section-charcoal .card-border-orient,
+  .schema-pane.card-border-orient {
+    border-color: #c94a40 !important;
+    border-width: 2px !important;
+  }
+
+  .card-border-dojo,
+  .section-charcoal .card-border-dojo,
+  .schema-pane.card-border-dojo {
+    border-color: #2b5f9e !important;
+    border-width: 2px !important;
+  }
+
+
+
+  .num-mark-dojo {
+    color: #12355c;
+  }
+
+  .section-charcoal .num-mark-dojo {
+    color: #12355c !important;
+  }
+
+  .section-charcoal .text-dojo {
+    color: #12355c !important;
+  }
+
+  .text-dojo {
+    color: #12355c;
+  }
+
+  .text-dojo-deep {
+    color: #0e2a4a;
+  }
+
+  /* Force dark ink inside white cards (beats field light overrides) */
+  .section-charcoal .glass-card .text-ink,
+  .section-charcoal .glass-card .section-title,
+  .section-charcoal .glass-card h2,
+  .section-charcoal .glass-card h3,
+  .section-charcoal .glass-card .font-display,
+  .section-charcoal .surface-card .text-ink,
+  .section-charcoal .schema-pane .text-ink,
+  .section-charcoal .schema-pane h3,
+  .section-charcoal .schema-pane .font-display,
+  .section-charcoal .cartridge-tile .text-ink,
+  .section-charcoal .aae-metric .text-ink {
+    color: #000000 !important;
+  }
+
+  /* Boxed body copy: near-black (mark kickers keep their hue) */
+  .section-charcoal .glass-card .text-ink-muted,
+  .section-charcoal .glass-card .text-ink-soft,
+  .section-charcoal .surface-card .text-ink-muted,
+  .section-charcoal .schema-pane .text-ink-muted,
+  .section-charcoal .cartridge-tile .text-ink-muted,
+  .section-charcoal .aae-metric .text-ink-muted {
+    color: #000000 !important;
+  }
+
+  .section-charcoal .surface-card .surface-card-kicker {
+    color: #4a5160; /* default; mark offer-rungs override */
+  }
+
+  .section-charcoal .glass-card .text-electric {
+    color: #3b6f9e !important;
+  }
+
+  .section-charcoal .glass-card .text-amber-glow,
+  .section-charcoal .glass-card .text-amber {
+    color: #5c4a0c !important;
+  }
+
+  .section-charcoal .glass-card .text-plasma-glow,
+  .section-charcoal .glass-card .text-plasma {
+    color: #3f4d66 !important;
+  }
+
+  /* Door title tints inside surface cards */
+  .section-charcoal .surface-card--map .surface-card-title {
+    color: #5c4a0c !important;
+  }
+
+  .section-charcoal .surface-card--practice .surface-card-title {
+    color: #145032 !important;
+  }
+
+  .section-charcoal .surface-card--save .surface-card-title {
+    color: #6e1818 !important;
+  }
+
+  .section-charcoal .surface-card--orient .surface-card-title {
+    color: #7a221c !important;
+  }
+
+  .section-charcoal .surface-card--dojo .surface-card-title {
+    color: #12355c !important;
+  }
+
+  /* Icon tiles: light mark tints even on charcoal field */
+  .section-charcoal .icon-tile-map {
+    background: #f7efd4 !important;
+    border-color: #c9a227 !important;
+    color: #5c4a0c !important;
+  }
+
+  .section-charcoal .icon-tile-practice {
+    background: #e4f3e9 !important;
+    border-color: #3d8c5a !important;
+    color: #145032 !important;
+  }
+
+  .section-charcoal .icon-tile-save {
+    background: #f8e6e6 !important;
+    border-color: #b03030 !important;
+    color: #6e1818 !important;
+  }
+
+  .section-charcoal .icon-tile-orient {
+    background: #fce8e4 !important;
+    border-color: #c94a40 !important;
+    color: #7a221c !important;
+  }
+
+  .section-charcoal .icon-tile-dojo {
+    background: #e3edf7 !important;
+    border-color: #2b5f9e !important;
+    color: #12355c !important;
+  }
+
+  .section-charcoal .num-mark-save {
+    color: #6e1818 !important;
+  }
+
+  .section-charcoal .num-mark-orient {
+    color: #7a221c !important;
+  }
+
+  .section-charcoal .btn-secondary {
+    border-color: rgba(59, 111, 158, 0.35);
+    color: #3b6f9e;
+  }
+
+  .section-charcoal .btn-secondary:hover {
+    background-color: rgba(59, 111, 158, 0.08);
+    border-color: rgba(59, 111, 158, 0.55);
+    color: #2f5a80;
+  }
+
+  .section-charcoal .schema-pane {
+    background-color: #ffffff;
+    border-color: rgba(45, 50, 60, 0.1);
+    color: #2d323c;
+  }
+
+  .section-charcoal .schema-pane .text-ink,
+  .section-charcoal .schema-pane h3,
+  .section-charcoal .schema-pane .font-display {
+    color: #000000;
+  }
+
+  .section-charcoal .schema-pane .text-ink-muted {
+    color: #000000;
+  }
+
+  .section-charcoal .schema-loop-label {
+    color: #000000;
+  }
+
+  .section-charcoal .schema-loop-line {
+    /* mark path on light field */
+    background-image: linear-gradient(to right, #c9a227, #b03030, #3d8c5a) !important;
   }
 
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg
-           bg-gradient-to-r from-electric to-signal text-void font-semibold text-sm
+           bg-gradient-to-r from-electric to-signal text-white font-semibold text-sm
            tracking-wide transition-all duration-300
            hover:shadow-electric hover:scale-[1.02] active:scale-[0.98];
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg
-           border border-electric/30 text-electric font-semibold text-sm
+           border border-electric/35 text-electric font-semibold text-sm
            tracking-wide transition-all duration-300
            hover:bg-electric/10 hover:border-electric/60 hover:shadow-electric;
   }
 
   .nav-link {
-    @apply text-sm text-gray-400 hover:text-electric transition-colors duration-200
+    @apply text-sm text-ink hover:text-electric transition-colors duration-200
            relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px
            after:bg-electric after:transition-all after:duration-300 hover:after:w-full;
+    color: #000000;
   }
 
   .nav-link.active {
@@ -82,17 +462,96 @@
 
   .resource-tag {
     @apply inline-block px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider
-           border border-plasma/30 text-plasma-glow bg-plasma/10;
+           border border-ink/20 text-ink-soft bg-void-100;
+  }
+
+  /*
+   * K-base card borders — mark colorway
+   * personal = Map gold · executive = Practice green · SOP = Save red · legal = Dojo blue · neutral = ink
+   */
+  .resource-card {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(45, 50, 60, 0.12);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .resource-card--personal {
+    border-color: #c9a227 !important;
+    box-shadow: 0 6px 20px rgba(201, 162, 39, 0.12);
+  }
+  .resource-card--personal:hover {
+    border-color: #a8841a !important;
+    box-shadow: 0 8px 24px rgba(201, 162, 39, 0.18);
+  }
+  .resource-card--personal .resource-card-title:hover,
+  .resource-card--personal:hover .resource-card-title,
+  .resource-card--personal:hover h3 {
+    color: #5c4a0c !important;
+  }
+  .resource-card--personal:hover svg {
+    color: #5c4a0c !important;
+  }
+
+  .resource-card--exec {
+    border-color: #3d8c5a !important;
+    box-shadow: 0 6px 20px rgba(61, 140, 90, 0.12);
+  }
+  .resource-card--exec:hover {
+    border-color: #2f6e48 !important;
+    box-shadow: 0 8px 24px rgba(61, 140, 90, 0.18);
+  }
+  .resource-card--exec:hover h3,
+  .resource-card--exec:hover svg {
+    color: #145032 !important;
+  }
+
+  .resource-card--sop {
+    border-color: #b03030 !important;
+    box-shadow: 0 6px 20px rgba(176, 48, 48, 0.12);
+  }
+  .resource-card--sop:hover {
+    border-color: #8f2424 !important;
+    box-shadow: 0 8px 24px rgba(176, 48, 48, 0.18);
+  }
+  .resource-card--sop:hover h3,
+  .resource-card--sop:hover svg {
+    color: #6e1818 !important;
+  }
+
+  .resource-card--legal {
+    border-color: #2b5f9e !important;
+    box-shadow: 0 6px 20px rgba(43, 95, 158, 0.12);
+  }
+  .resource-card--legal:hover {
+    border-color: #1e4a7a !important;
+    box-shadow: 0 8px 24px rgba(43, 95, 158, 0.18);
+  }
+  .resource-card--legal:hover h3,
+  .resource-card--legal:hover svg {
+    color: #12355c !important;
+  }
+
+  .resource-card--neutral {
+    border-color: #2d323c !important;
+    box-shadow: 0 6px 20px rgba(45, 50, 60, 0.08);
+  }
+  .resource-card--neutral:hover {
+    border-color: #1a1d24 !important;
+    box-shadow: 0 8px 24px rgba(45, 50, 60, 0.12);
+  }
+  .resource-card--neutral:hover h3,
+  .resource-card--neutral:hover svg {
+    color: #2d323c !important;
   }
 
   .section-video-banner {
-    @apply relative w-full overflow-hidden rounded-2xl border border-white/5 bg-void;
+    @apply relative w-full overflow-hidden rounded-2xl border border-ink/10 bg-void-200;
     height: clamp(200px, 42vw, 440px);
   }
 
   .section-video {
     @apply absolute inset-0 w-full h-full object-cover object-center;
-    filter: brightness(1.06) saturate(1.1);
+    filter: brightness(1.02) saturate(0.95);
   }
 
   .section-video-fade {
@@ -100,7 +559,7 @@
     background: linear-gradient(
       to bottom,
       transparent 55%,
-      rgba(5, 8, 16, 0.55) 100%
+      rgba(244, 245, 247, 0.85) 100%
     );
   }
 
@@ -150,34 +609,59 @@
   }
 
   .context-copy-inner {
-    @apply space-y-6 text-gray-400 leading-relaxed w-full max-w-lg;
+    @apply space-y-6 leading-relaxed w-full max-w-lg;
+    color: #000000;
   }
 
-  /* Manifesto rituals */
+  /* Manifesto rituals — white boxes, mark color borders */
   .ritual-strip {
     @apply flex flex-wrap items-center justify-center gap-2 sm:gap-3;
   }
 
   .ritual-chip {
-    @apply font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.22em]
-           px-3 py-1.5 rounded-md border border-white/10 text-gray-400 bg-void-100/50;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.5rem;
+    border: 2px solid #2d323c;
+    background: #ffffff;
+    color: #2d323c;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   }
 
-  /* Brand triad: map = electric, practice = amber, save place = plasma */
+  /* Map = gold · Practice = green · Save = red */
   .ritual-chip--map {
-    @apply border-electric/45 text-electric bg-electric/[0.08];
+    border-color: #c9a227;
+    color: #5c4a0c;
+    background: #fffdf5;
+    box-shadow: 0 4px 14px rgba(201, 162, 39, 0.15);
   }
 
   .ritual-chip--practice {
-    border-color: rgba(245, 185, 66, 0.45);
-    color: #ffd06a;
-    background: rgba(245, 185, 66, 0.08);
+    border-color: #3d8c5a;
+    color: #145032;
+    background: #f4fbf6;
+    box-shadow: 0 4px 14px rgba(61, 140, 90, 0.14);
   }
 
   .ritual-chip--save {
-    border-color: rgba(124, 58, 237, 0.5);
-    color: #a78bfa;
-    background: rgba(124, 58, 237, 0.1);
+    border-color: #b03030;
+    color: #6e1818;
+    background: #fff6f6;
+    box-shadow: 0 4px 14px rgba(176, 48, 48, 0.14);
+  }
+
+  .ritual-tagline {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #000000;
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Schema lab (closed loop) */
@@ -194,17 +678,17 @@
   }
 
   .schema-pane {
-    @apply rounded-2xl border border-white/5 bg-void-100/60 backdrop-blur-xl p-6 md:p-8 shadow-card;
+    @apply rounded-2xl border border-ink/10 bg-white p-6 md:p-8 shadow-card;
   }
 
   .schema-pane--hale {
-    @apply border-electric/15;
-    box-shadow: 0 0 40px rgba(0, 212, 255, 0.06);
+    @apply border-electric/20;
+    box-shadow: 0 8px 28px rgba(45, 50, 60, 0.08);
   }
 
   .schema-pane--aae {
-    @apply border-amber/20;
-    box-shadow: 0 0 40px rgba(245, 185, 66, 0.08);
+    @apply border-amber/25;
+    box-shadow: 0 8px 28px rgba(45, 50, 60, 0.08);
   }
 
   .schema-pane-head {
@@ -216,13 +700,90 @@
   }
 
   .schema-nodes li {
-    @apply font-mono text-xs uppercase tracking-wider text-electric/90
-           pl-3 border-l-2 border-electric/40;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-left: 0.75rem;
+    border-left: 2px solid #c9a227;
+    color: #5c4a0c;
   }
 
-  .schema-nodes--aae li {
-    @apply text-amber-glow/90 border-amber/40;
+  .schema-nodes--aae li,
+  .schema-nodes--practice li {
+    border-left-color: #3d8c5a;
+    color: #145032;
   }
+
+  .schema-nodes--save li {
+    border-left-color: #b03030;
+    color: #6e1818;
+  }
+
+  /* Icon tiles inside white cards — mark families */
+  /*
+   * Icon tiles: light tint of mark color + stronger icon ink.
+   * Dark translucent fills on charcoal made glyphs disappear.
+   */
+  .icon-tile {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    border: 1.5px solid;
+  }
+
+  .icon-tile-map {
+    background: #f7efd4;
+    border-color: #c9a227;
+    color: #5c4a0c;
+  }
+
+  .icon-tile-practice {
+    background: #e4f3e9;
+    border-color: #3d8c5a;
+    color: #145032;
+  }
+
+  .icon-tile-save {
+    background: #f8e6e6;
+    border-color: #b03030;
+    color: #6e1818;
+  }
+
+  .icon-tile-orient {
+    background: #fce8e4;
+    border-color: #c94a40;
+    color: #7a221c;
+  }
+
+  .icon-tile-dojo {
+    background: #e3edf7;
+    border-color: #2b5f9e;
+    color: #12355c;
+  }
+
+  .icon-tile svg {
+    width: 1rem;
+    height: 1rem;
+    stroke: currentColor;
+  }
+
+  .num-mark {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  .num-mark-map { color: #5c4a0c; }
+  .num-mark-practice { color: #145032; }
+  .num-mark-save { color: #6e1818; }
+  .num-mark-orient { color: #7a221c; }
 
   .schema-loop-connector {
     @apply flex flex-row lg:flex-col items-center justify-center gap-2 py-2;
@@ -234,20 +795,57 @@
   }
 
   .schema-loop-label {
-    @apply font-mono text-[0.6rem] uppercase tracking-[0.2em] text-gray-500
+    @apply font-mono text-[0.6rem] uppercase tracking-[0.2em]
            text-center leading-snug max-w-[7.5rem] lg:max-w-[8.5rem];
+    color: #6e1818;
   }
 
-  /* AAE differentiated slab */
+  .schema-loop-line {
+    @apply h-px w-8 lg:w-px lg:h-10 bg-gradient-to-r lg:bg-gradient-to-b;
+    --tw-gradient-from: #c9a227;
+    --tw-gradient-to: #3d8c5a;
+    background-image: linear-gradient(
+      to right,
+      #c9a227,
+      #b03030,
+      #3d8c5a
+    );
+  }
+
+  @screen lg {
+    .schema-loop-line {
+      background-image: linear-gradient(
+        to bottom,
+        #c9a227,
+        #b03030,
+        #3d8c5a
+      );
+    }
+  }
+
+  /* Metric / step slabs — always white + soft border */
   .aae-metric {
-    @apply rounded-xl border border-amber/15 bg-void-200/40 p-5
-           hover:border-amber/30 transition-colors;
+    @apply rounded-xl border border-amber/30 bg-white p-5
+           hover:border-amber/50 transition-colors;
+    box-shadow: 0 4px 16px rgba(45, 50, 60, 0.06);
   }
 
   /* Cartridge console */
   .cartridge-tile {
-    @apply rounded-xl border border-white/5 bg-void-200/50 p-5
-           hover:border-electric/25 transition-colors duration-300;
+    @apply rounded-xl border border-ink/10 bg-white p-5
+           hover:border-electric/30 transition-colors duration-300;
+    box-shadow: 0 4px 16px rgba(45, 50, 60, 0.06);
+  }
+
+  .section-charcoal .cartridge-tile,
+  .section-charcoal .aae-metric {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .section-charcoal .cartridge-tile .text-ink-muted,
+  .section-charcoal .aae-metric .text-ink-muted {
+    color: #000000;
   }
 
   .cartridge-tile-mark {
@@ -255,52 +853,143 @@
            border font-display font-bold text-sm;
   }
 
-  /* Resource filters */
+  /* Resource filters — mark lane hover/active (match k-base borders) */
   .resource-filter {
-    @apply px-4 py-2 rounded-lg text-sm font-medium text-gray-500
-           border border-white/5 hover:border-electric/20 hover:text-electric
-           transition-colors;
+    @apply px-4 py-2 rounded-lg text-sm font-medium border transition-colors;
+    color: #000000;
+    border-color: rgba(0, 0, 0, 0.12);
+    background: #ffffff;
   }
 
   .resource-filter.is-active {
-    @apply bg-electric/10 text-electric border-electric/30;
+    font-weight: 600;
   }
 
-  /* Solo filter — AAE amber/gold (same family as carts / AAE rail) */
-  .resource-filter--solo {
-    @apply hover:border-amber/35 hover:text-amber-glow;
+  /* All = neutral chrome */
+  .resource-filter--all:hover,
+  .resource-filter--all.is-active {
+    border-color: rgba(0, 0, 0, 0.45);
+    color: #000000;
+    background: rgba(0, 0, 0, 0.05);
   }
 
+  /* Solo = Map gold */
+  .resource-filter--solo:hover,
   .resource-filter--solo.is-active {
-    @apply bg-amber/10 text-amber-glow border-amber/40;
+    border-color: rgba(201, 162, 39, 0.65);
+    color: #5c4a0c;
+    background: rgba(201, 162, 39, 0.12);
   }
 
-  .resource-tag--sop {
-    border-color: rgba(59, 130, 246, 0.3);
-    color: #60a5fa;
-    background: rgba(59, 130, 246, 0.1);
+  /* White papers = Practice green */
+  .resource-filter--exec:hover,
+  .resource-filter--exec.is-active {
+    border-color: rgba(61, 140, 90, 0.6);
+    color: #145032;
+    background: rgba(61, 140, 90, 0.1);
+  }
+
+  /* SOPs = Save red */
+  .resource-filter--sop:hover,
+  .resource-filter--sop.is-active {
+    border-color: rgba(176, 48, 48, 0.6);
+    color: #6e1818;
+    background: rgba(176, 48, 48, 0.1);
+  }
+
+  /* Technical = charcoal (same family as LMS card / Request only utility) */
+  .resource-filter--tech:hover,
+  .resource-filter--tech.is-active {
+    border-color: rgba(45, 50, 60, 0.75);
+    color: #000000;
+    background: rgba(45, 50, 60, 0.08);
+  }
+
+  /* Request only = charcoal (gated utility, not a door mark) */
+  .resource-filter--request:hover,
+  .resource-filter--request.is-active {
+    border-color: rgba(45, 50, 60, 0.75);
+    color: #000000;
+    background: rgba(45, 50, 60, 0.08);
   }
 
   .resource-tag--solo {
-    @apply border-amber/35 bg-amber/10 text-amber-glow;
+    border-color: rgba(201, 162, 39, 0.45);
+    color: #5c4a0c;
+    background: rgba(201, 162, 39, 0.12);
   }
 
-  .resource-tag--tech {
-    border-color: rgba(0, 212, 255, 0.3);
-    color: #33e0ff;
-    background: rgba(0, 212, 255, 0.1);
+  .resource-tag--exec {
+    border-color: rgba(61, 140, 90, 0.4);
+    color: #145032;
+    background: rgba(61, 140, 90, 0.1);
+  }
+
+  .resource-tag--sop {
+    border-color: rgba(176, 48, 48, 0.4);
+    color: #6e1818;
+    background: rgba(176, 48, 48, 0.1);
+  }
+
+  .resource-tag--legal {
+    border-color: rgba(43, 95, 158, 0.4);
+    color: #12355c;
+    background: rgba(43, 95, 158, 0.1);
+  }
+
+  .resource-tag--tech,
+  .resource-tag--neutral {
+    border-color: rgba(45, 50, 60, 0.35);
+    color: #2d323c;
+    background: rgba(45, 50, 60, 0.06);
   }
 
   .form-input {
-    @apply w-full px-4 py-3 rounded-lg bg-void-200 border border-white/5
-           text-white placeholder-gray-600
+    @apply w-full px-4 py-3 rounded-lg bg-white border border-ink/15
            focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30
            transition-colors;
+    color: #000000;
+  }
+  .form-input::placeholder {
+    color: #555555;
   }
 
+  /* Utility note — white card on charcoal (not translucent gray) */
   .llm-core-note {
-    @apply rounded-2xl border border-electric/15 bg-void-100/70 backdrop-blur-xl
-           px-6 py-6 md:px-8 md:py-7 shadow-card text-left sm:text-center;
+    border-radius: 1rem;
+    border: 2px solid #3b6f9e;
+    background: #ffffff;
+    padding: 1.5rem 1.75rem;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  @media (min-width: 640px) {
+    .llm-core-note {
+      text-align: center;
+    }
+  }
+
+  .llm-core-note,
+  .llm-core-note p,
+  .llm-core-note span {
+    color: #000000;
+  }
+
+  .llm-core-note .text-ink {
+    color: #000000 !important;
+  }
+
+  .llm-core-note .text-ink-muted {
+    color: #000000 !important;
+  }
+
+  .llm-core-note .text-electric {
+    color: #3b6f9e !important;
+  }
+
+  .section-charcoal .llm-core-note {
+    background: #ffffff !important;
   }
 
   /* Broader than 9:16 + inset gutters so in-frame type has breathing room */
@@ -328,20 +1017,135 @@
     @apply absolute inset-0 pointer-events-none;
   }
 
+  /* Map-build ladder — one primary per step: Map · Practice · Save · Dojo */
   .layer-chip {
-    @apply rounded-xl border border-white/5 bg-void-200/60 px-4 py-4 flex flex-col gap-1;
+    border-radius: 0.75rem;
+    border: 2px solid #c9a227;
+    background: #ffffff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    text-align: left;
   }
 
   .layer-chip-id {
-    @apply font-mono text-[0.65rem] uppercase tracking-[0.2em];
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
   }
 
   .layer-chip-title {
-    @apply text-white text-sm font-semibold;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #000000 !important;
   }
 
   .layer-chip-desc {
-    @apply text-gray-500 text-xs leading-relaxed;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: #000000 !important;
+  }
+
+  .layer-chip--map {
+    border-color: #c9a227 !important;
+    box-shadow: 0 6px 20px rgba(201, 162, 39, 0.16);
+  }
+
+  .layer-chip--map .layer-chip-id {
+    color: #5c4a0c !important;
+  }
+
+  .layer-chip--practice {
+    border-color: #3d8c5a !important;
+    box-shadow: 0 6px 20px rgba(61, 140, 90, 0.14);
+  }
+
+  .layer-chip--practice .layer-chip-id {
+    color: #145032 !important;
+  }
+
+  .layer-chip--save {
+    border-color: #b03030 !important;
+    box-shadow: 0 6px 20px rgba(176, 48, 48, 0.14);
+  }
+
+  .layer-chip--save .layer-chip-id {
+    color: #6e1818 !important;
+  }
+
+  .layer-chip--dojo {
+    border-color: #2b5f9e !important;
+    box-shadow: 0 6px 20px rgba(43, 95, 158, 0.16);
+  }
+
+  .layer-chip--dojo .layer-chip-id {
+    color: #12355c !important;
+  }
+
+  .section-charcoal .layer-chip {
+    background: #ffffff !important;
+  }
+
+  .section-charcoal .layer-chip-title {
+    color: #000000 !important;
+  }
+
+  .section-charcoal .layer-chip-desc {
+    color: #000000 !important;
+  }
+
+  /* Dojo ladder card — force blue (never leftover purple) */
+  .surface-card--dojo {
+    border-color: #2b5f9e !important;
+    box-shadow: 0 6px 20px rgba(43, 95, 158, 0.2) !important;
+  }
+
+  .surface-card--dojo .surface-card-title {
+    color: #12355c !important;
+  }
+
+  .section-charcoal .surface-card--dojo .surface-card-title {
+    color: #12355c !important;
+  }
+
+  .section-charcoal .surface-card--dojo .surface-card-kicker {
+    color: #4a5160 !important;
+  }
+
+  /* Offer ladder / contact — mark-colored kickers (not washed electric/amber) */
+  .offer-rung {
+    text-align: left !important;
+  }
+
+  .offer-rung .surface-card-kicker {
+    text-align: left !important;
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+  }
+
+  .offer-rung.surface-card--map .surface-card-kicker {
+    color: #5c4a0c !important;
+  }
+
+  .offer-rung.surface-card--practice .surface-card-kicker {
+    color: #145032 !important;
+  }
+
+  .offer-rung.surface-card--save .surface-card-kicker {
+    color: #6e1818 !important;
+  }
+
+  .offer-rung.surface-card--dojo .surface-card-kicker {
+    color: #12355c !important;
+  }
+
+  .offer-rung p.text-ink {
+    color: #2d323c !important;
+    text-align: left;
   }
 
   /* Platform marks (CSS / CMS) — centered, fill card content width */
@@ -376,6 +1180,7 @@
     opacity: 0;
     transition: opacity 0.2s ease;
     pointer-events: none;
+    z-index: 3;
   }
 
   .product-shot:hover::after,
@@ -387,6 +1192,314 @@
     .product-shot::after {
       opacity: 0.85;
       font-size: 0.58rem;
+    }
+  }
+
+  /*
+   * Generic Pixel-shaped phone mock — charcoal shell, punch-hole cam,
+   * screenshot lives on the display. Temporary until reworked app captures.
+   */
+  .pixel-phone {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 14.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pixel-phone-btn {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: zoom-in;
+    text-align: left;
+    position: relative;
+  }
+
+  .pixel-phone-btn:focus {
+    outline: none;
+  }
+
+  .pixel-phone-btn:focus-visible {
+    outline: 2px solid #2b5f9e;
+    outline-offset: 4px;
+    border-radius: 1.75rem;
+  }
+
+  .pixel-phone-shell {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 1.65rem;
+    background: linear-gradient(160deg, #3a3d44 0%, #1a1c20 42%, #0e0f12 100%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.22),
+      0 4px 12px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+  }
+
+  .pixel-phone-cam {
+    position: absolute;
+    top: 0.55rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: radial-gradient(circle at 35% 35%, #3a3f4a 0%, #0a0b0e 70%);
+    box-shadow:
+      0 0 0 1.5px rgba(0, 0, 0, 0.45),
+      inset 0 0 0 1px rgba(80, 120, 180, 0.25);
+    z-index: 2;
+  }
+
+  .pixel-phone-btn-side {
+    position: absolute;
+    width: 0.14rem;
+    border-radius: 1px;
+    background: #2a2c32;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+  }
+
+  .pixel-phone-btn-side--power {
+    right: -0.12rem;
+    top: 22%;
+    height: 1.35rem;
+  }
+
+  .pixel-phone-btn-side--vol {
+    left: -0.12rem;
+    top: 18%;
+    height: 2.1rem;
+  }
+
+  .pixel-phone-screen {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+    margin: 0;
+    padding: 0.55rem 0.48rem 0.58rem;
+    box-sizing: border-box;
+    border-radius: 1.65rem;
+    overflow: hidden;
+  }
+
+  .pixel-phone-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 1.15rem;
+    background: #0a0b0e;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    transition: opacity 0.25s ease;
+  }
+
+  .pixel-phone-btn:hover .pixel-phone-img,
+  .pixel-phone-btn:focus-visible .pixel-phone-img {
+    opacity: 1;
+  }
+
+  .pixel-phone-btn::after {
+    right: 0.85rem;
+    bottom: 0.95rem;
+    border-radius: 0.35rem;
+  }
+
+  .pixel-phone-cap {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    .pixel-phone {
+      max-width: 15.5rem;
+    }
+  }
+
+  /*
+   * Generic AiO / desk monitor mock — charcoal bezel, top cam, stand.
+   * Screenshot sits on the display. Temporary until reworked captures.
+   */
+  .aio-product {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .aio-device {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
+
+  .aio-monitor-btn {
+    display: block;
+    width: 100%;
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: zoom-in;
+    text-align: left;
+    position: relative;
+  }
+
+  .aio-monitor-btn:focus {
+    outline: none;
+  }
+
+  .aio-monitor-btn:focus-visible {
+    outline: 2px solid #2b5f9e;
+    outline-offset: 4px;
+    border-radius: 0.85rem;
+  }
+
+  .aio-monitor-shell {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 0.75rem;
+    background: linear-gradient(165deg, #3c3f46 0%, #1c1e24 45%, #0f1014 100%);
+    box-shadow:
+      0 20px 44px rgba(0, 0, 0, 0.2),
+      0 4px 14px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+  }
+
+  .aio-monitor-cam {
+    position: absolute;
+    top: 0.42rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 999px;
+    background: radial-gradient(circle at 35% 35%, #4a5160 0%, #0a0b0e 72%);
+    box-shadow:
+      0 0 0 1.5px rgba(0, 0, 0, 0.4),
+      inset 0 0 0 1px rgba(90, 130, 180, 0.2);
+    z-index: 2;
+  }
+
+  .aio-monitor-screen {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    padding: 0.85rem 0.65rem 0.7rem;
+    box-sizing: border-box;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .aio-monitor-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 0.28rem;
+    background: #0a0b0e;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .aio-monitor-btn::after {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .aio-stand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 36rem;
+    margin: 0 auto;
+    pointer-events: none;
+  }
+
+  .aio-stand-neck {
+    display: block;
+    width: 18%;
+    min-width: 2.25rem;
+    max-width: 3.5rem;
+    height: 1.15rem;
+    background: linear-gradient(90deg, #2a2c32 0%, #4a4e58 45%, #2a2c32 100%);
+    border-radius: 0 0 0.15rem 0.15rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .aio-stand-base {
+    display: block;
+    width: 42%;
+    min-width: 5.5rem;
+    max-width: 9rem;
+    height: 0.45rem;
+    margin-top: -0.05rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #3a3d44 0%, #1a1c20 100%);
+    box-shadow:
+      0 6px 14px rgba(0, 0, 0, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .aio-copy {
+    margin-top: 1.15rem;
+  }
+
+  .aio-product--wide .aio-product-wide-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .aio-device--wide {
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 768px) {
+    .aio-product--wide .aio-product-wide-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .aio-device--wide {
+      max-width: none;
+      margin: 0;
+    }
+
+    .aio-product--wide .aio-copy {
+      margin-top: 0;
+      min-height: 100%;
     }
   }
 
