@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp10" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp11" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -104,16 +104,15 @@
          ═══════════════════════════════════════════════════════════ -->
     <section id="hero" class="relative pt-16 md:pt-20">
       <div class="hero-manifesto">
-        <!-- Restrained TCF hero banner (not full-bleed) -->
-        <!-- Premium metal CF plate (hero only); flat mark stays in nav -->
+        <!-- 16:9 hero plate — metal CF; not full-bleed / not 1:1 -->
         <div
           id="hero-video-wrap"
-          class="hero-manifesto-media hero-manifesto-media--mark"
+          class="hero-manifesto-media hero-manifesto-media--banner"
           aria-label="The Cognition Factory"
         >
           <div class="hero-video-stage hero-mark-stage">
             <img
-              src="/assets/images/brand/tcf-mark-cf-metal-hero.jpg?v=brand-exp5"
+              src="/assets/images/brand/tcf-mark-cf-metal-hero.jpg?v=brand-exp11"
               alt="The Cognition Factory monogram"
               class="hero-mark-img"
               width="1200"
@@ -1705,30 +1704,34 @@
       color: transparent;
     }
 
-    /* Hero — metal CF plate, quiet frame (no dual neon bloom) */
+    /* Hero banner — 16:9, capped width so it doesn't own the first viewport */
     #hero-video-wrap.hero-manifesto-media {
       --hero-ar: 16 / 9;
       position: relative;
-      width: min(100% - 2rem, 40rem);
-      max-width: 40rem;
+      width: min(100% - 2rem, 36rem);
+      max-width: 36rem;
       margin-left: auto;
       margin-right: auto;
+      margin-top: 0.5rem;
       height: auto;
       aspect-ratio: var(--hero-ar);
+      max-height: min(32vh, 14rem);
       overflow: hidden;
       border-radius: 1rem;
       isolation: isolate;
-      background-color: #f8f9fb;
+      background-color: #f4f5f7;
       border: 1px solid rgba(45, 50, 60, 0.1);
       box-shadow:
         0 12px 40px rgba(45, 50, 60, 0.08),
         0 2px 8px rgba(45, 50, 60, 0.04);
     }
 
-    #hero-video-wrap.hero-manifesto-media--mark {
-      aspect-ratio: 1 / 1;
-      width: min(100% - 2rem, 22rem);
-      max-width: 22rem;
+    #hero-video-wrap.hero-manifesto-media--banner {
+      aspect-ratio: 16 / 9;
+      width: min(100% - 2rem, 40rem);
+      max-width: 40rem;
+      /* ~16:9 but never taller than ~1/3 viewport on load */
+      max-height: min(34vh, 15.5rem);
     }
 
     #hero-video-wrap.hero-manifesto-media::before,
@@ -1751,7 +1754,7 @@
     .hero-mark-img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
       display: block;
     }
@@ -1794,9 +1797,18 @@
     }
 
     @media (min-width: 768px) {
-      #hero-video-wrap.hero-manifesto-media--mark {
-        width: min(100% - 3rem, 26rem);
-        max-width: 26rem;
+      #hero-video-wrap.hero-manifesto-media--banner {
+        width: min(100% - 3rem, 44rem);
+        max-width: 44rem;
+        max-height: min(36vh, 17rem);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      #hero-video-wrap.hero-manifesto-media--banner {
+        width: min(100% - 4rem, 48rem);
+        max-width: 48rem;
+        max-height: min(38vh, 18rem);
       }
     }
 
