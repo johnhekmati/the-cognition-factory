@@ -31,3 +31,6 @@ Public site should invite John Q Consultant and busy parents — not read as a c
 ## Related
 
 App fork: `C:\Grok\tcf-app-fork` · same experiment  
+
+## Dojo / partners (operator alignment — not public copy)
+Dojo is where partners can pressure-test real delivery (sniff out bullshido) via scenarios — keep that intent off the marketing face; site language stays professional (screen for delivery, scenarios under pressure).

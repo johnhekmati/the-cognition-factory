@@ -71,9 +71,9 @@
   }
 
   .surface-card--dojo {
-    /* placeholder until dojo mark — readable charcoal edge, not washed gray */
-    border-color: #5c6b8a;
-    box-shadow: 0 6px 20px rgba(92, 107, 138, 0.16);
+    /* Dojo mark purple (octagon pad) */
+    border-color: #5c3d7a;
+    box-shadow: 0 6px 20px rgba(92, 61, 122, 0.18);
   }
 
   .surface-card .surface-card-kicker {
@@ -110,7 +110,7 @@
   }
 
   .surface-card--dojo .surface-card-title {
-    color: #3f4d66;
+    color: #4a315b;
   }
 
   .glass-card {
@@ -238,8 +238,41 @@
   .card-border-dojo,
   .section-charcoal .card-border-dojo,
   .schema-pane.card-border-dojo {
-    border-color: #5c6b8a !important;
+    border-color: #5c3d7a !important;
     border-width: 2px !important;
+  }
+
+  .icon-tile-dojo {
+    background: rgba(92, 61, 122, 0.12);
+    border-color: rgba(92, 61, 122, 0.45);
+    color: #4a315b;
+  }
+
+  .section-charcoal .icon-tile-dojo {
+    background: rgba(92, 61, 122, 0.12) !important;
+    border-color: rgba(92, 61, 122, 0.45) !important;
+    color: #4a315b !important;
+  }
+
+  .num-mark-dojo {
+    color: #4a315b;
+  }
+
+  .section-charcoal .num-mark-dojo {
+    color: #4a315b !important;
+  }
+
+  /* Dojo / partners accent on charcoal field */
+  .section-charcoal .text-dojo {
+    color: #b8a0d4 !important;
+  }
+
+  .text-dojo {
+    color: #5c3d7a;
+  }
+
+  .text-dojo-deep {
+    color: #4a315b;
   }
 
   /* Force dark ink inside white cards (beats field light overrides) */
@@ -300,7 +333,7 @@
   }
 
   .section-charcoal .surface-card--dojo .surface-card-title {
-    color: #3f4d66 !important;
+    color: #4a315b !important;
   }
 
   /* Icon tiles keep mark colors inside white cards on charcoal */
