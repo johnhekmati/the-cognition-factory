@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp6" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp7" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -254,7 +254,7 @@
         </div>
 
         <div class="schema-lab" data-reveal>
-          <article class="schema-pane schema-pane--hale">
+          <article class="schema-pane schema-pane--hale card-border-map">
             <div class="schema-pane-head">
               <span class="font-mono text-xs uppercase tracking-[0.2em] text-electric">Map</span>
               <span class="text-ink-muted text-xs font-mono">Build understanding</span>
@@ -277,7 +277,7 @@
             <div class="schema-loop-line" aria-hidden="true"></div>
           </div>
 
-          <article class="schema-pane schema-pane--aae">
+          <article class="schema-pane schema-pane--aae card-border-practice">
             <div class="schema-pane-head">
               <span class="font-mono text-xs uppercase tracking-[0.2em] text-amber-glow">Practice</span>
               <span class="text-ink-muted text-xs font-mono">Check what you know</span>
@@ -386,11 +386,11 @@
           </div>
 
           <div class="relative" data-reveal>
-            <div class="glass-card p-3 md:p-5 overflow-hidden bg-void-50">
+            <div class="glass-card card-border-map p-3 md:p-5 overflow-hidden">
               <img
                 src="/assets/images/brand/tcf-door-map.jpg?v=brand-exp5"
                 alt="Map — structure of a subject with you oriented on it"
-                class="w-full rounded-xl object-contain aspect-square bg-void-50 block"
+                class="w-full rounded-xl object-contain aspect-square bg-white block"
                 width="1024"
                 height="1024"
               />
@@ -409,11 +409,11 @@
       <div class="max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div class="relative order-2 lg:order-1" data-reveal>
-            <div class="glass-card p-3 md:p-5 overflow-hidden bg-void-50">
+            <div class="glass-card card-border-practice p-3 md:p-5 overflow-hidden">
               <img
                 src="/assets/images/brand/tcf-door-practice.jpg?v=brand-exp5"
                 alt="Practice — skills under real pressure"
-                class="w-full rounded-xl object-contain aspect-square bg-void-50 block"
+                class="w-full rounded-xl object-contain aspect-square bg-white block"
                 width="1024"
                 height="1024"
               />
@@ -511,17 +511,17 @@
         </div>
 
         <div class="grid sm:grid-cols-3 gap-3 max-w-3xl mx-auto mb-12 md:mb-16" data-reveal aria-label="From recognizing to delivering">
-          <div class="rounded-lg border border-ink/10 bg-white/[0.02] px-4 py-4 text-center">
-            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted block">Most content stops at</span>
-            <span class="text-ink-soft text-sm font-medium mt-1.5 block">Recognizing it</span>
+          <div class="surface-card surface-card--map">
+            <span class="surface-card-kicker">Most content stops at</span>
+            <span class="surface-card-title">Recognizing it</span>
           </div>
-          <div class="rounded-lg border border-amber/20 bg-amber/[0.03] px-4 py-4 text-center">
-            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted block">Practice gets you to</span>
-            <span class="text-amber-glow text-sm font-medium mt-1.5 block">Recalling it</span>
+          <div class="surface-card surface-card--practice">
+            <span class="surface-card-kicker">Practice gets you to</span>
+            <span class="surface-card-title">Recalling it</span>
           </div>
-          <div class="rounded-lg border border-plasma/25 bg-plasma/[0.05] px-4 py-4 text-center">
-            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted block">The Dojo asks for</span>
-            <span class="text-plasma-glow text-sm font-medium mt-1.5 block">Delivering it</span>
+          <div class="surface-card surface-card--dojo">
+            <span class="surface-card-kicker">The Dojo asks for</span>
+            <span class="surface-card-title">Delivering it</span>
           </div>
         </div>
 
@@ -529,8 +529,8 @@
           From real scenario packs — the flavor, not the answer key
         </p>
         <div class="grid md:grid-cols-3 gap-4 mb-12 md:mb-16" data-reveal>
-          <article class="glass-card p-6 md:p-7 border-plasma/10 h-full flex flex-col">
-            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-plasma-glow">Scenario 01</span>
+          <article class="glass-card card-border-practice p-6 md:p-7 h-full flex flex-col">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#2f7a4e]">Scenario 01</span>
             <h3 class="text-ink font-semibold mt-3">The period is closed. The invoice isn’t.</h3>
             <p class="text-ink-muted text-sm mt-2 leading-relaxed flex-1">
               A late invoice lands with pressure behind it. Post it, defer it, or escalate —
@@ -538,8 +538,8 @@
             </p>
             <p class="mt-5 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-ink-muted">Trains · judgment under pressure</p>
           </article>
-          <article class="glass-card p-6 md:p-7 border-plasma/10 h-full flex flex-col">
-            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-plasma-glow">Scenario 02</span>
+          <article class="glass-card card-border-dojo p-6 md:p-7 h-full flex flex-col">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-plasma">Scenario 02</span>
             <h3 class="text-ink font-semibold mt-3">Three documents. One disagreement.</h3>
             <p class="text-ink-muted text-sm mt-2 leading-relaxed flex-1">
               An invoice, an order, and a receipt don’t agree. Find which one is wrong
@@ -547,8 +547,8 @@
             </p>
             <p class="mt-5 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-ink-muted">Trains · root-cause discipline</p>
           </article>
-          <article class="glass-card p-6 md:p-7 border-plasma/10 h-full flex flex-col">
-            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-plasma-glow">Scenario 03</span>
+          <article class="glass-card card-border-map p-6 md:p-7 h-full flex flex-col">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#9a7a28]">Scenario 03</span>
             <h3 class="text-ink font-semibold mt-3">A messy dump becomes a plan.</h3>
             <p class="text-ink-muted text-sm mt-2 leading-relaxed flex-1">
               A wall of half-organized notes lands on you. Turn it into work someone
@@ -595,12 +595,12 @@
         </div>
 
         <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 mb-12" data-reveal>
-          <article class="glass-card p-8 md:p-10 border-plasma/15 h-full">
+          <article class="glass-card card-border-save p-8 md:p-10 h-full">
             <div class="platform-mark">
               <img
                 src="/assets/images/brand/tcf-door-save.jpg?v=brand-exp5"
                 alt="Save place — leave a bookmark for next time"
-                class="!border-plasma/25 rounded-xl object-contain bg-void-50"
+                class="rounded-xl object-contain bg-white"
                 width="512"
                 height="512"
                 loading="lazy"
@@ -632,12 +632,12 @@
             </p>
           </article>
 
-          <article class="glass-card p-8 md:p-10 border-plasma/10 h-full">
+          <article class="glass-card card-border-orient p-8 md:p-10 h-full">
             <div class="platform-mark">
               <img
                 src="/assets/images/brand/tcf-door-lattice.jpg?v=brand-exp5"
                 alt="Stay oriented — how ideas connect on your map"
-                class="!border-plasma/25 rounded-xl object-contain bg-void-50"
+                class="rounded-xl object-contain bg-white"
                 width="512"
                 height="512"
                 loading="lazy"
@@ -1149,15 +1149,15 @@
           </p>
         </div>
         <div class="grid md:grid-cols-3 gap-4 md:gap-6" data-reveal>
-          <div class="glass-card p-6 border-electric/20">
+          <div class="glass-card card-border-map p-6">
             <p class="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-electric mb-3">1 · Map</p>
             <p class="text-ink-soft text-sm leading-relaxed">Open Map. One topic until it clicks — materials loaded, not a binge playlist.</p>
           </div>
-          <div class="glass-card p-6 border-amber/25">
+          <div class="glass-card card-border-practice p-6">
             <p class="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-amber-glow mb-3">2 · Practice</p>
             <p class="text-ink-soft text-sm leading-relaxed">Check yourself under honest pressure. Right or wrong is recorded without cosplay.</p>
           </div>
-          <div class="glass-card p-6 border-plasma/25">
+          <div class="glass-card card-border-save p-6">
             <p class="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-plasma-glow mb-3">3 · Save place</p>
             <p class="text-ink-soft text-sm leading-relaxed">Park one line for next-time-you. Re-entry tax drops when life interrupts for days.</p>
           </div>
@@ -1169,7 +1169,7 @@
         </p>
 
         <!-- First success: definition of done (moved from hero) -->
-        <div class="mt-10 md:mt-12 max-w-2xl mx-auto text-left rounded-xl border border-electric/20 bg-electric/[0.04] p-6 md:p-8" data-reveal>
+        <div class="mt-10 md:mt-12 max-w-2xl mx-auto text-left surface-card surface-card--orient !text-left p-6 md:p-8" data-reveal>
           <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-electric mb-3">First 10 minutes</p>
           <h3 class="font-display text-xl md:text-2xl font-semibold text-ink mb-3">You are done when the park note exists</h3>
           <p class="text-ink-muted text-sm md:text-base leading-relaxed mb-4">
