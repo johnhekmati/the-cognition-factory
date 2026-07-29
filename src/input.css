@@ -954,6 +954,38 @@
     color: #4a5160 !important;
   }
 
+  /* Offer ladder / contact — mark-colored kickers (not washed electric/amber) */
+  .offer-rung {
+    text-align: left !important;
+  }
+
+  .offer-rung .surface-card-kicker {
+    text-align: left !important;
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+  }
+
+  .offer-rung.surface-card--map .surface-card-kicker {
+    color: #8a6a12 !important;
+  }
+
+  .offer-rung.surface-card--practice .surface-card-kicker {
+    color: #246640 !important;
+  }
+
+  .offer-rung.surface-card--save .surface-card-kicker {
+    color: #8f2424 !important;
+  }
+
+  .offer-rung.surface-card--dojo .surface-card-kicker {
+    color: #1e4a7a !important;
+  }
+
+  .offer-rung p.text-ink {
+    color: #2d323c !important;
+    text-align: left;
+  }
+
   /* Platform marks (CSS / CMS) — centered, fill card content width */
   .platform-mark {
     @apply w-full mb-8;
