@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp9" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp10" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -162,13 +162,13 @@
             </a>
           </p>
 
-          <div class="ritual-strip mt-12" aria-label="Map, practice, and save place">
-            <span class="ritual-chip ritual-chip--map">MAP</span>
-            <span class="ritual-chip ritual-chip--practice">PRACTICE</span>
-            <span class="ritual-chip ritual-chip--save">SAVE PLACE</span>
+          <div class="ritual-strip mt-12" aria-label="Map, Practice, Save">
+            <span class="ritual-chip ritual-chip--map">Map</span>
+            <span class="ritual-chip ritual-chip--practice">Practice</span>
+            <span class="ritual-chip ritual-chip--save">Save</span>
           </div>
-          <p class="mt-4 text-ink-muted text-xs md:text-sm max-w-lg mx-auto leading-relaxed">
-            Map · practice · save place — that is the whole idea
+          <p class="ritual-tagline">
+            Map · Practice · Save — that is the whole idea
           </p>
         </div>
       </div>
@@ -1508,9 +1508,9 @@
                 decoding="async"
               />
               <figcaption class="doors-caption" aria-hidden="true">
-                <span class="ritual-chip ritual-chip--map">MAP</span>
-                <span class="ritual-chip ritual-chip--practice">PRACTICE</span>
-                <span class="ritual-chip ritual-chip--save">SAVE PLACE</span>
+                <span class="ritual-chip ritual-chip--map">Map</span>
+                <span class="ritual-chip ritual-chip--practice">Practice</span>
+                <span class="ritual-chip ritual-chip--save">Save</span>
               </figcaption>
             </figure>
             <p class="section-subtitle !max-w-none">
@@ -1774,23 +1774,23 @@
       box-sizing: border-box;
     }
 
-    /* Calm triad — map / practice / save (no neon) */
+    /* Mark triad — gold / green / red (matches door marks) */
     .ritual-chip--map {
-      border-color: rgba(59, 111, 158, 0.4);
-      color: #3b6f9e;
-      background: rgba(59, 111, 158, 0.08);
+      border-color: #c9a227 !important;
+      color: #8a6a12 !important;
+      background: #fffdf5 !important;
     }
 
     .ritual-chip--practice {
-      border-color: rgba(184, 149, 74, 0.45);
-      color: #9a7a38;
-      background: rgba(184, 149, 74, 0.1);
+      border-color: #3d8c5a !important;
+      color: #246640 !important;
+      background: #f4fbf6 !important;
     }
 
     .ritual-chip--save {
-      border-color: rgba(92, 107, 138, 0.45);
-      color: #5c6b8a;
-      background: rgba(92, 107, 138, 0.1);
+      border-color: #b03030 !important;
+      color: #8f2424 !important;
+      background: #fff6f6 !important;
     }
 
     @media (min-width: 768px) {

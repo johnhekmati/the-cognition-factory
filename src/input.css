@@ -448,31 +448,55 @@
     @apply space-y-6 text-gray-400 leading-relaxed w-full max-w-lg;
   }
 
-  /* Manifesto rituals */
+  /* Manifesto rituals — white boxes, mark color borders */
   .ritual-strip {
     @apply flex flex-wrap items-center justify-center gap-2 sm:gap-3;
   }
 
   .ritual-chip {
-    @apply font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.22em]
-           px-3 py-1.5 rounded-md border border-white/10 text-gray-400 bg-void-100/50;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.5rem;
+    border: 2px solid #2d323c;
+    background: #ffffff;
+    color: #2d323c;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   }
 
-  /* Brand triad: map = electric, practice = amber, save place = plasma */
+  /* Map = gold · Practice = green · Save = red */
   .ritual-chip--map {
-    @apply border-electric/45 text-electric bg-electric/[0.08];
+    border-color: #c9a227;
+    color: #8a6a12;
+    background: #fffdf5;
+    box-shadow: 0 4px 14px rgba(201, 162, 39, 0.15);
   }
 
   .ritual-chip--practice {
-    border-color: rgba(245, 185, 66, 0.45);
-    color: #ffd06a;
-    background: rgba(245, 185, 66, 0.08);
+    border-color: #3d8c5a;
+    color: #246640;
+    background: #f4fbf6;
+    box-shadow: 0 4px 14px rgba(61, 140, 90, 0.14);
   }
 
   .ritual-chip--save {
-    border-color: rgba(124, 58, 237, 0.5);
-    color: #a78bfa;
-    background: rgba(124, 58, 237, 0.1);
+    border-color: #b03030;
+    color: #8f2424;
+    background: #fff6f6;
+    box-shadow: 0 4px 14px rgba(176, 48, 48, 0.14);
+  }
+
+  .ritual-tagline {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #4a5160;
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Schema lab (closed loop) */
