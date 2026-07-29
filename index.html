@@ -2151,16 +2151,20 @@
     .hero-slide img {
       width: 100%;
       height: 100%;
-      /* Full-frame fill; near 16:9 viewports show almost the whole asset */
+      /*
+       * Cover keeps edge-to-edge fill. Prefer TOP so the TCF monogram + wordmark
+       * (top-left of every slide) stay in frame when the stage is wider than 16:9
+       * and cover would otherwise crop vertically from the center.
+       */
       object-fit: cover;
-      object-position: center center;
+      object-position: center top;
       display: block;
     }
 
-    /* Tall phones: bias left so slide copy stays in frame */
+    /* Tall phones: keep logo + left copy (not right photo only) */
     @media (max-aspect-ratio: 3/4) {
       .hero-slide img {
-        object-position: left center;
+        object-position: left top;
       }
     }
 
