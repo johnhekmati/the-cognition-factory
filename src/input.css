@@ -35,61 +35,82 @@
   }
 
   /*
-   * White content boxes with soft mark-aligned borders (site-wide).
-   * Map = gold · Practice = green · Save = red · Orient/lattice = steel-blue.
+   * White content boxes with mark-aligned borders (site-wide).
+   * Map = gold · Practice = green · Save = red · Lattice/orient = blue.
+   * Dojo = temporary slate until Principal ships dojo mark.
    */
   .surface-card {
-    @apply rounded-xl bg-white px-4 py-4 text-center border shadow-sm;
-    border-color: rgba(45, 50, 60, 0.12);
+    border-radius: 0.75rem;
+    background: #ffffff;
+    padding: 1rem 1rem;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #2d323c;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
   }
 
   .surface-card--map {
-    border-color: rgba(201, 162, 39, 0.45);
-    box-shadow: 0 4px 16px rgba(201, 162, 39, 0.08);
+    border-color: #c9a227;
+    box-shadow: 0 6px 20px rgba(201, 162, 39, 0.18);
   }
 
   .surface-card--practice {
-    border-color: rgba(61, 140, 90, 0.42);
-    box-shadow: 0 4px 16px rgba(61, 140, 90, 0.08);
+    border-color: #3d8c5a;
+    box-shadow: 0 6px 20px rgba(61, 140, 90, 0.16);
   }
 
   .surface-card--save {
-    border-color: rgba(176, 48, 48, 0.4);
-    box-shadow: 0 4px 16px rgba(176, 48, 48, 0.08);
+    border-color: #b03030;
+    box-shadow: 0 6px 20px rgba(176, 48, 48, 0.16);
   }
 
   .surface-card--orient {
-    border-color: rgba(59, 111, 158, 0.4);
-    box-shadow: 0 4px 16px rgba(59, 111, 158, 0.08);
+    border-color: #3b6f9e;
+    box-shadow: 0 6px 20px rgba(59, 111, 158, 0.16);
   }
 
   .surface-card--dojo {
-    border-color: rgba(92, 107, 138, 0.42);
-    box-shadow: 0 4px 16px rgba(92, 107, 138, 0.08);
+    /* placeholder until dojo mark — readable charcoal edge, not washed gray */
+    border-color: #5c6b8a;
+    box-shadow: 0 6px 20px rgba(92, 107, 138, 0.16);
   }
 
   .surface-card .surface-card-kicker {
-    @apply font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted block;
+    display: block;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #4a5160; /* dark readable on white */
   }
 
   .surface-card .surface-card-title {
-    @apply text-ink text-sm font-medium mt-1.5 block;
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2d323c;
   }
 
   .surface-card--map .surface-card-title {
-    color: #9a7a28;
+    color: #8a6a12;
   }
 
   .surface-card--practice .surface-card-title {
-    color: #2f7a4e;
+    color: #246640;
   }
 
   .surface-card--save .surface-card-title {
-    color: #a03030;
+    color: #8f2424;
+  }
+
+  .surface-card--orient .surface-card-title {
+    color: #2f5a80;
   }
 
   .surface-card--dojo .surface-card-title {
-    color: #5c6b8a;
+    color: #3f4d66;
   }
 
   .glass-card {
@@ -122,13 +143,35 @@
     color: #a8b0bc;
   }
 
-  /* Prose on the charcoal field (outside cards) */
+  /*
+   * Light prose only OUTSIDE white cards.
+   * :not() so surface-card / glass-card / schema-pane keep dark ink on white.
+   */
+  .section-charcoal :where(p, li, span, h2, h3, h4, a, label):not(
+      .glass-card *,
+      .surface-card *,
+      .schema-pane *,
+      .cartridge-tile *,
+      .aae-metric *
+    ) {
+    /* no blanket color — use specific classes below */
+  }
+
+  .section-charcoal > * .text-ink:not(.glass-card .text-ink):not(.surface-card *):not(.schema-pane *) {
+    color: #e8eaef;
+  }
+
+  /* Simpler: field text light; cards reset dark */
+  .section-charcoal .section-title {
+    color: #f4f5f7;
+  }
+
   .section-charcoal .text-ink {
     color: #e8eaef;
   }
 
   .section-charcoal .text-ink-muted {
-    color: #a8b0bc;
+    color: #b0b8c4;
   }
 
   .section-charcoal .text-ink-soft {
@@ -149,71 +192,114 @@
     color: #9aa8c4;
   }
 
-  /* White cards on charcoal — ink text again */
-  .section-charcoal .glass-card {
-    background-color: #ffffff;
-    border-color: rgba(45, 50, 60, 0.1);
+  /* White cards on charcoal */
+  .section-charcoal .glass-card,
+  .section-charcoal .surface-card,
+  .section-charcoal .schema-pane,
+  .section-charcoal .cartridge-tile,
+  .section-charcoal .aae-metric {
+    background-color: #ffffff !important;
+    color: #2d323c;
     box-shadow:
       0 12px 40px rgba(0, 0, 0, 0.28),
       0 2px 8px rgba(0, 0, 0, 0.16);
   }
 
-  /* Door-aligned borders on white cards (use on glass-card too) */
-  .section-charcoal .glass-card.card-border-map,
-  .glass-card.card-border-map,
+  /* Mark borders — solid, visible */
+  .card-border-map,
+  .section-charcoal .card-border-map,
   .schema-pane.card-border-map {
-    border-color: rgba(201, 162, 39, 0.4) !important;
+    border-color: #c9a227 !important;
+    border-width: 2px !important;
   }
 
-  .section-charcoal .glass-card.card-border-practice,
-  .glass-card.card-border-practice,
+  .card-border-practice,
+  .section-charcoal .card-border-practice,
   .schema-pane.card-border-practice {
-    border-color: rgba(61, 140, 90, 0.38) !important;
+    border-color: #3d8c5a !important;
+    border-width: 2px !important;
   }
 
-  .section-charcoal .glass-card.card-border-save,
-  .glass-card.card-border-save,
+  .card-border-save,
+  .section-charcoal .card-border-save,
   .schema-pane.card-border-save {
-    border-color: rgba(176, 48, 48, 0.36) !important;
+    border-color: #b03030 !important;
+    border-width: 2px !important;
   }
 
-  .section-charcoal .glass-card.card-border-orient,
-  .glass-card.card-border-orient,
+  .card-border-orient,
+  .section-charcoal .card-border-orient,
   .schema-pane.card-border-orient {
-    border-color: rgba(59, 111, 158, 0.38) !important;
+    border-color: #3b6f9e !important;
+    border-width: 2px !important;
   }
 
-  .section-charcoal .glass-card.card-border-dojo,
-  .glass-card.card-border-dojo,
+  .card-border-dojo,
+  .section-charcoal .card-border-dojo,
   .schema-pane.card-border-dojo {
-    border-color: rgba(92, 107, 138, 0.4) !important;
+    border-color: #5c6b8a !important;
+    border-width: 2px !important;
   }
 
+  /* Force dark ink inside white cards (beats field light overrides) */
   .section-charcoal .glass-card .text-ink,
   .section-charcoal .glass-card .section-title,
   .section-charcoal .glass-card h2,
   .section-charcoal .glass-card h3,
-  .section-charcoal .glass-card .font-display {
-    color: #2d323c;
+  .section-charcoal .glass-card .font-display,
+  .section-charcoal .surface-card .text-ink,
+  .section-charcoal .surface-card .surface-card-title,
+  .section-charcoal .schema-pane .text-ink,
+  .section-charcoal .schema-pane h3,
+  .section-charcoal .schema-pane .font-display,
+  .section-charcoal .cartridge-tile .text-ink,
+  .section-charcoal .aae-metric .text-ink {
+    color: #2d323c !important;
   }
 
   .section-charcoal .glass-card .text-ink-muted,
-  .section-charcoal .glass-card .text-ink-soft {
-    color: #6b7280;
+  .section-charcoal .glass-card .text-ink-soft,
+  .section-charcoal .surface-card .surface-card-kicker,
+  .section-charcoal .surface-card .text-ink-muted,
+  .section-charcoal .schema-pane .text-ink-muted,
+  .section-charcoal .cartridge-tile .text-ink-muted,
+  .section-charcoal .aae-metric .text-ink-muted {
+    color: #4a5160 !important;
   }
 
   .section-charcoal .glass-card .text-electric {
-    color: #3b6f9e;
+    color: #3b6f9e !important;
   }
 
   .section-charcoal .glass-card .text-amber-glow,
   .section-charcoal .glass-card .text-amber {
-    color: #9a7a38;
+    color: #8a6a12 !important;
   }
 
   .section-charcoal .glass-card .text-plasma-glow,
   .section-charcoal .glass-card .text-plasma {
-    color: #5c6b8a;
+    color: #3f4d66 !important;
+  }
+
+  /* Door title tints inside surface cards on charcoal */
+  .section-charcoal .surface-card--map .surface-card-title {
+    color: #8a6a12 !important;
+  }
+
+  .section-charcoal .surface-card--practice .surface-card-title {
+    color: #246640 !important;
+  }
+
+  .section-charcoal .surface-card--save .surface-card-title {
+    color: #8f2424 !important;
+  }
+
+  .section-charcoal .surface-card--orient .surface-card-title {
+    color: #2f5a80 !important;
+  }
+
+  .section-charcoal .surface-card--dojo .surface-card-title {
+    color: #3f4d66 !important;
   }
 
   .section-charcoal .btn-secondary {
