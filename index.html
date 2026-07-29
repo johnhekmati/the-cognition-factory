@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp36" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp37" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -1381,12 +1381,12 @@
         </div>
 
         <div class="flex flex-wrap justify-center gap-3 mb-12" data-reveal role="tablist" aria-label="Filter resources">
-          <button type="button" class="resource-filter is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="resource-filter resource-filter--all is-active" data-filter="all" aria-pressed="true">All</button>
           <button type="button" class="resource-filter resource-filter--solo" data-filter="solo" aria-pressed="false">Solo</button>
-          <button type="button" class="resource-filter" data-filter="whitepaper" aria-pressed="false">White papers</button>
-          <button type="button" class="resource-filter" data-filter="sop" aria-pressed="false">SOPs</button>
-          <button type="button" class="resource-filter" data-filter="technical" aria-pressed="false">Technical</button>
-          <button type="button" class="resource-filter" data-filter="request" aria-pressed="false">Request only</button>
+          <button type="button" class="resource-filter resource-filter--exec" data-filter="whitepaper" aria-pressed="false">White papers</button>
+          <button type="button" class="resource-filter resource-filter--sop" data-filter="sop" aria-pressed="false">SOPs</button>
+          <button type="button" class="resource-filter resource-filter--tech" data-filter="technical" aria-pressed="false">Technical</button>
+          <button type="button" class="resource-filter resource-filter--request" data-filter="request" aria-pressed="false">Request only</button>
         </div>
 
         <div id="resource-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

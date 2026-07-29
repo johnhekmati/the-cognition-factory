@@ -853,16 +853,64 @@
            border font-display font-bold text-sm;
   }
 
-  /* Resource filters */
+  /* Resource filters — mark lane hover/active (match k-base borders) */
   .resource-filter {
-    @apply px-4 py-2 rounded-lg text-sm font-medium
-           border border-ink/15 hover:border-electric/20 hover:text-electric
-           transition-colors;
+    @apply px-4 py-2 rounded-lg text-sm font-medium border transition-colors;
     color: #000000;
+    border-color: rgba(0, 0, 0, 0.12);
+    background: #ffffff;
   }
 
   .resource-filter.is-active {
-    @apply bg-electric/10 text-electric border-electric/30;
+    font-weight: 600;
+  }
+
+  /* All = neutral chrome */
+  .resource-filter--all:hover,
+  .resource-filter--all.is-active {
+    border-color: rgba(0, 0, 0, 0.45);
+    color: #000000;
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  /* Solo = Map gold */
+  .resource-filter--solo:hover,
+  .resource-filter--solo.is-active {
+    border-color: rgba(201, 162, 39, 0.65);
+    color: #5c4a0c;
+    background: rgba(201, 162, 39, 0.12);
+  }
+
+  /* White papers = Practice green */
+  .resource-filter--exec:hover,
+  .resource-filter--exec.is-active {
+    border-color: rgba(61, 140, 90, 0.6);
+    color: #145032;
+    background: rgba(61, 140, 90, 0.1);
+  }
+
+  /* SOPs = Save red */
+  .resource-filter--sop:hover,
+  .resource-filter--sop.is-active {
+    border-color: rgba(176, 48, 48, 0.6);
+    color: #6e1818;
+    background: rgba(176, 48, 48, 0.1);
+  }
+
+  /* Technical = Dojo blue (filter chrome; LMS cards stay ink-neutral) */
+  .resource-filter--tech:hover,
+  .resource-filter--tech.is-active {
+    border-color: rgba(43, 95, 158, 0.6);
+    color: #12355c;
+    background: rgba(43, 95, 158, 0.1);
+  }
+
+  /* Request only = charcoal (gated utility, not a door mark) */
+  .resource-filter--request:hover,
+  .resource-filter--request.is-active {
+    border-color: rgba(45, 50, 60, 0.75);
+    color: #000000;
+    background: rgba(45, 50, 60, 0.08);
   }
 
   .resource-tag--solo {
@@ -894,16 +942,6 @@
     border-color: rgba(45, 50, 60, 0.35);
     color: #2d323c;
     background: rgba(45, 50, 60, 0.06);
-  }
-
-  .resource-filter--solo {
-    border-color: rgba(201, 162, 39, 0.25);
-  }
-  .resource-filter--solo:hover,
-  .resource-filter--solo.is-active {
-    border-color: rgba(201, 162, 39, 0.55);
-    color: #5c4a0c;
-    background: rgba(201, 162, 39, 0.1);
   }
 
   .form-input {
