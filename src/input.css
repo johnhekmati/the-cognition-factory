@@ -242,17 +242,7 @@
     border-width: 2px !important;
   }
 
-  .icon-tile-dojo {
-    background: rgba(92, 61, 122, 0.12);
-    border-color: rgba(92, 61, 122, 0.45);
-    color: #4a315b;
-  }
 
-  .section-charcoal .icon-tile-dojo {
-    background: rgba(92, 61, 122, 0.12) !important;
-    border-color: rgba(92, 61, 122, 0.45) !important;
-    color: #4a315b !important;
-  }
 
   .num-mark-dojo {
     color: #4a315b;
@@ -336,29 +326,35 @@
     color: #4a315b !important;
   }
 
-  /* Icon tiles keep mark colors inside white cards on charcoal */
+  /* Icon tiles: light mark tints even on charcoal field */
   .section-charcoal .icon-tile-map {
-    background: rgba(201, 162, 39, 0.12) !important;
-    border-color: rgba(201, 162, 39, 0.45) !important;
-    color: #8a6a12 !important;
+    background: #f7efd4 !important;
+    border-color: #c9a227 !important;
+    color: #7a5c10 !important;
   }
 
   .section-charcoal .icon-tile-practice {
-    background: rgba(61, 140, 90, 0.12) !important;
-    border-color: rgba(61, 140, 90, 0.45) !important;
-    color: #246640 !important;
+    background: #e4f3e9 !important;
+    border-color: #3d8c5a !important;
+    color: #1f5c38 !important;
   }
 
   .section-charcoal .icon-tile-save {
-    background: rgba(176, 48, 48, 0.1) !important;
-    border-color: rgba(176, 48, 48, 0.45) !important;
-    color: #8f2424 !important;
+    background: #f8e6e6 !important;
+    border-color: #b03030 !important;
+    color: #8a2020 !important;
   }
 
   .section-charcoal .icon-tile-orient {
-    background: rgba(59, 111, 158, 0.1) !important;
-    border-color: rgba(59, 111, 158, 0.45) !important;
-    color: #2f5a80 !important;
+    background: #e5eef6 !important;
+    border-color: #3b6f9e !important;
+    color: #2a5078 !important;
+  }
+
+  .section-charcoal .icon-tile-dojo {
+    background: #efe8f5 !important;
+    border-color: #5c3d7a !important;
+    color: #4a315b !important;
   }
 
   .section-charcoal .num-mark-save {
@@ -622,37 +618,56 @@
   }
 
   /* Icon tiles inside white cards — mark families */
+  /*
+   * Icon tiles: light tint of mark color + stronger icon ink.
+   * Dark translucent fills on charcoal made glyphs disappear.
+   */
   .icon-tile {
-    @apply w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    border: 1.5px solid;
   }
 
   .icon-tile-map {
-    background: rgba(201, 162, 39, 0.12);
-    border-color: rgba(201, 162, 39, 0.4);
-    color: #8a6a12;
+    background: #f7efd4;
+    border-color: #c9a227;
+    color: #7a5c10;
   }
 
   .icon-tile-practice {
-    background: rgba(61, 140, 90, 0.12);
-    border-color: rgba(61, 140, 90, 0.4);
-    color: #246640;
+    background: #e4f3e9;
+    border-color: #3d8c5a;
+    color: #1f5c38;
   }
 
   .icon-tile-save {
-    background: rgba(176, 48, 48, 0.1);
-    border-color: rgba(176, 48, 48, 0.4);
-    color: #8f2424;
+    background: #f8e6e6;
+    border-color: #b03030;
+    color: #8a2020;
   }
 
   .icon-tile-orient {
-    background: rgba(59, 111, 158, 0.1);
-    border-color: rgba(59, 111, 158, 0.4);
-    color: #2f5a80;
+    background: #e5eef6;
+    border-color: #3b6f9e;
+    color: #2a5078;
+  }
+
+  .icon-tile-dojo {
+    background: #efe8f5;
+    border-color: #5c3d7a;
+    color: #4a315b;
   }
 
   .icon-tile svg {
     width: 1rem;
     height: 1rem;
+    stroke: currentColor;
   }
 
   .num-mark {
