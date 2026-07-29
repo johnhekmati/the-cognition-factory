@@ -104,64 +104,76 @@
          ═══════════════════════════════════════════════════════════ -->
     <section id="hero" class="relative pt-16 md:pt-20">
       <div class="hero-manifesto">
-        <!-- Hero: full-bleed audience slides — fill first viewport; charcoal thesis on next scroll -->
-        <div
-          id="hero-video-wrap"
-          class="hero-manifesto-media hero-manifesto-media--banner hero-manifesto-media--bleed"
-          aria-label="The Cognition Factory — who we serve"
-        >
-          <div class="hero-banner-plate">
-            <div
-              class="hero-slide-stage"
-              data-hero-slides
-              data-hero-loop-ms="24000"
-              role="region"
-              aria-roledescription="carousel"
-              aria-label="Audience stories — 24 second loop"
-            >
-              <div class="hero-slides">
-                <figure class="hero-slide is-active" data-hero-slide aria-hidden="false">
-                  <img
-                    src="/assets/images/hero-slides/adult-learners.jpg?v=slides1"
-                    alt="Adult learners: upskill in the moments that matter — mobile learning that fits real life"
-                    width="1920"
-                    height="1071"
-                    decoding="async"
-                    fetchpriority="high"
-                  />
-                </figure>
-                <figure class="hero-slide" data-hero-slide aria-hidden="true">
-                  <img
-                    src="/assets/images/hero-slides/team-cross-skilling.jpg?v=slides1"
-                    alt="Teams: cross-skilling and retention under real institutional pressure"
-                    width="1920"
-                    height="1085"
-                    decoding="async"
-                    loading="lazy"
-                  />
-                </figure>
-                <figure class="hero-slide" data-hero-slide aria-hidden="true">
-                  <img
-                    src="/assets/images/hero-slides/partner-pressure.jpg?v=slides1"
-                    alt="Partners: proof of delivery under pressure — not a wall of certificates"
-                    width="1920"
-                    height="1085"
-                    decoding="async"
-                    loading="lazy"
-                  />
-                </figure>
-              </div>
-              <div class="hero-slide-dots" role="tablist" aria-label="Slide position">
-                <button type="button" class="hero-slide-dot is-active" role="tab" aria-selected="true" aria-label="Slide 1 of 3" data-hero-dot="0"></button>
-                <button type="button" class="hero-slide-dot" role="tab" aria-selected="false" aria-label="Slide 2 of 3" data-hero-dot="1"></button>
-                <button type="button" class="hero-slide-dot" role="tab" aria-selected="false" aria-label="Slide 3 of 3" data-hero-dot="2"></button>
+        <!--
+          Landing panel: full-width slides at native ~16:9 (object-fit contain = zero crop).
+          Scroll cue always on first screen → charcoal thesis.
+        -->
+        <div class="hero-landing">
+          <div
+            id="hero-video-wrap"
+            class="hero-manifesto-media hero-manifesto-media--banner hero-manifesto-media--bleed"
+            aria-label="The Cognition Factory — who we serve"
+          >
+            <div class="hero-banner-plate">
+              <div
+                class="hero-slide-stage"
+                data-hero-slides
+                data-hero-loop-ms="24000"
+                role="region"
+                aria-roledescription="carousel"
+                aria-label="Audience stories — 24 second loop"
+              >
+                <div class="hero-slides">
+                  <figure class="hero-slide is-active" data-hero-slide aria-hidden="false">
+                    <img
+                      src="/assets/images/hero-slides/adult-learners.jpg?v=slides1"
+                      alt="Adult learners: upskill in the moments that matter — mobile learning that fits real life"
+                      width="1920"
+                      height="1071"
+                      decoding="async"
+                      fetchpriority="high"
+                    />
+                  </figure>
+                  <figure class="hero-slide" data-hero-slide aria-hidden="true">
+                    <img
+                      src="/assets/images/hero-slides/team-cross-skilling.jpg?v=slides1"
+                      alt="Teams: cross-skilling and retention under real institutional pressure"
+                      width="1920"
+                      height="1085"
+                      decoding="async"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <figure class="hero-slide" data-hero-slide aria-hidden="true">
+                    <img
+                      src="/assets/images/hero-slides/partner-pressure.jpg?v=slides1"
+                      alt="Partners: proof of delivery under pressure — not a wall of certificates"
+                      width="1920"
+                      height="1085"
+                      decoding="async"
+                      loading="lazy"
+                    />
+                  </figure>
+                </div>
+                <div class="hero-slide-dots" role="tablist" aria-label="Slide position">
+                  <button type="button" class="hero-slide-dot is-active" role="tab" aria-selected="true" aria-label="Slide 1 of 3" data-hero-dot="0"></button>
+                  <button type="button" class="hero-slide-dot" role="tab" aria-selected="false" aria-label="Slide 2 of 3" data-hero-dot="1"></button>
+                  <button type="button" class="hero-slide-dot" role="tab" aria-selected="false" aria-label="Slide 3 of 3" data-hero-dot="2"></button>
+                </div>
               </div>
             </div>
           </div>
+
+          <a href="#skill-thesis" class="hero-scroll-cue" aria-label="Scroll to Skill that sticks">
+            <span class="hero-scroll-cue-label">Continue</span>
+            <span class="hero-scroll-cue-chevron" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
+          </a>
         </div>
 
-        <!-- Charcoal band: manifesto copy only (slides above stay light; problem section below stays light) -->
-        <div class="hero-manifesto-copy band-charcoal">
+        <!-- Charcoal band: manifesto copy only -->
+        <div id="skill-thesis" class="hero-manifesto-copy band-charcoal">
           <div class="hero-manifesto-copy-inner section-padding !pt-12 md:!pt-16 !pb-14 md:!pb-20 max-w-5xl mx-auto text-center">
             <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-ink tracking-tight leading-[1.08] text-balance">
               Skill that sticks when life is loud.<br class="hidden sm:block" />
@@ -2035,17 +2047,37 @@
     }
 
     /*
-     * Hero banner: full-bleed · first viewport under fixed nav.
-     * Next scroll = charcoal manifesto. 16:9 art fills desktop nearly complete;
-     * cover only crops when viewport AR diverges (tall phones / ultra-wide).
+     * Hero landing: full-width stage, native ~16:9 fit, object-fit: contain
+     * → zero crop of logo/copy. Dark stage is edge-to-edge; image letterboxes
+     * only when the viewport is shorter than 16:9 of width.
      */
+    #hero {
+      --hero-nav-h: 4rem;
+    }
+    @media (min-width: 768px) {
+      #hero {
+        --hero-nav-h: 5rem;
+      }
+    }
+
+    .hero-landing {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100svh - var(--hero-nav-h));
+      background: #0f1419;
+    }
+
+    @supports not (height: 100svh) {
+      .hero-landing {
+        min-height: calc(100vh - var(--hero-nav-h));
+      }
+    }
+
     #hero-video-wrap.hero-manifesto-media {
       --mark-map: #c9a227;
       --mark-practice: #3d8c5a;
       --mark-save: #b03030;
       --mark-dojo: #2b5f9e;
-      /* Match #main-nav .h-16 / md:h-20 */
-      --hero-nav-h: 4rem;
       position: relative;
       width: 100%;
       max-width: none;
@@ -2058,12 +2090,7 @@
       background: transparent;
       border: none;
       box-shadow: none;
-    }
-
-    @media (min-width: 768px) {
-      #hero-video-wrap.hero-manifesto-media {
-        --hero-nav-h: 5rem;
-      }
+      flex: 0 0 auto;
     }
 
     #hero-video-wrap.hero-manifesto-media--banner,
@@ -2109,12 +2136,18 @@
       opacity: 0.85;
     }
 
-    /* ── Audience slide loop: fill landing viewport under nav ── */
+    /*
+     * Height = min(full 16:9 of viewport width, room under nav + scroll cue).
+     * Width always 100% (edge-to-edge stage). contain = full slide art, no crop.
+     */
     .hero-slide-stage {
       position: relative;
       width: 100%;
-      height: calc(100svh - var(--hero-nav-h));
-      min-height: 18rem;
+      height: min(
+        calc(100vw * 9 / 16),
+        calc(100svh - var(--hero-nav-h) - 3.25rem)
+      );
+      min-height: 12rem;
       max-height: none;
       aspect-ratio: auto;
       background: #0f1419;
@@ -2123,7 +2156,10 @@
 
     @supports not (height: 100svh) {
       .hero-slide-stage {
-        height: calc(100vh - var(--hero-nav-h));
+        height: min(
+          calc(100vw * 9 / 16),
+          calc(100vh - var(--hero-nav-h) - 3.25rem)
+        );
       }
     }
 
@@ -2140,6 +2176,10 @@
       visibility: hidden;
       transition: opacity 0.85s ease, visibility 0.85s ease;
       z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f1419;
     }
 
     .hero-slide.is-active {
@@ -2151,33 +2191,71 @@
     .hero-slide img {
       width: 100%;
       height: 100%;
-      /*
-       * Cover keeps edge-to-edge fill. Prefer TOP so the TCF monogram + wordmark
-       * (top-left of every slide) stay in frame when the stage is wider than 16:9
-       * and cover would otherwise crop vertically from the center.
-       */
-      object-fit: cover;
-      object-position: center top;
+      /* Never crop slide art — logo, copy, and footers stay intact */
+      object-fit: contain;
+      object-position: center center;
       display: block;
-    }
-
-    /* Tall phones: keep logo + left copy (not right photo only) */
-    @media (max-aspect-ratio: 3/4) {
-      .hero-slide img {
-        object-position: left top;
-      }
     }
 
     .hero-slide-dots {
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 0.65rem;
+      bottom: 0.55rem;
       z-index: 2;
       display: flex;
       justify-content: center;
       gap: 0.4rem;
       pointer-events: auto;
+    }
+
+    /* Scroll cue — always in the first viewport under the banner */
+    .hero-scroll-cue {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      margin-top: auto;
+      padding: 0.65rem 1rem 0.85rem;
+      color: rgba(232, 234, 238, 0.72);
+      text-decoration: none;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .hero-scroll-cue:hover,
+    .hero-scroll-cue:focus-visible {
+      color: #f4f5f7;
+      outline: none;
+    }
+
+    .hero-scroll-cue:focus-visible {
+      box-shadow: inset 0 0 0 2px rgba(158, 192, 224, 0.5);
+    }
+
+    .hero-scroll-cue-chevron {
+      display: flex;
+      animation: hero-cue-bob 1.6s ease-in-out infinite;
+    }
+
+    @keyframes hero-cue-bob {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(5px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-scroll-cue-chevron {
+        animation: none;
+      }
     }
 
     .hero-slide-dots[hidden] {
