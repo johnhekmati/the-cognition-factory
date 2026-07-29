@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp14" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp15" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -112,7 +112,7 @@
         >
           <div class="hero-video-stage hero-mark-stage">
             <img
-              src="/assets/images/brand/tcf-mark-cf-metal-hero.jpg?v=brand-exp12"
+              src="/assets/images/brand/tcf-mark-cf-metal-hero.jpg?v=brand-exp15"
               alt="The Cognition Factory monogram"
               class="hero-mark-img"
               width="1200"
@@ -1704,18 +1704,19 @@
       color: transparent;
     }
 
-    /* Hero banner — 16:9, capped width so it doesn't own the first viewport */
+    /* Hero banner — 16:9, capped so it doesn't own the first viewport */
     #hero-video-wrap.hero-manifesto-media {
       --hero-ar: 16 / 9;
       position: relative;
-      width: min(100% - 2rem, 36rem);
-      max-width: 36rem;
+      width: min(100% - 2rem, 40rem);
+      max-width: 40rem;
       margin-left: auto;
       margin-right: auto;
       margin-top: 0.5rem;
       height: auto;
       aspect-ratio: var(--hero-ar);
-      max-height: min(32vh, 14rem);
+      /* Enough height that zoomed monogram keeps C top + F tail */
+      max-height: min(42vh, 18rem);
       overflow: hidden;
       border-radius: 1rem;
       isolation: isolate;
@@ -1728,10 +1729,9 @@
 
     #hero-video-wrap.hero-manifesto-media--banner {
       aspect-ratio: 16 / 9;
-      width: min(100% - 2rem, 40rem);
-      max-width: 40rem;
-      /* ~16:9 but never taller than ~1/3 viewport on load */
-      max-height: min(34vh, 15.5rem);
+      width: min(100% - 2rem, 42rem);
+      max-width: 42rem;
+      max-height: min(42vh, 18.5rem);
     }
 
     #hero-video-wrap.hero-manifesto-media::before,
@@ -1752,16 +1752,16 @@
     }
 
     /*
-     * Source is 16:9 but monogram sits small in the center (lots of plate padding).
-     * Cover + scale crops empty sides so CF fills the banner without full-bleed hero.
+     * Source monogram is small on a 16:9 plate.
+     * Mild zoom fills empty sides; keep scale low enough not to clip C top / F tail.
      */
     .hero-mark-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center center;
+      object-position: center 48%;
       display: block;
-      transform: scale(1.65);
+      transform: scale(1.32);
       transform-origin: center center;
     }
 
@@ -1804,9 +1804,13 @@
 
     @media (min-width: 768px) {
       #hero-video-wrap.hero-manifesto-media--banner {
-        width: min(100% - 3rem, 44rem);
-        max-width: 44rem;
-        max-height: min(36vh, 17rem);
+        width: min(100% - 3rem, 46rem);
+        max-width: 46rem;
+        max-height: min(40vh, 20rem);
+      }
+
+      .hero-mark-img {
+        transform: scale(1.28);
       }
     }
 
@@ -1814,7 +1818,7 @@
       #hero-video-wrap.hero-manifesto-media--banner {
         width: min(100% - 4rem, 48rem);
         max-width: 48rem;
-        max-height: min(38vh, 18rem);
+        max-height: min(38vh, 21rem);
       }
     }
 
