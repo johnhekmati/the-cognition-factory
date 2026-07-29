@@ -104,36 +104,62 @@
          ═══════════════════════════════════════════════════════════ -->
     <section id="hero" class="relative pt-16 md:pt-20">
       <div class="hero-manifesto">
-        <!-- Hero plate: monogram + audience lines · edge underglow (top gold · right green · bottom red · left blue) -->
+        <!-- Hero plate: 24s audience slide loop · edge underglow (top gold · right green · bottom red · left blue) -->
         <div
           id="hero-video-wrap"
           class="hero-manifesto-media hero-manifesto-media--banner"
-          aria-label="The Cognition Factory"
+          aria-label="The Cognition Factory — who we serve"
         >
           <span class="hero-edge hero-edge--top" aria-hidden="true"></span>
           <span class="hero-edge hero-edge--right" aria-hidden="true"></span>
           <span class="hero-edge hero-edge--bottom" aria-hidden="true"></span>
           <span class="hero-edge hero-edge--left" aria-hidden="true"></span>
           <div class="hero-banner-plate">
-            <div class="hero-video-stage hero-mark-stage">
-              <img
-                src="/assets/images/brand/tcf-mark-cf-metal-hero.jpg?v=brand-exp18"
-                alt="The Cognition Factory monogram"
-                class="hero-mark-img"
-                width="1200"
-                height="675"
-              />
-            </div>
-            <div class="hero-banner-lines">
-              <p class="hero-banner-line accent-practice">
-                For busy adults who need upskilling that sticks
-              </p>
-              <p class="hero-banner-line accent-save">
-                For institutions that need upskilling, proof under pressure, and retention that holds.
-              </p>
-              <p class="hero-banner-line accent-dojo">
-                For partners who need proof of delivery — not a wall of certs.
-              </p>
+            <div
+              class="hero-slide-stage"
+              data-hero-slides
+              data-hero-loop-ms="24000"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Audience stories — 24 second loop"
+            >
+              <div class="hero-slides">
+                <figure class="hero-slide is-active" data-hero-slide aria-hidden="false">
+                  <img
+                    src="/assets/images/hero-slides/adult-learners.jpg?v=slides1"
+                    alt="Adult learners: upskill in the moments that matter — mobile learning that fits real life"
+                    width="1920"
+                    height="1071"
+                    decoding="async"
+                    fetchpriority="high"
+                  />
+                </figure>
+                <figure class="hero-slide" data-hero-slide aria-hidden="true">
+                  <img
+                    src="/assets/images/hero-slides/team-cross-skilling.jpg?v=slides1"
+                    alt="Teams: cross-skilling and retention under real institutional pressure"
+                    width="1920"
+                    height="1085"
+                    decoding="async"
+                    loading="lazy"
+                  />
+                </figure>
+                <figure class="hero-slide" data-hero-slide aria-hidden="true">
+                  <img
+                    src="/assets/images/hero-slides/partner-pressure.jpg?v=slides1"
+                    alt="Partners: proof of delivery under pressure — not a wall of certificates"
+                    width="1920"
+                    height="1085"
+                    decoding="async"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="hero-slide-dots" role="tablist" aria-label="Slide position">
+                <button type="button" class="hero-slide-dot is-active" role="tab" aria-selected="true" aria-label="Slide 1 of 3" data-hero-dot="0"></button>
+                <button type="button" class="hero-slide-dot" role="tab" aria-selected="false" aria-label="Slide 2 of 3" data-hero-dot="1"></button>
+                <button type="button" class="hero-slide-dot" role="tab" aria-selected="false" aria-label="Slide 3 of 3" data-hero-dot="2"></button>
+              </div>
             </div>
           </div>
         </div>
@@ -1850,7 +1876,7 @@
     }
 
     /*
-     * Hero banner card: monogram + audience lines.
+     * Hero banner card: 24s audience slide loop (3 frames × 8s).
      * Edge underglow via four strips (no conic mud): top gold · right green · bottom red · left blue.
      */
     #hero-video-wrap.hero-manifesto-media {
@@ -1875,8 +1901,8 @@
     }
 
     #hero-video-wrap.hero-manifesto-media--banner {
-      width: min(100% - 2rem, 44rem);
-      max-width: 44rem;
+      width: min(100% - 2rem, 52rem);
+      max-width: 52rem;
     }
 
     #hero-video-wrap.hero-manifesto-media::before,
@@ -1944,38 +1970,85 @@
       filter: blur(8px);
     }
 
-    .hero-banner-lines {
-      padding: 0.95rem 1.15rem 1.15rem;
-      text-align: center;
-      background: linear-gradient(180deg, #fafbfc 0%, #ffffff 100%);
-      border-top: 1px solid rgba(45, 50, 60, 0.06);
+    /* ── Audience slide loop ── */
+    .hero-slide-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #0f1419;
+      overflow: hidden;
     }
-    .hero-banner-line {
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      font-weight: 600;
-      font-size: 0.8125rem;
-      line-height: 1.4;
-      letter-spacing: -0.01em;
+
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
       margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.85s ease, visibility 0.85s ease;
+      z-index: 0;
     }
-    .hero-banner-line + .hero-banner-line {
-      margin-top: 0.45rem;
+
+    .hero-slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
     }
-    @media (min-width: 640px) {
-      .hero-banner-line {
-        font-size: 0.9375rem;
-        line-height: 1.45;
-      }
-      .hero-banner-lines {
-        padding: 1.1rem 1.5rem 1.35rem;
-      }
-      .hero-banner-line + .hero-banner-line {
-        margin-top: 0.55rem;
-      }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
     }
-    @media (min-width: 768px) {
-      .hero-banner-line {
-        font-size: 1rem;
+
+    .hero-slide-dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0.65rem;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      pointer-events: auto;
+    }
+
+    .hero-slide-dots[hidden] {
+      display: none;
+    }
+
+    .hero-slide-dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.45);
+      box-shadow: 0 0 0 1px rgba(15, 20, 25, 0.2);
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.25s ease, width 0.25s ease;
+    }
+
+    .hero-slide-dot.is-active {
+      width: 1.15rem;
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .hero-slide-dot:focus-visible {
+      outline: 2px solid #3a7bc8;
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide {
+        transition: none;
       }
     }
 
@@ -2011,34 +2084,6 @@
       height: 2rem;
       width: 2rem;
       opacity: 0.88;
-    }
-
-    .hero-mark-stage {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f4f5f7;
-      overflow: hidden;
-      aspect-ratio: 16 / 9;
-      width: 100%;
-      /* Room for full CF — prior max-heights + hard zoom clipped top of C / F stem */
-      max-height: min(40vh, 18.5rem);
-      z-index: 1;
-    }
-
-    /*
-     * Source monogram sits small on a 16:9 plate.
-     * Gentle zoom fills letterbox without cropping C crown or F tail.
-     */
-    .hero-mark-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-      transform: scale(1.14);
-      transform-origin: center center;
     }
 
     /* Connect triad labels — full width under banner */
@@ -2080,31 +2125,20 @@
 
     @media (min-width: 768px) {
       #hero-video-wrap.hero-manifesto-media--banner {
-        width: min(100% - 3rem, 48rem);
-        max-width: 48rem;
+        width: min(100% - 3rem, 56rem);
+        max-width: 56rem;
       }
 
-      .hero-mark-stage {
-        max-height: min(38vh, 20rem);
-      }
-
-      .hero-mark-img {
-        transform: scale(1.12);
+      .hero-slide-dots {
+        bottom: 0.85rem;
+        gap: 0.5rem;
       }
     }
 
     @media (min-width: 1024px) {
       #hero-video-wrap.hero-manifesto-media--banner {
-        width: min(100% - 4rem, 52rem);
-        max-width: 52rem;
-      }
-
-      .hero-mark-stage {
-        max-height: min(36vh, 21rem);
-      }
-
-      .hero-mark-img {
-        transform: scale(1.1);
+        width: min(100% - 4rem, 60rem);
+        max-width: 60rem;
       }
     }
 
@@ -2239,7 +2273,7 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=audit-march1" defer></script>
+  <script src="/js/main.js?v=hero-slides1" defer></script>
   <noscript>
     <style>
       [data-reveal] { opacity: 1 !important; transform: none !important; }

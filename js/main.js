@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initPartnerPacketForm();
   initRevealAnimations();
+  initHeroSlides();
   initHeroVideos();
   initSectionVideos();
   initContextVideo();
@@ -244,6 +245,75 @@ function initResourceFilters() {
       });
     });
   });
+}
+
+/* ── Hero audience slides: 24s loop (equal time per slide), crossfade ── */
+function initHeroSlides() {
+  const stage = document.querySelector('[data-hero-slides]');
+  if (!stage) return;
+
+  const slides = [...stage.querySelectorAll('[data-hero-slide]')];
+  const dots = [...stage.querySelectorAll('[data-hero-dot]')];
+  if (slides.length < 2) return;
+
+  const loopMs = Math.max(
+    3000,
+    parseInt(stage.getAttribute('data-hero-loop-ms') || '24000', 10) || 24000
+  );
+  const dwellMs = Math.floor(loopMs / slides.length);
+  let index = Math.max(
+    0,
+    slides.findIndex((s) => s.classList.contains('is-active'))
+  );
+  if (index < 0) index = 0;
+
+  let timer = null;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const show = (next) => {
+    index = ((next % slides.length) + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const on = i === index;
+      slide.classList.toggle('is-active', on);
+      slide.setAttribute('aria-hidden', on ? 'false' : 'true');
+    });
+    dots.forEach((dot, i) => {
+      const on = i === index;
+      dot.classList.toggle('is-active', on);
+      dot.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  };
+
+  const stop = () => {
+    if (timer != null) {
+      window.clearInterval(timer);
+      timer = null;
+    }
+  };
+
+  const start = () => {
+    stop();
+    if (reduceMotion) return;
+    timer = window.setInterval(() => show(index + 1), dwellMs);
+  };
+
+  show(index);
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const i = parseInt(dot.getAttribute('data-hero-dot') || '0', 10);
+      show(i);
+      start();
+    });
+  });
+
+  // Pause while tab is hidden; resume on return
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop();
+    else start();
+  });
+
+  if (!reduceMotion) start();
 }
 
 /* ── Hero banner: one-shot spinner, dual-tone glow always on, click to replay ── */
