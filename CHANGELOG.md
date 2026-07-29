@@ -6,10 +6,54 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
-## 2026-07-29 — Meta / title slogan clean
+## 2026-07-29 — Brand redesign ship (light room + mark system)
 
-- Browser title + OG/Twitter: **Skill that sticks when life is loud. Map. Practice. Save your place.**
-- No literal `\n` / broken hero string in share cards
+Major public-face redesign: paper room over cyberpunk stream, four door-mark primaries, new hero slides, Learn language, chiasmus layout. Shipped through the day on `main` (Cloudflare Pages).
+
+### Visual system
+- **Light-gray canvas** site-wide; white header/footer chrome rails; pure-black field prose (drop mid-gray on light)
+- **Four mark primaries:** Learn/Map gold · Practice green · Save red · Dojo blue (+ lattice coral secondary)
+- White surface cards with mark-aligned soft borders; plate section labels as white chips with ink border
+- Charcoal bands for loop / Learn / Practice / Dojo / Save / Product / Who / Why — ink-black type on charcoal fields
+- Contact offer ladder + layer chips + resource filter chips colored by mark lane
+- Docs: `BRAND_EXPERIMENT.md` locks color system + public language rails (engines stay off the lobby)
+
+### Hero
+- Monogram banner → **24s audience slide loop** (Adult / Team / Partner; 8s each, crossfade)
+- First-viewport full-bleed slides; white field behind slides + Continue cue; pin cover so TCF mark stays uncropped
+- Charcoal band under manifesto copy only (slides stay light)
+- Slide colorway aligned to Learn gold / Practice green / Save red; path-busted slide assets
+- Cache: `main.js?v=hero-slides1`
+
+### Copy / public language
+- Public **Map → Learn** (hero chips, How it works, section labels); Learn = *build the map*
+- Ritual strip: **Learn · Practice · Save** — that is the whole idea
+- Engines (HAL-E / AAE / CSS) demoted from lobby labels; deep docs retain lattice nouns
+- Meta / share cards: **Skill that sticks when life is loud. Learn. Practice. Save your place.** (no broken `\n`)
+
+### Layout / IA (chiasmus)
+- Funnel: Hero → Enemy → Solution → How → Learn → Practice → Dojo → Save → Who → What you work with → Product → Proof → **Guides** → **Why** (charcoal closer) → Connect → footer
+- Bottom mirrors top: charcoal Why → Connect → footer (outer arms); mid-page light hinge
+- Nav/footer follow Guides before Why
+
+### Product gallery chrome
+- Windows screenshots in **AiO monitor frames**; Android in **Pixel-shaped phone frames**
+- Story order: Learn · Practice · Save place, then workflow, then shell
+
+### Guides / k-base
+- Doc theme: light gray shell + white paper; **lane mark borders** (personal gold / exec green / SOP red / legal blue / LMS·media neutral)
+- Resource filter chips by mark lane; Technical chip charcoal; First 10 minutes card Dojo blue
+- LMS / Security card order aligned with utility lanes
+
+### Door marks & assets
+- Deployed door set: Map / Practice / Save / Dojo (+ lattice); Practice v3 / Save v2 path-bust for sticky caches
+- Legacy Practice/Save paths kept in sync with current art
+- Cache: `styles.css?v=brand-exp37`
+
+### Ops note
+- Brand work originated on site fork experiment; merged/shipped on prod `main` for Pages deploy
+
+---
 
 ## 2026-07-28 — Contact API abuse harden (audit re-gate)
 
