@@ -197,7 +197,8 @@
   .section-charcoal .surface-card,
   .section-charcoal .schema-pane,
   .section-charcoal .cartridge-tile,
-  .section-charcoal .aae-metric {
+  .section-charcoal .aae-metric,
+  .section-charcoal .llm-core-note {
     background-color: #ffffff !important;
     color: #2d323c;
     box-shadow:
@@ -605,9 +606,42 @@
            transition-colors;
   }
 
+  /* Utility note — white card on charcoal (not translucent gray) */
   .llm-core-note {
-    @apply rounded-2xl border border-electric/15 bg-void-100/70 backdrop-blur-xl
-           px-6 py-6 md:px-8 md:py-7 shadow-card text-left sm:text-center;
+    border-radius: 1rem;
+    border: 2px solid #3b6f9e;
+    background: #ffffff;
+    padding: 1.5rem 1.75rem;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  @media (min-width: 640px) {
+    .llm-core-note {
+      text-align: center;
+    }
+  }
+
+  .llm-core-note,
+  .llm-core-note p,
+  .llm-core-note span {
+    color: #2d323c;
+  }
+
+  .llm-core-note .text-ink {
+    color: #2d323c !important;
+  }
+
+  .llm-core-note .text-ink-muted {
+    color: #4a5160 !important;
+  }
+
+  .llm-core-note .text-electric {
+    color: #3b6f9e !important;
+  }
+
+  .section-charcoal .llm-core-note {
+    background: #ffffff !important;
   }
 
   /* Broader than 9:16 + inset gutters so in-frame type has breathing room */
