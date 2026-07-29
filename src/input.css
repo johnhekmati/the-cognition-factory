@@ -303,6 +303,39 @@
     color: #3f4d66 !important;
   }
 
+  /* Icon tiles keep mark colors inside white cards on charcoal */
+  .section-charcoal .icon-tile-map {
+    background: rgba(201, 162, 39, 0.12) !important;
+    border-color: rgba(201, 162, 39, 0.45) !important;
+    color: #8a6a12 !important;
+  }
+
+  .section-charcoal .icon-tile-practice {
+    background: rgba(61, 140, 90, 0.12) !important;
+    border-color: rgba(61, 140, 90, 0.45) !important;
+    color: #246640 !important;
+  }
+
+  .section-charcoal .icon-tile-save {
+    background: rgba(176, 48, 48, 0.1) !important;
+    border-color: rgba(176, 48, 48, 0.45) !important;
+    color: #8f2424 !important;
+  }
+
+  .section-charcoal .icon-tile-orient {
+    background: rgba(59, 111, 158, 0.1) !important;
+    border-color: rgba(59, 111, 158, 0.45) !important;
+    color: #2f5a80 !important;
+  }
+
+  .section-charcoal .num-mark-save {
+    color: #8f2424 !important;
+  }
+
+  .section-charcoal .num-mark-orient {
+    color: #2f5a80 !important;
+  }
+
   .section-charcoal .btn-secondary {
     border-color: rgba(138, 176, 212, 0.45);
     color: #c5d8ec;
