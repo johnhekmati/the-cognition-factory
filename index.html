@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp1" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp2" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -105,44 +105,37 @@
     <section id="hero" class="relative pt-16 md:pt-20">
       <div class="hero-manifesto">
         <!-- Restrained TCF hero banner (not full-bleed) -->
+        <!-- Premium metal CF plate (hero only); flat mark stays in nav -->
         <div
           id="hero-video-wrap"
-          class="hero-manifesto-media"
+          class="hero-manifesto-media hero-manifesto-media--mark"
           aria-label="The Cognition Factory"
-          title=""
         >
-          <div class="hero-video-stage">
-            <!-- Spinner once; dual-tone glow always on; click (when landed) replays quietly — no play chrome -->
-            <video
-              data-hero-video
-              data-hero-label="TCF"
-              class="hero-video is-active"
-              autoplay
-              muted
-              playsinline
-              preload="auto"
-              poster="/assets/images/cog-fac-hero-banner-new.jpg?v=cf5"
-            >
-              <source src="/assets/videos/tcf-hero-spinner.mp4?v=cf6" type="video/mp4" />
-            </video>
+          <div class="hero-video-stage hero-mark-stage">
+            <img
+              src="/assets/images/brand/tcf-mark-cf-metal-hero.jpg?v=brand-exp2"
+              alt="The Cognition Factory monogram"
+              class="hero-mark-img"
+              width="1200"
+              height="675"
+            />
           </div>
-          <div class="hero-video-fade" aria-hidden="true"></div>
-          <div class="absolute inset-0 bg-grid-pattern bg-grid opacity-10 pointer-events-none" aria-hidden="true"></div>
         </div>
 
         <div class="hero-manifesto-copy section-padding !pt-10 md:!pt-14 !pb-12 md:!pb-16 max-w-5xl mx-auto text-center">
-          <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight gradient-text-rev mb-2">
+          <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight text-ink-muted mb-2">
             For busy adults who need upskilling that sticks
           </p>
-          <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight gradient-text-rev mb-2 max-w-2xl mx-auto leading-snug">
+          <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight text-ink-muted mb-2 max-w-2xl mx-auto leading-snug">
             For institutions that need upskilling, proof under pressure, and retention that holds.
           </p>
-          <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight gradient-text-rev mb-5 max-w-2xl mx-auto leading-snug">
+          <p class="font-display font-semibold text-sm sm:text-base md:text-lg tracking-tight text-ink-muted mb-5 max-w-2xl mx-auto leading-snug">
             For partners who need proof of delivery — not a wall of certs.
           </p>
 
           <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-ink tracking-tight leading-[1.08] text-balance">
-            Skill that sticks when life is loud.<br class="hidden sm:block" />`n            <span class="gradient-text">Map. Practice. Save your place.</span>
+            Skill that sticks when life is loud.<br class="hidden sm:block" />
+            <span class="gradient-text">Map. Practice. Save your place.</span>
           </h1>
 
           <p class="mt-6 md:mt-8 text-lg md:text-xl text-ink-muted max-w-2xl mx-auto leading-relaxed text-balance">
@@ -1687,123 +1680,95 @@
 
 
   <style>
+    /* Light room: scrolled header must stay dark-on-light (was void glass → unreadable) */
     #main-nav.nav-scrolled {
-      background: rgba(5, 8, 16, 0.85);
-      backdrop-filter: blur(20px);
-      border-color: rgba(255, 255, 255, 0.05);
+      background: rgba(244, 245, 247, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-color: rgba(45, 50, 60, 0.1);
+      box-shadow: 0 1px 16px rgba(45, 50, 60, 0.06);
+    }
+    #main-nav.nav-scrolled .nav-link {
+      color: #6b7280;
+    }
+    #main-nav.nav-scrolled .nav-link:hover,
+    #main-nav.nav-scrolled .nav-link.active {
+      color: #3b6f9e;
+    }
+    #main-nav.nav-scrolled .font-display {
+      color: #2d323c;
+    }
+    #main-nav #menu-toggle {
+      color: #6b7280;
+    }
+    #main-nav.nav-scrolled #menu-toggle {
+      color: #4a5160;
+    }
+    #main-nav.nav-scrolled #mobile-menu {
+      background: rgba(244, 245, 247, 0.98);
+      border-color: rgba(45, 50, 60, 0.08);
     }
 
-    /* Taglines: reverse of .gradient-text (plasma → signal → electric) */
+    /* Taglines: calm professional (no neon stream) */
     .gradient-text-rev {
-      background-image: linear-gradient(to right, #7c3aed, #3b82f6, #00d4ff);
+      background-image: linear-gradient(to right, #5c6b8a, #4a7ab0, #3b6f9e);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    /* Restrained hero banner — dual-tone frame glow (electric L · plasma R) */
+    /* Hero — metal CF plate, quiet frame (no dual neon bloom) */
     #hero-video-wrap.hero-manifesto-media {
       --hero-ar: 16 / 9;
-      --hero-electric: #00d4ff;
-      --hero-electric-glow: #33e0ff;
-      --hero-plasma: #7c3aed;
-      --hero-plasma-glow: #a78bfa;
-      --hero-plasma-pink: #d946ef;
       position: relative;
-      width: min(100% - 2rem, 56rem);
-      max-width: 56rem;
+      width: min(100% - 2rem, 40rem);
+      max-width: 40rem;
       margin-left: auto;
       margin-right: auto;
       height: auto;
       aspect-ratio: var(--hero-ar);
-      /* Outer bloom must not be clipped; stage clips the image */
-      overflow: visible;
-      border-radius: 0.75rem;
+      overflow: hidden;
+      border-radius: 1rem;
       isolation: isolate;
-      background-color: #050810;
-      border: 1px solid transparent;
-      background-image:
-        linear-gradient(#050810, #050810),
-        linear-gradient(
-          125deg,
-          rgba(0, 212, 255, 0.55) 0%,
-          rgba(0, 212, 255, 0.35) 32%,
-          rgba(124, 58, 237, 0.32) 48%,
-          rgba(124, 58, 237, 0.45) 62%,
-          rgba(217, 70, 239, 0.4) 82%,
-          rgba(167, 139, 250, 0.4) 100%
-        );
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
+      background-color: #f8f9fb;
+      border: 1px solid rgba(45, 50, 60, 0.1);
+      box-shadow:
+        0 12px 40px rgba(45, 50, 60, 0.08),
+        0 2px 8px rgba(45, 50, 60, 0.04);
     }
 
-    /* Soft bloom — half the prior silhouette; same L/R split */
+    #hero-video-wrap.hero-manifesto-media--mark {
+      aspect-ratio: 1 / 1;
+      width: min(100% - 2rem, 22rem);
+      max-width: 22rem;
+    }
+
     #hero-video-wrap.hero-manifesto-media::before,
     #hero-video-wrap.hero-manifesto-media::after {
-      content: "";
+      content: none;
+      display: none;
+    }
+
+    .hero-mark-stage {
       position: absolute;
-      pointer-events: none;
-      z-index: 0;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f4f5f7;
+      overflow: hidden;
       border-radius: inherit;
     }
 
-    /* Electric: left edge → bottom-left half */
-    #hero-video-wrap.hero-manifesto-media::before {
-      inset: -6% -4% -7% -9%;
-      background:
-        radial-gradient(
-          ellipse 55% 75% at 0% 45%,
-          rgba(0, 212, 255, 0.28) 0%,
-          rgba(0, 212, 255, 0.1) 40%,
-          transparent 68%
-        ),
-        radial-gradient(
-          ellipse 50% 55% at 8% 100%,
-          rgba(51, 224, 255, 0.2) 0%,
-          rgba(0, 168, 204, 0.08) 45%,
-          transparent 70%
-        );
-      filter: blur(11px);
-      opacity: 0.55;
+    .hero-mark-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
-    /* Plasma: top-right → right edge → bottom-right half */
-    #hero-video-wrap.hero-manifesto-media::after {
-      inset: -7% -9% -6% -4%;
-      background:
-        radial-gradient(
-          ellipse 55% 70% at 100% 28%,
-          rgba(167, 139, 250, 0.24) 0%,
-          rgba(124, 58, 237, 0.12) 40%,
-          transparent 68%
-        ),
-        radial-gradient(
-          ellipse 58% 75% at 100% 55%,
-          rgba(124, 58, 237, 0.28) 0%,
-          rgba(192, 38, 211, 0.12) 42%,
-          transparent 70%
-        ),
-        radial-gradient(
-          ellipse 55% 60% at 92% 100%,
-          rgba(217, 70, 239, 0.26) 0%,
-          rgba(124, 58, 237, 0.12) 42%,
-          transparent 70%
-        );
-      filter: blur(11px);
-      opacity: 0.58;
-    }
-
-    /* Landed = final frame held; quiet click-to-replay (no play button) */
-    #hero-video-wrap.is-landed {
-      cursor: pointer;
-    }
-
-    #hero-video-wrap.is-landed:focus-visible {
-      outline: 2px solid rgba(0, 212, 255, 0.45);
-      outline-offset: 4px;
-    }
-
-    /* Connect triad labels — full width under banner, brand borders */
+    /* Connect triad labels — full width under banner */
     .doors-caption {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1821,28 +1786,29 @@
       box-sizing: border-box;
     }
 
-    /* Brand triad — hero strip + Connect doors (electric / amber / plasma) */
+    /* Calm triad — map / practice / save (no neon) */
     .ritual-chip--map {
-      border-color: rgba(0, 212, 255, 0.45);
-      color: #00d4ff;
-      background: rgba(0, 212, 255, 0.08);
+      border-color: rgba(59, 111, 158, 0.4);
+      color: #3b6f9e;
+      background: rgba(59, 111, 158, 0.08);
     }
 
     .ritual-chip--practice {
-      border-color: rgba(245, 185, 66, 0.45);
-      color: #ffd06a;
-      background: rgba(245, 185, 66, 0.08);
+      border-color: rgba(184, 149, 74, 0.45);
+      color: #9a7a38;
+      background: rgba(184, 149, 74, 0.1);
     }
 
     .ritual-chip--save {
-      border-color: rgba(124, 58, 237, 0.5);
-      color: #a78bfa;
-      background: rgba(124, 58, 237, 0.1);
+      border-color: rgba(92, 107, 138, 0.45);
+      color: #5c6b8a;
+      background: rgba(92, 107, 138, 0.1);
     }
 
     @media (min-width: 768px) {
-      #hero-video-wrap.hero-manifesto-media {
-        width: min(100% - 3rem, 56rem);
+      #hero-video-wrap.hero-manifesto-media--mark {
+        width: min(100% - 3rem, 26rem);
+        max-width: 26rem;
       }
     }
 
@@ -1854,7 +1820,7 @@
       width: 100%;
       height: 100%;
       border-radius: inherit;
-      background: #050810;
+      background: #f4f5f7;
     }
 
     .hero-video {
