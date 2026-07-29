@@ -808,20 +808,54 @@
     @apply absolute inset-0 pointer-events-none;
   }
 
+  /* Map-build ladder — white cards, Map gold accents (readable on charcoal) */
   .layer-chip {
-    @apply rounded-xl border border-white/5 bg-void-200/60 px-4 py-4 flex flex-col gap-1;
+    border-radius: 0.75rem;
+    border: 2px solid #c9a227;
+    background: #ffffff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    text-align: left;
   }
 
   .layer-chip-id {
-    @apply font-mono text-[0.65rem] uppercase tracking-[0.2em];
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #8a6a12 !important;
   }
 
   .layer-chip-title {
-    @apply text-white text-sm font-semibold;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #2d323c !important;
   }
 
   .layer-chip-desc {
-    @apply text-gray-500 text-xs leading-relaxed;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: #4a5160 !important;
+  }
+
+  .section-charcoal .layer-chip {
+    background: #ffffff !important;
+  }
+
+  .section-charcoal .layer-chip-id {
+    color: #8a6a12 !important;
+  }
+
+  .section-charcoal .layer-chip-title {
+    color: #2d323c !important;
+  }
+
+  .section-charcoal .layer-chip-desc {
+    color: #4a5160 !important;
   }
 
   /* Platform marks (CSS / CMS) — centered, fill card content width */
