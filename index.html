@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp17" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp18" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -112,7 +112,7 @@
         >
           <div class="hero-video-stage hero-mark-stage">
             <img
-              src="/assets/images/brand/tcf-mark-cf-metal-hero.jpg?v=brand-exp15"
+              src="/assets/images/brand/tcf-mark-cf-metal-hero.jpg?v=brand-exp18"
               alt="The Cognition Factory monogram"
               class="hero-mark-img"
               width="1200"
@@ -1719,6 +1719,10 @@
     /* Hero banner — 16:9, capped so it doesn't own the first viewport */
     #hero-video-wrap.hero-manifesto-media {
       --hero-ar: 16 / 9;
+      --mark-map: #c9a227;
+      --mark-practice: #3d8c5a;
+      --mark-save: #b03030;
+      --mark-dojo: #5c3d7a;
       position: relative;
       width: min(100% - 2rem, 40rem);
       max-width: 40rem;
@@ -1733,10 +1737,20 @@
       border-radius: 1rem;
       isolation: isolate;
       background-color: #f4f5f7;
-      border: 1px solid rgba(45, 50, 60, 0.1);
+      /* Thin mark-color edges: Map · Practice · Save · Dojo (subtle, not streamer) */
+      border-style: solid;
+      border-width: 1.5px;
+      border-top-color: var(--mark-map);
+      border-right-color: var(--mark-practice);
+      border-bottom-color: var(--mark-save);
+      border-left-color: var(--mark-dojo);
       box-shadow:
-        0 12px 40px rgba(45, 50, 60, 0.08),
-        0 2px 8px rgba(45, 50, 60, 0.04);
+        0 10px 32px rgba(45, 50, 60, 0.07),
+        0 2px 8px rgba(45, 50, 60, 0.04),
+        0 -3px 14px rgba(201, 162, 39, 0.18),
+        3px 0 14px rgba(61, 140, 90, 0.14),
+        0 3px 14px rgba(176, 48, 48, 0.14),
+        -3px 0 14px rgba(92, 61, 122, 0.16);
     }
 
     #hero-video-wrap.hero-manifesto-media--banner {
@@ -1746,8 +1760,23 @@
       max-height: min(42vh, 18.5rem);
     }
 
-    #hero-video-wrap.hero-manifesto-media::before,
-    #hero-video-wrap.hero-manifesto-media::after {
+    /* Soft corner blend so four hues meet cleanly */
+    #hero-video-wrap.hero-manifesto-media--banner::after {
+      content: "";
+      display: block !important;
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 2;
+      box-shadow:
+        inset 0 1px 0 rgba(201, 162, 39, 0.35),
+        inset -1px 0 0 rgba(61, 140, 90, 0.3),
+        inset 0 -1px 0 rgba(176, 48, 48, 0.3),
+        inset 1px 0 0 rgba(92, 61, 122, 0.32);
+    }
+
+    #hero-video-wrap.hero-manifesto-media::before {
       content: none;
       display: none;
     }
