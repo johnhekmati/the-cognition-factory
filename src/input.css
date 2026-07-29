@@ -1142,6 +1142,7 @@
     opacity: 0;
     transition: opacity 0.2s ease;
     pointer-events: none;
+    z-index: 3;
   }
 
   .product-shot:hover::after,
@@ -1153,6 +1154,144 @@
     .product-shot::after {
       opacity: 0.85;
       font-size: 0.58rem;
+    }
+  }
+
+  /*
+   * Generic Pixel-shaped phone mock — charcoal shell, punch-hole cam,
+   * screenshot lives on the display. Temporary until reworked app captures.
+   */
+  .pixel-phone {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 14.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pixel-phone-btn {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: zoom-in;
+    text-align: left;
+    position: relative;
+  }
+
+  .pixel-phone-btn:focus {
+    outline: none;
+  }
+
+  .pixel-phone-btn:focus-visible {
+    outline: 2px solid #2b5f9e;
+    outline-offset: 4px;
+    border-radius: 1.75rem;
+  }
+
+  .pixel-phone-shell {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 1.65rem;
+    background: linear-gradient(160deg, #3a3d44 0%, #1a1c20 42%, #0e0f12 100%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.22),
+      0 4px 12px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+  }
+
+  .pixel-phone-cam {
+    position: absolute;
+    top: 0.55rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: radial-gradient(circle at 35% 35%, #3a3f4a 0%, #0a0b0e 70%);
+    box-shadow:
+      0 0 0 1.5px rgba(0, 0, 0, 0.45),
+      inset 0 0 0 1px rgba(80, 120, 180, 0.25);
+    z-index: 2;
+  }
+
+  .pixel-phone-btn-side {
+    position: absolute;
+    width: 0.14rem;
+    border-radius: 1px;
+    background: #2a2c32;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+  }
+
+  .pixel-phone-btn-side--power {
+    right: -0.12rem;
+    top: 22%;
+    height: 1.35rem;
+  }
+
+  .pixel-phone-btn-side--vol {
+    left: -0.12rem;
+    top: 18%;
+    height: 2.1rem;
+  }
+
+  .pixel-phone-screen {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+    margin: 0;
+    padding: 0.55rem 0.48rem 0.58rem;
+    box-sizing: border-box;
+    border-radius: 1.65rem;
+    overflow: hidden;
+  }
+
+  .pixel-phone-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 1.15rem;
+    background: #0a0b0e;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    transition: opacity 0.25s ease;
+  }
+
+  .pixel-phone-btn:hover .pixel-phone-img,
+  .pixel-phone-btn:focus-visible .pixel-phone-img {
+    opacity: 1;
+  }
+
+  .pixel-phone-btn::after {
+    right: 0.85rem;
+    bottom: 0.95rem;
+    border-radius: 0.35rem;
+  }
+
+  .pixel-phone-cap {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    .pixel-phone {
+      max-width: 15.5rem;
     }
   }
 

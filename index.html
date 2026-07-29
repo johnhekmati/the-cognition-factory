@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp34" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp35" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -1061,90 +1061,119 @@
             </p>
           </div>
 
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
-            <article class="glass-card overflow-hidden group">
+          <!-- Generic Pixel-shaped frames; screenshots temporary until reworked app captures -->
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto items-start">
+            <figure class="pixel-phone">
               <button
                 type="button"
-                class="product-shot block w-full text-left aspect-[9/16] bg-void-100 overflow-hidden cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a227]/50 focus-visible:ring-inset"
+                class="product-shot pixel-phone-btn"
                 data-lightbox-src="/assets/images/product/tcf-android-deep.jpg?v=and1"
                 data-lightbox-alt="Android: Map — one topic until it clicks"
                 data-lightbox-caption="Android · Map"
                 aria-label="Enlarge: Android Map"
               >
-                <img
-                  src="/assets/images/product/tcf-android-deep.jpg?v=and1"
-                  alt="Android: Map — one topic until it clicks"
-                  class="w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  width="540"
-                  height="960"
-                  loading="lazy"
-                />
+                <span class="pixel-phone-shell" aria-hidden="true">
+                  <span class="pixel-phone-cam"></span>
+                  <span class="pixel-phone-btn-side pixel-phone-btn-side--power"></span>
+                  <span class="pixel-phone-btn-side pixel-phone-btn-side--vol"></span>
+                </span>
+                <span class="pixel-phone-screen">
+                  <img
+                    src="/assets/images/product/tcf-android-deep.jpg?v=and1"
+                    alt="Android: Map — one topic until it clicks"
+                    class="pixel-phone-img"
+                    width="540"
+                    height="960"
+                    loading="lazy"
+                  />
+                </span>
               </button>
-              <p class="p-3 text-center font-mono text-[0.6rem] uppercase tracking-[0.16em] accent-map">Map</p>
-            </article>
+              <figcaption class="pixel-phone-cap accent-map">Map</figcaption>
+            </figure>
 
-            <article class="glass-card overflow-hidden group">
+            <figure class="pixel-phone">
               <button
                 type="button"
-                class="product-shot block w-full text-left aspect-[9/16] bg-void-100 overflow-hidden cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3d8c5a]/50 focus-visible:ring-inset"
+                class="product-shot pixel-phone-btn"
                 data-lightbox-src="/assets/images/product/tcf-android-practice.jpg?v=and1"
                 data-lightbox-alt="Android: Practice — right or wrong, honestly"
                 data-lightbox-caption="Android · Practice"
                 aria-label="Enlarge: Android Practice"
               >
-                <img
-                  src="/assets/images/product/tcf-android-practice.jpg?v=and1"
-                  alt="Android: Practice — right or wrong, honestly"
-                  class="w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  width="540"
-                  height="960"
-                  loading="lazy"
-                />
+                <span class="pixel-phone-shell" aria-hidden="true">
+                  <span class="pixel-phone-cam"></span>
+                  <span class="pixel-phone-btn-side pixel-phone-btn-side--power"></span>
+                  <span class="pixel-phone-btn-side pixel-phone-btn-side--vol"></span>
+                </span>
+                <span class="pixel-phone-screen">
+                  <img
+                    src="/assets/images/product/tcf-android-practice.jpg?v=and1"
+                    alt="Android: Practice — right or wrong, honestly"
+                    class="pixel-phone-img"
+                    width="540"
+                    height="960"
+                    loading="lazy"
+                  />
+                </span>
               </button>
-              <p class="p-3 text-center font-mono text-[0.6rem] uppercase tracking-[0.16em] accent-practice">Practice</p>
-            </article>
+              <figcaption class="pixel-phone-cap accent-practice">Practice</figcaption>
+            </figure>
 
-            <article class="glass-card overflow-hidden group">
+            <figure class="pixel-phone">
               <button
                 type="button"
-                class="product-shot block w-full text-left aspect-[9/16] bg-void-100 overflow-hidden cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b03030]/50 focus-visible:ring-inset"
+                class="product-shot pixel-phone-btn"
                 data-lightbox-src="/assets/images/product/tcf-android-save.jpg?v=and1"
                 data-lightbox-alt="Android: Save place — resume board and next steps"
                 data-lightbox-caption="Android · Save place"
                 aria-label="Enlarge: Android Save place"
               >
-                <img
-                  src="/assets/images/product/tcf-android-save.jpg?v=and1"
-                  alt="Android: Save place — resume board and next steps"
-                  class="w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  width="540"
-                  height="960"
-                  loading="lazy"
-                />
+                <span class="pixel-phone-shell" aria-hidden="true">
+                  <span class="pixel-phone-cam"></span>
+                  <span class="pixel-phone-btn-side pixel-phone-btn-side--power"></span>
+                  <span class="pixel-phone-btn-side pixel-phone-btn-side--vol"></span>
+                </span>
+                <span class="pixel-phone-screen">
+                  <img
+                    src="/assets/images/product/tcf-android-save.jpg?v=and1"
+                    alt="Android: Save place — resume board and next steps"
+                    class="pixel-phone-img"
+                    width="540"
+                    height="960"
+                    loading="lazy"
+                  />
+                </span>
               </button>
-              <p class="p-3 text-center font-mono text-[0.6rem] uppercase tracking-[0.16em] accent-save">Save place</p>
-            </article>
+              <figcaption class="pixel-phone-cap accent-save">Save place</figcaption>
+            </figure>
 
-            <article class="glass-card overflow-hidden group">
+            <figure class="pixel-phone">
               <button
                 type="button"
-                class="product-shot block w-full text-left aspect-[9/16] bg-void-100 overflow-hidden cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2b5f9e]/40 focus-visible:ring-inset"
+                class="product-shot pixel-phone-btn"
                 data-lightbox-src="/assets/images/product/tcf-android-chat.jpg?v=and1"
                 data-lightbox-alt="Android: side chat for Map with plain teaching"
                 data-lightbox-caption="Android · Side chat"
                 aria-label="Enlarge: Android chat"
               >
-                <img
-                  src="/assets/images/product/tcf-android-chat.jpg?v=and1"
-                  alt="Android: side chat for Map with plain teaching"
-                  class="w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  width="540"
-                  height="960"
-                  loading="lazy"
-                />
+                <span class="pixel-phone-shell" aria-hidden="true">
+                  <span class="pixel-phone-cam"></span>
+                  <span class="pixel-phone-btn-side pixel-phone-btn-side--power"></span>
+                  <span class="pixel-phone-btn-side pixel-phone-btn-side--vol"></span>
+                </span>
+                <span class="pixel-phone-screen">
+                  <img
+                    src="/assets/images/product/tcf-android-chat.jpg?v=and1"
+                    alt="Android: side chat for Map with plain teaching"
+                    class="pixel-phone-img"
+                    width="540"
+                    height="960"
+                    loading="lazy"
+                  />
+                </span>
               </button>
-              <p class="p-3 text-center font-mono text-[0.6rem] uppercase tracking-[0.16em] accent-dojo">Side chat</p>
-            </article>
+              <figcaption class="pixel-phone-cap accent-dojo">Side chat</figcaption>
+            </figure>
           </div>
         </div>
 
