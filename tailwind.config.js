@@ -39,10 +39,11 @@ module.exports = {
         gold: {
           DEFAULT: '#a6843c',
         },
+        // Field + prose: pure black (sizes/fonts carry hierarchy, not mid-gray)
         ink: {
-          DEFAULT: '#2d323c',
-          soft: '#4a5160',
-          muted: '#6b7280',
+          DEFAULT: '#000000',
+          soft: '#000000',
+          muted: '#000000',
         },
       },
       fontFamily: {

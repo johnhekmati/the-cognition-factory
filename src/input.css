@@ -10,6 +10,7 @@
 
   body {
     @apply bg-void text-ink font-body antialiased;
+    color: #000000;
   }
 
   ::selection {
@@ -28,7 +29,8 @@
    * Canvas: white cards on light gray / charcoal bands.
    */
   .section-label {
-    @apply font-mono text-xs uppercase tracking-[0.25em] text-ink-muted mb-4 block;
+    @apply font-mono text-xs uppercase tracking-[0.25em] mb-4 block;
+    color: #000000;
   }
 
   /*
@@ -66,10 +68,12 @@
 
   .section-title {
     @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-ink tracking-tight;
+    color: #000000;
   }
 
   .section-subtitle {
-    @apply text-lg md:text-xl text-ink-muted mt-4 max-w-2xl leading-relaxed;
+    @apply text-lg md:text-xl text-ink mt-4 max-w-2xl leading-relaxed;
+    color: #000000;
   }
 
   /*
@@ -119,7 +123,7 @@
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #4a5160; /* dark readable on white */
+    color: #000000;
   }
 
   .surface-card .surface-card-title {
@@ -127,7 +131,7 @@
     margin-top: 0.4rem;
     font-size: 0.95rem;
     font-weight: 700;
-    color: #2d323c;
+    color: #000000;
   }
 
   .surface-card--map .surface-card-title {
@@ -165,32 +169,32 @@
    * Class name kept so HTML need not thrash.
    */
   .section-charcoal {
-    background-color: transparent; /* inherits body #e8eaee */
-    color: #2d323c;
+    background-color: transparent; /* inherits body light gray */
+    color: #000000;
   }
 
   .section-charcoal .section-title {
-    color: #2d323c;
+    color: #000000;
   }
 
   .section-charcoal .section-label {
-    color: #6b7280;
+    color: #000000;
   }
 
   .section-charcoal .section-subtitle {
-    color: #6b7280;
+    color: #000000;
   }
 
   .section-charcoal .text-ink {
-    color: #2d323c;
+    color: #000000;
   }
 
   .section-charcoal .text-ink-muted {
-    color: #6b7280;
+    color: #000000;
   }
 
   .section-charcoal .text-ink-soft {
-    color: #4a5160;
+    color: #000000;
   }
 
   .section-charcoal .text-electric {
@@ -286,23 +290,26 @@
   .section-charcoal .glass-card h3,
   .section-charcoal .glass-card .font-display,
   .section-charcoal .surface-card .text-ink,
-  .section-charcoal .surface-card .surface-card-title,
   .section-charcoal .schema-pane .text-ink,
   .section-charcoal .schema-pane h3,
   .section-charcoal .schema-pane .font-display,
   .section-charcoal .cartridge-tile .text-ink,
   .section-charcoal .aae-metric .text-ink {
-    color: #2d323c !important;
+    color: #000000 !important;
   }
 
+  /* Boxed body copy: near-black (mark kickers keep their hue) */
   .section-charcoal .glass-card .text-ink-muted,
   .section-charcoal .glass-card .text-ink-soft,
-  .section-charcoal .surface-card .surface-card-kicker,
   .section-charcoal .surface-card .text-ink-muted,
   .section-charcoal .schema-pane .text-ink-muted,
   .section-charcoal .cartridge-tile .text-ink-muted,
   .section-charcoal .aae-metric .text-ink-muted {
-    color: #4a5160 !important;
+    color: #000000 !important;
+  }
+
+  .section-charcoal .surface-card .surface-card-kicker {
+    color: #4a5160; /* default; mark offer-rungs override */
   }
 
   .section-charcoal .glass-card .text-electric {
@@ -399,15 +406,15 @@
   .section-charcoal .schema-pane .text-ink,
   .section-charcoal .schema-pane h3,
   .section-charcoal .schema-pane .font-display {
-    color: #2d323c;
+    color: #000000;
   }
 
   .section-charcoal .schema-pane .text-ink-muted {
-    color: #6b7280;
+    color: #000000;
   }
 
   .section-charcoal .schema-loop-label {
-    color: #6b7280;
+    color: #000000;
   }
 
   .section-charcoal .schema-loop-line {
@@ -430,9 +437,10 @@
   }
 
   .nav-link {
-    @apply text-sm text-ink-muted hover:text-electric transition-colors duration-200
+    @apply text-sm text-ink hover:text-electric transition-colors duration-200
            relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px
            after:bg-electric after:transition-all after:duration-300 hover:after:w-full;
+    color: #000000;
   }
 
   .nav-link.active {
@@ -601,7 +609,8 @@
   }
 
   .context-copy-inner {
-    @apply space-y-6 text-gray-400 leading-relaxed w-full max-w-lg;
+    @apply space-y-6 leading-relaxed w-full max-w-lg;
+    color: #000000;
   }
 
   /* Manifesto rituals — white boxes, mark color borders */
@@ -649,7 +658,7 @@
     margin-top: 1rem;
     font-size: 0.8rem;
     line-height: 1.5;
-    color: #4a5160;
+    color: #000000;
     max-width: 28rem;
     margin-left: auto;
     margin-right: auto;
@@ -831,12 +840,12 @@
   .section-charcoal .cartridge-tile,
   .section-charcoal .aae-metric {
     background-color: #ffffff;
-    color: #2d323c;
+    color: #000000;
   }
 
   .section-charcoal .cartridge-tile .text-ink-muted,
   .section-charcoal .aae-metric .text-ink-muted {
-    color: #6b7280;
+    color: #000000;
   }
 
   .cartridge-tile-mark {
@@ -846,9 +855,10 @@
 
   /* Resource filters */
   .resource-filter {
-    @apply px-4 py-2 rounded-lg text-sm font-medium text-gray-500
-           border border-white/5 hover:border-electric/20 hover:text-electric
+    @apply px-4 py-2 rounded-lg text-sm font-medium
+           border border-ink/15 hover:border-electric/20 hover:text-electric
            transition-colors;
+    color: #000000;
   }
 
   .resource-filter.is-active {
@@ -897,10 +907,13 @@
   }
 
   .form-input {
-    @apply w-full px-4 py-3 rounded-lg bg-void-200 border border-white/5
-           text-white placeholder-gray-600
+    @apply w-full px-4 py-3 rounded-lg bg-white border border-ink/15
            focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30
            transition-colors;
+    color: #000000;
+  }
+  .form-input::placeholder {
+    color: #555555;
   }
 
   /* Utility note — white card on charcoal (not translucent gray) */
@@ -922,15 +935,15 @@
   .llm-core-note,
   .llm-core-note p,
   .llm-core-note span {
-    color: #2d323c;
+    color: #000000;
   }
 
   .llm-core-note .text-ink {
-    color: #2d323c !important;
+    color: #000000 !important;
   }
 
   .llm-core-note .text-ink-muted {
-    color: #4a5160 !important;
+    color: #000000 !important;
   }
 
   .llm-core-note .text-electric {
@@ -990,13 +1003,13 @@
   .layer-chip-title {
     font-size: 0.9rem;
     font-weight: 700;
-    color: #2d323c !important;
+    color: #000000 !important;
   }
 
   .layer-chip-desc {
     font-size: 0.75rem;
     line-height: 1.45;
-    color: #4a5160 !important;
+    color: #000000 !important;
   }
 
   .layer-chip--map {
@@ -1040,11 +1053,11 @@
   }
 
   .section-charcoal .layer-chip-title {
-    color: #2d323c !important;
+    color: #000000 !important;
   }
 
   .section-charcoal .layer-chip-desc {
-    color: #4a5160 !important;
+    color: #000000 !important;
   }
 
   /* Dojo ladder card — force blue (never leftover purple) */
