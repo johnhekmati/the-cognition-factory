@@ -22,6 +22,23 @@ Public site should invite John Q Consultant and busy parents — not read as a c
 - **HAL-E · AAE · CSS · CMS:** gate behind **technical whitepapers / deep docs** — they are the lattice, not the lobby  
 - Product loop names: map · practice · save place  
 
+## Color system (locked)
+
+**Thesis:** mostly **white / light gray** canvas (+ charcoal bands). **Primary color only for engines and lattices** — thematically cohesive with the four door marks.
+
+| Role | Hex | Use |
+|------|-----|-----|
+| **Map** | `#c9a227` gold | Map door, M tile, layer 1, solo path accents |
+| **Practice** | `#3d8c5a` green | Practice door, P tile, layer 2, teams accents |
+| **Save** | `#b03030` red | Save place, A tile, layer 3 |
+| **Dojo** | `#2b5f9e` blue | Dojo door, Y tile, layer 4, partners / workflow floor |
+| **Lattice** | `#c94a40` coral | Orient / lattice (secondary) |
+| **Chrome** | ink muted / quiet steel | Nav, section labels, primary CTA — not competing with marks |
+
+**Rule:** multi-item rows rotate gold → green → red → blue. Named engines use their color. Generic UI stays quiet.
+
+Helpers: `.accent-map|practice|save|dojo|lattice`, `.card-border-*`, `.surface-card--*`, `.layer-chip--*`, `.icon-tile-*`.
+
 ## Rails
 
 - Work only under this fork path  
