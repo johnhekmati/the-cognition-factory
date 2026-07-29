@@ -22,8 +22,43 @@
     @apply px-6 py-24 md:px-12 lg:px-20 xl:px-32;
   }
 
+  /*
+   * Neutral chrome by default. Mark primaries only on engines / lattices / associated UI.
+   * Palette: Map gold · Practice green · Save red · Dojo blue · Lattice coral
+   * Canvas: white cards on light gray / charcoal bands.
+   */
   .section-label {
-    @apply font-mono text-xs uppercase tracking-[0.25em] text-electric mb-4 block;
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-ink-muted mb-4 block;
+  }
+
+  /* Mark accent text (kickers, labels, CTAs on white cards) */
+  .accent-map {
+    color: #8a6a12;
+  }
+  .accent-practice {
+    color: #246640;
+  }
+  .accent-save {
+    color: #8f2424;
+  }
+  .accent-dojo {
+    color: #1e4a7a;
+  }
+  .accent-lattice {
+    color: #a83830;
+  }
+
+  .hover-accent-map:hover {
+    color: #c9a227;
+  }
+  .hover-accent-practice:hover {
+    color: #3d8c5a;
+  }
+  .hover-accent-save:hover {
+    color: #b03030;
+  }
+  .hover-accent-dojo:hover {
+    color: #2b5f9e;
   }
 
   .section-title {
@@ -135,7 +170,7 @@
   }
 
   .section-charcoal .section-label {
-    color: #8ab0d4;
+    color: #9aa3b0; /* neutral chrome — mark color only on engines */
   }
 
   .section-charcoal .section-subtitle {
