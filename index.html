@@ -25,7 +25,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png?v=cf4" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png?v=cf4" />
-  <link rel="icon" type="image/png" href="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp5" />
+  <link rel="icon" type="image/png" href="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp19" />
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png?v=cf4" />
 
   <!-- Typography -->
@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp18" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp19" />
 </head>
 
 <body class="overflow-x-hidden">
@@ -51,9 +51,9 @@
 
         <a href="#hero" class="flex items-center gap-3 group" aria-label="The Cognition Factory — Home">
           <img
-            src="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp5"
+            src="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp19"
             alt=""
-            class="h-9 md:h-10 w-9 md:w-10 object-contain rounded-sm group-hover:opacity-90 transition-opacity"
+            class="brand-nav-mark"
             width="40"
             height="40"
           />
@@ -1641,9 +1641,9 @@
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-3">
           <img
-            src="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp5"
+            src="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp19"
             alt="The Cognition Factory"
-            class="h-8 w-8 object-contain rounded-sm opacity-80"
+            class="brand-nav-mark"
             width="32"
             height="32"
           />
@@ -1737,20 +1737,24 @@
       border-radius: 1rem;
       isolation: isolate;
       background-color: #f4f5f7;
-      /* Thin mark-color edges: Map · Practice · Save · Dojo (subtle, not streamer) */
+      /* Mark-color edges + Google-TV-ish glow (restrained, not streamer) */
       border-style: solid;
-      border-width: 1.5px;
+      border-width: 2px;
       border-top-color: var(--mark-map);
       border-right-color: var(--mark-practice);
       border-bottom-color: var(--mark-save);
       border-left-color: var(--mark-dojo);
       box-shadow:
-        0 10px 32px rgba(45, 50, 60, 0.07),
+        0 12px 36px rgba(45, 50, 60, 0.08),
         0 2px 8px rgba(45, 50, 60, 0.04),
-        0 -3px 14px rgba(201, 162, 39, 0.18),
-        3px 0 14px rgba(61, 140, 90, 0.14),
-        0 3px 14px rgba(176, 48, 48, 0.14),
-        -3px 0 14px rgba(92, 61, 122, 0.16);
+        0 -5px 22px rgba(201, 162, 39, 0.38),
+        6px 0 22px rgba(61, 140, 90, 0.32),
+        0 5px 22px rgba(176, 48, 48, 0.32),
+        -6px 0 22px rgba(92, 61, 122, 0.36),
+        0 -1px 8px rgba(201, 162, 39, 0.45),
+        2px 0 8px rgba(61, 140, 90, 0.4),
+        0 1px 8px rgba(176, 48, 48, 0.4),
+        -2px 0 8px rgba(92, 61, 122, 0.42);
     }
 
     #hero-video-wrap.hero-manifesto-media--banner {
@@ -1760,7 +1764,7 @@
       max-height: min(42vh, 18.5rem);
     }
 
-    /* Soft corner blend so four hues meet cleanly */
+    /* Soft inner lip so the four hues read on white plate */
     #hero-video-wrap.hero-manifesto-media--banner::after {
       content: "";
       display: block !important;
@@ -1770,10 +1774,44 @@
       pointer-events: none;
       z-index: 2;
       box-shadow:
-        inset 0 1px 0 rgba(201, 162, 39, 0.35),
-        inset -1px 0 0 rgba(61, 140, 90, 0.3),
-        inset 0 -1px 0 rgba(176, 48, 48, 0.3),
-        inset 1px 0 0 rgba(92, 61, 122, 0.32);
+        inset 0 1.5px 0 rgba(201, 162, 39, 0.5),
+        inset -1.5px 0 0 rgba(61, 140, 90, 0.45),
+        inset 0 -1.5px 0 rgba(176, 48, 48, 0.45),
+        inset 1.5px 0 0 rgba(92, 61, 122, 0.48);
+    }
+
+    /* Flat charcoal CF — Edge-style: no plate, no box, no radius card */
+    .brand-nav-mark {
+      height: 2.35rem;
+      width: 2.35rem;
+      object-fit: cover;
+      object-position: center;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      /* Drop light plate so only charcoal monogram reads on paper */
+      mix-blend-mode: multiply;
+      opacity: 0.95;
+      transition: opacity 0.2s ease;
+    }
+
+    .brand-nav-mark:hover,
+    a:hover .brand-nav-mark {
+      opacity: 1;
+    }
+
+    @media (min-width: 768px) {
+      .brand-nav-mark {
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+    }
+
+    footer .brand-nav-mark {
+      height: 2rem;
+      width: 2rem;
+      opacity: 0.88;
     }
 
     #hero-video-wrap.hero-manifesto-media::before {
