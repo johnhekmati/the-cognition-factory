@@ -638,7 +638,7 @@
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-electric/[0.02] to-transparent pointer-events-none" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto relative">
         <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16" data-reveal>
-          <span class="section-label !text-[#6e1818]">Save place</span>
+          <span class="section-label !text-[#6e1818]">Save your place</span>
           <h2 class="section-title">Pick up where you left off</h2>
           <p class="font-mono text-sm mt-2 text-[#c45a5a]">Clean handoff · not re-scroll the chat</p>
           <p class="text-ink font-medium mt-6 text-lg">
@@ -1913,8 +1913,13 @@
       z-index: 1;
     }
 
-    /* Field type on charcoal (not inside white cards) */
-    .band-charcoal .section-label,
+    /* Field type on charcoal (not inside white cards). Label keeps white plate + ink. */
+    .band-charcoal .section-label {
+      color: #000000 !important;
+      background: #ffffff;
+      border-color: #2d323c;
+    }
+
     .band-charcoal .section-title,
     .band-charcoal .section-subtitle,
     .band-charcoal .text-ink,

@@ -28,9 +28,20 @@
    * Palette: Map gold · Practice green · Save red · Dojo blue · Lattice coral
    * Canvas: white cards on light gray / charcoal bands.
    */
+  /*
+   * Section kickers — small white plate + ink border (same chrome as contact form /
+   * surface-card neutral). inline-block so it sizes to the label, not full width.
+   */
   .section-label {
-    @apply font-mono text-xs uppercase tracking-[0.25em] mb-4 block;
+    @apply font-mono text-xs uppercase tracking-[0.25em] mb-4;
+    display: inline-block;
     color: #000000;
+    background: #ffffff;
+    border: 2px solid #2d323c;
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    box-shadow: 0 4px 14px rgba(45, 50, 60, 0.1);
+    line-height: 1.35;
   }
 
   /*
