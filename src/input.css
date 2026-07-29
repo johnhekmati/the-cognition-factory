@@ -160,28 +160,33 @@
 
   /* Door-aligned borders on white cards (use on glass-card too) */
   .section-charcoal .glass-card.card-border-map,
-  .glass-card.card-border-map {
-    border-color: rgba(201, 162, 39, 0.4);
+  .glass-card.card-border-map,
+  .schema-pane.card-border-map {
+    border-color: rgba(201, 162, 39, 0.4) !important;
   }
 
   .section-charcoal .glass-card.card-border-practice,
-  .glass-card.card-border-practice {
-    border-color: rgba(61, 140, 90, 0.38);
+  .glass-card.card-border-practice,
+  .schema-pane.card-border-practice {
+    border-color: rgba(61, 140, 90, 0.38) !important;
   }
 
   .section-charcoal .glass-card.card-border-save,
-  .glass-card.card-border-save {
-    border-color: rgba(176, 48, 48, 0.36);
+  .glass-card.card-border-save,
+  .schema-pane.card-border-save {
+    border-color: rgba(176, 48, 48, 0.36) !important;
   }
 
   .section-charcoal .glass-card.card-border-orient,
-  .glass-card.card-border-orient {
-    border-color: rgba(59, 111, 158, 0.38);
+  .glass-card.card-border-orient,
+  .schema-pane.card-border-orient {
+    border-color: rgba(59, 111, 158, 0.38) !important;
   }
 
   .section-charcoal .glass-card.card-border-dojo,
-  .glass-card.card-border-dojo {
-    border-color: rgba(92, 107, 138, 0.4);
+  .glass-card.card-border-dojo,
+  .schema-pane.card-border-dojo {
+    border-color: rgba(92, 107, 138, 0.4) !important;
   }
 
   .section-charcoal .glass-card .text-ink,
