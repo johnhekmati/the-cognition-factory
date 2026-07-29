@@ -6,12 +6,13 @@ module.exports = {
     extend: {
       colors: {
         // Paper / ink canvas (was cyber void)
+        // Uniform light-gray canvas (white cards + mark primaries sit on top)
         void: {
-          DEFAULT: '#f4f5f7',
-          50: '#ffffff',
+          DEFAULT: '#e8eaee',
+          50: '#e8eaee',
           100: '#eef0f3',
-          200: '#e4e7ec',
-          300: '#d5dae3',
+          200: '#e0e3e9',
+          300: '#d0d4dc',
         },
         // Trust steel-blue (was neon cyan) — token name kept for class compatibility
         electric: {
