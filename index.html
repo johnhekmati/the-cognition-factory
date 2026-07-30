@@ -105,7 +105,8 @@
     <section id="hero" class="relative pt-16 md:pt-20">
       <div class="hero-manifesto">
         <!--
-          Landing panel: full-width slides at native ~16:9 (object-fit contain = zero crop).
+          Landing panel: 24s carousel (8s × 3), object-fit contain = zero crop.
+          Desktop: landscape audience slides. Mobile: portrait posters (picture source).
           Soft-gray ticker under banner → charcoal thesis.
         -->
         <div class="hero-landing">
@@ -125,34 +126,52 @@
               >
                 <div class="hero-slides">
                   <figure class="hero-slide is-active" data-hero-slide aria-hidden="false">
-                    <img
-                      src="/assets/images/hero-slides/adult-learners.jpg?v=marks2"
-                      alt="Adult learners: upskill in the moments that matter — mobile learning that fits real life"
-                      width="1920"
-                      height="1071"
-                      decoding="async"
-                      fetchpriority="high"
-                    />
+                    <picture>
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="/assets/images/hero-slides/mobile/adult-learners.jpg?v=mhero1"
+                      />
+                      <img
+                        src="/assets/images/hero-slides/adult-learners.jpg?v=marks2"
+                        alt="Adult learners: upskill in the moments that matter — mobile learning that fits real life"
+                        width="1920"
+                        height="1071"
+                        decoding="async"
+                        fetchpriority="high"
+                      />
+                    </picture>
                   </figure>
                   <figure class="hero-slide" data-hero-slide aria-hidden="true">
-                    <img
-                      src="/assets/images/hero-slides/team-cross-skilling.jpg?v=marks2"
-                      alt="Teams: cross-skilling and retention under real institutional pressure"
-                      width="1920"
-                      height="1085"
-                      decoding="async"
-                      loading="lazy"
-                    />
+                    <picture>
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="/assets/images/hero-slides/mobile/team-cross-skilling.jpg?v=mhero1"
+                      />
+                      <img
+                        src="/assets/images/hero-slides/team-cross-skilling.jpg?v=marks2"
+                        alt="Teams: cross-skilling and retention under real institutional pressure"
+                        width="1920"
+                        height="1085"
+                        decoding="async"
+                        loading="lazy"
+                      />
+                    </picture>
                   </figure>
                   <figure class="hero-slide" data-hero-slide aria-hidden="true">
-                    <img
-                      src="/assets/images/hero-slides/partner-pressure.jpg?v=marks2"
-                      alt="Partners: proof of delivery under pressure — not a wall of certificates"
-                      width="1920"
-                      height="1085"
-                      decoding="async"
-                      loading="lazy"
-                    />
+                    <picture>
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="/assets/images/hero-slides/mobile/partner-pressure.jpg?v=mhero1"
+                      />
+                      <img
+                        src="/assets/images/hero-slides/partner-pressure.jpg?v=marks2"
+                        alt="Partners: proof of delivery under pressure — not a wall of certificates"
+                        width="1920"
+                        height="1085"
+                        decoding="async"
+                        loading="lazy"
+                      />
+                    </picture>
                   </figure>
                 </div>
                 <div class="hero-slide-dots" role="tablist" aria-label="Slide position">
@@ -2270,8 +2289,9 @@
     }
 
     /*
-     * Height = min(full 16:9 of viewport width, room under nav + ticker bar).
-     * Width always 100% (edge-to-edge stage). contain = full slide art, no crop.
+     * Desktop: min(full 16:9 of viewport width, room under nav + ticker).
+     * Mobile: portrait poster stage (~2:3 art); same contain = no crop.
+     * Width always 100% (edge-to-edge stage).
      */
     .hero-slide-stage {
       position: relative;
@@ -2293,6 +2313,26 @@
           calc(100vw * 9 / 16),
           calc(100vh - var(--hero-nav-h) - 3.5rem)
         );
+      }
+    }
+
+    /* Portrait mobile posters (hero-slides/mobile/*) — stage matches art ratio */
+    @media (max-width: 767px) {
+      .hero-slide-stage {
+        height: min(
+          calc(100vw * 1904 / 1264),
+          calc(100svh - var(--hero-nav-h) - 3.25rem)
+        );
+        min-height: 18rem;
+      }
+
+      @supports not (height: 100svh) {
+        .hero-slide-stage {
+          height: min(
+            calc(100vw * 1904 / 1264),
+            calc(100vh - var(--hero-nav-h) - 3.25rem)
+          );
+        }
       }
     }
 
@@ -2319,6 +2359,15 @@
       opacity: 1;
       visibility: visible;
       z-index: 1;
+    }
+
+    .hero-slide picture {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
     }
 
     .hero-slide img {

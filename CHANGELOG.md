@@ -6,6 +6,16 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-30 — Hero: mobile portrait posters (24s carousel)
+
+- Mobile only (≤767px): 24s hero carousel (8s × 3) uses portrait posters in `assets/images/hero-slides/mobile/`
+  - Solo / adult · Teams · Partners (same order as desktop)
+- Desktop landscape slides unchanged (`adult-learners` / `team-cross-skilling` / `partner-pressure`)
+- Stage height on mobile follows poster ratio; `object-fit: contain` still no crop
+- Wired via `<picture>` + `source media` — one carousel, one JS path
+
+---
+
 ## 2026-07-30 — Guides filters: mobile 2-col pads
 
 - Guides & research filter chips (All / Solo / White papers / SOPs / Technical / Request only) use an intentional **2-column pad grid** under 640px (Tía Taco Hut menu/location chip pattern)
