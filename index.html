@@ -378,12 +378,29 @@
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-electric/[0.02] to-transparent pointer-events-none" aria-hidden="true"></div>
 
       <div class="max-w-7xl mx-auto relative">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div data-reveal>
+        <!-- Mobile: head → mark → body. Desktop lg: copy col + mark col (unchanged). -->
+        <div class="door-split door-split--mark-end">
+          <div class="door-split-head" data-reveal>
             <span class="section-label !text-[#5c4a0c]">Learn</span>
             <h2 class="section-title">One idea until it clicks</h2>
             <p class="font-mono text-sm mt-2 text-[#d4b06a]">Build the map · not binge the playlist</p>
-            <p class="text-ink font-medium mt-6 text-lg">
+          </div>
+
+          <div class="door-split-mark relative" data-reveal>
+            <div class="glass-card card-border-map p-3 md:p-5 overflow-hidden">
+              <img
+                src="/assets/images/brand/tcf-door-map.jpg?v=marks3"
+                alt="Learn — build the map of a subject with you oriented on it"
+                class="w-full rounded-xl object-contain aspect-square bg-white block"
+                width="1024"
+                height="1024"
+              />
+            </div>
+            <div class="absolute -bottom-4 -right-4 w-32 h-32 rounded-full blur-2xl -z-10" style="background:rgba(201,162,39,0.14)" aria-hidden="true"></div>
+          </div>
+
+          <div class="door-split-body" data-reveal>
+            <p class="text-ink font-medium text-lg">
               For subjects you need to <em>think through</em> — not just finish.
             </p>
             <p class="mt-4 text-ink-muted leading-relaxed">
@@ -435,19 +452,6 @@
               </li>
             </ul>
           </div>
-
-          <div class="relative" data-reveal>
-            <div class="glass-card card-border-map p-3 md:p-5 overflow-hidden">
-              <img
-                src="/assets/images/brand/tcf-door-map.jpg?v=marks3"
-                alt="Learn — build the map of a subject with you oriented on it"
-                class="w-full rounded-xl object-contain aspect-square bg-white block"
-                width="1024"
-                height="1024"
-              />
-            </div>
-            <div class="absolute -bottom-4 -right-4 w-32 h-32 rounded-full blur-2xl -z-10" style="background:rgba(201,162,39,0.14)" aria-hidden="true"></div>
-          </div>
         </div>
       </div>
     </section>
@@ -458,8 +462,15 @@
          ═══════════════════════════════════════════════════════════ -->
     <section id="aae" class="section-padding relative section-charcoal">
       <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div class="relative order-2 lg:order-1" data-reveal>
+        <!-- Mobile: head → mark → body. Desktop lg: mark left, copy right (unchanged). -->
+        <div class="door-split door-split--mark-start">
+          <div class="door-split-head" data-reveal>
+            <span class="section-label !text-[#145032]">Practice</span>
+            <h2 class="section-title">Check what you know — honestly</h2>
+            <p class="font-mono text-sm mt-2 text-[#145032]">Closed notes when it counts · not cruise the open book</p>
+          </div>
+
+          <div class="door-split-mark relative" data-reveal>
             <div class="glass-card card-border-practice p-3 md:p-5 overflow-hidden">
               <img
                 src="/assets/images/brand/tcf-door-practice-v3.jpg?v=marks4"
@@ -472,11 +483,8 @@
             <div class="absolute -top-4 -left-4 w-32 h-32 rounded-full blur-2xl -z-10" style="background:rgba(61,140,90,0.12)" aria-hidden="true"></div>
           </div>
 
-          <div class="order-1 lg:order-2" data-reveal>
-            <span class="section-label !text-[#145032]">Practice</span>
-            <h2 class="section-title">Check what you know — honestly</h2>
-            <p class="font-mono text-sm mt-2 text-[#145032]">Closed notes when it counts · not cruise the open book</p>
-            <p class="text-ink font-medium mt-6 text-lg">
+          <div class="door-split-body" data-reveal>
+            <p class="text-ink font-medium text-lg">
               For goals you need to <em>prove</em> — not just re-read.
             </p>
             <p class="mt-4 text-ink-muted leading-relaxed">
@@ -547,29 +555,35 @@
     <section id="dojo" class="section-padding relative section-charcoal">
       <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, transparent, rgba(43,95,158,0.06), transparent)" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto relative">
-        <div class="text-center max-w-3xl mx-auto mb-10 md:mb-12" data-reveal>
-          <span class="section-label !text-[#12355c]">The Dojo · Scenario practice</span>
-          <h2 class="section-title">Deliver it when it’s messy</h2>
-          <p class="font-mono text-sm mt-2 text-[#12355c]">Real scenarios · not another quiz</p>
-          <p class="text-ink font-medium mt-6 text-lg">
-            For skills you need to <em>use</em> — not just pass.
-          </p>
-          <p class="mt-4 text-ink-muted leading-relaxed text-balance">
-            Practice proves you know it. The <span class="text-ink-soft">Dojo</span> proves you can deliver it.
-            Scenario packs drop you into the middle of real work — half-finished, on a clock,
-            with something at stake — and ask for the call you would have to make on the job.
-          </p>
-        </div>
+        <!-- Mobile: head → mark → body. Desktop: head → body → mark (prior centered stack). -->
+        <div class="door-intro door-intro--dojo text-center max-w-3xl mx-auto mb-10 md:mb-12">
+          <div class="door-intro-head" data-reveal>
+            <span class="section-label !text-[#12355c]">The Dojo · Scenario practice</span>
+            <h2 class="section-title">Deliver it when it’s messy</h2>
+            <p class="font-mono text-sm mt-2 text-[#12355c]">Real scenarios · not another quiz</p>
+          </div>
 
-        <div class="max-w-xs mx-auto mb-12 md:mb-14" data-reveal>
-          <div class="glass-card card-border-dojo p-3 md:p-4 overflow-hidden">
-            <img
-              src="/assets/images/brand/tcf-door-dojo.jpg?v=marks3"
-              alt="The Dojo — scenario practice under pressure"
-              class="w-full rounded-xl object-contain aspect-square bg-white block"
-              width="640"
-              height="640"
-            />
+          <div class="door-intro-mark max-w-xs mx-auto" data-reveal>
+            <div class="glass-card card-border-dojo p-3 md:p-4 overflow-hidden">
+              <img
+                src="/assets/images/brand/tcf-door-dojo.jpg?v=marks3"
+                alt="The Dojo — scenario practice under pressure"
+                class="w-full rounded-xl object-contain aspect-square bg-white block"
+                width="640"
+                height="640"
+              />
+            </div>
+          </div>
+
+          <div class="door-intro-body" data-reveal>
+            <p class="text-ink font-medium text-lg">
+              For skills you need to <em>use</em> — not just pass.
+            </p>
+            <p class="mt-4 text-ink-muted leading-relaxed text-balance">
+              Practice proves you know it. The <span class="text-ink-soft">Dojo</span> proves you can deliver it.
+              Scenario packs drop you into the middle of real work — half-finished, on a clock,
+              with something at stake — and ask for the call you would have to make on the job.
+            </p>
           </div>
         </div>
 
@@ -642,24 +656,43 @@
     <section id="platform" class="section-padding relative section-charcoal">
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-electric/[0.02] to-transparent pointer-events-none" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto relative">
-        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16" data-reveal>
-          <span class="section-label !text-[#6e1818]">Save your place</span>
-          <h2 class="section-title">Pick up where you left off</h2>
-          <p class="font-mono text-sm mt-2 text-[#c45a5a]">Clean handoff · not re-scroll the chat</p>
-          <p class="text-ink font-medium mt-6 text-lg">
-            For weeks that <em>interrupt</em> — not perfect study streaks.
-          </p>
-          <p class="mt-4 text-ink-muted leading-relaxed text-balance">
-            Not a chat archive. Not another app to babysit.
-            <span class="text-ink-soft">Save place</span> is how you leave a clean handoff for tomorrow —
-            whether you were in Learn or mid Practice.
-            Long sessions break. Apps forget. People get called away. The loop still holds.
-          </p>
+        <!-- Mobile: head → save mark → body. Desktop: intro text only; mark stays in Save card. Stay Oriented untouched. -->
+        <div class="door-intro door-intro--save text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <div class="door-intro-head" data-reveal>
+            <span class="section-label !text-[#6e1818]">Save your place</span>
+            <h2 class="section-title">Pick up where you left off</h2>
+            <p class="font-mono text-sm mt-2 text-[#c45a5a]">Clean handoff · not re-scroll the chat</p>
+          </div>
+
+          <div class="door-intro-mark door-intro-mark--save-only max-w-xs mx-auto" data-reveal>
+            <div class="glass-card card-border-save p-3 md:p-4 overflow-hidden">
+              <img
+                src="/assets/images/brand/tcf-door-save-v2.jpg?v=marks4"
+                alt="Save place — leave a clean stop for next time"
+                class="w-full rounded-xl object-contain aspect-square bg-white block"
+                width="512"
+                height="512"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div class="door-intro-body" data-reveal>
+            <p class="text-ink font-medium text-lg">
+              For weeks that <em>interrupt</em> — not perfect study streaks.
+            </p>
+            <p class="mt-4 text-ink-muted leading-relaxed text-balance">
+              Not a chat archive. Not another app to babysit.
+              <span class="text-ink-soft">Save place</span> is how you leave a clean handoff for tomorrow —
+              whether you were in Learn or mid Practice.
+              Long sessions break. Apps forget. People get called away. The loop still holds.
+            </p>
+          </div>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 mb-12" data-reveal>
           <article class="glass-card card-border-save p-8 md:p-10 h-full">
-            <div class="platform-mark">
+            <div class="platform-mark platform-mark--save-desktop">
               <img
                 src="/assets/images/brand/tcf-door-save-v2.jpg?v=marks4"
                 alt="Save place — leave a clean stop for next time"
@@ -1355,7 +1388,7 @@
           </p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-3 mb-12" data-reveal role="tablist" aria-label="Filter resources">
+        <div class="resource-filters mb-12" data-reveal role="tablist" aria-label="Filter resources">
           <button type="button" class="resource-filter resource-filter--all is-active" data-filter="all" aria-pressed="true">All</button>
           <button type="button" class="resource-filter resource-filter--solo" data-filter="solo" aria-pressed="false">Solo</button>
           <button type="button" class="resource-filter resource-filter--exec" data-filter="whitepaper" aria-pressed="false">White papers</button>

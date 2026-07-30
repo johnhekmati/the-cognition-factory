@@ -6,6 +6,20 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-30 — Guides filters: mobile 2-col pads
+
+- Guides & research filter chips (All / Solo / White papers / SOPs / Technical / Request only) use an intentional **2-column pad grid** under 640px (Tía Taco Hut menu/location chip pattern)
+- Soft tray border + full-width rounded pads; desktop stays centered wrap
+- Lane hover/active colors unchanged
+
+## 2026-07-30 — Door marks: mobile reflow (Learn · Practice · Dojo · Save)
+
+- Mobile only: brand door marks sit **under title + tagline**, **above** the “For …” lead on Learn, Practice, Dojo, and Save your place
+- Desktop layouts unchanged (Learn/Practice side-by-side; Dojo mark after full intro; Save mark in Save card)
+- **Stay oriented** card left alone (mark + copy stack unchanged)
+
+---
+
 ## 2026-07-29 — Hero ticker (PMMAI marquee under banner)
 
 - Replaced **Continue** scroll cue under hero slides with an infinite ticker bar (pattern from professionalmmainstitute.com marquee)

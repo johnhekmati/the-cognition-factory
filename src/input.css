@@ -864,7 +864,14 @@
            border font-display font-bold text-sm;
   }
 
-  /* Resource filters — mark lane hover/active (match k-base borders) */
+  /* Resource filters — desktop: centered wrap; mobile: designed 2-col pads (Tía pattern) */
+  .resource-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
   .resource-filter {
     @apply px-4 py-2 rounded-lg text-sm font-medium border transition-colors;
     color: #000000;
@@ -922,6 +929,37 @@
     border-color: rgba(45, 50, 60, 0.75);
     color: #000000;
     background: rgba(45, 50, 60, 0.08);
+  }
+
+  /* Mobile: intentional 2-col filter pads (not leftover pills / wrap rubble) */
+  @media (max-width: 640px) {
+    .resource-filters {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem;
+      padding: 0.55rem;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 22rem;
+      border-radius: 0.85rem;
+      background: rgba(0, 0, 0, 0.035);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .resource-filter {
+      width: 100%;
+      min-height: 2.55rem;
+      border-radius: 0.55rem;
+      padding: 0.55rem 0.45rem;
+      font-size: 0.78rem;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      white-space: normal;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .resource-tag--solo {
@@ -1167,6 +1205,132 @@
   .platform-mark img {
     @apply block w-full aspect-square object-contain rounded-xl bg-void
            border border-white/10 mx-auto;
+  }
+
+  /*
+   * Door sections (Learn / Practice / Dojo / Save) — mobile mark reflow.
+   * Mobile: title + tagline → brand mark → lead + body.
+   * Desktop: prior layouts (side-by-side or intro-then-mark).
+   * Stay Oriented card is not part of this pattern.
+   */
+  .door-split {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .door-split-mark {
+    width: 100%;
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .door-split-body > .text-ink.font-medium:first-child,
+  .door-intro-body > .text-ink.font-medium:first-child {
+    margin-top: 0;
+  }
+
+  .door-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .door-intro-mark {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .door-intro-body {
+    margin-top: 0;
+  }
+
+  /* Save: mark in intro on mobile only; card keeps mark on desktop only */
+  .door-intro-mark--save-only {
+    display: block;
+  }
+
+  .platform-mark--save-desktop {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .door-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 5rem;
+      row-gap: 0;
+      align-items: center;
+    }
+
+    .door-split-head {
+      grid-row: 1;
+      align-self: end;
+    }
+
+    .door-split-body {
+      grid-row: 2;
+      align-self: start;
+      padding-top: 1.5rem;
+    }
+
+    .door-split-mark {
+      grid-row: 1 / span 2;
+      max-width: none;
+      margin: 0;
+      align-self: center;
+    }
+
+    /* Learn: copy left, mark right */
+    .door-split--mark-end .door-split-head,
+    .door-split--mark-end .door-split-body {
+      grid-column: 1;
+    }
+
+    .door-split--mark-end .door-split-mark {
+      grid-column: 2;
+    }
+
+    /* Practice: mark left, copy right */
+    .door-split--mark-start .door-split-head,
+    .door-split--mark-start .door-split-body {
+      grid-column: 2;
+    }
+
+    .door-split--mark-start .door-split-mark {
+      grid-column: 1;
+    }
+
+    /* Dojo desktop: head → body → mark (restore prior stack) */
+    .door-intro--dojo .door-intro-head {
+      order: 1;
+    }
+
+    .door-intro--dojo .door-intro-body {
+      order: 2;
+      margin-top: 1.5rem;
+    }
+
+    .door-intro--dojo .door-intro-mark {
+      order: 3;
+      margin-top: 2.5rem;
+      margin-bottom: 0;
+      max-width: 20rem;
+    }
+
+    /* Save desktop: no intro mark; mark lives in Save card only */
+    .door-intro-mark--save-only {
+      display: none;
+    }
+
+    .platform-mark--save-desktop {
+      display: block;
+    }
+
+    .door-intro--save .door-intro-body {
+      margin-top: 1.5rem;
+    }
   }
 
   /* Product gallery — click-to-enlarge */
