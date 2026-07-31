@@ -6,6 +6,16 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-30 — Hero first-paint / carousel settle (mobile)
+
+- **Root cause:** hero carousel rules lived only in a foot `<style>` block → first paint stacked slides in document flow (19k–31k px height, white flash, ghost crossfades)
+- Critical hero CSS + first-slide `preload` moved to `<head>`
+- Stage gets fixed `height` + `max-height` + `contain`/`isolation`; inactive slides `pointer-events: none`
+- Mobile: drop `hero-landing` full-viewport `min-height` (posters already fill stage)
+- JS: arm transitions + dwell timer only after first image load/decode (timeout cap); `setTimeout` chain; preload next slide; shorter fade on mobile
+
+---
+
 ## 2026-07-30 — Header/footer x-axis align (site-chrome)
 
 - Shared `.site-chrome` / `.site-chrome-inner`: gutters match `section-padding` (incl. `xl:px-32`), `max-w-7xl` inside

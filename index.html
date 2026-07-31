@@ -34,6 +34,115 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/css/styles.css?v=brand-exp37" />
+
+  <!--
+    Critical hero first-paint (mobile + desktop).
+    Full hero rules also live in the page foot style block; this block must stay in <head>
+    so slides never stack in document flow before CSS arrives (was causing 19k–31k px
+    height jumps, blank/white flash, and ghosted carousel on mobile).
+  -->
+  <link
+    rel="preload"
+    as="image"
+    href="/assets/images/hero-slides/mobile/adult-learners.jpg?v=mhero1"
+    media="(max-width: 767px)"
+    fetchpriority="high"
+  />
+  <link
+    rel="preload"
+    as="image"
+    href="/assets/images/hero-slides/adult-learners.jpg?v=marks2"
+    media="(min-width: 768px)"
+    fetchpriority="high"
+  />
+  <style id="hero-first-paint">
+    #hero { --hero-nav-h: 4rem; --hero-field: #e8eaee; }
+    @media (min-width: 768px) {
+      #hero { --hero-nav-h: 5rem; }
+    }
+    .hero-landing {
+      display: flex;
+      flex-direction: column;
+      background: var(--hero-field, #e8eaee);
+    }
+    /* Mobile: do not force full viewport min-height (adds void + thrash with tall posters) */
+    @media (min-width: 768px) {
+      .hero-landing {
+        min-height: calc(100svh - var(--hero-nav-h));
+      }
+    }
+    .hero-banner-plate {
+      position: relative;
+      overflow: hidden;
+      background: var(--hero-field, #e8eaee);
+    }
+    .hero-slide-stage {
+      position: relative;
+      width: 100%;
+      height: min(calc(100vw * 9 / 16), calc(100svh - var(--hero-nav-h) - 3.5rem));
+      min-height: 12rem;
+      max-height: min(calc(100vw * 9 / 16), calc(100svh - var(--hero-nav-h) - 3.5rem));
+      background: var(--hero-field, #e8eaee);
+      overflow: hidden;
+      isolation: isolate;
+      contain: layout style;
+    }
+    @media (max-width: 767px) {
+      .hero-slide-stage {
+        height: min(calc(100vw * 1904 / 1264), calc(100svh - var(--hero-nav-h) - 3.25rem));
+        max-height: min(calc(100vw * 1904 / 1264), calc(100svh - var(--hero-nav-h) - 3.25rem));
+        min-height: 16rem;
+      }
+    }
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--hero-field, #e8eaee);
+      /* No transition until stage is ready — prevents ghost crossfades on first paint */
+      transition: none;
+      pointer-events: none;
+    }
+    .hero-slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+      pointer-events: auto;
+    }
+    .hero-slide-stage.is-ready .hero-slide {
+      transition: opacity 0.45s ease;
+    }
+    @media (min-width: 768px) {
+      .hero-slide-stage.is-ready .hero-slide {
+        transition: opacity 0.75s ease;
+      }
+    }
+    .hero-slide picture {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+  </style>
 </head>
 
 <body class="overflow-x-hidden">
@@ -2252,14 +2361,19 @@
     .hero-landing {
       display: flex;
       flex-direction: column;
-      min-height: calc(100svh - var(--hero-nav-h));
-      /* Soft-gray field (same as body void) + ticker hinge */
+      /* Soft-gray field (same as body void) + ticker hinge.
+         Full-viewport min-height only from md up — mobile posters already fill the stage. */
       background: var(--hero-field, #e8eaee);
     }
 
-    @supports not (height: 100svh) {
+    @media (min-width: 768px) {
       .hero-landing {
-        min-height: calc(100vh - var(--hero-nav-h));
+        min-height: calc(100svh - var(--hero-nav-h));
+      }
+      @supports not (height: 100svh) {
+        .hero-landing {
+          min-height: calc(100vh - var(--hero-nav-h));
+        }
       }
     }
 
@@ -2344,11 +2458,16 @@
         calc(100vw * 9 / 16),
         calc(100svh - var(--hero-nav-h) - 3.5rem)
       );
+      max-height: min(
+        calc(100vw * 9 / 16),
+        calc(100svh - var(--hero-nav-h) - 3.5rem)
+      );
       min-height: 12rem;
-      max-height: none;
       aspect-ratio: auto;
       background: var(--hero-field, #e8eaee);
       overflow: hidden;
+      isolation: isolate;
+      contain: layout style;
     }
 
     @supports not (height: 100svh) {
@@ -2357,22 +2476,34 @@
           calc(100vw * 9 / 16),
           calc(100vh - var(--hero-nav-h) - 3.5rem)
         );
+        max-height: min(
+          calc(100vw * 9 / 16),
+          calc(100vh - var(--hero-nav-h) - 3.5rem)
+        );
       }
     }
 
-    /* Portrait mobile posters (hero-slides/mobile/*) — stage matches art ratio */
+    /* Portrait mobile posters — fixed stage height (no document-flow expansion) */
     @media (max-width: 767px) {
       .hero-slide-stage {
         height: min(
           calc(100vw * 1904 / 1264),
           calc(100svh - var(--hero-nav-h) - 3.25rem)
         );
-        min-height: 18rem;
+        max-height: min(
+          calc(100vw * 1904 / 1264),
+          calc(100svh - var(--hero-nav-h) - 3.25rem)
+        );
+        min-height: 16rem;
       }
 
       @supports not (height: 100svh) {
         .hero-slide-stage {
           height: min(
+            calc(100vw * 1904 / 1264),
+            calc(100vh - var(--hero-nav-h) - 3.25rem)
+          );
+          max-height: min(
             calc(100vw * 1904 / 1264),
             calc(100vh - var(--hero-nav-h) - 3.25rem)
           );
@@ -2391,18 +2522,31 @@
       margin: 0;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.85s ease, visibility 0.85s ease;
+      /* Transitions only when .is-ready (see head critical CSS + JS) */
+      transition: none;
       z-index: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       background: var(--hero-field, #e8eaee);
+      pointer-events: none;
     }
 
     .hero-slide.is-active {
       opacity: 1;
       visibility: visible;
       z-index: 1;
+      pointer-events: auto;
+    }
+
+    .hero-slide-stage.is-ready .hero-slide {
+      transition: opacity 0.45s ease;
+    }
+
+    @media (min-width: 768px) {
+      .hero-slide-stage.is-ready .hero-slide {
+        transition: opacity 0.75s ease;
+      }
     }
 
     .hero-slide picture {
@@ -2731,7 +2875,7 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=hero-slides1" defer></script>
+  <script src="/js/main.js?v=hero-paint1" defer></script>
   <noscript>
     <style>
       [data-reveal] { opacity: 1 !important; transform: none !important; }

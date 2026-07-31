@@ -247,7 +247,10 @@ function initResourceFilters() {
   });
 }
 
-/* ── Hero audience slides: 24s loop (equal time per slide), crossfade ── */
+/* ── Hero audience slides: 24s loop (equal time per slide), crossfade ──
+ * First-paint settle: wait for active image decode before arming transitions
+ * or the dwell timer. Prevents ghost crossfades and mid-load advances on mobile.
+ */
 function initHeroSlides() {
   const stage = document.querySelector('[data-hero-slides]');
   if (!stage) return;
@@ -268,7 +271,22 @@ function initHeroSlides() {
   if (index < 0) index = 0;
 
   let timer = null;
+  let armed = false;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const slideImg = (slide) => slide?.querySelector('img') || null;
+
+  const preloadAdjacent = (i) => {
+    const next = slides[(i + 1) % slides.length];
+    const img = slideImg(next);
+    if (!img || img.dataset.preloaded === '1') return;
+    img.dataset.preloaded = '1';
+    if (img.loading === 'lazy') img.loading = 'eager';
+    // Hint decode without forcing layout
+    if (typeof img.decode === 'function') {
+      img.decode().catch(() => {});
+    }
+  };
 
   const show = (next) => {
     index = ((next % slides.length) + slides.length) % slides.length;
@@ -282,38 +300,80 @@ function initHeroSlides() {
       dot.classList.toggle('is-active', on);
       dot.setAttribute('aria-selected', on ? 'true' : 'false');
     });
+    preloadAdjacent(index);
   };
 
   const stop = () => {
     if (timer != null) {
-      window.clearInterval(timer);
+      window.clearTimeout(timer);
       timer = null;
     }
   };
 
-  const start = () => {
-    stop();
-    if (reduceMotion) return;
-    timer = window.setInterval(() => show(index + 1), dwellMs);
+  const tick = () => {
+    show(index + 1);
+    timer = window.setTimeout(tick, dwellMs);
   };
 
+  const start = () => {
+    stop();
+    if (reduceMotion || !armed) return;
+    timer = window.setTimeout(tick, dwellMs);
+  };
+
+  const arm = () => {
+    if (armed) return;
+    armed = true;
+    stage.classList.remove('is-booting');
+    stage.classList.add('is-ready');
+    show(index);
+    if (!reduceMotion) start();
+  };
+
+  // Boot: pin first slide, no transitions, no timer until first paint is real
+  stage.classList.add('is-booting');
   show(index);
+
+  const firstImg = slideImg(slides[index]);
+  const settleThenArm = () => {
+    // Double rAF: wait one paint after image dimensions are known
+    requestAnimationFrame(() => {
+      requestAnimationFrame(arm);
+    });
+  };
+
+  if (firstImg && !firstImg.complete) {
+    let settled = false;
+    const once = () => {
+      if (settled) return;
+      settled = true;
+      settleThenArm();
+    };
+    firstImg.addEventListener('load', once, { once: true });
+    firstImg.addEventListener('error', once, { once: true });
+    // Cap wait so a hung image never freezes the carousel forever
+    window.setTimeout(once, 2200);
+  } else if (firstImg && typeof firstImg.decode === 'function') {
+    firstImg
+      .decode()
+      .catch(() => {})
+      .finally(settleThenArm);
+  } else {
+    settleThenArm();
+  }
 
   dots.forEach((dot) => {
     dot.addEventListener('click', () => {
       const i = parseInt(dot.getAttribute('data-hero-dot') || '0', 10);
       show(i);
-      start();
+      if (armed) start();
     });
   });
 
-  // Pause while tab is hidden; resume on return
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) stop();
-    else start();
+    else if (armed) start();
   });
-
-  if (!reduceMotion) start();
 }
 
 /* ── Hero banner: one-shot spinner, dual-tone glow always on, click to replay ── */
