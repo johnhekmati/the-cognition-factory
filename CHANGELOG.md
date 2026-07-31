@@ -6,6 +6,15 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-30 — Claim-language softens (Batch A + B)
+
+- **Homepage:** Teams / Partners / Institution offer / Dojo body copy / product gallery off-ramp language — no hire-day, pass, or delivery guarantees; screening framed as structured observation
+- **Public docs:** claim banners on Executive Whitepaper, Methodology, Enterprise Deployment SOP; engagement models (not “academic partnerships” as credential pathways); client-owned metrics
+- Brand slogan “Skill that sticks…” left intentionally (Principal brand risk)
+- Mobile/desktop hero **raster** copy deferred to Principal Higgsfield re-render
+
+---
+
 ## 2026-07-30 — Hero: mobile portrait posters (24s carousel)
 
 - Mobile only (≤767px): 24s hero carousel (8s × 3) uses portrait posters in `assets/images/hero-slides/mobile/`
