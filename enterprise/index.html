@@ -153,6 +153,12 @@
         0 8px 28px rgba(45, 50, 60, 0.08),
         0 2px 8px rgba(45, 50, 60, 0.04);
     }
+    .prose-panel--ink-border {
+      border: 2px solid #2d323c;
+      border-radius: 0.75rem;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(45, 50, 60, 0.08);
+    }
 
     /* Pathway heroes: match main stage (width-driven 16:9, no svh crop) + nav clearance */
     .pathway-hero {
@@ -534,6 +540,7 @@
           <div class="ent-nav-desktop" data-nav-context="enterprise">
             <a href="/" class="nav-link">Home</a>
             <a href="#enemy" class="nav-link" data-nav>Problem</a>
+            <a href="#solution" class="nav-link" data-nav>Solution</a>
             <a href="#loop" class="nav-link" data-nav>How</a>
             <a href="#partners" class="nav-link" data-nav>Partners</a>
             <a href="#product" class="nav-link" data-nav>Product</a>
@@ -551,6 +558,7 @@
             <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted">Enterprise pathway</p>
             <a href="/" class="nav-link py-2">Home</a>
             <a href="#enemy" class="nav-link py-2" data-nav>Problem</a>
+            <a href="#solution" class="nav-link py-2" data-nav>Solution</a>
             <a href="#loop" class="nav-link py-2" data-nav>How it works</a>
             <a href="#partners" class="nav-link py-2" data-nav>Partners</a>
             <a href="#product" class="nav-link py-2" data-nav>Product</a>
@@ -670,6 +678,39 @@
             <span class="text-ink-muted">how do people work under pressure</span> problem.
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         THE SOLUTION — bridge into How it works
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="solution" class="section-padding relative">
+      <div class="max-w-3xl mx-auto text-center">
+        <div data-reveal>
+          <span class="section-label">The solution</span>
+          <h2 class="section-title">
+            The Cognition Factory exists to make more lanes. And on-ramps. And off-ramps.
+          </h2>
+        </div>
+        <div
+          class="prose-panel prose-panel--ink-border mt-8 md:mt-10 p-6 md:p-8 space-y-5 text-ink-muted leading-relaxed text-base md:text-lg text-left sm:text-center"
+          data-reveal
+        >
+          <p>
+            Teams have calendars full of interrupts — client work, handoffs, and the next deliverable.
+            The Cognition Factory is built for that: maps on <em>your</em> standards, honest practice under pressure,
+            and a clean place to stop so skill doesn’t vanish when the week goes loud.
+          </p>
+          <p>
+            New people and people who already know the land both work in the <span class="text-ink-soft">Dojo</span> —
+            messy, timed cases that feel like real engagement work, not seat-time theater.
+            Partners get custom curricula for team gaps and dashboards that light up with the signals you actually need.
+            Not just static coursework.
+          </p>
+        </div>
+        <p class="pt-6 text-center" data-reveal>
+          <a href="#loop" class="btn-secondary inline-flex">How it works →</a>
+        </p>
       </div>
     </section>
 
@@ -1625,6 +1666,7 @@
           <div class="footer-sitemap" aria-label="Site map">
             <a href="/">Home</a>
             <a href="#enemy">Problem</a>
+            <a href="#solution">Solution</a>
             <a href="#loop">How it works</a>
             <a href="#partners">Partners</a>
             <a href="#product">Product</a>
@@ -2621,6 +2663,12 @@
       box-shadow:
         0 8px 28px rgba(45, 50, 60, 0.08),
         0 2px 8px rgba(45, 50, 60, 0.04);
+    }
+    .prose-panel--ink-border {
+      border: 2px solid #2d323c;
+      border-radius: 0.75rem;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(45, 50, 60, 0.08);
     }
   </style>
 <!-- Product gallery lightbox -->
