@@ -2611,7 +2611,7 @@
     .pathways-stack-col {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 1rem; /* S1↔S2 / E1↔E2 air so border glow doesn’t crowd the door cards */
       min-width: 0;
     }
     .pathways-stack-col > a {
@@ -2622,7 +2622,7 @@
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto;
         column-gap: 1.5rem;
-        row-gap: 0.5rem;
+        row-gap: 1rem; /* match column stack air */
       }
       .pathways-stack-col {
         display: contents;
