@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp38" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp39" />
 
   <!--
     Critical hero first-paint (mobile + desktop).
@@ -44,14 +44,14 @@
   <link
     rel="preload"
     as="image"
-    href="/assets/images/hero-slides/mobile/adult-learners.jpg?v=mhero1"
+    href="/assets/images/hero-slides/mobile/team-cross-skilling.jpg?v=mhero2"
     media="(max-width: 767px)"
     fetchpriority="high"
   />
   <link
     rel="preload"
     as="image"
-    href="/assets/images/hero-slides/adult-learners.jpg?v=marks2"
+    href="/assets/images/hero-slides/team-cross-skilling.jpg?v=marks2"
     media="(min-width: 768px)"
     fetchpriority="high"
   />
@@ -170,7 +170,7 @@
     .pathway-hero .hero-landing {
       min-height: 0 !important;
     }
-    /* Exact main formula WITHOUT the 100svh max-height clamp that crops poster art */
+    /* Desktop 16:9 landscape · Mobile 2:3 stage (parity with main/solo mobile posters) */
     .pathway-hero .hero-slide-stage,
     .pathway-hero-stage {
       position: relative;
@@ -184,13 +184,12 @@
       isolation: isolate;
     }
     @media (max-width: 767px) {
-      /* Solo may use portrait source; still use width-driven stage from main mobile formula but uncapped by short svh */
       .pathway-hero .hero-slide-stage,
       .pathway-hero-stage {
-        height: calc(100vw * 9 / 16) !important;
+        height: calc(100vw * 1904 / 1264) !important;
         max-height: none !important;
-        min-height: 12rem !important;
-        aspect-ratio: 16 / 9;
+        min-height: 16rem !important;
+        aspect-ratio: 2 / 3;
       }
     }
     .pathway-hero-stage .hero-slide {
@@ -208,6 +207,18 @@
       object-fit: contain !important;
       object-position: center center;
       background: #e8eaee;
+    }
+    /* Responsive dual loop: landscape desktop · 2:3 portrait mobile */
+    .pathway-hero-video--portrait {
+      display: none;
+    }
+    @media (max-width: 767px) {
+      .pathway-hero-video--landscape {
+        display: none !important;
+      }
+      .pathway-hero-video--portrait {
+        display: block !important;
+      }
     }
     .pathway-hero .hero-slide picture {
       display: flex;
@@ -396,26 +407,52 @@
     .depth-panel.card-border-dojo {
       border-color: #2b5f9e;
     }
-    /* Partners beat chips — avoid one long mono line that wraps mid-phrase */
+    /* Partners beat chips — same chrome as Guides & research .resource-filter (free, not in a card) */
     .partners-chip-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem 0.65rem;
+      justify-content: flex-start;
+      gap: 0.75rem;
       margin-top: 1.5rem;
       list-style: none;
       padding: 0;
     }
     .partners-chip-row li {
-      font-family: "JetBrains Mono", ui-monospace, monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      font-family: inherit;
       color: #12355c;
-      background: rgba(43, 95, 158, 0.08);
-      border: 1px solid rgba(43, 95, 158, 0.28);
-      border-radius: 999px;
-      padding: 0.35rem 0.75rem;
-      white-space: nowrap;
+      background: #ffffff;
+      border: 1px solid rgba(43, 95, 158, 0.35);
+      white-space: normal;
+    }
+    @media (max-width: 640px) {
+      .partners-chip-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.45rem;
+        padding: 0.55rem;
+        max-width: 22rem;
+        border-radius: 0.85rem;
+        background: rgba(0, 0, 0, 0.035);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+      .partners-chip-row li {
+        width: 100%;
+        min-height: 2.55rem;
+        border-radius: 0.55rem;
+        padding: 0.55rem 0.45rem;
+        font-size: 0.78rem;
+        text-align: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     /* Product platform readiness — icon row, not prose */
@@ -536,8 +573,11 @@
           <div class="hero-slide-stage pathway-hero-stage">
             <div class="hero-slides">
               <figure class="hero-slide is-active" aria-hidden="false">
+                <!-- Desktop 16:9 loop (existing) -->
                 <video
-                  class="pathway-hero-video"
+                  class="pathway-hero-video pathway-hero-video--landscape"
+                  data-pathway-hero-video
+                  data-pathway-hero-bp="desktop"
                   autoplay
                   muted
                   loop
@@ -547,6 +587,21 @@
                   aria-label="Enterprise audience: teams and partners — 16 second loop"
                 >
                   <source src="/assets/videos/enterprise-hero-loop.mp4?v=ent1" type="video/mp4" />
+                </video>
+                <!-- Mobile 2:3 loop: cross-skill 8s + partner-pressure 8s -->
+                <video
+                  class="pathway-hero-video pathway-hero-video--portrait"
+                  data-pathway-hero-video
+                  data-pathway-hero-bp="mobile"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster="/assets/images/hero-slides/mobile/team-cross-skilling.jpg?v=mhero2"
+                  aria-label="Enterprise audience: teams and partners — 16 second loop (portrait)"
+                >
+                  <source src="/assets/videos/enterprise-hero-loop-portrait.mp4?v=ent2" type="video/mp4" />
                 </video>
               </figure>
             </div>
@@ -2421,21 +2476,21 @@
 
     /* Mark triad — gold / green / red (matches door marks) */
     .ritual-chip--map {
-      border-color: #c9a227 !important;
+      border-color: rgba(201, 162, 39, 0.65) !important;
       color: #5c4a0c !important;
-      background: #fffdf5 !important;
+      background: rgba(201, 162, 39, 0.12) !important;
     }
 
     .ritual-chip--practice {
-      border-color: #3d8c5a !important;
+      border-color: rgba(61, 140, 90, 0.6) !important;
       color: #145032 !important;
-      background: #f4fbf6 !important;
+      background: rgba(61, 140, 90, 0.1) !important;
     }
 
     .ritual-chip--save {
-      border-color: #b03030 !important;
+      border-color: rgba(176, 48, 48, 0.6) !important;
       color: #6e1818 !important;
-      background: #fff6f6 !important;
+      background: rgba(176, 48, 48, 0.1) !important;
     }
 
     @media (min-width: 768px) {
@@ -2586,7 +2641,7 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=main-nav1" defer></script>
+  <script src="/js/main.js?v=ent-portrait1" defer></script>
 
 </body>
 </html>

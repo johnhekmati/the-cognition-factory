@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initRevealAnimations();
   initHeroSlides();
   initHeroVideos();
+  initPathwayHeroVideos();
   initSectionVideos();
   initContextVideo();
   initResourceFilters();
@@ -586,6 +587,44 @@ function initHeroVideos() {
   };
 
   setInterval(slideToNext, INTERVAL_MS);
+}
+
+/* ── Pathway hero: landscape desktop loop vs 2:3 portrait mobile loop ── */
+function initPathwayHeroVideos() {
+  const nodes = [...document.querySelectorAll('[data-pathway-hero-video]')];
+  if (nodes.length < 2) return;
+
+  const mq = window.matchMedia('(max-width: 767px)');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const sync = () => {
+    const mobile = mq.matches;
+    nodes.forEach((video) => {
+      const bp = video.getAttribute('data-pathway-hero-bp');
+      const active = (bp === 'mobile' && mobile) || (bp === 'desktop' && !mobile);
+      if (active && !reduceMotion) {
+        video.removeAttribute('hidden');
+        video.muted = true;
+        video.playsInline = true;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+        try {
+          video.currentTime = 0;
+        } catch (_) {
+          /* ignore seek before metadata */
+        }
+        if (!active) video.setAttribute('hidden', '');
+      }
+    });
+  };
+
+  if (typeof mq.addEventListener === 'function') {
+    mq.addEventListener('change', sync);
+  } else if (typeof mq.addListener === 'function') {
+    mq.addListener(sync);
+  }
+  sync();
 }
 
 /* ── Section videos — play when in view ── */

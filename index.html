@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp38" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp39" />
 
   <!--
     Critical hero first-paint (mobile + desktop).
@@ -72,7 +72,7 @@
       overflow: hidden;
       background: var(--hero-field, #e8eaee);
     }
-    /* Width-driven 16:9 — same as solo/enterprise pathway stages (no svh crop clamp) */
+    /* Desktop 16:9 · Mobile 2:3 (matches /hero-slides/mobile/* posters) */
     .hero-slide-stage {
       position: relative;
       width: 100%;
@@ -87,9 +87,11 @@
     }
     @media (max-width: 767px) {
       .hero-slide-stage {
-        height: calc(100vw * 9 / 16);
+        /* 1264×1904 mobile posters → edge-to-edge with object-fit: contain */
+        height: calc(100vw * 1904 / 1264);
         max-height: none;
-        min-height: 12rem;
+        min-height: 16rem;
+        aspect-ratio: 2 / 3;
       }
     }
     .hero-slides {
@@ -507,95 +509,92 @@
           </p>
         </div>
 
-        <!-- Stacked pathway lanes: same width + column gap so columns align -->
+        <!-- Column stacks: Solo (gold) | Enterprise (blue) — not interleaved rows -->
         <div class="pathways-stack max-w-5xl mx-auto">
-        <!-- Row 1: work-with (brains) — ready courses vs custom -->
-        <div class="pathways-stack-row" data-reveal>
-          <a
-            href="/solo/#solo-intro"
-            class="systems-path-card glass-card card-border-map p-5 md:p-6 block group"
-            aria-label="Solo pathway — ready-to-start courses"
-          >
-            <div class="door-mark-thumb door-mark-thumb--brain door-mark-thumb--map mx-auto mb-4">
-              <img
-                src="/assets/images/brand/tcf-brain-map-gold.jpg?v=brains2"
-                alt=""
-                width="512"
-                height="512"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <p class="font-mono text-xs uppercase tracking-[0.18em] accent-map text-center">Solo</p>
-            <p class="text-ink font-semibold mt-2 text-center group-hover:underline">Ready-to-start courses</p>
-            <p class="text-ink-muted text-sm mt-2 text-center">A clear starter set — Accounting, supply chain, and more as they ship.</p>
-            <span class="systems-path-cta systems-path-cta--map">
-              <span class="systems-path-cta-label">Enter solo path</span>
-              <span class="systems-path-cue systems-path-cue--map" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 5l7 7-7 7" />
-                </svg>
+          <div class="pathways-stack-col pathways-stack-col--solo" data-reveal>
+            <a
+              href="/solo/#solo-intro"
+              class="systems-path-card glass-card card-border-map p-5 md:p-6 block group"
+              aria-label="Solo pathway — ready-to-start courses"
+            >
+              <div class="door-mark-thumb door-mark-thumb--brain door-mark-thumb--map mx-auto mb-4">
+                <img
+                  src="/assets/images/brand/tcf-brain-map-gold.jpg?v=brains2"
+                  alt=""
+                  width="512"
+                  height="512"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <p class="font-mono text-xs uppercase tracking-[0.18em] accent-map text-center">Solo</p>
+              <p class="text-ink font-semibold mt-2 text-center group-hover:underline">Ready-to-start courses</p>
+              <p class="text-ink-muted text-sm mt-2 text-center">A clear starter set — Accounting, supply chain, and more as they ship.</p>
+              <span class="systems-path-cta systems-path-cta--map">
+                <span class="systems-path-cta-label">Enter solo path</span>
+                <span class="systems-path-cue systems-path-cue--map" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
               </span>
-            </span>
-          </a>
-          <a
-            href="/enterprise/#enterprise-intro"
-            class="systems-path-card glass-card card-border-dojo p-5 md:p-6 block group"
-            aria-label="Enterprise pathway — custom maps and scenarios"
-          >
-            <div class="door-mark-thumb door-mark-thumb--brain door-mark-thumb--dojo mx-auto mb-4">
-              <img
-                src="/assets/images/brand/tcf-brain-dojo-blue.jpg?v=brains2"
-                alt=""
-                width="512"
-                height="512"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <p class="font-mono text-xs uppercase tracking-[0.18em] accent-dojo text-center">Enterprise</p>
-            <p class="text-ink font-semibold mt-2 text-center group-hover:underline">Maps built for your work</p>
-            <p class="text-ink-muted text-sm mt-2 text-center">Built around your roles, your standards, and the real work your people do.</p>
-            <span class="systems-path-cta systems-path-cta--dojo">
-              <span class="systems-path-cta-label">Enter enterprise path</span>
-              <span class="systems-path-cue systems-path-cue--dojo" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 5l7 7-7 7" />
-                </svg>
+            </a>
+            <a href="/solo/" class="glass-card card-border-map p-8 md:p-10 h-full flex flex-col group transition-all duration-300 hover:shadow-lg">
+              <span class="font-mono text-xs uppercase tracking-[0.2em] accent-map">Solo</span>
+              <h3 class="font-display text-2xl font-semibold text-ink mt-3 group-hover:underline decoration-2 underline-offset-4">Adult learners</h3>
+              <p class="text-ink-muted text-sm mt-4 leading-relaxed flex-1">
+                Ready courses and honest practice you can start from. When a subject needs a safe place to try the real tool,
+                the <span class="text-ink-soft">Gym</span> is there — for weeks that get interrupted, with a clear place to stop and pick up.
+                You own the result.
+              </p>
+              <span class="inline-flex items-center gap-1 accent-map text-sm font-medium mt-8 group-hover:gap-2 transition-all">
+                Open solo path
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </span>
-            </span>
-          </a>
-        </div>
+            </a>
+          </div>
 
-        <!-- Row 2: full pathway doors -->
-        <div class="pathways-stack-row" data-reveal>
-          <a href="/solo/" class="glass-card card-border-map p-8 md:p-10 h-full flex flex-col group transition-all duration-300 hover:shadow-lg">
-            <span class="font-mono text-xs uppercase tracking-[0.2em] accent-map">Solo</span>
-            <h3 class="font-display text-2xl font-semibold text-ink mt-3 group-hover:underline decoration-2 underline-offset-4">Adult learners</h3>
-            <p class="text-ink-muted text-sm mt-4 leading-relaxed flex-1">
-              Ready courses and honest practice you can start from. When a subject needs a safe place to try the real tool,
-              the <span class="text-ink-soft">Gym</span> is there — for weeks that get interrupted, with a clear place to stop and pick up.
-              You own the result.
-            </p>
-            <span class="inline-flex items-center gap-1 accent-map text-sm font-medium mt-8 group-hover:gap-2 transition-all">
-              Open solo path
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </span>
-          </a>
-
-          <a href="/enterprise/" class="glass-card card-border-dojo p-8 md:p-10 h-full flex flex-col group transition-all duration-300 hover:shadow-lg">
-            <span class="font-mono text-xs uppercase tracking-[0.2em] accent-dojo">Enterprise</span>
-            <h3 class="font-display text-2xl font-semibold text-ink mt-3 group-hover:underline decoration-2 underline-offset-4">Teams &amp; institutions</h3>
-            <p class="text-ink-muted text-sm mt-4 leading-relaxed flex-1">
-              Maps and practice packs built on <em>your</em> standards. The <span class="text-ink-soft">Dojo</span> is for messy, timed cases —
-              for teams first. Partners can see how the custom map connects and how wrong answers cluster — a real dashboard, not a logo on the wall.
-            </p>
-            <span class="inline-flex items-center gap-1 accent-dojo text-sm font-medium mt-8 group-hover:gap-2 transition-all">
-              Open enterprise path
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </span>
-          </a>
-        </div>
+          <div class="pathways-stack-col pathways-stack-col--enterprise" data-reveal>
+            <a
+              href="/enterprise/#enterprise-intro"
+              class="systems-path-card glass-card card-border-dojo p-5 md:p-6 block group"
+              aria-label="Enterprise pathway — custom maps and scenarios"
+            >
+              <div class="door-mark-thumb door-mark-thumb--brain door-mark-thumb--dojo mx-auto mb-4">
+                <img
+                  src="/assets/images/brand/tcf-brain-dojo-blue.jpg?v=brains2"
+                  alt=""
+                  width="512"
+                  height="512"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <p class="font-mono text-xs uppercase tracking-[0.18em] accent-dojo text-center">Enterprise</p>
+              <p class="text-ink font-semibold mt-2 text-center group-hover:underline">Maps built for your work</p>
+              <p class="text-ink-muted text-sm mt-2 text-center">Built around your roles, your standards, and the real work your people do.</p>
+              <span class="systems-path-cta systems-path-cta--dojo">
+                <span class="systems-path-cta-label">Enter enterprise path</span>
+                <span class="systems-path-cue systems-path-cue--dojo" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </span>
+            </a>
+            <a href="/enterprise/" class="glass-card card-border-dojo p-8 md:p-10 h-full flex flex-col group transition-all duration-300 hover:shadow-lg">
+              <span class="font-mono text-xs uppercase tracking-[0.2em] accent-dojo">Enterprise</span>
+              <h3 class="font-display text-2xl font-semibold text-ink mt-3 group-hover:underline decoration-2 underline-offset-4">Teams &amp; institutions</h3>
+              <p class="text-ink-muted text-sm mt-4 leading-relaxed flex-1">
+                Maps and practice packs built on <em>your</em> standards. The <span class="text-ink-soft">Dojo</span> is for messy, timed cases —
+                for teams first. Partners can see how the custom map connects and how wrong answers cluster — a real dashboard, not a logo on the wall.
+              </p>
+              <span class="inline-flex items-center gap-1 accent-dojo text-sm font-medium mt-8 group-hover:gap-2 transition-all">
+                Open enterprise path
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+              </span>
+            </a>
+          </div>
         </div><!-- /.pathways-stack -->
       </div>
     </section>
@@ -1900,7 +1899,7 @@
     }
 
     .band-charcoal .ritual-chip {
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+      box-shadow: none;
     }
 
     /* White product cards stay light — restore dark ink inside */
@@ -2162,9 +2161,9 @@
     }
 
     /*
-     * Match solo/enterprise pathway heroes:
-     * width-driven 16:9, no 100svh max-height clamp that crops poster art.
-     * object-fit: contain still letterboxes portrait mobile sources cleanly.
+     * Hero stage: desktop width-driven 16:9 (landscape slides).
+     * Mobile: 2:3 stage matches /hero-slides/mobile/* (1264×1904) so contain
+     * fills edge-to-edge down to the colorway gradient — no gray side gutters.
      */
     .hero-slide-stage {
       position: relative;
@@ -2181,9 +2180,10 @@
 
     @media (max-width: 767px) {
       .hero-slide-stage {
-        height: calc(100vw * 9 / 16) !important;
+        height: calc(100vw * 1904 / 1264) !important;
         max-height: none !important;
-        min-height: 12rem !important;
+        min-height: 16rem !important;
+        aspect-ratio: 2 / 3;
       }
     }
 
@@ -2552,27 +2552,28 @@
       border-color: #2b5f9e !important; /* Dojo blue — matches card-border-dojo */
     }
 
-    /* Pathways double-stack: shared width + column gap; hairline space between rows */
+    /* Pathways: Solo column (gold) | Enterprise column (blue) — stacked per lane */
     .pathways-stack {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      gap: 0.5rem; /* ~8px between stacked rows — clear air, not flush */
-    }
-    .pathways-stack-row {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.5rem; /* match horizontal gutters so Solo|Enterprise columns line up */
       width: 100%;
+      gap: 1.5rem;
       align-items: stretch;
     }
+    .pathways-stack-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem; /* air between brain card and full door in same lane */
+      min-width: 0;
+    }
     @media (min-width: 640px) {
-      .pathways-stack-row {
+      .pathways-stack {
         grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
       }
     }
     @media (min-width: 1024px) {
-      .pathways-stack-row {
+      .pathways-stack {
         gap: 2rem;
       }
     }
@@ -2755,23 +2756,23 @@
       box-sizing: border-box;
     }
 
-    /* Mark triad — gold / green / red (matches door marks) */
+    /* Mark triad — same tint language as .resource-filter (Guides & research) */
     .ritual-chip--map {
-      border-color: #c9a227 !important;
+      border-color: rgba(201, 162, 39, 0.65) !important;
       color: #5c4a0c !important;
-      background: #fffdf5 !important;
+      background: rgba(201, 162, 39, 0.12) !important;
     }
 
     .ritual-chip--practice {
-      border-color: #3d8c5a !important;
+      border-color: rgba(61, 140, 90, 0.6) !important;
       color: #145032 !important;
-      background: #f4fbf6 !important;
+      background: rgba(61, 140, 90, 0.1) !important;
     }
 
     .ritual-chip--save {
-      border-color: #b03030 !important;
+      border-color: rgba(176, 48, 48, 0.6) !important;
       color: #6e1818 !important;
-      background: #fff6f6 !important;
+      background: rgba(176, 48, 48, 0.1) !important;
     }
 
     @media (min-width: 768px) {

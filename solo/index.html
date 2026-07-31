@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp38" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp39" />
 
   <!--
     Critical hero first-paint (mobile + desktop).
@@ -44,7 +44,7 @@
   <link
     rel="preload"
     as="image"
-    href="/assets/images/hero-slides/mobile/adult-learners.jpg?v=mhero1"
+    href="/assets/images/hero-slides/mobile/adult-learners.jpg?v=mhero2"
     media="(max-width: 767px)"
     fetchpriority="high"
   />
@@ -170,7 +170,7 @@
     .pathway-hero .hero-landing {
       min-height: 0 !important;
     }
-    /* Exact main formula WITHOUT the 100svh max-height clamp that crops poster art */
+    /* Desktop 16:9 landscape · Mobile 2:3 matches /hero-slides/mobile/* posters */
     .pathway-hero .hero-slide-stage,
     .pathway-hero-stage {
       position: relative;
@@ -184,13 +184,13 @@
       isolation: isolate;
     }
     @media (max-width: 767px) {
-      /* Solo may use portrait source; still use width-driven stage from main mobile formula but uncapped by short svh */
+      /* 1264×1904 mobile art + contain = edge-to-edge (no gray side gutters) */
       .pathway-hero .hero-slide-stage,
       .pathway-hero-stage {
-        height: calc(100vw * 9 / 16) !important;
+        height: calc(100vw * 1904 / 1264) !important;
         max-height: none !important;
-        min-height: 12rem !important;
-        aspect-ratio: 16 / 9;
+        min-height: 16rem !important;
+        aspect-ratio: 2 / 3;
       }
     }
     .pathway-hero-stage .hero-slide {
@@ -526,9 +526,12 @@
             <div class="hero-slides">
               <figure class="hero-slide is-active" aria-hidden="false">
                 <picture>
+                  <!-- Static 2:3 adult-learner poster (solo slug mobile) -->
                   <source
                     media="(max-width: 767px)"
-                    srcset="/assets/images/hero-slides/mobile/adult-learners.jpg?v=mhero1"
+                    srcset="/assets/images/hero-slides/mobile/adult-learners.jpg?v=mhero2"
+                    width="1264"
+                    height="1904"
                   />
                   <img
                     src="/assets/images/hero-slides/adult-learners.jpg?v=marks2"
@@ -2366,21 +2369,21 @@
 
     /* Mark triad — gold / green / red (matches door marks) */
     .ritual-chip--map {
-      border-color: #c9a227 !important;
+      border-color: rgba(201, 162, 39, 0.65) !important;
       color: #5c4a0c !important;
-      background: #fffdf5 !important;
+      background: rgba(201, 162, 39, 0.12) !important;
     }
 
     .ritual-chip--practice {
-      border-color: #3d8c5a !important;
+      border-color: rgba(61, 140, 90, 0.6) !important;
       color: #145032 !important;
-      background: #f4fbf6 !important;
+      background: rgba(61, 140, 90, 0.1) !important;
     }
 
     .ritual-chip--save {
-      border-color: #b03030 !important;
+      border-color: rgba(176, 48, 48, 0.6) !important;
       color: #6e1818 !important;
-      background: #fff6f6 !important;
+      background: rgba(176, 48, 48, 0.1) !important;
     }
 
     @media (min-width: 768px) {
@@ -2531,7 +2534,7 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=solo-nav-cue2" defer></script>
+  <script src="/js/main.js?v=ent-portrait1" defer></script>
 
 </body>
 </html>
