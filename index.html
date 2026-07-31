@@ -47,51 +47,56 @@
        ═══════════════════════════════════════════════════════════ -->
   <header>
     <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-ink/10 bg-white" aria-label="Main navigation">
-      <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between h-16 md:h-20">
+      <!-- site-chrome: gutters outside max-w-7xl — same x-axis as footer + section columns -->
+      <div class="site-chrome">
+        <div class="site-chrome-inner flex items-center justify-between h-16 md:h-20">
 
-        <a href="#hero" class="flex items-center gap-3 group" aria-label="The Cognition Factory — Home">
-          <img
-            src="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp19"
-            alt=""
-            class="brand-nav-mark"
-            width="40"
-            height="40"
-          />
-          <span class="font-display font-semibold text-ink text-sm md:text-base tracking-tight hidden sm:block border-l border-ink/10 pl-3">
-            The Cognition Factory
-          </span>
-        </a>
+          <a href="#hero" class="flex items-center gap-3 group min-w-0" aria-label="The Cognition Factory — Home">
+            <img
+              src="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp19"
+              alt=""
+              class="brand-nav-mark shrink-0"
+              width="40"
+              height="40"
+            />
+            <span class="font-display font-semibold text-ink text-sm md:text-base tracking-tight hidden sm:block border-l border-ink/10 pl-3 truncate">
+              The Cognition Factory
+            </span>
+          </a>
 
-        <div class="hidden lg:flex items-center gap-6">
-          <a href="#enemy" class="nav-link" data-nav>Problem</a>
-          <a href="#loop" class="nav-link" data-nav>How it works</a>
-          <a href="#product" class="nav-link" data-nav>Product</a>
-          <a href="#proof" class="nav-link" data-nav>Proof</a>
-          <a href="#resources" class="nav-link" data-nav>Guides</a>
-          <a href="#promise" class="nav-link" data-nav>Why</a>
-          <a href="#contact" class="btn-primary text-xs !px-5 !py-2.5">Talk with us</a>
+          <div class="hidden lg:flex items-center gap-6 shrink-0">
+            <a href="#enemy" class="nav-link" data-nav>Problem</a>
+            <a href="#loop" class="nav-link" data-nav>How it works</a>
+            <a href="#product" class="nav-link" data-nav>Product</a>
+            <a href="#proof" class="nav-link" data-nav>Proof</a>
+            <a href="#resources" class="nav-link" data-nav>Guides</a>
+            <a href="#promise" class="nav-link" data-nav>Why</a>
+            <a href="#contact" class="btn-primary text-xs !px-5 !py-2.5">Talk with us</a>
+          </div>
+
+          <button id="menu-toggle" class="lg:hidden p-2 text-ink-muted hover:text-electric transition-colors shrink-0" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
-
-        <button id="menu-toggle" class="lg:hidden p-2 text-ink-muted hover:text-electric transition-colors" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
-          <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
       </div>
 
       <div id="mobile-menu" class="hidden lg:hidden border-t border-ink/10 bg-white">
-        <div class="px-6 py-6 flex flex-col gap-4">
-          <a href="#enemy" class="nav-link py-2" data-nav>Problem</a>
-          <a href="#loop" class="nav-link py-2" data-nav>How it works</a>
-          <a href="#product" class="nav-link py-2" data-nav>Product</a>
-          <a href="#proof" class="nav-link py-2" data-nav>Proof</a>
-          <a href="#resources" class="nav-link py-2" data-nav>Guides</a>
-          <a href="#promise" class="nav-link py-2" data-nav>Why</a>
-          <a href="#contact" class="btn-primary text-center mt-2">Talk with us</a>
-          <a href="#contact" class="text-center text-sm text-ink-muted hover:text-electric transition-colors">Teams &amp; institutions</a>
+        <div class="site-chrome">
+          <div class="site-chrome-inner py-6 flex flex-col gap-4">
+            <a href="#enemy" class="nav-link py-2" data-nav>Problem</a>
+            <a href="#loop" class="nav-link py-2" data-nav>How it works</a>
+            <a href="#product" class="nav-link py-2" data-nav>Product</a>
+            <a href="#proof" class="nav-link py-2" data-nav>Proof</a>
+            <a href="#resources" class="nav-link py-2" data-nav>Guides</a>
+            <a href="#promise" class="nav-link py-2" data-nav>Why</a>
+            <a href="#contact" class="btn-primary text-center mt-2">Talk with us</a>
+            <a href="#contact" class="text-center text-sm text-ink-muted hover:text-electric transition-colors">Teams &amp; institutions</a>
+          </div>
         </div>
       </div>
     </nav>
@@ -1809,48 +1814,86 @@
 
 
   <footer class="border-t border-ink/10 bg-white">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-12">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="flex items-center gap-3">
-          <img
-            src="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp19"
-            alt="The Cognition Factory"
-            class="brand-nav-mark"
-            width="32"
-            height="32"
-          />
-          <span class="text-ink-muted text-sm">&copy; 2026 The Cognition Factory. All rights reserved.</span>
-        </div>
+    <!-- Same site-chrome shell as header — logo / copy share one x-axis with body columns -->
+    <div class="site-chrome">
+      <div class="site-chrome-inner py-12">
+        <div class="flex flex-col md:flex-row items-center md:items-center justify-between gap-6">
+          <div class="flex items-center gap-3 min-w-0">
+            <img
+              src="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp19"
+              alt="The Cognition Factory"
+              class="brand-nav-mark shrink-0"
+              width="32"
+              height="32"
+            />
+            <span class="text-ink-muted text-sm">&copy; 2026 The Cognition Factory. All rights reserved.</span>
+          </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-6" aria-label="Site map">
-          <a href="#enemy" class="text-ink-muted hover:text-electric text-sm transition-colors">Problem</a>
-          <a href="#loop" class="text-ink-muted hover:text-electric text-sm transition-colors">How it works</a>
-          <a href="#product" class="text-ink-muted hover:text-electric text-sm transition-colors">Product</a>
-          <a href="#proof" class="text-ink-muted hover:text-electric text-sm transition-colors">Proof</a>
-          <a href="#resources" class="text-ink-muted hover:text-electric text-sm transition-colors">Guides</a>
-          <a href="#promise" class="text-ink-muted hover:text-electric text-sm transition-colors">Why</a>
-          <a href="#contact" class="text-ink-muted hover:text-electric text-sm transition-colors">Contact</a>
+          <div class="flex flex-wrap items-center justify-center gap-6" aria-label="Site map">
+            <a href="#enemy" class="text-ink-muted hover:text-electric text-sm transition-colors">Problem</a>
+            <a href="#loop" class="text-ink-muted hover:text-electric text-sm transition-colors">How it works</a>
+            <a href="#product" class="text-ink-muted hover:text-electric text-sm transition-colors">Product</a>
+            <a href="#proof" class="text-ink-muted hover:text-electric text-sm transition-colors">Proof</a>
+            <a href="#resources" class="text-ink-muted hover:text-electric text-sm transition-colors">Guides</a>
+            <a href="#promise" class="text-ink-muted hover:text-electric text-sm transition-colors">Why</a>
+            <a href="#contact" class="text-ink-muted hover:text-electric text-sm transition-colors">Contact</a>
+          </div>
         </div>
-      </div>
-      <div class="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <p class="text-ink-muted text-xs font-mono uppercase tracking-widest leading-relaxed text-center md:text-left">
-          You bring dedication and a plan · we build the structure
-        </p>
-        <p class="text-center md:text-right text-xs text-ink-muted flex flex-wrap items-center justify-center md:justify-end gap-x-3 gap-y-1">
-          <a href="/assets/docs/Privacy_Policy.html" class="hover:text-electric transition-colors">Privacy</a>
-          <span class="text-ink/10" aria-hidden="true">·</span>
-          <a href="/assets/docs/Terms_of_Service.html" class="hover:text-electric transition-colors">Terms</a>
-          <span class="text-ink/10" aria-hidden="true">·</span>
-          <a href="/assets/docs/EULA.html" class="hover:text-electric transition-colors">EULA</a>
-          <span class="text-ink/10" aria-hidden="true">·</span>
-          <a href="https://github.com/johnhekmati/the-cognition-factory/blob/main/CHANGELOG.md" class="hover:text-electric transition-colors" rel="noopener noreferrer" target="_blank">Changelog</a>
-        </p>
+        <div class="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p class="text-ink-muted text-xs font-mono uppercase tracking-widest leading-relaxed text-center md:text-left">
+            You bring dedication and a plan · we build the structure
+          </p>
+          <p class="text-center md:text-right text-xs text-ink-muted flex flex-wrap items-center justify-center md:justify-end gap-x-3 gap-y-1">
+            <a href="/assets/docs/Privacy_Policy.html" class="hover:text-electric transition-colors">Privacy</a>
+            <span class="text-ink/10" aria-hidden="true">·</span>
+            <a href="/assets/docs/Terms_of_Service.html" class="hover:text-electric transition-colors">Terms</a>
+            <span class="text-ink/10" aria-hidden="true">·</span>
+            <a href="/assets/docs/EULA.html" class="hover:text-electric transition-colors">EULA</a>
+            <span class="text-ink/10" aria-hidden="true">·</span>
+            <a href="https://github.com/johnhekmati/the-cognition-factory/blob/main/CHANGELOG.md" class="hover:text-electric transition-colors" rel="noopener noreferrer" target="_blank">Changelog</a>
+          </p>
+        </div>
       </div>
     </div>
   </footer>
 
 
   <style>
+    /*
+     * Shared chrome shell — gutters match .section-padding, max-w-7xl inside.
+     * Padding is OUTSIDE the 7xl box so header logo + footer mark share one x-axis
+     * with body columns (not double-inset by padding inside max-w-7xl).
+     */
+    .site-chrome {
+      width: 100%;
+      padding-left: 1.5rem;   /* px-6 */
+      padding-right: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .site-chrome {
+        padding-left: 3rem;   /* md:px-12 */
+        padding-right: 3rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      .site-chrome {
+        padding-left: 5rem;   /* lg:px-20 */
+        padding-right: 5rem;
+      }
+    }
+    @media (min-width: 1280px) {
+      .site-chrome {
+        padding-left: 8rem;   /* xl:px-32 — match section-padding */
+        padding-right: 8rem;
+      }
+    }
+    .site-chrome-inner {
+      max-width: 80rem; /* max-w-7xl */
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
     /* White chrome rails — header + footer sit above light-gray field */
     #main-nav {
       background: #ffffff;

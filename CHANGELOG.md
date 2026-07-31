@@ -6,6 +6,13 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-30 — Header/footer x-axis align (site-chrome)
+
+- Shared `.site-chrome` / `.site-chrome-inner`: gutters match `section-padding` (incl. `xl:px-32`), `max-w-7xl` inside
+- Header logo/wordmark and footer mark/copy share one left edge with body columns (no padding-inside-7xl double inset)
+
+---
+
 ## 2026-07-30 — Hero stage: soft-gray field (chiasmus)
 
 - Hero banner plate / stage / slides use site void `#e8eaee` (same as body + marquee hinge)
