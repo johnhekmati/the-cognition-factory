@@ -8,7 +8,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="The Cognition Factory" />
-  <meta property="og:description" content="Skill that sticks when life is loud. Learn. Practice. Save your place. For busy adults and teams — not seat-time theater." />
+  <meta property="og:description" content="Skill that sticks when life is loud. Learn. Practice. Save your place. For busy adults and teams — not hours logged for show." />
   <meta property="og:url" content="https://thecognitionfactory.com" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://thecognitionfactory.com/assets/images/cog-fac-hero-banner-new.jpg?v=cf3" />
@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp37" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp38" />
 
   <!--
     Critical hero first-paint (mobile + desktop).
@@ -64,24 +64,22 @@
       display: flex;
       flex-direction: column;
       background: var(--hero-field, #e8eaee);
-    }
-    /* Mobile: do not force full viewport min-height (adds void + thrash with tall posters) */
-    @media (min-width: 768px) {
-      .hero-landing {
-        min-height: calc(100svh - var(--hero-nav-h));
-      }
+      /* Match solo/enterprise: no full-svh void under the stage */
+      min-height: 0;
     }
     .hero-banner-plate {
       position: relative;
       overflow: hidden;
       background: var(--hero-field, #e8eaee);
     }
+    /* Width-driven 16:9 — same as solo/enterprise pathway stages (no svh crop clamp) */
     .hero-slide-stage {
       position: relative;
       width: 100%;
-      height: min(calc(100vw * 9 / 16), calc(100svh - var(--hero-nav-h) - 3.5rem));
+      height: calc(100vw * 9 / 16);
       min-height: 12rem;
-      max-height: min(calc(100vw * 9 / 16), calc(100svh - var(--hero-nav-h) - 3.5rem));
+      max-height: none;
+      aspect-ratio: 16 / 9;
       background: var(--hero-field, #e8eaee);
       overflow: hidden;
       isolation: isolate;
@@ -89,9 +87,9 @@
     }
     @media (max-width: 767px) {
       .hero-slide-stage {
-        height: min(calc(100vw * 1904 / 1264), calc(100svh - var(--hero-nav-h) - 3.25rem));
-        max-height: min(calc(100vw * 1904 / 1264), calc(100svh - var(--hero-nav-h) - 3.25rem));
-        min-height: 16rem;
+        height: calc(100vw * 9 / 16);
+        max-height: none;
+        min-height: 12rem;
       }
     }
     .hero-slides {
@@ -142,6 +140,66 @@
       object-position: center center;
       display: block;
     }
+
+    /*
+     * Main header nav — plain CSS so gaps never glue (Tailwind content scan
+     * historically missed utilities only used in markup).
+     */
+    #main-nav .main-brand-wordmark {
+      display: none;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: -0.025em;
+      color: #000;
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      padding-left: 0.75rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @media (min-width: 1536px) {
+      #main-nav .main-brand-wordmark {
+        display: block;
+      }
+    }
+    #main-nav .main-nav-desktop {
+      display: none;
+      align-items: center;
+      flex-wrap: nowrap;
+      flex-shrink: 1;
+      min-width: 0;
+      gap: 0.85rem;
+    }
+    @media (min-width: 1024px) {
+      #main-nav .main-nav-desktop {
+        display: flex;
+      }
+    }
+    @media (min-width: 1280px) {
+      #main-nav .main-nav-desktop {
+        gap: 1.1rem;
+      }
+    }
+    @media (min-width: 1536px) {
+      #main-nav .main-nav-desktop {
+        gap: 1.35rem;
+      }
+    }
+    #main-nav .main-nav-desktop .nav-link {
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-size: 0.8125rem; /* 13px — room for 8 section links */
+    }
+    @media (min-width: 1280px) {
+      #main-nav .main-nav-desktop .nav-link {
+        font-size: 0.875rem;
+      }
+    }
+    #main-nav .main-nav-desktop .btn-primary {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
   </style>
 </head>
 
@@ -160,7 +218,7 @@
       <div class="site-chrome">
         <div class="site-chrome-inner flex items-center justify-between h-16 md:h-20">
 
-          <a href="#hero" class="flex items-center gap-3 group min-w-0" aria-label="The Cognition Factory — Home">
+          <a href="/" class="flex items-center gap-3 group min-w-0" aria-label="The Cognition Factory — Home">
             <img
               src="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp19"
               alt=""
@@ -168,18 +226,19 @@
               width="40"
               height="40"
             />
-            <span class="font-display font-semibold text-ink text-sm md:text-base tracking-tight hidden sm:block border-l border-ink/10 pl-3 truncate">
-              The Cognition Factory
-            </span>
+            <span class="main-brand-wordmark">The Cognition Factory</span>
           </a>
 
-          <div class="hidden lg:flex items-center gap-6 shrink-0">
+          <!-- Main contextual nav — plain CSS gaps (see head styles) -->
+          <div class="main-nav-desktop" data-nav-context="home">
             <a href="#enemy" class="nav-link" data-nav>Problem</a>
+            <a href="#solution" class="nav-link" data-nav>Solution</a>
+            <a href="#pathways" class="nav-link" data-nav>Pathways</a>
             <a href="#loop" class="nav-link" data-nav>How it works</a>
             <a href="#product" class="nav-link" data-nav>Product</a>
             <a href="#proof" class="nav-link" data-nav>Proof</a>
-            <a href="#resources" class="nav-link" data-nav>Guides</a>
-            <a href="#promise" class="nav-link" data-nav>Why</a>
+            <a href="#promise" class="nav-link" data-nav>Why it exists</a>
+            <a href="#knowledge" class="nav-link" data-nav>Knowledge base</a>
             <a href="#contact" class="btn-primary text-xs !px-5 !py-2.5">Talk with us</a>
           </div>
 
@@ -196,15 +255,16 @@
 
       <div id="mobile-menu" class="hidden lg:hidden border-t border-ink/10 bg-white">
         <div class="site-chrome">
-          <div class="site-chrome-inner py-6 flex flex-col gap-4">
+          <div class="site-chrome-inner py-6 flex flex-col gap-3" data-nav-context="home">
             <a href="#enemy" class="nav-link py-2" data-nav>Problem</a>
+            <a href="#solution" class="nav-link py-2" data-nav>Solution</a>
+            <a href="#pathways" class="nav-link py-2" data-nav>Pathways</a>
             <a href="#loop" class="nav-link py-2" data-nav>How it works</a>
             <a href="#product" class="nav-link py-2" data-nav>Product</a>
             <a href="#proof" class="nav-link py-2" data-nav>Proof</a>
-            <a href="#resources" class="nav-link py-2" data-nav>Guides</a>
-            <a href="#promise" class="nav-link py-2" data-nav>Why</a>
-            <a href="#contact" class="btn-primary text-center mt-2">Talk with us</a>
-            <a href="#contact" class="text-center text-sm text-ink-muted hover:text-electric transition-colors">Teams &amp; institutions</a>
+            <a href="#promise" class="nav-link py-2" data-nav>Why it exists</a>
+            <a href="#knowledge" class="nav-link py-2" data-nav>Knowledge base</a>
+            <a href="#contact" class="btn-primary text-center mt-3">Talk with us</a>
           </div>
         </div>
       </div>
@@ -293,6 +353,16 @@
                   <button type="button" class="hero-slide-dot" role="tab" aria-selected="false" aria-label="Slide 2 of 3" data-hero-dot="1"></button>
                   <button type="button" class="hero-slide-dot" role="tab" aria-selected="false" aria-label="Slide 3 of 3" data-hero-dot="2"></button>
                 </div>
+                <a
+                  href="#skill-thesis"
+                  class="hero-scroll-cue"
+                  data-hero-scroll-cue
+                  aria-label="Scroll down past the banner"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
@@ -369,7 +439,7 @@
           <h2 class="section-title">More content doesn’t mean more skill</h2>
         </div>
 
-        <div class="mt-8 md:mt-10 space-y-5 text-ink-muted leading-relaxed text-base md:text-lg" data-reveal>
+        <div class="prose-panel glass-card mt-8 md:mt-10 p-6 md:p-8 space-y-5 text-ink-muted leading-relaxed text-base md:text-lg text-left sm:text-center" data-reveal>
           <p>
             Most learning products care about hours logged and how confident you feel
             at the end of a module. They rarely ask whether you can still do the work
@@ -386,10 +456,10 @@
           <p class="accent-save font-mono text-xs uppercase tracking-[0.2em] pt-2">
             Recognizing material is not the same as owning it.
           </p>
-          <p class="pt-4">
-            <a href="#solution" class="btn-secondary inline-flex">So what do we do instead? →</a>
-          </p>
         </div>
+        <p class="pt-6 text-center" data-reveal>
+          <a href="#solution" class="btn-secondary inline-flex">So what do we do instead? →</a>
+        </p>
       </div>
     </section>
 
@@ -404,667 +474,191 @@
           <h2 class="section-title">A loop that holds when life interrupts</h2>
         </div>
 
-        <div class="mt-8 md:mt-10 space-y-5 text-ink-muted leading-relaxed text-base md:text-lg" data-reveal>
+        <div class="prose-panel glass-card mt-8 md:mt-10 p-6 md:p-8 space-y-5 text-ink-muted leading-relaxed text-base md:text-lg text-left sm:text-center" data-reveal>
           <p>
-            <span class="text-ink-soft">The Cognition Factory</span> is not more content and not “just another chatbot.”
-            In <span class="text-ink-soft">Learn</span> you <span class="text-ink-soft">build a map</span> of the subject,
-            <span class="text-ink-soft">practice under honest pressure</span>,
-            and <span class="text-ink-soft">save your place</span> when life interrupts —
-            so what you learn and what you prove stay the same story.
+            <span class="text-ink-soft">The Cognition Factory</span> is not more content in an ocean of content,
+            and not “just another chatbot” in a sea of chatbots.
+            In <span class="text-ink-soft">Learn</span> you navigate a map of the subject.
+            In <span class="text-ink-soft">Practice</span> you run reps under honest pressure to see where your understanding is thin.
+            In <span class="text-ink-soft">Save your place</span> you create a save file when life interrupts —
+            so what you learn and what you work hard to prove don’t disappear because you have other responsibilities.
           </p>
           <p class="text-ink font-medium">
             Structure for deep work. Proof when you need it. Continuity when the week is loud.
           </p>
-          <p class="pt-4">
-            <a href="#loop" class="btn-secondary inline-flex">See how it works →</a>
+        </div>
+        <p class="pt-6 text-center" data-reveal>
+          <a href="#pathways" class="btn-secondary inline-flex">Choose a pathway →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PATHWAYS — dual-lane fork (Solo · Enterprise)
+         Stack: brain work-with cards → full pathway cards
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="pathways" class="section-padding relative">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-14" data-reveal>
+          <span class="section-label">Two pathways · one factory</span>
+          <h2 class="section-title">Same loop. Two ways in.</h2>
+          <p class="section-subtitle mx-auto">
+            Learn · Practice · Save place — configured for busy adults, or for teams and institutions under real standards.
           </p>
         </div>
+
+        <!-- Stacked pathway lanes: same width + column gap so columns align -->
+        <div class="pathways-stack max-w-5xl mx-auto">
+        <!-- Row 1: work-with (brains) — ready courses vs custom -->
+        <div class="pathways-stack-row" data-reveal>
+          <a
+            href="/solo/#solo-intro"
+            class="systems-path-card glass-card card-border-map p-5 md:p-6 block group"
+            aria-label="Solo pathway — ready-to-start courses"
+          >
+            <div class="door-mark-thumb door-mark-thumb--brain door-mark-thumb--map mx-auto mb-4">
+              <img
+                src="/assets/images/brand/tcf-brain-map-gold.jpg?v=brains2"
+                alt=""
+                width="512"
+                height="512"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <p class="font-mono text-xs uppercase tracking-[0.18em] accent-map text-center">Solo</p>
+            <p class="text-ink font-semibold mt-2 text-center group-hover:underline">Ready-to-start courses</p>
+            <p class="text-ink-muted text-sm mt-2 text-center">A clear starter set — Accounting, supply chain, and more as they ship.</p>
+            <span class="systems-path-cta systems-path-cta--map">
+              <span class="systems-path-cta-label">Enter solo path</span>
+              <span class="systems-path-cue systems-path-cue--map" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </span>
+          </a>
+          <a
+            href="/enterprise/#enterprise-intro"
+            class="systems-path-card glass-card card-border-dojo p-5 md:p-6 block group"
+            aria-label="Enterprise pathway — custom maps and scenarios"
+          >
+            <div class="door-mark-thumb door-mark-thumb--brain door-mark-thumb--dojo mx-auto mb-4">
+              <img
+                src="/assets/images/brand/tcf-brain-dojo-blue.jpg?v=brains2"
+                alt=""
+                width="512"
+                height="512"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <p class="font-mono text-xs uppercase tracking-[0.18em] accent-dojo text-center">Enterprise</p>
+            <p class="text-ink font-semibold mt-2 text-center group-hover:underline">Maps built for your work</p>
+            <p class="text-ink-muted text-sm mt-2 text-center">Built around your roles, your standards, and the real work your people do.</p>
+            <span class="systems-path-cta systems-path-cta--dojo">
+              <span class="systems-path-cta-label">Enter enterprise path</span>
+              <span class="systems-path-cue systems-path-cue--dojo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Row 2: full pathway doors -->
+        <div class="pathways-stack-row" data-reveal>
+          <a href="/solo/" class="glass-card card-border-map p-8 md:p-10 h-full flex flex-col group transition-all duration-300 hover:shadow-lg">
+            <span class="font-mono text-xs uppercase tracking-[0.2em] accent-map">Solo</span>
+            <h3 class="font-display text-2xl font-semibold text-ink mt-3 group-hover:underline decoration-2 underline-offset-4">Adult learners</h3>
+            <p class="text-ink-muted text-sm mt-4 leading-relaxed flex-1">
+              Ready courses and honest practice you can start from. When a subject needs a safe place to try the real tool,
+              the <span class="text-ink-soft">Gym</span> is there — for weeks that get interrupted, with a clear place to stop and pick up.
+              You own the result.
+            </p>
+            <span class="inline-flex items-center gap-1 accent-map text-sm font-medium mt-8 group-hover:gap-2 transition-all">
+              Open solo path
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </span>
+          </a>
+
+          <a href="/enterprise/" class="glass-card card-border-dojo p-8 md:p-10 h-full flex flex-col group transition-all duration-300 hover:shadow-lg">
+            <span class="font-mono text-xs uppercase tracking-[0.2em] accent-dojo">Enterprise</span>
+            <h3 class="font-display text-2xl font-semibold text-ink mt-3 group-hover:underline decoration-2 underline-offset-4">Teams &amp; institutions</h3>
+            <p class="text-ink-muted text-sm mt-4 leading-relaxed flex-1">
+              Maps and practice packs built on <em>your</em> standards. The <span class="text-ink-soft">Dojo</span> is for messy, timed cases —
+              for teams first. Partners can see how the custom map connects and how wrong answers cluster — a real dashboard, not a logo on the wall.
+            </p>
+            <span class="inline-flex items-center gap-1 accent-dojo text-sm font-medium mt-8 group-hover:gap-2 transition-all">
+              Open enterprise path
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </span>
+          </a>
+        </div>
+        </div><!-- /.pathways-stack -->
       </div>
     </section>
 
 
     <!-- ═══════════════════════════════════════════════════════════
-         CLOSED LOOP — Schema Laboratory
+         HOW IT WORKS — triad Option A (marks on white bordered cards only)
          ═══════════════════════════════════════════════════════════ -->
     <section id="loop" class="section-padding relative section-charcoal">
       <div class="max-w-7xl mx-auto">
-        <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16" data-reveal>
+        <div class="max-w-3xl mx-auto text-center mb-12 md:mb-14" data-reveal>
           <span class="section-label">How it works</span>
           <h2 class="section-title">Learn · Practice · Save your place</h2>
           <p class="section-subtitle mx-auto">
-            One system — not a pile of apps. Build understanding, check it honestly,
-            leave a clean stop when the day ends.
+            One system — not a pile of apps. Full detail lives on each pathway.
           </p>
         </div>
 
-        <div class="schema-lab" data-reveal>
-          <article class="schema-pane schema-pane--hale card-border-map">
-            <div class="schema-pane-head">
-              <span class="font-mono text-xs uppercase tracking-[0.2em] text-[#5c4a0c]">Learn</span>
-              <span class="text-ink-muted text-xs font-mono">Build the map</span>
+        <div class="grid md:grid-cols-3 gap-4 lg:gap-6 max-w-5xl mx-auto" data-reveal>
+          <article class="glass-card card-border-map p-6 md:p-8 text-center h-full flex flex-col">
+            <div class="door-mark-thumb door-mark-thumb--map mx-auto mb-4">
+              <img src="/assets/images/brand/tcf-door-map.jpg?v=marks3" alt="" width="512" height="512" loading="lazy" decoding="async" />
             </div>
-            <h3 class="font-display text-xl md:text-2xl font-semibold text-ink mt-3">One idea until it clicks</h3>
-            <p class="text-ink-muted text-sm mt-3 leading-relaxed">
-              Learn is where you build the map: what the subject is made of, what always holds, how pieces connect.
-              Keep going until you can explain it without the notes — not until a progress bar fills.
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#5c4a0c]">Learn</span>
+            <h3 class="font-display text-xl font-semibold text-ink mt-2">Build the map</h3>
+            <p class="text-ink-muted text-sm mt-3 leading-relaxed flex-1">
+              One idea until it clicks — what the subject is made of, what always holds, how pieces connect.
             </p>
-            <ul class="schema-nodes mt-6">
-              <li>A map you can return to</li>
-              <li>Explain it in your own words</li>
-              <li>Clean restarts after time away</li>
-            </ul>
           </article>
-
-          <div class="schema-loop-connector">
-            <div class="schema-loop-line" aria-hidden="true"></div>
-            <p class="schema-loop-label schema-loop-label--save">Save place<br /><span class="text-[0.65em] font-normal tracking-normal normal-case opacity-80">when life interrupts</span></p>
-            <div class="schema-loop-line" aria-hidden="true"></div>
-          </div>
-
-          <article class="schema-pane schema-pane--aae card-border-practice">
-            <div class="schema-pane-head">
-              <span class="font-mono text-xs uppercase tracking-[0.2em] text-[#145032]">Practice</span>
-              <span class="text-ink-muted text-xs font-mono">Check what you know</span>
+          <article class="glass-card card-border-practice p-6 md:p-8 text-center h-full flex flex-col">
+            <div class="door-mark-thumb door-mark-thumb--practice mx-auto mb-4">
+              <img src="/assets/images/brand/tcf-door-practice-v3.jpg?v=marks4" alt="" width="512" height="512" loading="lazy" decoding="async" />
             </div>
-            <h3 class="font-display text-xl md:text-2xl font-semibold text-ink mt-3">Prove the gaps</h3>
-            <p class="text-ink-muted text-sm mt-3 leading-relaxed">
-              Practice the way the real world will test you: closed notes when it counts.
-              Write down what you got wrong, then fix those gaps — not the whole syllabus just to feel busy.
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#145032]">Practice</span>
+            <h3 class="font-display text-xl font-semibold text-ink mt-2">Honest pressure</h3>
+            <p class="text-ink-muted text-sm mt-3 leading-relaxed flex-1">
+              Check what you know under closed notes when it counts — gaps named, not guessed.
             </p>
-            <ul class="schema-nodes schema-nodes--aae mt-6">
-              <li>Honest closed-notes runs</li>
-              <li>Clear “what went wrong”</li>
-              <li>Drills aimed at real gaps</li>
-            </ul>
+          </article>
+          <article class="glass-card card-border-save p-6 md:p-8 text-center h-full flex flex-col">
+            <div class="door-mark-thumb door-mark-thumb--save mx-auto mb-4">
+              <img src="/assets/images/brand/tcf-door-save-v2.jpg?v=marks4" alt="" width="512" height="512" loading="lazy" decoding="async" />
+            </div>
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#6e1818]">Save</span>
+            <h3 class="font-display text-xl font-semibold text-ink mt-2">Leave a clear stop</h3>
+            <p class="text-ink-muted text-sm mt-3 leading-relaxed flex-1">
+              When life interrupts, leave a clear next step — not an hour of re-scrolling old chat.
+            </p>
           </article>
         </div>
 
-        <p class="max-w-2xl mx-auto text-center text-ink-muted text-sm mt-12 md:mt-14 leading-relaxed text-balance" data-reveal>
-          In Learn, your <span class="text-ink-soft">map</span> is the long-term picture of a subject.
-          Your <span class="text-ink-soft">practice pack</span> is a quiz set built from that map —
-          so what you learn and what you get tested on stay the same story.
-          And when you need real-world reps, <a href="#dojo" class="accent-dojo hover-accent-dojo transition-colors">the Dojo</a>
-          runs scenario packs from that same map.
+        <p class="max-w-2xl mx-auto text-center text-ink-muted text-sm mt-10 leading-relaxed" data-reveal>
+          <span class="text-ink-soft">Solo</span> adds the <span class="text-ink-soft">Gym</span> when a subject needs a safe place to try the real work.
+          <span class="text-ink-soft">Enterprise</span> adds the <span class="text-ink-soft">Dojo</span> for messy, timed cases —
+          same system, different floor.
         </p>
 
-        <div class="llm-core-note max-w-3xl mx-auto mt-10 md:mt-12" data-reveal>
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-ink-muted mb-3">What you need to get started</p>
-          <p class="text-ink-muted text-sm md:text-base leading-relaxed">
-            <span class="text-ink font-medium">A solid AI chat tool — on your machine or online.</span>
-            A weak model means weaker teaching and weaker practice.
-            The Cognition Factory gives the structure; the AI helps you think under pressure.
-            Treat AI spend like a utility bill: useful when it earns its keep — not an unlimited open tab.
-          </p>
-        </div>
-
-        <div class="text-center mt-10" data-reveal>
-          <a href="#map" class="btn-secondary inline-flex">Learn &amp; Practice →</a>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8" data-reveal>
+          <a href="/solo/#gym" class="btn-secondary inline-flex">Solo · Gym →</a>
+          <a href="/enterprise/#dojo" class="btn-secondary inline-flex">Enterprise · Dojo →</a>
         </div>
       </div>
     </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════
-         LEARN (public door — build the map; engine lattice stays in whitepapers)
-         ═══════════════════════════════════════════════════════════ -->
-    <section id="map" class="section-padding relative section-charcoal">
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-electric/[0.02] to-transparent pointer-events-none" aria-hidden="true"></div>
-
-      <div class="max-w-7xl mx-auto relative">
-        <!-- Mobile: head → mark → body. Desktop lg: copy col + mark col (unchanged). -->
-        <div class="door-split door-split--mark-end">
-          <div class="door-split-head" data-reveal>
-            <span class="section-label !text-[#5c4a0c]">Learn</span>
-            <h2 class="section-title">One idea until it clicks</h2>
-            <p class="font-mono text-sm mt-2 text-[#d4b06a]">Build the map · not binge the playlist</p>
-          </div>
-
-          <div class="door-split-mark relative" data-reveal>
-            <div class="glass-card card-border-map p-3 md:p-5 overflow-hidden">
-              <img
-                src="/assets/images/brand/tcf-door-map.jpg?v=marks3"
-                alt="Learn — build the map of a subject with you oriented on it"
-                class="w-full rounded-xl object-contain aspect-square bg-white block"
-                width="1024"
-                height="1024"
-              />
-            </div>
-            <div class="absolute -bottom-4 -right-4 w-32 h-32 rounded-full blur-2xl -z-10" style="background:rgba(201,162,39,0.14)" aria-hidden="true"></div>
-          </div>
-
-          <div class="door-split-body" data-reveal>
-            <p class="text-ink font-medium text-lg">
-              For subjects you need to <em>think through</em> — not just finish.
-            </p>
-            <p class="mt-4 text-ink-muted leading-relaxed">
-              Not a chatbot tutor. Not a content firehose.
-              <span class="text-ink-soft">Learn</span> is where you build the map: write down what the subject is made of,
-              what always holds true, and how pieces connect — then challenge the fuzzy spots until understanding sticks.
-              You keep a living picture of the subject.
-              When you are ready to prove it, <span class="text-ink-soft">Practice</span> uses that same map
-              so teaching and testing stay on the same story.
-            </p>
-
-            <p class="text-xs font-mono uppercase tracking-wider text-ink-muted mt-10 mb-4">What it does</p>
-            <ul class="space-y-4">
-              <li class="flex items-start gap-4">
-                <div class="icon-tile icon-tile-map">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
-                </div>
-                <div>
-                  <h3 class="text-ink font-semibold">Clear maps</h3>
-                  <p class="text-ink-muted text-sm mt-1">A picture of the ideas and how they link — structure you can keep and reuse.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <div class="icon-tile icon-tile-map">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                </div>
-                <div>
-                  <h3 class="text-ink font-semibold">What always holds</h3>
-                  <p class="text-ink-muted text-sm mt-1">Core principles that stay true — not just for one lesson.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <div class="icon-tile icon-tile-map">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                </div>
-                <div>
-                  <h3 class="text-ink font-semibold">Until you can use it without notes</h3>
-                  <p class="text-ink-muted text-sm mt-1">Challenge fuzzy explanations until understanding sticks — not until a progress bar fills.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <div class="icon-tile icon-tile-map">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
-                </div>
-                <div>
-                  <h3 class="text-ink font-semibold">Skill that still works next month</h3>
-                  <p class="text-ink-muted text-sm mt-1">Easy restarts so skill doesn’t quietly fade after a busy week.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════
-         PRACTICE (public door — engine lattice stays in whitepapers)
-         ═══════════════════════════════════════════════════════════ -->
-    <section id="aae" class="section-padding relative section-charcoal">
-      <div class="max-w-7xl mx-auto">
-        <!-- Mobile: head → mark → body. Desktop lg: mark left, copy right (unchanged). -->
-        <div class="door-split door-split--mark-start">
-          <div class="door-split-head" data-reveal>
-            <span class="section-label !text-[#145032]">Practice</span>
-            <h2 class="section-title">Check what you know — honestly</h2>
-            <p class="font-mono text-sm mt-2 text-[#145032]">Closed notes when it counts · not cruise the open book</p>
-          </div>
-
-          <div class="door-split-mark relative" data-reveal>
-            <div class="glass-card card-border-practice p-3 md:p-5 overflow-hidden">
-              <img
-                src="/assets/images/brand/tcf-door-practice-v3.jpg?v=marks4"
-                alt="Practice — closed-notes work under time pressure"
-                class="w-full rounded-xl object-contain aspect-square bg-white block"
-                width="1024"
-                height="1024"
-              />
-            </div>
-            <div class="absolute -top-4 -left-4 w-32 h-32 rounded-full blur-2xl -z-10" style="background:rgba(61,140,90,0.12)" aria-hidden="true"></div>
-          </div>
-
-          <div class="door-split-body" data-reveal>
-            <p class="text-ink font-medium text-lg">
-              For goals you need to <em>prove</em> — not just re-read.
-            </p>
-            <p class="mt-4 text-ink-muted leading-relaxed">
-              Not a comfort scoreboard. Not a random drill dump.
-              <span class="text-ink-soft">Practice</span> shows the gap between recognizing material and being able to use it —
-              then names what went wrong and aims the next run at those gaps until the skill holds.
-              Practice packs are built for a clear goal — an exam, a job skill, a team standard —
-              and always draw from the same map you built in <span class="text-ink-soft">Learn</span>.
-              Same map; harder questions when it counts. One map can feed many packs.
-            </p>
-
-            <p class="text-xs font-mono uppercase tracking-wider text-ink-muted mt-10 mb-4">What it does</p>
-            <ul class="space-y-4">
-              <li class="flex items-start gap-4">
-                <div class="icon-tile icon-tile-practice">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-                </div>
-                <div>
-                  <h3 class="text-ink font-semibold">Closed-notes practice</h3>
-                  <p class="text-ink-muted text-sm mt-1">Test yourself without hints or guessing from how the question looks.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <div class="icon-tile icon-tile-practice">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
-                </div>
-                <div>
-                  <h3 class="text-ink font-semibold">Name what went wrong</h3>
-                  <p class="text-ink-muted text-sm mt-1">Missing idea, wrong method, or “couldn’t put the pieces together” — then fix the right thing.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <div class="icon-tile icon-tile-practice">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                </div>
-                <div>
-                  <h3 class="text-ink font-semibold">Drills from real gaps</h3>
-                  <p class="text-ink-muted text-sm mt-1">Practice aimed at what you missed — not random coverage of everything.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <div class="icon-tile icon-tile-practice">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                </div>
-                <div>
-                  <h3 class="text-ink font-semibold">Track over time</h3>
-                  <p class="text-ink-muted text-sm mt-1">Skill that still works next month — not one lucky good day.</p>
-                </div>
-              </li>
-            </ul>
-
-            <p class="mt-8 font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
-              Learn builds the map · Practice proves
-            </p>
-            <a href="#dojo" class="inline-flex items-center gap-1 text-sm font-medium mt-5 hover:gap-2 transition-all" style="color:#145032">
-              Then step into the Dojo
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════
-         DOJO — scenario packs · deliver under pressure
-         ═══════════════════════════════════════════════════════════ -->
-    <section id="dojo" class="section-padding relative section-charcoal">
-      <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, transparent, rgba(43,95,158,0.06), transparent)" aria-hidden="true"></div>
-      <div class="max-w-7xl mx-auto relative">
-        <!-- Mobile: head → mark → body. Desktop: head → body → mark (prior centered stack). -->
-        <div class="door-intro door-intro--dojo text-center max-w-3xl mx-auto mb-10 md:mb-12">
-          <div class="door-intro-head" data-reveal>
-            <span class="section-label !text-[#12355c]">The Dojo · Scenario practice</span>
-            <h2 class="section-title">Deliver it when it’s messy</h2>
-            <p class="font-mono text-sm mt-2 text-[#12355c]">Real scenarios · not another quiz</p>
-          </div>
-
-          <div class="door-intro-mark max-w-xs mx-auto" data-reveal>
-            <div class="glass-card card-border-dojo p-3 md:p-4 overflow-hidden">
-              <img
-                src="/assets/images/brand/tcf-door-dojo.jpg?v=marks3"
-                alt="The Dojo — scenario practice under pressure"
-                class="w-full rounded-xl object-contain aspect-square bg-white block"
-                width="640"
-                height="640"
-              />
-            </div>
-          </div>
-
-          <div class="door-intro-body" data-reveal>
-            <p class="text-ink font-medium text-lg">
-              For skills you need to <em>use</em> — not just pass.
-            </p>
-            <p class="mt-4 text-ink-muted leading-relaxed text-balance">
-              Practice checks what you know. The <span class="text-ink-soft">Dojo</span> puts that skill into
-              messy, timed scenarios — half-finished work, something at stake — so you can see how the call
-              holds under pressure. Structured observation, not a hiring decision or certification.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid sm:grid-cols-3 gap-3 max-w-3xl mx-auto mb-12 md:mb-16" data-reveal aria-label="From recognizing to delivering">
-          <div class="surface-card surface-card--map">
-            <span class="surface-card-kicker">Most content stops at</span>
-            <span class="surface-card-title">Recognizing it</span>
-          </div>
-          <div class="surface-card surface-card--practice">
-            <span class="surface-card-kicker">Practice gets you to</span>
-            <span class="surface-card-title">Recalling it</span>
-          </div>
-          <div class="surface-card surface-card--dojo">
-            <span class="surface-card-kicker">The Dojo asks for</span>
-            <span class="surface-card-title">Delivering it</span>
-          </div>
-        </div>
-
-        <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted text-center mb-6" data-reveal>
-          From real scenario packs — the flavor, not the answer key
-        </p>
-        <div class="grid md:grid-cols-3 gap-4 mb-12 md:mb-16" data-reveal>
-          <article class="glass-card card-border-dojo p-6 md:p-7 h-full flex flex-col">
-            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#12355c]">Scenario 01</span>
-            <h3 class="text-ink font-semibold mt-3">The period is closed. The invoice isn’t.</h3>
-            <p class="text-ink-muted text-sm mt-2 leading-relaxed flex-1">
-              A late invoice lands with pressure behind it. Post it, defer it, or escalate —
-              and defend the call without rewriting the books.
-            </p>
-            <p class="mt-5 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-ink-muted">Trains · judgment under pressure</p>
-          </article>
-          <article class="glass-card card-border-dojo p-6 md:p-7 h-full flex flex-col">
-            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#12355c]">Scenario 02</span>
-            <h3 class="text-ink font-semibold mt-3">Three documents. One disagreement.</h3>
-            <p class="text-ink-muted text-sm mt-2 leading-relaxed flex-1">
-              An invoice, an order, and a receipt don’t agree. Find which one is wrong
-              and fix the right thing — forcing the match is not an option.
-            </p>
-            <p class="mt-5 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-ink-muted">Trains · root-cause discipline</p>
-          </article>
-          <article class="glass-card card-border-dojo p-6 md:p-7 h-full flex flex-col">
-            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#12355c]">Scenario 03</span>
-            <h3 class="text-ink font-semibold mt-3">A messy dump becomes a plan.</h3>
-            <p class="text-ink-muted text-sm mt-2 leading-relaxed flex-1">
-              A wall of half-organized notes lands on you. Turn it into work someone
-              could actually build against — with acceptance criteria that hold up.
-            </p>
-            <p class="mt-5 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-ink-muted">Trains · structure out of chaos</p>
-          </article>
-        </div>
-
-        <div class="max-w-3xl mx-auto text-center" data-reveal>
-          <p class="text-ink-muted text-sm md:text-base leading-relaxed text-balance">
-            Same factory, harder floor. Every scenario pack is built from the same map as your
-            map and practice — the quiet layer underneath keeps all three telling one story,
-            so the Dojo tests what you actually built. No trick questions from nowhere.
-          </p>
-          <p class="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-[#12355c]">
-            Practice asks “do you know it?” · The Dojo asks “can you work the messy case?”
-          </p>
-          <a href="#who" class="btn-secondary mt-8 inline-flex">See who trains here →</a>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════
-         SAVE PLACE (public door — engine lattice stays in whitepapers)
-         ═══════════════════════════════════════════════════════════ -->
-    <section id="platform" class="section-padding relative section-charcoal">
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-electric/[0.02] to-transparent pointer-events-none" aria-hidden="true"></div>
-      <div class="max-w-7xl mx-auto relative">
-        <!-- Mobile: head → save mark → body. Desktop: intro text only; mark stays in Save card. Stay Oriented untouched. -->
-        <div class="door-intro door-intro--save text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <div class="door-intro-head" data-reveal>
-            <span class="section-label !text-[#6e1818]">Save your place</span>
-            <h2 class="section-title">Pick up where you left off</h2>
-            <p class="font-mono text-sm mt-2 text-[#c45a5a]">Clean handoff · not re-scroll the chat</p>
-          </div>
-
-          <div class="door-intro-mark door-intro-mark--save-only max-w-xs mx-auto" data-reveal>
-            <div class="glass-card card-border-save p-3 md:p-4 overflow-hidden">
-              <img
-                src="/assets/images/brand/tcf-door-save-v2.jpg?v=marks4"
-                alt="Save place — leave a clean stop for next time"
-                class="w-full rounded-xl object-contain aspect-square bg-white block"
-                width="512"
-                height="512"
-                loading="lazy"
-              />
-            </div>
-          </div>
-
-          <div class="door-intro-body" data-reveal>
-            <p class="text-ink font-medium text-lg">
-              For weeks that <em>interrupt</em> — not perfect study streaks.
-            </p>
-            <p class="mt-4 text-ink-muted leading-relaxed text-balance">
-              Not a chat archive. Not another app to babysit.
-              <span class="text-ink-soft">Save place</span> is how you leave a clean handoff for tomorrow —
-              whether you were in Learn or mid Practice.
-              Long sessions break. Apps forget. People get called away. The loop still holds.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 mb-12" data-reveal>
-          <article class="glass-card card-border-save p-8 md:p-10 h-full">
-            <div class="platform-mark platform-mark--save-desktop">
-              <img
-                src="/assets/images/brand/tcf-door-save-v2.jpg?v=marks4"
-                alt="Save place — leave a clean stop for next time"
-                class="rounded-xl object-contain bg-white"
-                width="512"
-                height="512"
-                loading="lazy"
-              />
-            </div>
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#6e1818] mb-3 text-center">Save place</p>
-            <h3 class="font-display text-2xl font-semibold text-ink text-center">Leave a clean stop</h3>
-            <p class="text-ink-muted text-sm mt-4 leading-relaxed">
-              Capture enough that starting again is intentional —
-              not scrolling old chat for an hour.
-              Note what you meant to do next: deeper map work, more practice, or a real check.
-            </p>
-            <ul class="mt-6 space-y-3 text-sm text-ink-muted leading-relaxed">
-              <li class="flex gap-3">
-                <span class="num-mark num-mark-save">01</span>
-                <span>Write where you were and what still feels fuzzy.</span>
-              </li>
-              <li class="flex gap-3">
-                <span class="num-mark num-mark-save">02</span>
-                <span>Name the next step so tomorrow’s you is not guessing.</span>
-              </li>
-              <li class="flex gap-3">
-                <span class="num-mark num-mark-save">03</span>
-                <span>Open only what the next short session needs.</span>
-              </li>
-            </ul>
-            <p class="mt-8 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-ink-muted">
-              Clean handoff · not a chat archive
-            </p>
-          </article>
-
-          <article class="glass-card card-border-orient p-8 md:p-10 h-full">
-            <div class="platform-mark">
-              <img
-                src="/assets/images/brand/tcf-door-lattice.jpg?v=brand-exp21"
-                alt="Stay oriented — how ideas connect on your map"
-                class="rounded-xl object-contain bg-white"
-                width="512"
-                height="512"
-                loading="lazy"
-              />
-            </div>
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#a83830] mb-3 text-center">Stay oriented</p>
-            <h3 class="font-display text-2xl font-semibold text-ink text-center">Know where you are</h3>
-            <p class="text-ink-muted text-sm mt-4 leading-relaxed">
-              Not a second product to buy — the quiet layer under save place
-              so you see where you are on the map, how ideas connect, and when
-              open study should become honest practice.
-            </p>
-            <ul class="mt-6 space-y-3 text-sm text-ink-muted leading-relaxed">
-              <li class="flex gap-3">
-                <span class="num-mark num-mark-orient">01</span>
-                <span><span class="text-ink-muted">When to practice</span> — move into a real pack when you need proof.</span>
-              </li>
-              <li class="flex gap-3">
-                <span class="num-mark num-mark-orient">02</span>
-                <span><span class="text-ink-muted">Bridges inside a subject</span> — move idea to idea without losing the map.</span>
-              </li>
-              <li class="flex gap-3">
-                <span class="num-mark num-mark-orient">03</span>
-                <span><span class="text-ink-muted">Later: paths across skills</span> — for teams working more than one subject.</span>
-              </li>
-            </ul>
-            <p class="mt-8 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-ink-muted">
-              Orientation · not another training portal
-            </p>
-          </article>
-        </div>
-
-        <div class="max-w-3xl mx-auto text-center" data-reveal>
-          <p class="text-ink-muted text-sm md:text-base leading-relaxed text-balance">
-            If your notes die when the chat ends, you do not have a system — you have a mood.
-            Save place exists so messy weeks still leave a clear next step.
-          </p>
-          <p class="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
-            Learn builds the map · Practice proves · Save place keeps the loop
-          </p>
-          <a href="#contact" class="btn-secondary mt-8 inline-flex">Ask how picking back up works day to day</a>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════
-         WHO TRAINS HERE — solo · teams · partners
-         ═══════════════════════════════════════════════════════════ -->
-    <!-- Mid-funnel: Who trains here + What you work with (ink type on light field) -->
-    <div class="band-charcoal band-charcoal--ink">
-    <section id="who" class="section-padding relative">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16" data-reveal>
-          <span class="section-label">Who trains here</span>
-          <h2 class="section-title">Three ways in — same factory</h2>
-          <p class="section-subtitle mx-auto">
-            One loop of learn, practice, and save place — pointed at different jobs to be done.
-          </p>
-        </div>
-
-        <div class="grid lg:grid-cols-3 gap-6" data-reveal>
-          <!-- Solo → Map gold · Teams → Practice green · Partners → Dojo blue -->
-          <article class="glass-card card-border-map p-8 h-full flex flex-col">
-            <span class="font-mono text-xs uppercase tracking-[0.2em] accent-map">Solo learners</span>
-            <h3 class="font-display text-xl font-semibold text-ink mt-3">Upskill through real life</h3>
-            <p class="text-ink-muted text-sm mt-3 leading-relaxed flex-1">
-              You bring the dedication; life brings the interruptions. For motivated self-learners
-              accelerating a skill around work, family, and a budget — the loop holds through messy
-              weeks, and save place makes short sessions count.
-            </p>
-            <a href="#contact" class="inline-flex items-center gap-1 accent-map hover-accent-map text-sm font-medium mt-6 hover:gap-2 transition-all">
-              Start the conversation
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </a>
-          </article>
-          <article class="glass-card card-border-practice p-8 h-full flex flex-col">
-            <span class="font-mono text-xs uppercase tracking-[0.2em] accent-practice">Teams</span>
-            <h3 class="font-display text-xl font-semibold text-ink mt-3">Ramp and cross-skill with structure</h3>
-            <p class="text-ink-muted text-sm mt-3 leading-relaxed flex-1">
-              Maps and practice packs aligned to your standards — without seat-time theater.
-              Dojo scenarios on your real work so new responsibility is less of a cold start,
-              not a promise of shorter calendars or hire-day outcomes.
-            </p>
-            <a href="#contact" class="inline-flex items-center gap-1 accent-practice hover-accent-practice text-sm font-medium mt-6 hover:gap-2 transition-all">
-              Request a team briefing
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </a>
-          </article>
-          <article class="glass-card card-border-dojo p-8 h-full flex flex-col">
-            <span class="font-mono text-xs uppercase tracking-[0.2em] accent-dojo">Partners</span>
-            <h3 class="font-display text-xl font-semibold text-ink mt-3">See how they work under pressure</h3>
-            <p class="text-ink-muted text-sm mt-3 leading-relaxed flex-1">
-              A wall of certificates says what someone finished — not how they handle messy work.
-              Dojo scenarios give a structured view of judgment under pressure —
-              not a hiring decision, pass/fail credential, or client-ready guarantee.
-            </p>
-            <a href="#contact" class="inline-flex items-center gap-1 accent-dojo hover-accent-dojo text-sm font-medium mt-6 hover:gap-2 transition-all">
-              Ask about scenario briefings
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════
-         CORES + CARTRIDGES
-         ═══════════════════════════════════════════════════════════ -->
-    <section id="systems" class="section-padding relative pt-8 md:pt-10">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-12" data-reveal>
-          <span class="section-label">What you work with</span>
-          <h2 class="section-title">Your map + your practice packs</h2>
-          <p class="section-subtitle mx-auto">
-            Your <span class="text-ink-soft">map</span> is the long-term picture of a subject you keep and improve.
-            A <span class="text-ink-soft">practice pack</span> is a quiz or drill set built from that map —
-            for an exam, a job skill, or a team standard. Same truth, different pressure.
-            One map, many packs: learning and testing stay honest.
-          </p>
-        </div>
-
-        <div class="cartridge-console glass-card p-6 md:p-10 mb-10" data-reveal>
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 border-b border-ink/10 pb-6">
-            <div>
-              <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">What goes in the loop</p>
-              <p class="text-ink font-display text-lg mt-1">Learn · practice pack · AI · you</p>
-            </div>
-            <a href="#contact" class="btn-primary text-xs !px-5 !py-2.5 w-full md:w-auto">Talk with us</a>
-          </div>
-
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-            <article class="cartridge-tile">
-              <span class="cartridge-tile-mark bg-[#c9a227]/15 text-[#5c4a0c] border-[#c9a227]/35">M</span>
-              <h3 class="text-ink font-semibold text-sm mt-4">Your map</h3>
-              <p class="text-ink-muted text-xs mt-2 leading-relaxed">The living picture of your subject — one place the real story lives.</p>
-            </article>
-            <article class="cartridge-tile">
-              <span class="cartridge-tile-mark bg-[#3d8c5a]/15 text-[#145032] border-[#3d8c5a]/35">P</span>
-              <h3 class="text-ink font-semibold text-sm mt-4">Practice pack</h3>
-              <p class="text-ink-muted text-xs mt-2 leading-relaxed">Exam or skill drills built from the map — not a second set of materials that drifts away.</p>
-            </article>
-            <article class="cartridge-tile">
-              <span class="cartridge-tile-mark bg-[#b03030]/15 text-[#6e1818] border-[#b03030]/35">A</span>
-              <h3 class="text-ink font-semibold text-sm mt-4">AI chat</h3>
-              <p class="text-ink-muted text-xs mt-2 leading-relaxed">Your AI tool — on your machine or online. Helps teach and quiz; you still own the map.</p>
-            </article>
-            <article class="cartridge-tile">
-              <span class="cartridge-tile-mark bg-[#2b5f9e]/15 text-[#12355c] border-[#2b5f9e]/35">Y</span>
-              <h3 class="text-ink font-semibold text-sm mt-4">You — alone or with a team</h3>
-              <p class="text-ink-muted text-xs mt-2 leading-relaxed">Same loop; different goals, calendars, and practice packs.</p>
-            </article>
-          </div>
-
-          <div class="layer-strip" aria-label="How a map is built">
-            <p class="text-ink-muted text-sm mb-2 text-center sm:text-left leading-relaxed">
-              Small truths → named ideas → how they hang together → the full route
-            </p>
-            <p class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-ink-muted mb-4 text-center sm:text-left">
-              How a good map is built · high-level
-            </p>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-              <div class="layer-chip layer-chip--map">
-                <span class="layer-chip-id">1</span>
-                <span class="layer-chip-title">What always holds</span>
-                <span class="layer-chip-desc">Bedrock truths of the subject</span>
-              </div>
-              <div class="layer-chip layer-chip--practice">
-                <span class="layer-chip-id">2</span>
-                <span class="layer-chip-title">Named ideas</span>
-                <span class="layer-chip-desc">Things you can teach or practice</span>
-              </div>
-              <div class="layer-chip layer-chip--save">
-                <span class="layer-chip-id">3</span>
-                <span class="layer-chip-title">How pieces connect</span>
-                <span class="layer-chip-desc">Groups of ideas that belong together</span>
-              </div>
-              <div class="layer-chip layer-chip--dojo">
-                <span class="layer-chip-id">4</span>
-                <span class="layer-chip-title">Full route</span>
-                <span class="layer-chip-desc">Paths across the whole map</span>
-              </div>
-            </div>
-            <p class="text-ink-muted text-xs mt-5 leading-relaxed max-w-3xl">
-              The map holds this stack. Practice packs pull questions from it for a clear goal.
-              <span class="text-ink-muted">Save place</span> keeps you oriented while you climb.
-            </p>
-          </div>
-        </div>
-
-        <p class="text-center text-ink-muted text-sm leading-relaxed" data-reveal>
-          Teams &amp; institutions: same loop, fitted to your outcomes —
-          <a href="#contact" class="text-electric hover:text-electric/80 transition-colors">request a briefing</a>.
-        </p>
-      </div>
-    </section>
-    </div><!-- /mid-funnel band-charcoal -->
 
 
     <!-- ═══════════════════════════════════════════════════════════
@@ -1075,17 +669,47 @@
         <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16" data-reveal>
           <span class="section-label">Product</span>
           <h2 class="section-title">Where the loop runs</h2>
-          <p class="section-subtitle mx-auto">
-            White room, quiet chrome — color reserved for the engines:
-            learn · practice · save place · dojo. One loop on the machines you already use.
-          </p>
-          <p class="mt-6 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-ink-muted">
-            <span class="text-ink-soft">Windows</span>
-            <span class="text-ink-muted mx-2" aria-hidden="true">·</span>
-            <span class="text-ink-soft">Android</span>
-            <span class="text-ink-muted mx-2" aria-hidden="true">·</span>
-            <span class="text-ink-muted">macOS &amp; iOS — coming soon</span>
-          </p>
+
+          <!-- Platform readiness: visual only (ready vs in development) -->
+          <ul class="platform-status" aria-label="App platforms">
+            <li class="platform-chip is-ready" title="Windows — available">
+              <span class="platform-chip-icon" aria-hidden="true">
+                <!-- Windows logo mark -->
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3 5.5 10.5 4.4v7.1H3V5.5zm0 13 7.5 1.1v-7.2H3v6.1zM11.5 4.25 21 3v8.5h-9.5V4.25zM11.5 20.9 21 22v-9.6h-9.5v8.5z"/></svg>
+              </span>
+              <span class="platform-chip-badge" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 8.5 6.5 12 13 4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="sr-only">Windows available</span>
+            </li>
+            <li class="platform-chip is-ready" title="Android — available">
+              <span class="platform-chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.6 9.48 19.04 7a.5.5 0 1 0-.87-.5l-1.48 2.55A7.9 7.9 0 0 0 12 8c-1.7 0-3.27.53-4.69 1.45L5.83 6.9a.5.5 0 1 0-.87.5l1.44 2.48A7.96 7.96 0 0 0 4 15.5V16a1 1 0 0 0 1 1h1v3.5a1.5 1.5 0 0 0 3 0V17h6v3.5a1.5 1.5 0 0 0 3 0V17h1a1 1 0 0 0 1-1v-.5a7.96 7.96 0 0 0-2.4-5.62zM9 13.25a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm6 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+              </span>
+              <span class="platform-chip-badge" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 8.5 6.5 12 13 4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="sr-only">Android available</span>
+            </li>
+            <li class="platform-chip is-soon" title="macOS — in development">
+              <span class="platform-chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M16.5 3.5c.1 1.4-.4 2.7-1.3 3.7-.9 1-2.2 1.7-3.5 1.6-.1-1.3.5-2.7 1.3-3.6.9-1 2.4-1.8 3.5-1.7zM20 17.2c-.6 1.3-.9 1.9-1.7 3-.9 1.3-2.1 2.9-3.7 2.9-1.4 0-1.8-.9-3.4-.9s-2 .9-3.4.9c-1.5 0-2.7-1.5-3.6-2.8C2.6 18.3 1.4 14.5 3 11.4c.8-1.5 2.2-2.5 3.7-2.5 1.4 0 2.4.9 3.4.9 1 0 2.1-1.1 3.7-1.1 1.2 0 2.5.6 3.4 1.7-3 1.6-2.5 5.9.8 7z"/></svg>
+              </span>
+              <span class="platform-chip-badge platform-chip-badge--soon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2 1.2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="sr-only">macOS in development</span>
+            </li>
+            <li class="platform-chip is-soon" title="iOS — in development">
+              <span class="platform-chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="2.5" width="8" height="19" rx="2"/><path d="M11 5h2" stroke-linecap="round"/><circle cx="12" cy="18.5" r="0.9" fill="currentColor" stroke="none"/></svg>
+              </span>
+              <span class="platform-chip-badge platform-chip-badge--soon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2 1.2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="sr-only">iOS in development</span>
+            </li>
+          </ul>
         </div>
 
         <!-- Windows — desktop shell -->
@@ -1094,13 +718,19 @@
             <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted mb-3">Windows</p>
             <h3 class="font-display text-2xl font-semibold text-ink">The household desk</h3>
             <p class="text-ink-muted text-sm mt-3 leading-relaxed">
-              Learn · practice · save place on a full screen — plus a thin workflow floor
+              Learn, practice, and save your place on a full screen — plus a simple practice floor
               when the skill needs a form and a stage.
             </p>
           </div>
 
+          <!-- Pathway hooks sit ABOVE the gallery grid (not under a mockup) -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10 md:mb-12" data-reveal>
+            <a href="/solo/#product" class="btn-secondary text-xs !px-4 !py-2">Solo · product →</a>
+            <a href="/enterprise/#product" class="btn-secondary text-xs !px-4 !py-2">Enterprise · product →</a>
+          </div>
+
         <!-- Story order: map · practice · save place · workflow · shell — AiO monitor chrome -->
-        <div class="grid md:grid-cols-2 gap-10 lg:gap-12">
+        <div class="product-aio-grid grid md:grid-cols-2 gap-10 lg:gap-12 items-stretch">
 
           <article class="aio-product" data-reveal>
             <div class="aio-device">
@@ -1263,8 +893,8 @@
               <h3 class="font-display text-xl font-semibold text-ink">Hands on a process</h3>
               <p class="text-ink-muted text-sm mt-3 leading-relaxed">
                 After the map and the quiz, some skills need a form and a stage.
-                Thin, Dynamics-shaped practice — not a Microsoft product, not full ERP theater.
-                Cohorts without volumetric enterprise seats use the same floor until the click order is boring.
+                Practice that looks like the real process — without pretending to be the full enterprise system.
+                Teams use the same floor until the click path is familiar and calm.
               </p>
             </div>
           </article>
@@ -1443,7 +1073,7 @@
           Windows and Android first; macOS and iOS when the same loop is solid there.
           Canvas stays light — gold · green · red · blue only for the engines they name.
           The workflow floor stays light and dense on purpose — so moving onto a real tool is less
-          of a cold start, with explicit neutral off-ramps when you are ready for the real thing.
+          of a cold start, with a clean exit when you are ready for the real tool.
         </p>
       </div>
     </section>
@@ -1468,7 +1098,7 @@
           </div>
           <div class="glass-card card-border-practice p-6">
             <p class="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-[#145032] mb-3">2 · Practice</p>
-            <p class="text-ink-soft text-sm leading-relaxed">Check yourself under honest pressure. Right or wrong is recorded without cosplay.</p>
+            <p class="text-ink-soft text-sm leading-relaxed">Check yourself under honest pressure. Right or wrong is recorded without soft grading.</p>
           </div>
           <div class="glass-card card-border-save p-6">
             <p class="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-[#6e1818] mb-3">3 · Save place</p>
@@ -1477,7 +1107,7 @@
         </div>
         <p class="mt-8 text-center text-ink-muted text-sm max-w-2xl mx-auto leading-relaxed" data-reveal>
           The proof artifact is the <strong class="text-ink-muted">park note + return</strong>, not a streak counter.
-          Product screens on this site show the shell; your household run produces the real handoff.
+          Product screens on this site show the shell; your own run produces the real next step when you stop and start again.
           <a href="/assets/docs/Between_Sessions.html" class="text-plasma-glow hover:underline">Between sessions →</a>
         </p>
 
@@ -1508,7 +1138,90 @@
 
 
     <!-- ═══════════════════════════════════════════════════════════
-         RESEARCH / K-BASE — before Why (hinge of page; charcoal Why follows)
+         PROMISE — Why it exists (soft-gray field; founder on johnhekmati.com)
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="promise" class="section-padding relative section-soft-gray">
+      <div class="max-w-3xl mx-auto relative text-center">
+        <div data-reveal>
+          <span class="section-label">Why it exists</span>
+          <h2 class="section-title">Skill that still works next month</h2>
+        </div>
+
+        <div class="prose-panel prose-panel--rails-width glass-card mt-8 md:mt-10 p-6 md:p-8 space-y-5 text-ink-muted leading-relaxed text-base md:text-lg text-left sm:text-center" data-reveal>
+          <p>
+            Most learning products care about hours logged or how confident you feel after a binge.
+            Chat forgets. Content multiplies. Seat time is not skill.
+            On busy, interruptible days, those tools leave you re-scrolling yesterday
+            instead of holding something you can still use next month.
+          </p>
+          <p>
+            The Cognition Factory is the structure that was missing — Learn (build the map), honest practice,
+            and a clear place to stop when life interrupts. One loop for busy adults and teams
+            who need skill that still works under real life, not short-term scores.
+          </p>
+          <p class="text-ink font-medium text-lg">
+            Can you still do the work a month later — or did you only finish the material?
+          </p>
+        </div>
+
+        <!-- Rails: visitor prose (operator: don't theater / cape / outcome promises / logo affiliation) -->
+        <div class="mt-12 md:mt-14 text-left w-full" data-reveal>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-ink-muted mb-4 text-center">
+            How we show up
+          </p>
+          <div class="grid sm:grid-cols-2 gap-4 md:gap-5">
+            <div class="band-charcoal-card rails-card rails-card--do rounded-lg bg-white p-5 md:p-6">
+              <div class="rails-card-head">
+                <h3 class="font-display text-ink text-base font-semibold tracking-tight">What we do</h3>
+                <span class="rails-card-mark rails-card-mark--do" aria-hidden="true" title="We do">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12.5 10 17.5 19 7" />
+                  </svg>
+                </span>
+              </div>
+              <div class="space-y-3 text-sm text-ink-muted leading-relaxed">
+                <p>We give structure: Learn to build the map, honest practice, and a clean place to park when life interrupts.</p>
+                <p>We keep study paths clear and public where we can, so the work stays easy to follow.</p>
+                <p>We say when we are not a fit, instead of stretching the offer.</p>
+                <p>Dedication and results stay with you. We build the runway; you own the run.</p>
+              </div>
+            </div>
+            <div class="band-charcoal-card rails-card rails-card--dont rounded-lg bg-white p-5 md:p-6">
+              <div class="rails-card-head">
+                <h3 class="font-display text-ink text-base font-semibold tracking-tight">What we don’t</h3>
+                <span class="rails-card-mark rails-card-mark--dont" aria-hidden="true" title="We don’t">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 6l12 12M18 6 6 18" />
+                  </svg>
+                </span>
+              </div>
+              <div class="space-y-3 text-sm text-ink-muted leading-relaxed">
+                <p>We do not sell hours logged, completion badges, or a wall of certificates as if that were skill.</p>
+                <p>We do not play superhero. We will not “fix” a career, a team, or a go-live from the outside.</p>
+                <p>We do not promise a specific exam score, job, or business result. Outcomes stay yours.</p>
+                <p>We do not claim endorsement or partnership with any brand or logo. Aligning to a public path is not a partnership badge.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4" data-reveal>
+          <a href="#contact" class="btn-primary">Talk with us</a>
+          <a
+            href="https://johnhekmati.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-ink-muted hover:text-electric transition-colors"
+          >
+            Who builds this →
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+         RESEARCH / K-BASE — after Why it exists
          ═══════════════════════════════════════════════════════════ -->
     <section id="resources" class="section-padding relative">
       <div class="max-w-7xl mx-auto">
@@ -1530,7 +1243,7 @@
           <button type="button" class="resource-filter resource-filter--request" data-filter="request" aria-pressed="false">Request only</button>
         </div>
 
-        <div id="resource-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="knowledge" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-mt-24">
           <!-- Personal / solo — Map gold -->
           <a href="/assets/docs/Solo_Learner_Everyday.html" class="glass-card p-6 group transition-all duration-300 block resource-card resource-card--personal" data-reveal data-category="solo">
             <div class="flex items-start justify-between mb-4">
@@ -1730,80 +1443,11 @@
       </div>
     </section>
 
-
-    <!-- ═══════════════════════════════════════════════════════════
-         PROMISE — charcoal closer (chiasmus mirror of hero charcoal; founder on johnhekmati.com)
-         ═══════════════════════════════════════════════════════════ -->
-    <section id="promise" class="section-padding relative band-charcoal">
-      <div class="max-w-3xl mx-auto relative text-center">
-        <div data-reveal>
-          <span class="section-label">Why it exists</span>
-          <h2 class="section-title">Skill that still works next month</h2>
-        </div>
-
-        <div class="mt-8 md:mt-10 space-y-5 text-ink-muted leading-relaxed text-base md:text-lg text-left sm:text-center" data-reveal>
-          <p>
-            Most learning products care about hours logged or how confident you feel after a binge.
-            Chat forgets. Content multiplies. Seat time is not skill.
-            On busy, interruptible days, those tools leave you re-scrolling yesterday
-            instead of holding something you can still use next month.
-          </p>
-          <p>
-            The Cognition Factory is the structure that was missing — Learn (build the map), honest practice,
-            and a clean handoff when life interrupts. One loop for busy adults and teams
-            who need skill that sticks under real life, not short-term scores.
-          </p>
-          <p class="text-ink font-medium text-lg">
-            Can you still do the work a month later — or did you only finish the material?
-          </p>
-        </div>
-
-        <!-- Rails: visitor prose (operator: don't theater / cape / outcome promises / logo affiliation) -->
-        <div class="mt-12 md:mt-14 text-left max-w-3xl mx-auto" data-reveal>
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-ink-muted mb-4 text-center">
-            How we show up
-          </p>
-          <div class="grid sm:grid-cols-2 gap-4 md:gap-5">
-            <div class="band-charcoal-card rounded-lg border border-ink/15 bg-white p-5 md:p-6">
-              <h3 class="font-display text-ink text-base font-semibold mb-3 tracking-tight">What we do</h3>
-              <ul class="space-y-2.5 text-sm text-ink-muted leading-relaxed list-none">
-                <li class="flex gap-2"><span class="accent-map shrink-0" aria-hidden="true">·</span><span>Give structure: Learn (build the map), honest practice, a clean place to park when life interrupts.</span></li>
-                <li class="flex gap-2"><span class="accent-practice shrink-0" aria-hidden="true">·</span><span>Align study lanes to public pathways and published skill lists — so the work stays legible.</span></li>
-                <li class="flex gap-2"><span class="accent-save shrink-0" aria-hidden="true">·</span><span>Say when we are not a fit, instead of stretching the offer.</span></li>
-                <li class="flex gap-2"><span class="accent-dojo shrink-0" aria-hidden="true">·</span><span>Leave dedication and results with you. We build the runway; you own the run.</span></li>
-              </ul>
-            </div>
-            <div class="band-charcoal-card rounded-lg border border-ink/10 bg-white p-5 md:p-6">
-              <h3 class="font-display text-ink text-base font-semibold mb-3 tracking-tight">What we don’t</h3>
-              <ul class="space-y-2.5 text-sm text-ink-muted leading-relaxed list-none">
-                <li class="flex gap-2"><span class="text-ink-muted shrink-0" aria-hidden="true">·</span><span>Sell seat-time, completion theater, or a wall of badges as if that were skill.</span></li>
-                <li class="flex gap-2"><span class="text-ink-muted shrink-0" aria-hidden="true">·</span><span>Play superhero: we won’t “fix” a career, a team, or a go-live from the outside.</span></li>
-                <li class="flex gap-2"><span class="text-ink-muted shrink-0" aria-hidden="true">·</span><span>Promise a specific exam score, pass, job, or business result. Outcomes stay yours.</span></li>
-                <li class="flex gap-2"><span class="text-ink-muted shrink-0" aria-hidden="true">·</span><span>Claim endorsement, partnership, or affiliation with any brand or logo. Path alignment is not a partnership badge.</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4" data-reveal>
-          <a href="#contact" class="btn-primary">Talk with us</a>
-          <a
-            href="https://johnhekmati.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-sm text-ink-muted hover:text-electric transition-colors"
-          >
-            Who builds this →
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══════════════════════════════════════════════════════════
          CONTACT — dual path
          ═══════════════════════════════════════════════════════════ -->
-    <section id="contact" class="section-padding relative">
-      <div class="absolute inset-0 bg-gradient-to-t from-electric/[0.03] to-transparent pointer-events-none" aria-hidden="true"></div>
+    <section id="contact" class="section-padding relative band-charcoal">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
 
       <div class="max-w-7xl mx-auto relative">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
@@ -1823,7 +1467,7 @@
               </div>
               <div class="surface-card surface-card--practice offer-rung !text-left p-4">
                 <p class="surface-card-kicker !text-left mb-1">Small team</p>
-                <p class="text-sm text-ink leading-relaxed">Shared skill under real calendars — not seat-time LMS theater. Say the role and the constraint.</p>
+                <p class="text-sm text-ink leading-relaxed">Shared skill under real calendars — not hours logged for show. Say the role and the constraint.</p>
               </div>
               <div class="surface-card surface-card--save offer-rung !text-left p-4">
                 <p class="surface-card-kicker !text-left mb-1">Institution</p>
@@ -1831,12 +1475,12 @@
               </div>
               <div class="surface-card surface-card--dojo offer-rung !text-left p-4">
                 <p class="surface-card-kicker !text-left mb-1">Not a fit (walk-away)</p>
-                <p class="text-sm text-ink leading-relaxed">Passive content binge, completion badges only, guaranteed-outcome shopping, or “AI tutor with no structure.” We will say no rather than cosplay — and we never sell someone else’s logo as our badge.</p>
+                <p class="text-sm text-ink leading-relaxed">Passive content binge, badges only, guaranteed-result shopping, or an “AI tutor” with no structure. We will say no rather than stretch the offer — and we never sell someone else’s logo as our badge.</p>
               </div>
             </div>
 
             <p class="text-ink-muted mt-6 leading-relaxed text-sm">
-              <strong class="text-ink-muted">Support ritual:</strong> we take serious inquiries.
+              <strong class="text-ink-muted">How we answer:</strong> we take serious inquiries.
               Expect a reply within a few days when it is a fit — not 24/7 chat.
               App users: Help → Contact support for a private dump +
               <a href="mailto:support@thecognitionfactory.com" class="text-electric hover:underline">support@thecognitionfactory.com</a>.
@@ -1938,14 +1582,16 @@
             <span class="text-ink-muted text-sm">&copy; 2026 The Cognition Factory. All rights reserved.</span>
           </div>
 
-          <div class="flex flex-wrap items-center justify-center gap-6" aria-label="Site map">
-            <a href="#enemy" class="text-ink-muted hover:text-electric text-sm transition-colors">Problem</a>
-            <a href="#loop" class="text-ink-muted hover:text-electric text-sm transition-colors">How it works</a>
-            <a href="#product" class="text-ink-muted hover:text-electric text-sm transition-colors">Product</a>
-            <a href="#proof" class="text-ink-muted hover:text-electric text-sm transition-colors">Proof</a>
-            <a href="#resources" class="text-ink-muted hover:text-electric text-sm transition-colors">Guides</a>
-            <a href="#promise" class="text-ink-muted hover:text-electric text-sm transition-colors">Why</a>
-            <a href="#contact" class="text-ink-muted hover:text-electric text-sm transition-colors">Contact</a>
+          <div class="footer-sitemap" aria-label="Site map">
+            <a href="#enemy">Problem</a>
+            <a href="#solution">Solution</a>
+            <a href="#pathways">Pathways</a>
+            <a href="#loop">How it works</a>
+            <a href="#product">Product</a>
+            <a href="#proof">Proof</a>
+            <a href="#promise">Why it exists</a>
+            <a href="#knowledge">Knowledge base</a>
+            <a href="#contact">Talk with us</a>
           </div>
         </div>
         <div class="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -2036,6 +1682,25 @@
     }
     footer {
       background: #ffffff;
+    }
+    /* Footer site map — plain CSS gaps (Tailwind gap-x-* often missing from build) */
+    footer .footer-sitemap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      column-gap: 1.25rem;
+      row-gap: 0.5rem;
+    }
+    footer .footer-sitemap a {
+      color: #555555;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+    footer .footer-sitemap a:hover {
+      color: #3b6f9e;
     }
 
     /* Taglines: calm professional (no neon stream) */
@@ -2317,6 +1982,67 @@
       color: #c5daf0 !important;
     }
 
+    /* Offer rungs / surface cards on charcoal — white plate, dark type */
+    .band-charcoal .surface-card {
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+    }
+    .band-charcoal .surface-card .text-ink,
+    .band-charcoal .surface-card .text-ink-muted,
+    .band-charcoal .surface-card .text-ink-soft {
+      color: #000000 !important;
+    }
+    .band-charcoal a.text-ink:hover {
+      color: #9ec0e0 !important;
+    }
+
+
+    /* Why it exists — How we show up rails cards */
+    .rails-card {
+      border-style: solid;
+      border-width: 2px;
+      box-shadow: 0 8px 24px rgba(45, 50, 60, 0.08);
+    }
+    .rails-card--do {
+      border-color: #3d8c5a; /* Practice green */
+    }
+    .rails-card--dont {
+      border-color: #b03030; /* Save red */
+    }
+    .rails-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .rails-card-head h3 {
+      margin: 0;
+    }
+    .rails-card-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+    .rails-card-mark svg {
+      width: 0.95rem;
+      height: 0.95rem;
+      display: block;
+    }
+    .rails-card-mark--do {
+      color: #145032;
+      background: rgba(61, 140, 90, 0.12);
+      border: 1.5px solid #3d8c5a;
+    }
+    .rails-card-mark--dont {
+      color: #6e1818;
+      background: rgba(176, 48, 48, 0.1);
+      border: 1.5px solid #b03030;
+    }
+
     /* Why it exists / plain white cards on charcoal */
     .band-charcoal .band-charcoal-card {
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
@@ -2361,20 +2087,9 @@
     .hero-landing {
       display: flex;
       flex-direction: column;
-      /* Soft-gray field (same as body void) + ticker hinge.
-         Full-viewport min-height only from md up — mobile posters already fill the stage. */
+      /* Soft-gray field + ticker hinge — size to content (match pathway slugs) */
       background: var(--hero-field, #e8eaee);
-    }
-
-    @media (min-width: 768px) {
-      .hero-landing {
-        min-height: calc(100svh - var(--hero-nav-h));
-      }
-      @supports not (height: 100svh) {
-        .hero-landing {
-          min-height: calc(100vh - var(--hero-nav-h));
-        }
-      }
+      min-height: 0;
     }
 
     #hero-video-wrap.hero-manifesto-media {
@@ -2447,67 +2162,95 @@
     }
 
     /*
-     * Desktop: min(full 16:9 of viewport width, room under nav + ticker).
-     * Mobile: portrait poster stage (~2:3 art); same contain = no crop.
-     * Width always 100% (edge-to-edge stage).
+     * Match solo/enterprise pathway heroes:
+     * width-driven 16:9, no 100svh max-height clamp that crops poster art.
+     * object-fit: contain still letterboxes portrait mobile sources cleanly.
      */
     .hero-slide-stage {
       position: relative;
       width: 100%;
-      height: min(
-        calc(100vw * 9 / 16),
-        calc(100svh - var(--hero-nav-h) - 3.5rem)
-      );
-      max-height: min(
-        calc(100vw * 9 / 16),
-        calc(100svh - var(--hero-nav-h) - 3.5rem)
-      );
-      min-height: 12rem;
-      aspect-ratio: auto;
+      height: calc(100vw * 9 / 16) !important;
+      max-height: none !important;
+      min-height: 12rem !important;
+      aspect-ratio: 16 / 9;
       background: var(--hero-field, #e8eaee);
       overflow: hidden;
       isolation: isolate;
       contain: layout style;
     }
 
-    @supports not (height: 100svh) {
+    @media (max-width: 767px) {
       .hero-slide-stage {
-        height: min(
-          calc(100vw * 9 / 16),
-          calc(100vh - var(--hero-nav-h) - 3.5rem)
-        );
-        max-height: min(
-          calc(100vw * 9 / 16),
-          calc(100vh - var(--hero-nav-h) - 3.5rem)
-        );
+        height: calc(100vw * 9 / 16) !important;
+        max-height: none !important;
+        min-height: 12rem !important;
       }
     }
 
-    /* Portrait mobile posters — fixed stage height (no document-flow expansion) */
-    @media (max-width: 767px) {
-      .hero-slide-stage {
-        height: min(
-          calc(100vw * 1904 / 1264),
-          calc(100svh - var(--hero-nav-h) - 3.25rem)
-        );
-        max-height: min(
-          calc(100vw * 1904 / 1264),
-          calc(100svh - var(--hero-nav-h) - 3.25rem)
-        );
-        min-height: 16rem;
+    /* Scroll cue — top-center of banner stage (same treatment as solo) */
+    .hero-scroll-cue {
+      position: absolute;
+      left: 50%;
+      top: 1rem;
+      bottom: auto;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin: 0;
+      padding: 0;
+      border: 1.5px solid rgba(255, 255, 255, 0.65);
+      border-radius: 999px;
+      background: rgba(25, 28, 34, 0.72);
+      color: #ffffff;
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.25),
+        0 8px 24px rgba(0, 0, 0, 0.35),
+        0 0 28px rgba(59, 111, 158, 0.25);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transform: translateX(-50%);
+      transition: opacity 0.35s ease, visibility 0.35s ease, background 0.2s ease;
+      animation: hero-scroll-cue-bob 1.9s ease-in-out infinite;
+    }
+    .hero-scroll-cue:hover,
+    .hero-scroll-cue:focus-visible {
+      background: rgba(25, 28, 34, 0.9);
+      border-color: #ffffff;
+      color: #ffffff;
+      outline: none;
+    }
+    .hero-scroll-cue:focus-visible {
+      box-shadow: 0 0 0 2px #e8eaee, 0 0 0 4px #3b6f9e;
+    }
+    .hero-scroll-cue svg {
+      width: 1.35rem;
+      height: 1.35rem;
+      display: block;
+    }
+    .hero-scroll-cue.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      animation: none;
+    }
+    @keyframes hero-scroll-cue-bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.9; }
+      50% { transform: translateX(-50%) translateY(0.4rem); opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-scroll-cue {
+        animation: none;
+        opacity: 0.95;
       }
-
-      @supports not (height: 100svh) {
-        .hero-slide-stage {
-          height: min(
-            calc(100vw * 1904 / 1264),
-            calc(100vh - var(--hero-nav-h) - 3.25rem)
-          );
-          max-height: min(
-            calc(100vw * 1904 / 1264),
-            calc(100vh - var(--hero-nav-h) - 3.25rem)
-          );
-        }
+    }
+    @media (max-width: 767px) {
+      .hero-scroll-cue {
+        top: 0.75rem;
+        width: 2.5rem;
+        height: 2.5rem;
       }
     }
 
@@ -2663,6 +2406,300 @@
     @media (prefers-reduced-motion: reduce) {
       .hero-slide {
         transition: none;
+      }
+    }
+
+
+    /* Product platform readiness — icon row, not prose */
+    .platform-status {
+      list-style: none;
+      margin: 1.75rem auto 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem 1rem;
+    }
+    .platform-chip {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.25rem;
+      height: 3.25rem;
+      border-radius: 0.85rem;
+      background: #ffffff;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 14px rgba(45, 50, 60, 0.06);
+      color: #1a1a1a;
+    }
+    .platform-chip.is-ready {
+      border-color: rgba(61, 140, 90, 0.45);
+      color: #145032;
+    }
+    .platform-chip.is-soon {
+      border-style: dashed;
+      border-color: rgba(0, 0, 0, 0.14);
+      color: rgba(0, 0, 0, 0.28);
+      background: rgba(255, 255, 255, 0.65);
+      box-shadow: none;
+      filter: grayscale(0.35);
+    }
+    .platform-chip-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+    }
+    .platform-chip-badge {
+      position: absolute;
+      right: -0.3rem;
+      bottom: -0.3rem;
+      width: 1.15rem;
+      height: 1.15rem;
+      border-radius: 999px;
+      background: #3d8c5a;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 2px #e8eaee;
+    }
+    .platform-chip-badge--soon {
+      background: #9aa0a8;
+      color: #ffffff;
+    }
+
+    /* Manifesto body under H2 — white paper plate */
+    .prose-panel {
+      max-width: 42rem;
+      margin-left: auto;
+      margin-right: auto;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow:
+        0 8px 28px rgba(45, 50, 60, 0.08),
+        0 2px 8px rgba(45, 50, 60, 0.04);
+    }
+    /* Why it exists: span full rails width (What we do + What we don’t combined) */
+    #promise .prose-panel--rails-width {
+      max-width: none;
+      width: 100%;
+    }
+    .band-charcoal .prose-panel,
+    .band-charcoal .prose-panel .text-ink,
+    .band-charcoal .prose-panel .text-ink-muted,
+    .band-charcoal .prose-panel .text-ink-soft,
+    .band-charcoal .prose-panel p {
+      color: #000000;
+    }
+    .band-charcoal .prose-panel {
+      background: #ffffff !important;
+    }
+
+    /* Dual-lane brand marks (map / practice / save / dojo / lattice) */
+    .door-mark-thumb {
+      width: 6.5rem;
+      height: 6.5rem;
+      border-radius: 0.85rem;
+      overflow: hidden;
+      background: #ffffff;
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 24px rgba(45, 50, 60, 0.08);
+    }
+    .door-mark-thumb img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #ffffff;
+    }
+    /* Gradient brains: pure black plate + thin color-matched rim (same primaries as cards) */
+    .door-mark-thumb--brain {
+      background: #000000 !important;
+      border-style: solid;
+      border-width: 2px;
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+    }
+    .door-mark-thumb--brain img {
+      background: #000000 !important;
+      object-fit: cover;
+    }
+    .door-mark-thumb--sm {
+      width: 3.25rem;
+      height: 3.25rem;
+      border-radius: 0.55rem;
+      border-width: 1.5px;
+    }
+    .door-mark-thumb--map { border-color: rgba(201, 162, 39, 0.55); }
+    .door-mark-thumb--practice { border-color: rgba(61, 140, 90, 0.5); }
+    .door-mark-thumb--save { border-color: rgba(176, 48, 48, 0.5); }
+    .door-mark-thumb--dojo { border-color: rgba(43, 95, 158, 0.55); }
+    .door-mark-thumb--lattice { border-color: rgba(201, 74, 64, 0.45); }
+    /* Brain rims last so they beat the generic --map/--dojo color rules */
+    .door-mark-thumb--brain.door-mark-thumb--map {
+      border-color: #c9a227 !important; /* Map gold — matches card-border-map */
+    }
+    .door-mark-thumb--brain.door-mark-thumb--practice {
+      border-color: #3d8c5a !important; /* Practice green */
+    }
+    .door-mark-thumb--brain.door-mark-thumb--save {
+      border-color: #b03030 !important; /* Save red */
+    }
+    .door-mark-thumb--brain.door-mark-thumb--dojo {
+      border-color: #2b5f9e !important; /* Dojo blue — matches card-border-dojo */
+    }
+
+    /* Pathways double-stack: shared width + column gap; hairline space between rows */
+    .pathways-stack {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 0.5rem; /* ~8px between stacked rows — clear air, not flush */
+    }
+    .pathways-stack-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem; /* match horizontal gutters so Solo|Enterprise columns line up */
+      width: 100%;
+      align-items: stretch;
+    }
+    @media (min-width: 640px) {
+      .pathways-stack-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (min-width: 1024px) {
+      .pathways-stack-row {
+        gap: 2rem;
+      }
+    }
+
+    /*
+     * Systems path cards — stronger CTAs with subtle bobbing cue
+     * (same motion language as hero scroll pill; mark-colored).
+     */
+    .systems-path-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .systems-path-card:hover,
+    .systems-path-card:focus-visible {
+      transform: translateY(-2px);
+    }
+    .systems-path-card.card-border-map:hover,
+    .systems-path-card.card-border-map:focus-visible {
+      box-shadow: 0 12px 32px rgba(201, 162, 39, 0.22);
+    }
+    .systems-path-card.card-border-dojo:hover,
+    .systems-path-card.card-border-dojo:focus-visible {
+      box-shadow: 0 12px 32px rgba(43, 95, 158, 0.22);
+    }
+    .systems-path-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      margin-top: auto;
+      padding-top: 1.25rem;
+    }
+    .systems-path-cta-label {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .systems-path-cta--map .systems-path-cta-label {
+      color: #5c4a0c;
+    }
+    .systems-path-cta--dojo .systems-path-cta-label {
+      color: #12355c;
+    }
+    .systems-path-card:hover .systems-path-cta-label,
+    .systems-path-card:focus-visible .systems-path-cta-label {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .systems-path-cue {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      border: 1.5px solid currentColor;
+      flex-shrink: 0;
+      animation: systems-path-cue-bob 1.9s ease-in-out infinite;
+    }
+    .systems-path-cue svg {
+      width: 0.95rem;
+      height: 0.95rem;
+      display: block;
+    }
+    .systems-path-cue--map {
+      color: #c9a227;
+      background: rgba(201, 162, 39, 0.12);
+      box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.35);
+      animation:
+        systems-path-cue-bob 1.9s ease-in-out infinite,
+        systems-path-cue-glow-map 2.4s ease-in-out infinite;
+    }
+    .systems-path-cue--dojo {
+      color: #2b5f9e;
+      background: rgba(43, 95, 158, 0.12);
+      box-shadow: 0 0 0 0 rgba(43, 95, 158, 0.35);
+      animation:
+        systems-path-cue-bob 1.9s ease-in-out infinite,
+        systems-path-cue-glow-dojo 2.4s ease-in-out infinite;
+    }
+    .systems-path-card:hover .systems-path-cue,
+    .systems-path-card:focus-visible .systems-path-cue {
+      animation: none;
+      transform: translateX(2px);
+    }
+    .systems-path-card:hover .systems-path-cue--map,
+    .systems-path-card:focus-visible .systems-path-cue--map {
+      background: rgba(201, 162, 39, 0.22);
+      box-shadow: 0 0 16px rgba(201, 162, 39, 0.35);
+    }
+    .systems-path-card:hover .systems-path-cue--dojo,
+    .systems-path-card:focus-visible .systems-path-cue--dojo {
+      background: rgba(43, 95, 158, 0.22);
+      box-shadow: 0 0 16px rgba(43, 95, 158, 0.35);
+    }
+    @keyframes systems-path-cue-bob {
+      0%, 100% { transform: translateX(0); opacity: 0.85; }
+      50% { transform: translateX(0.3rem); opacity: 1; }
+    }
+    @keyframes systems-path-cue-glow-map {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.15); }
+      50% { box-shadow: 0 0 14px 2px rgba(201, 162, 39, 0.4); }
+    }
+    @keyframes systems-path-cue-glow-dojo {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(43, 95, 158, 0.15); }
+      50% { box-shadow: 0 0 14px 2px rgba(43, 95, 158, 0.4); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .systems-path-cue,
+      .systems-path-cue--map,
+      .systems-path-cue--dojo {
+        animation: none;
+        opacity: 1;
+      }
+      .systems-path-card:hover,
+      .systems-path-card:focus-visible {
+        transform: none;
+      }
+    }
+    @media (min-width: 768px) {
+      .door-mark-thumb:not(.door-mark-thumb--sm) {
+        width: 7.5rem;
+        height: 7.5rem;
       }
     }
 
@@ -2875,7 +2912,7 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=hero-paint1" defer></script>
+  <script src="/js/main.js?v=main-nav1" defer></script>
   <noscript>
     <style>
       [data-reveal] { opacity: 1 !important; transform: none !important; }

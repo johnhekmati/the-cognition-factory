@@ -1512,11 +1512,18 @@
    * Generic AiO / desk monitor mock — charcoal bezel, top cam, stand.
    * Screenshot sits on the display. Temporary until reworked captures.
    */
+  /* Product gallery: equal-height AiO columns (device + copy) */
+  .product-aio-grid {
+    align-items: stretch;
+  }
+
   .aio-product {
     display: flex;
     flex-direction: column;
     gap: 0;
     align-items: stretch;
+    height: 100%;
+    min-width: 0;
   }
 
   .aio-device {
@@ -1525,6 +1532,7 @@
     align-items: center;
     width: 100%;
     margin-bottom: 0.25rem;
+    flex: 0 0 auto;
   }
 
   .aio-monitor-btn {
@@ -1644,6 +1652,21 @@
 
   .aio-copy {
     margin-top: 1.15rem;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .aio-copy > p:last-child {
+    margin-top: auto;
+    padding-top: 1.25rem;
+  }
+
+  /* When no trailing link, keep body from stretching awkwardly */
+  .aio-copy > h3 + p:last-child {
+    margin-top: 0.75rem;
+    padding-top: 0;
   }
 
   .aio-product--wide .aio-product-wide-inner {
@@ -1651,30 +1674,43 @@
     flex-direction: column;
     gap: 0;
     align-items: stretch;
+    width: 100%;
   }
 
   .aio-device--wide {
     max-width: 28rem;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
   }
 
   @media (min-width: 768px) {
+    /* Same 1fr | 1fr as product-aio-grid so Shell copy aligns under Workflow Floor */
     .aio-product--wide .aio-product-wide-inner {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 1.75rem;
-      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 2.5rem; /* match md:gap-10 on .product-aio-grid */
+      align-items: stretch;
+      width: 100%;
     }
 
     .aio-device--wide {
       max-width: none;
       margin: 0;
+      width: 100%;
     }
 
     .aio-product--wide .aio-copy {
       margin-top: 0;
       min-height: 100%;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .aio-product--wide .aio-product-wide-inner {
+      gap: 3rem; /* match lg:gap-12 on .product-aio-grid */
     }
   }
 

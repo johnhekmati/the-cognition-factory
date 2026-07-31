@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initScrollSpy();
   initMobileMenu();
+  initHeroScrollCue();
   initContactForm();
   initPartnerPacketForm();
   initRevealAnimations();
@@ -33,18 +34,21 @@ function initNavigation() {
 /* ── Active section highlighting ── */
 function initScrollSpy() {
   const navLinks = document.querySelectorAll('[data-nav]');
-  const navIds = new Set(
-    [...navLinks]
-      .map((link) => link.getAttribute('href'))
-      .filter((href) => href && href.startsWith('#'))
-      .map((href) => href.slice(1))
-  );
+  const navIds = [
+    ...new Set(
+      [...navLinks]
+        .map((link) => link.getAttribute('href'))
+        .filter((href) => href && href.startsWith('#'))
+        .map((href) => href.slice(1))
+    ),
+  ];
 
-  const sections = [...document.querySelectorAll('section[id]')].filter((s) =>
-    navIds.has(s.id)
-  );
+  // Any element with a matching id (section or in-page target like #knowledge)
+  const targets = navIds
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
 
-  if (!sections.length || !navLinks.length) return;
+  if (!targets.length || !navLinks.length) return;
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -59,7 +63,32 @@ function initScrollSpy() {
     { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
   );
 
-  sections.forEach((section) => observer.observe(section));
+  targets.forEach((el) => observer.observe(el));
+}
+
+/* ── Hero scroll cue (pathway banners; hides once the visitor moves past the stage) ── */
+function initHeroScrollCue() {
+  const cue = document.querySelector('[data-hero-scroll-cue]');
+  if (!cue) return;
+
+  const stage =
+    cue.closest('.hero-slide-stage, .pathway-hero-stage, .hero-banner-plate') ||
+    cue.parentElement;
+
+  const update = () => {
+    // Stay visible while any of the banner stage is still in view
+    let hide = window.scrollY > 120;
+    if (stage) {
+      const rect = stage.getBoundingClientRect();
+      hide = rect.bottom < 96; // past nav + a little breathing room
+    }
+    cue.classList.toggle('is-hidden', hide);
+    cue.setAttribute('aria-hidden', hide ? 'true' : 'false');
+  };
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
 }
 
 /* ── Mobile menu toggle ── */
@@ -179,20 +208,25 @@ async function submitContactForm(
   }
 }
 
-/* ── Contact form ── */
+/* ── Contact form(s) — home + pathway slugs (same /api/contact pipeline) ── */
 function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
+  const forms = document.querySelectorAll('#contact-form, form[data-contact-form]');
+  if (!forms.length) return;
 
-  const statusEl = document.getElementById('form-status');
-  const btn = form.querySelector('[type="submit"]');
+  forms.forEach((form) => {
+    const statusEl =
+      form.querySelector('[data-form-status]') ||
+      form.querySelector('#form-status') ||
+      document.getElementById(form.getAttribute('data-status-id') || 'form-status');
+    const btn = form.querySelector('[type="submit"]');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    await submitContactForm(form, {
-      statusEl,
-      btn,
-      successMessage: 'Message sent. We will respond if the inquiry is a fit.',
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await submitContactForm(form, {
+        statusEl,
+        btn,
+        successMessage: 'Message sent. We will respond if the inquiry is a fit.',
+      });
     });
   });
 }

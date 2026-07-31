@@ -1,0 +1,961 @@
+  <footer class="border-t border-ink/10 bg-white">
+    <!-- Same site-chrome shell as header — logo / copy share one x-axis with body columns -->
+    <div class="site-chrome">
+      <div class="site-chrome-inner py-12">
+        <div class="flex flex-col md:flex-row items-center md:items-center justify-between gap-6">
+          <div class="flex items-center gap-3 min-w-0">
+            <img
+              src="/assets/images/brand/tcf-mark-cf-charcoal-light.jpg?v=brand-exp19"
+              alt="The Cognition Factory"
+              class="brand-nav-mark shrink-0"
+              width="32"
+              height="32"
+            />
+            <span class="text-ink-muted text-sm">&copy; 2026 The Cognition Factory. All rights reserved.</span>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-6" aria-label="Site map">
+            <a href="#enemy" class="text-ink-muted hover:text-electric text-sm transition-colors">Problem</a>
+            <a href="#loop" class="text-ink-muted hover:text-electric text-sm transition-colors">How it works</a>
+            <a href="#product" class="text-ink-muted hover:text-electric text-sm transition-colors">Product</a>
+            <a href="#proof" class="text-ink-muted hover:text-electric text-sm transition-colors">Proof</a>
+            <a href="#resources" class="text-ink-muted hover:text-electric text-sm transition-colors">Guides</a>
+            <a href="#promise" class="text-ink-muted hover:text-electric text-sm transition-colors">Why</a>
+            <a href="#contact" class="text-ink-muted hover:text-electric text-sm transition-colors">Contact</a>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p class="text-ink-muted text-xs font-mono uppercase tracking-widest leading-relaxed text-center md:text-left">
+            You bring dedication and a plan · we build the structure
+          </p>
+          <p class="text-center md:text-right text-xs text-ink-muted flex flex-wrap items-center justify-center md:justify-end gap-x-3 gap-y-1">
+            <a href="/assets/docs/Privacy_Policy.html" class="hover:text-electric transition-colors">Privacy</a>
+            <span class="text-ink/10" aria-hidden="true">·</span>
+            <a href="/assets/docs/Terms_of_Service.html" class="hover:text-electric transition-colors">Terms</a>
+            <span class="text-ink/10" aria-hidden="true">·</span>
+            <a href="/assets/docs/EULA.html" class="hover:text-electric transition-colors">EULA</a>
+            <span class="text-ink/10" aria-hidden="true">·</span>
+            <a href="https://github.com/johnhekmati/the-cognition-factory/blob/main/CHANGELOG.md" class="hover:text-electric transition-colors" rel="noopener noreferrer" target="_blank">Changelog</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <style>
+    /*
+     * Shared chrome shell — gutters match .section-padding, max-w-7xl inside.
+     * Padding is OUTSIDE the 7xl box so header logo + footer mark share one x-axis
+     * with body columns (not double-inset by padding inside max-w-7xl).
+     */
+    .site-chrome {
+      width: 100%;
+      padding-left: 1.5rem;   /* px-6 */
+      padding-right: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .site-chrome {
+        padding-left: 3rem;   /* md:px-12 */
+        padding-right: 3rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      .site-chrome {
+        padding-left: 5rem;   /* lg:px-20 */
+        padding-right: 5rem;
+      }
+    }
+    @media (min-width: 1280px) {
+      .site-chrome {
+        padding-left: 8rem;   /* xl:px-32 — match section-padding */
+        padding-right: 8rem;
+      }
+    }
+    .site-chrome-inner {
+      max-width: 80rem; /* max-w-7xl */
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    /* White chrome rails — header + footer sit above light-gray field */
+    #main-nav {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+    #main-nav.nav-scrolled {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 16px rgba(0, 0, 0, 0.06);
+    }
+    #main-nav.nav-scrolled .nav-link {
+      color: #000000;
+    }
+    #main-nav.nav-scrolled .nav-link:hover,
+    #main-nav.nav-scrolled .nav-link.active {
+      color: #3b6f9e;
+    }
+    #main-nav.nav-scrolled .font-display {
+      color: #000000;
+    }
+    #main-nav #menu-toggle {
+      color: #000000;
+    }
+    #main-nav.nav-scrolled #menu-toggle {
+      color: #000000;
+    }
+    #main-nav.nav-scrolled #mobile-menu,
+    #main-nav #mobile-menu {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+    footer {
+      background: #ffffff;
+    }
+
+    /* Taglines: calm professional (no neon stream) */
+    .gradient-text-rev {
+      background-image: linear-gradient(to right, #5c6b8a, #4a7ab0, #3b6f9e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /*
+     * Hero mark words — metal gradients (gold / forest / crimson / royal).
+     * Tuned to read on the charcoal manifesto band.
+     */
+    .hero-grad {
+      display: inline;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-grad--map {
+      background-image: linear-gradient(
+        125deg,
+        #a88420 0%,
+        #e0c060 38%,
+        #d4b04a 62%,
+        #9a7818 100%
+      );
+    }
+    .hero-grad--practice {
+      background-image: linear-gradient(
+        125deg,
+        #1a5c38 0%,
+        #4aaa6a 42%,
+        #2f8a52 68%,
+        #145032 100%
+      );
+    }
+    .hero-grad--save {
+      background-image: linear-gradient(
+        125deg,
+        #8a2020 0%,
+        #e05858 40%,
+        #c04040 65%,
+        #7a1818 100%
+      );
+    }
+    .hero-grad--dojo {
+      background-image: linear-gradient(
+        125deg,
+        #1a4a7a 0%,
+        #5a9ae0 42%,
+        #3a7bc8 68%,
+        #163a62 100%
+      );
+    }
+
+    /*
+     * Shared charcoal band — hero manifesto stays dark + light type.
+     * Mid-funnel (Who / What you work with) uses .band-charcoal--ink.
+     * Why it exists is full charcoal (bottom arm of page chiasmus with hero).
+     */
+    .band-charcoal {
+      width: 100%;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(59, 111, 158, 0.12), transparent 60%),
+        linear-gradient(180deg, #323842 0%, #2a2f38 45%, #252a32 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 12px 40px rgba(25, 28, 34, 0.18);
+      color: #e8eaee;
+    }
+
+    /* Light field + pure black type (Who trains / What you work with only) */
+    .band-charcoal.band-charcoal--ink {
+      background: #e8eaee;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: none;
+      color: #000000;
+    }
+
+    .band-charcoal.band-charcoal--ink .section-title,
+    .band-charcoal.band-charcoal--ink .section-subtitle,
+    .band-charcoal.band-charcoal--ink .text-ink,
+    .band-charcoal.band-charcoal--ink .text-ink-muted,
+    .band-charcoal.band-charcoal--ink .text-ink-soft,
+    .band-charcoal.band-charcoal--ink h1,
+    .band-charcoal.band-charcoal--ink h2,
+    .band-charcoal.band-charcoal--ink h3,
+    .band-charcoal.band-charcoal--ink p,
+    .band-charcoal.band-charcoal--ink li,
+    .band-charcoal.band-charcoal--ink a.text-sm {
+      color: #000000 !important;
+    }
+
+    .band-charcoal.band-charcoal--ink a.text-sm:hover {
+      color: #3b6f9e !important;
+    }
+
+    .band-charcoal.band-charcoal--ink a.text-electric {
+      color: #3b6f9e !important;
+    }
+
+    .band-charcoal.band-charcoal--ink a.text-electric:hover {
+      color: #2f5a80 !important;
+    }
+
+    .band-charcoal.band-charcoal--ink .btn-secondary {
+      border-color: rgba(0, 0, 0, 0.2);
+      color: #000000;
+      background: #ffffff;
+    }
+
+    .band-charcoal.band-charcoal--ink .btn-secondary:hover {
+      background: #f4f5f7;
+      border-color: rgba(0, 0, 0, 0.35);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .band-charcoal.band-charcoal--ink .glass-card,
+    .band-charcoal.band-charcoal--ink .aio-copy,
+    .band-charcoal.band-charcoal--ink .band-charcoal-card,
+    .band-charcoal.band-charcoal--ink .cartridge-tile {
+      box-shadow: 0 4px 20px rgba(45, 50, 60, 0.08);
+    }
+
+    .band-charcoal.band-charcoal--ink .cartridge-console {
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-manifesto-copy.band-charcoal {
+      margin-top: 0; /* flush under full-bleed banner */
+    }
+
+    .band-charcoal .hero-manifesto-copy-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Field type on charcoal (not inside white cards). Label keeps white plate + ink. */
+    .band-charcoal .section-label {
+      color: #000000 !important;
+      background: #ffffff;
+      border-color: #2d323c;
+    }
+
+    .band-charcoal .section-title,
+    .band-charcoal .section-subtitle,
+    .band-charcoal .text-ink,
+    .band-charcoal h1,
+    .band-charcoal h2,
+    .band-charcoal h3 {
+      color: #f4f5f7 !important;
+    }
+
+    .band-charcoal .text-ink-muted {
+      color: rgba(232, 234, 238, 0.78) !important;
+    }
+
+    .band-charcoal .text-ink-soft {
+      color: #f0f2f5 !important;
+      font-weight: 500;
+    }
+
+    .band-charcoal .hero-copy-sep {
+      color: rgba(232, 234, 238, 0.28);
+    }
+
+    .band-charcoal a.text-sm {
+      color: rgba(232, 234, 238, 0.72);
+    }
+
+    .band-charcoal a.text-sm:hover {
+      color: #9ec0e0;
+    }
+
+    .band-charcoal .btn-secondary {
+      border-color: rgba(232, 234, 238, 0.32);
+      color: #eef0f3;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .band-charcoal .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(232, 234, 238, 0.55);
+      box-shadow: 0 0 24px rgba(59, 111, 158, 0.2);
+    }
+
+    .band-charcoal .ritual-tagline {
+      color: rgba(232, 234, 238, 0.68);
+    }
+
+    .band-charcoal .ritual-chip {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+    }
+
+    /* White product cards stay light — restore dark ink inside */
+    .band-charcoal .glass-card,
+    .band-charcoal .aio-copy {
+      box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.35),
+        0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .band-charcoal .glass-card .text-ink,
+    .band-charcoal .glass-card .section-title,
+    .band-charcoal .glass-card h2,
+    .band-charcoal .glass-card h3,
+    .band-charcoal .aio-copy .text-ink,
+    .band-charcoal .aio-copy h3 {
+      color: #000000 !important;
+    }
+
+    .band-charcoal .glass-card .text-ink-muted,
+    .band-charcoal .glass-card .text-ink-soft,
+    .band-charcoal .aio-copy .text-ink-muted,
+    .band-charcoal .aio-copy .text-ink-soft {
+      color: #000000 !important;
+      font-weight: inherit;
+    }
+
+    /* Keep mark accent colors on kicker labels / CTAs inside white cards */
+    .band-charcoal .aio-copy .accent-map,
+    .band-charcoal .glass-card .accent-map {
+      color: #5c4a0c !important;
+    }
+    .band-charcoal .aio-copy .accent-practice,
+    .band-charcoal .glass-card .accent-practice {
+      color: #145032 !important;
+    }
+    .band-charcoal .aio-copy .accent-save,
+    .band-charcoal .glass-card .accent-save {
+      color: #6e1818 !important;
+    }
+    .band-charcoal .aio-copy .accent-dojo,
+    .band-charcoal .glass-card .accent-dojo {
+      color: #12355c !important;
+    }
+
+    /* Cartridge tiles + layer chips stay light surfaces on charcoal */
+    .band-charcoal .cartridge-tile {
+      background: #ffffff;
+      border-color: rgba(45, 50, 60, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    }
+    .band-charcoal .cartridge-tile .text-ink,
+    .band-charcoal .cartridge-tile h3 {
+      color: #000000 !important;
+    }
+    .band-charcoal .cartridge-tile .text-ink-muted {
+      color: #000000 !important;
+      font-weight: inherit;
+    }
+    .band-charcoal .layer-chip {
+      background: #ffffff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+    .band-charcoal .layer-chip-title,
+    .band-charcoal .layer-chip-desc {
+      color: #000000;
+    }
+    .band-charcoal .cartridge-console {
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+    .band-charcoal .cartridge-console .border-ink\/10 {
+      border-color: rgba(0, 0, 0, 0.08) !important;
+    }
+    /* Field links (outside cards) */
+    .band-charcoal a.text-electric {
+      color: #9ec0e0 !important;
+    }
+    .band-charcoal a.text-electric:hover {
+      color: #c5daf0 !important;
+    }
+
+    /* Why it exists / plain white cards on charcoal */
+    .band-charcoal .band-charcoal-card {
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+    }
+    .band-charcoal .band-charcoal-card .text-ink,
+    .band-charcoal .band-charcoal-card h3 {
+      color: #000000 !important;
+    }
+    .band-charcoal .band-charcoal-card .text-ink-muted,
+    .band-charcoal .band-charcoal-card .text-ink-soft {
+      color: #000000 !important;
+      font-weight: inherit;
+    }
+    .band-charcoal .band-charcoal-card .accent-map {
+      color: #5c4a0c !important;
+    }
+    .band-charcoal .band-charcoal-card .accent-practice {
+      color: #145032 !important;
+    }
+    .band-charcoal .band-charcoal-card .accent-save {
+      color: #6e1818 !important;
+    }
+    .band-charcoal .band-charcoal-card .accent-dojo {
+      color: #12355c !important;
+    }
+
+    /*
+     * Hero landing: full-width stage, object-fit: contain → zero crop of logo/copy.
+     * Soft-gray field (#e8eaee = site void) behind banner so letterbox matches body
+     * chiasmus: white nav · gray hero stage · charcoal thesis · gray body · charcoal why · gray connect · white footer
+     */
+    #hero {
+      --hero-nav-h: 4rem;
+      --hero-field: #e8eaee;
+    }
+    @media (min-width: 768px) {
+      #hero {
+        --hero-nav-h: 5rem;
+      }
+    }
+
+    .hero-landing {
+      display: flex;
+      flex-direction: column;
+      /* Soft-gray field (same as body void) + ticker hinge.
+         Full-viewport min-height only from md up — mobile posters already fill the stage. */
+      background: var(--hero-field, #e8eaee);
+    }
+
+    @media (min-width: 768px) {
+      .hero-landing {
+        min-height: calc(100svh - var(--hero-nav-h));
+      }
+      @supports not (height: 100svh) {
+        .hero-landing {
+          min-height: calc(100vh - var(--hero-nav-h));
+        }
+      }
+    }
+
+    #hero-video-wrap.hero-manifesto-media {
+      --mark-map: #c9a227;
+      --mark-practice: #3d8c5a;
+      --mark-save: #b03030;
+      --mark-dojo: #2b5f9e;
+      position: relative;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      height: auto;
+      max-height: none;
+      aspect-ratio: auto;
+      overflow: hidden;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      flex: 0 0 auto;
+    }
+
+    #hero-video-wrap.hero-manifesto-media--banner,
+    #hero-video-wrap.hero-manifesto-media--bleed {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+    }
+
+    #hero-video-wrap.hero-manifesto-media::before,
+    #hero-video-wrap.hero-manifesto-media--banner::after {
+      content: none;
+      display: none;
+    }
+
+    .hero-banner-plate {
+      position: relative;
+      z-index: 1;
+      border-radius: 0;
+      overflow: hidden;
+      background: var(--hero-field, #e8eaee);
+      border: 0;
+      box-shadow: none;
+    }
+
+    /*
+     * Four primary mark rails — soft gradient fades (not hard bands):
+     * Dojo blue → Map gold → Practice green → Save red.
+     * Top: under banner (plate::after); bottom: ticker underside (marquee::after).
+     */
+    .hero-banner-plate::after,
+    .hero-marquee::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 6px;
+      z-index: 3;
+      pointer-events: none;
+      background: linear-gradient(
+        90deg,
+        var(--mark-dojo, #2b5f9e) 0%,
+        var(--mark-map, #c9a227) 33%,
+        var(--mark-practice, #3d8c5a) 66%,
+        var(--mark-save, #b03030) 100%
+      );
+      opacity: 1;
+      box-shadow: 0 0 12px rgba(45, 50, 60, 0.12);
+    }
+
+    /*
+     * Desktop: min(full 16:9 of viewport width, room under nav + ticker).
+     * Mobile: portrait poster stage (~2:3 art); same contain = no crop.
+     * Width always 100% (edge-to-edge stage).
+     */
+    .hero-slide-stage {
+      position: relative;
+      width: 100%;
+      height: min(
+        calc(100vw * 9 / 16),
+        calc(100svh - var(--hero-nav-h) - 3.5rem)
+      );
+      max-height: min(
+        calc(100vw * 9 / 16),
+        calc(100svh - var(--hero-nav-h) - 3.5rem)
+      );
+      min-height: 12rem;
+      aspect-ratio: auto;
+      background: var(--hero-field, #e8eaee);
+      overflow: hidden;
+      isolation: isolate;
+      contain: layout style;
+    }
+
+    @supports not (height: 100svh) {
+      .hero-slide-stage {
+        height: min(
+          calc(100vw * 9 / 16),
+          calc(100vh - var(--hero-nav-h) - 3.5rem)
+        );
+        max-height: min(
+          calc(100vw * 9 / 16),
+          calc(100vh - var(--hero-nav-h) - 3.5rem)
+        );
+      }
+    }
+
+    /* Portrait mobile posters — fixed stage height (no document-flow expansion) */
+    @media (max-width: 767px) {
+      .hero-slide-stage {
+        height: min(
+          calc(100vw * 1904 / 1264),
+          calc(100svh - var(--hero-nav-h) - 3.25rem)
+        );
+        max-height: min(
+          calc(100vw * 1904 / 1264),
+          calc(100svh - var(--hero-nav-h) - 3.25rem)
+        );
+        min-height: 16rem;
+      }
+
+      @supports not (height: 100svh) {
+        .hero-slide-stage {
+          height: min(
+            calc(100vw * 1904 / 1264),
+            calc(100vh - var(--hero-nav-h) - 3.25rem)
+          );
+          max-height: min(
+            calc(100vw * 1904 / 1264),
+            calc(100vh - var(--hero-nav-h) - 3.25rem)
+          );
+        }
+      }
+    }
+
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      /* Transitions only when .is-ready (see head critical CSS + JS) */
+      transition: none;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--hero-field, #e8eaee);
+      pointer-events: none;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+    .hero-slide-stage.is-ready .hero-slide {
+      transition: opacity 0.45s ease;
+    }
+
+    @media (min-width: 768px) {
+      .hero-slide-stage.is-ready .hero-slide {
+        transition: opacity 0.75s ease;
+      }
+    }
+
+    .hero-slide picture {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      /* Never crop slide art — logo, copy, and footers stay intact */
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+
+    .hero-slide-dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0.55rem;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      pointer-events: auto;
+    }
+
+    /*
+     * Hero ticker — ape of PMMAI .marquee / .marquee-track
+     * (professionalmmainstitute.com). Soft-gray hinge canvas, not navy/gold.
+     * Framed by gradient primary rails (shared rule above).
+     */
+    .hero-marquee {
+      --mark-map: #c9a227;
+      --mark-practice: #3d8c5a;
+      --mark-save: #b03030;
+      --mark-dojo: #2b5f9e;
+      position: relative;
+      overflow: hidden;
+      margin-top: auto;
+      border: 0;
+      /* Hinge canvas = Tailwind void DEFAULT */
+      background: #e8eaee;
+      padding: 0.85rem 0 1.05rem;
+    }
+
+    .hero-marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      width: max-content;
+      animation: hero-marquee 90s linear infinite;
+    }
+
+    .hero-marquee span {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #000000;
+      white-space: nowrap;
+    }
+
+    .hero-marquee i {
+      font-style: normal;
+      color: rgba(45, 50, 60, 0.45);
+      font-size: 1.05rem;
+    }
+
+    @keyframes hero-marquee {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-marquee-track {
+        animation: none;
+      }
+    }
+
+    .hero-slide-dots[hidden] {
+      display: none;
+    }
+
+    .hero-slide-dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      /* Readable on light or photo bottoms */
+      background: rgba(45, 50, 60, 0.28);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.55);
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.25s ease, width 0.25s ease;
+    }
+
+    .hero-slide-dot.is-active {
+      width: 1.15rem;
+      background: rgba(45, 50, 60, 0.72);
+    }
+
+    .hero-slide-dot:focus-visible {
+      outline: 2px solid #3a7bc8;
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide {
+        transition: none;
+      }
+    }
+
+    /* Flat charcoal CF — Edge-style: no plate, no box, no radius card */
+    .brand-nav-mark {
+      height: 2.35rem;
+      width: 2.35rem;
+      object-fit: cover;
+      object-position: center;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      /* Drop light plate so only charcoal monogram reads on paper */
+      mix-blend-mode: multiply;
+      opacity: 0.95;
+      transition: opacity 0.2s ease;
+    }
+
+    .brand-nav-mark:hover,
+    a:hover .brand-nav-mark {
+      opacity: 1;
+    }
+
+    @media (min-width: 768px) {
+      .brand-nav-mark {
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+    }
+
+    footer .brand-nav-mark {
+      height: 2rem;
+      width: 2rem;
+      opacity: 0.88;
+    }
+
+    /* Connect triad labels — full width under banner */
+    .doors-caption {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+      width: 100%;
+      margin-top: 0.75rem;
+    }
+
+    .doors-caption .ritual-chip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Mark triad — gold / green / red (matches door marks) */
+    .ritual-chip--map {
+      border-color: #c9a227 !important;
+      color: #5c4a0c !important;
+      background: #fffdf5 !important;
+    }
+
+    .ritual-chip--practice {
+      border-color: #3d8c5a !important;
+      color: #145032 !important;
+      background: #f4fbf6 !important;
+    }
+
+    .ritual-chip--save {
+      border-color: #b03030 !important;
+      color: #6e1818 !important;
+      background: #fff6f6 !important;
+    }
+
+    @media (min-width: 768px) {
+      .hero-slide-dots {
+        bottom: 1rem;
+        gap: 0.5rem;
+      }
+    }
+
+    .hero-video-stage.hero-mark-stage {
+      /* positioned by .hero-mark-stage — relative flow inside plate */
+      border-radius: 0;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      opacity: 0;
+      z-index: 1;
+      /* Punchier mark on void (less washed) */
+      filter: brightness(1.08) saturate(1.22) contrast(1.04);
+      transform: none;
+      transition: opacity 0.6s ease;
+      will-change: opacity;
+    }
+
+    img.hero-video {
+      opacity: 1;
+      z-index: 3;
+    }
+
+    .hero-video.is-active {
+      opacity: 1;
+      z-index: 3;
+      transform: none;
+    }
+
+    .hero-video.is-exiting {
+      opacity: 0;
+      z-index: 2;
+      transform: none;
+    }
+
+    .hero-video-fade {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      background: linear-gradient(to bottom, transparent 65%, rgba(5, 8, 16, 0.8) 100%);
+      border-radius: inherit;
+    }
+
+    .hero-engine-badge {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      margin: 0;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(0, 212, 255, 0.35);
+      background: rgba(5, 8, 16, 0.72);
+      backdrop-filter: blur(12px);
+      font-family: JetBrains Mono, ui-monospace, monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #00d4ff;
+      white-space: nowrap;
+      transition: opacity 0.4s ease;
+      max-width: calc(100% - 1.5rem);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video {
+        transition: none;
+        transform: none;
+        filter: brightness(1.05) saturate(1.05);
+        /* Single-clip hero: keep the only video visible (show poster / paused frame) */
+        opacity: 1 !important;
+        display: block !important;
+      }
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* No-JS / script blocked: content still readable */
+    @media (scripting: none) {
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    .resource-card.is-hidden {
+      display: none;
+    }
+  </style>
+
+  <!-- Product gallery lightbox -->
+  <div
+    id="product-lightbox"
+    class="product-lightbox"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="product-lightbox-caption"
+  >
+    <button type="button" class="product-lightbox__backdrop" data-lightbox-close aria-label="Close enlarged photo"></button>
+    <div class="product-lightbox__frame">
+      <button type="button" class="product-lightbox__close" data-lightbox-close aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      <img id="product-lightbox-img" class="product-lightbox__img" src="" alt="" />
+      <p id="product-lightbox-caption" class="product-lightbox__caption"></p>
+    </div>
+  </div>
+
+  <script src="/js/main.js?v=hero-paint1" defer></script>
+  <noscript>
+    <style>
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+</body>
+</html>

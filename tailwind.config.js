@@ -1,7 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 /** experiment/brand-copy — stamp, don't stream (light professional room) */
 module.exports = {
-  content: ['./index.html', './js/**/*.js'],
+  content: [
+    './index.html',
+    './solo/**/*.html',
+    './enterprise/**/*.html',
+    './partials/**/*.html',
+    './js/**/*.js',
+  ],
   theme: {
     extend: {
       colors: {

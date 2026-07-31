@@ -1,0 +1,115 @@
+    <!-- ═══════════════════════════════════════════════════════════
+         CONTACT — Enterprise pathway (Web3Forms via /api/contact)
+         Offer chips: Small team · Institution · Not a fit
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="contact" class="section-padding relative">
+      <div class="absolute inset-0 bg-gradient-to-t from-electric/[0.03] to-transparent pointer-events-none" aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto relative">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div data-reveal>
+            <span class="section-label">Connect</span>
+            <h2 class="section-title">Team / institution briefing</h2>
+            <p class="section-subtitle !max-w-none">
+              Tell us the role, the standard, and the constraint. Outcomes and employment decisions stay yours —
+              we structure maps, packs, and Dojo observation inside a written SOW when it’s a fit.
+            </p>
+
+            <div class="mt-8 space-y-3 offer-ladder" aria-label="Who this path is for">
+              <div class="surface-card surface-card--practice offer-rung !text-left p-4">
+                <p class="surface-card-kicker !text-left mb-1">Small team</p>
+                <p class="text-sm text-ink leading-relaxed">Shared skill under real calendars — not seat-time LMS theater. Say the role and the constraint.</p>
+              </div>
+              <div class="surface-card surface-card--save offer-rung !text-left p-4">
+                <p class="surface-card-kicker !text-left mb-1">Institution</p>
+                <p class="text-sm text-ink leading-relaxed">Briefing path for upskilling and structured practice under pressure — continuity when work interrupts. Not a catalog dump or outcome guarantee.</p>
+              </div>
+              <div class="surface-card surface-card--dojo offer-rung !text-left p-4">
+                <p class="surface-card-kicker !text-left mb-1">Not a fit (walk-away)</p>
+                <p class="text-sm text-ink leading-relaxed">Passive content binge, completion badges only, guaranteed-outcome shopping, or “AI tutor with no structure.” We will say no rather than cosplay — and we never sell someone else’s logo as our badge.</p>
+              </div>
+            </div>
+
+            <p class="text-ink-muted mt-6 leading-relaxed text-sm">
+              <strong class="text-ink-muted">Support ritual:</strong> we take serious inquiries.
+              Expect a reply within a few days when it is a fit — not 24/7 chat.
+            </p>
+            <p class="mt-6 text-sm text-ink-muted">
+              <a href="/solo/" class="accent-map hover:underline">Looking for solo / Gym? Solo path →</a>
+            </p>
+
+            <div class="mt-10 space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-electric/10 border border-electric/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                </div>
+                <div>
+                  <div class="text-xs text-ink-muted font-mono uppercase tracking-wider">Email</div>
+                  <a href="mailto:contact@thecognitionfactory.com" class="text-ink hover:text-electric transition-colors">contact@thecognitionfactory.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-8 md:p-10 resource-card resource-card--neutral" data-reveal>
+            <form
+              id="contact-form-enterprise"
+              class="space-y-6"
+              method="post"
+              action="/api/contact"
+              data-contact-form
+              aria-label="Enterprise pathway contact form"
+            >
+              <div data-form-status class="hidden text-sm rounded-lg px-4 py-3 border" role="status" aria-live="polite"></div>
+              <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <input type="hidden" name="pathway" value="enterprise" />
+
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <label for="ent-first-name" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">First name</label>
+                  <input type="text" id="ent-first-name" name="first-name" required maxlength="100"
+                    class="form-input" placeholder="Jane" autocomplete="given-name" />
+                </div>
+                <div>
+                  <label for="ent-last-name" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">Last name</label>
+                  <input type="text" id="ent-last-name" name="last-name" required maxlength="100"
+                    class="form-input" placeholder="Smith" autocomplete="family-name" />
+                </div>
+              </div>
+
+              <div>
+                <label for="ent-email" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">Email</label>
+                <input type="email" id="ent-email" name="email" required maxlength="254"
+                  class="form-input" placeholder="you@company.com" autocomplete="email" />
+              </div>
+
+              <div>
+                <label for="ent-organization" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">Organization <span class="text-ink-muted normal-case tracking-normal">(optional)</span></label>
+                <input type="text" id="ent-organization" name="organization" maxlength="200"
+                  class="form-input" placeholder="Team · institution · firm" autocomplete="organization" />
+              </div>
+
+              <div>
+                <label for="ent-interest" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">Path</label>
+                <select id="ent-interest" name="interest" required class="form-input appearance-none">
+                  <option value="" class="bg-void-200">Select an option</option>
+                  <option value="team" selected class="bg-void-200">Small team</option>
+                  <option value="enterprise" class="bg-void-200">Institution / enterprise briefing</option>
+                  <option value="partner-packet" class="bg-void-200">Partner &amp; media packet (request)</option>
+                  <option value="other" class="bg-void-200">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="ent-message" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">Message</label>
+                <textarea id="ent-message" name="message" rows="4" required maxlength="5000"
+                  class="form-input resize-none"
+                  placeholder="Role, standard, constraints, and what a good briefing would answer..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary w-full">Send message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>

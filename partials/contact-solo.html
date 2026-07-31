@@ -1,0 +1,111 @@
+    <!-- ═══════════════════════════════════════════════════════════
+         CONTACT — Solo pathway (Web3Forms via /api/contact)
+         Offer chips: Solo / household · Not a fit
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="contact" class="section-padding relative">
+      <div class="absolute inset-0 bg-gradient-to-t from-electric/[0.03] to-transparent pointer-events-none" aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto relative">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div data-reveal>
+            <span class="section-label">Connect</span>
+            <h2 class="section-title">Start as solo / household</h2>
+            <p class="section-subtitle !max-w-none">
+              Tell us the subject, your constraints (time, money, attention), and what good looks like.
+              No outcome guarantees — we build the runway; you own the run.
+            </p>
+
+            <div class="mt-8 space-y-3 offer-ladder" aria-label="Who this path is for">
+              <div class="surface-card surface-card--map offer-rung !text-left p-4">
+                <p class="surface-card-kicker !text-left mb-1">Solo / household</p>
+                <p class="text-sm text-ink leading-relaxed">Busy adult or small home install — learn · practice · park on your machine. We point you at the right starting path.</p>
+              </div>
+              <div class="surface-card surface-card--dojo offer-rung !text-left p-4">
+                <p class="surface-card-kicker !text-left mb-1">Not a fit (walk-away)</p>
+                <p class="text-sm text-ink leading-relaxed">Passive content binge, completion badges only, guaranteed-outcome shopping, or “AI tutor with no structure.” We will say no rather than cosplay.</p>
+              </div>
+            </div>
+
+            <p class="text-ink-muted mt-6 leading-relaxed text-sm">
+              <strong class="text-ink-muted">Support ritual:</strong> we take serious inquiries.
+              Expect a reply within a few days when it is a fit — not 24/7 chat.
+            </p>
+            <p class="mt-6 text-sm text-ink-muted">
+              <a href="/enterprise/" class="accent-dojo hover:underline">Looking for teams / Dojo? Enterprise path →</a>
+            </p>
+
+            <div class="mt-10 space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-electric/10 border border-electric/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                </div>
+                <div>
+                  <div class="text-xs text-ink-muted font-mono uppercase tracking-wider">Email</div>
+                  <a href="mailto:contact@thecognitionfactory.com" class="text-ink hover:text-electric transition-colors">contact@thecognitionfactory.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-8 md:p-10 resource-card resource-card--neutral" data-reveal>
+            <form
+              id="contact-form-solo"
+              class="space-y-6"
+              method="post"
+              action="/api/contact"
+              data-contact-form
+              aria-label="Solo pathway contact form"
+            >
+              <div data-form-status class="hidden text-sm rounded-lg px-4 py-3 border" role="status" aria-live="polite"></div>
+              <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <input type="hidden" name="pathway" value="solo" />
+
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <label for="solo-first-name" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">First name</label>
+                  <input type="text" id="solo-first-name" name="first-name" required maxlength="100"
+                    class="form-input" placeholder="Jane" autocomplete="given-name" />
+                </div>
+                <div>
+                  <label for="solo-last-name" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">Last name</label>
+                  <input type="text" id="solo-last-name" name="last-name" required maxlength="100"
+                    class="form-input" placeholder="Smith" autocomplete="family-name" />
+                </div>
+              </div>
+
+              <div>
+                <label for="solo-email" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">Email</label>
+                <input type="email" id="solo-email" name="email" required maxlength="254"
+                  class="form-input" placeholder="you@domain.com" autocomplete="email" />
+              </div>
+
+              <div>
+                <label for="solo-organization" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">Household / context <span class="text-ink-muted normal-case tracking-normal">(optional)</span></label>
+                <input type="text" id="solo-organization" name="organization" maxlength="200"
+                  class="form-input" placeholder="Solo · family · self-study" autocomplete="organization" />
+              </div>
+
+              <div>
+                <label for="solo-interest" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">Path</label>
+                <select id="solo-interest" name="interest" required class="form-input appearance-none">
+                  <option value="" class="bg-void-200">Select an option</option>
+                  <option value="solo" selected class="bg-void-200">Solo learner</option>
+                  <option value="exam" class="bg-void-200">Exam / credential prep (Practice)</option>
+                  <option value="hale" class="bg-void-200">Learn / building a map</option>
+                  <option value="other" class="bg-void-200">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="solo-message" class="block text-xs font-mono uppercase tracking-wider text-ink-muted mb-2">Message</label>
+                <textarea id="solo-message" name="message" rows="4" required maxlength="5000"
+                  class="form-input resize-none"
+                  placeholder="Subject, constraints (time / money / attention), and what good looks like..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary w-full">Send message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
