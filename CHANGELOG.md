@@ -6,6 +6,14 @@ Public marketing site (`tcf-site` / thecognitionfactory.com). Newest first.
 
 ---
 
+## 2026-07-30 — Hero stage: soft-gray field (chiasmus)
+
+- Hero banner plate / stage / slides use site void `#e8eaee` (same as body + marquee hinge)
+- Letterbox behind slides no longer reads as a white slab
+- Page chiasmus: white header · gray hero · charcoal thesis · gray body · charcoal why · gray connect · white footer
+
+---
+
 ## 2026-07-30 — Claim-language softens (Batch A + B)
 
 - **Homepage:** Teams / Partners / Institution offer / Dojo body copy / product gallery off-ramp language — no hire-day, pass, or delivery guarantees; screening framed as structured observation

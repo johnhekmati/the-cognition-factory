@@ -2192,12 +2192,13 @@
     }
 
     /*
-     * Hero landing: full-width stage, native ~16:9 fit, object-fit: contain
-     * → zero crop of logo/copy. Dark stage is edge-to-edge; image letterboxes
-     * only when the viewport is shorter than 16:9 of width.
+     * Hero landing: full-width stage, object-fit: contain → zero crop of logo/copy.
+     * Soft-gray field (#e8eaee = site void) behind banner so letterbox matches body
+     * chiasmus: white nav · gray hero stage · charcoal thesis · gray body · charcoal why · gray connect · white footer
      */
     #hero {
       --hero-nav-h: 4rem;
+      --hero-field: #e8eaee;
     }
     @media (min-width: 768px) {
       #hero {
@@ -2209,8 +2210,8 @@
       display: flex;
       flex-direction: column;
       min-height: calc(100svh - var(--hero-nav-h));
-      /* White stage + soft-gray ticker (hinge canvas) under banner */
-      background: #ffffff;
+      /* Soft-gray field (same as body void) + ticker hinge */
+      background: var(--hero-field, #e8eaee);
     }
 
     @supports not (height: 100svh) {
@@ -2257,7 +2258,7 @@
       z-index: 1;
       border-radius: 0;
       overflow: hidden;
-      background: #ffffff;
+      background: var(--hero-field, #e8eaee);
       border: 0;
       box-shadow: none;
     }
@@ -2303,7 +2304,7 @@
       min-height: 12rem;
       max-height: none;
       aspect-ratio: auto;
-      background: #ffffff;
+      background: var(--hero-field, #e8eaee);
       overflow: hidden;
     }
 
@@ -2352,7 +2353,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #ffffff;
+      background: var(--hero-field, #e8eaee);
     }
 
     .hero-slide.is-active {
