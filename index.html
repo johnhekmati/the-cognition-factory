@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/styles.css?v=brand-exp39" />
+  <link rel="stylesheet" href="/css/styles.css?v=brand-exp39b" />
 
   <!--
     Critical hero first-paint (mobile + desktop).
@@ -1898,8 +1898,31 @@
       color: rgba(232, 234, 238, 0.68);
     }
 
+    /* Charcoal hero story: solid mark primaries (no translucent tints / gradients) */
     .band-charcoal .ritual-chip {
       box-shadow: none;
+      font-weight: 600;
+    }
+    .band-charcoal .ritual-chip--map {
+      background: #c9a227 !important;
+      border-color: #c9a227 !important;
+      color: #1a1400 !important;
+    }
+    .band-charcoal .ritual-chip--practice {
+      background: #3d8c5a !important;
+      border-color: #3d8c5a !important;
+      color: #ffffff !important;
+    }
+    .band-charcoal .ritual-chip--save {
+      background: #b03030 !important;
+      border-color: #b03030 !important;
+      color: #ffffff !important;
+    }
+    @media (max-width: 640px) {
+      .band-charcoal .ritual-strip {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.12);
+      }
     }
 
     /* White product cards stay light — restore dark ink inside */
