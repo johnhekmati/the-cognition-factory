@@ -153,6 +153,12 @@
         0 8px 28px rgba(45, 50, 60, 0.08),
         0 2px 8px rgba(45, 50, 60, 0.04);
     }
+    .prose-panel--ink-border {
+      border: 2px solid #2d323c;
+      border-radius: 0.75rem;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(45, 50, 60, 0.08);
+    }
 
     /* Pathway heroes: match main stage (width-driven 16:9, no svh crop) + nav clearance */
     .pathway-hero {
@@ -489,6 +495,7 @@
           <div class="solo-nav-desktop" data-nav-context="solo">
             <a href="/" class="nav-link">Home</a>
             <a href="#enemy" class="nav-link" data-nav>Problem</a>
+            <a href="#solution" class="nav-link" data-nav>Solution</a>
             <a href="#loop" class="nav-link" data-nav>How</a>
             <a href="#product" class="nav-link" data-nav>Product</a>
             <a href="#contact" class="btn-primary text-xs !px-5 !py-2.5">Talk with us</a>
@@ -505,6 +512,7 @@
             <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted">Solo pathway</p>
             <a href="/" class="nav-link py-2">Home</a>
             <a href="#enemy" class="nav-link py-2" data-nav>Problem</a>
+            <a href="#solution" class="nav-link py-2" data-nav>Solution</a>
             <a href="#loop" class="nav-link py-2" data-nav>How it works</a>
             <a href="#product" class="nav-link py-2" data-nav>Product</a>
             <a href="#contact" class="btn-primary text-center mt-2">Talk with us</a>
@@ -575,8 +583,9 @@
           <span class="section-label !text-[#5c4a0c]">Solo pathway</span>
           <h1 class="section-title">Adult learners · structure that holds when life is loud</h1>
           <p class="section-subtitle mx-auto">
-            Ready courses you can start from. <span class="text-ink-soft">Gym</span> when a subject needs a safe place to try the real work.
-            Same system as Enterprise — built for weeks that get interrupted. You own the outcome.
+            Pick a course. Learn the map of it. Practice what you learned.
+            Hit the <span class="text-ink-soft">Gym</span> to try it out like the real world works it.
+            Save your place when life interrupts. Own the outcome.
           </p>
           <div class="flex flex-col sm:flex-row gap-3 justify-center mt-8">
             <a href="#gym" class="btn-primary">See the Gym</a>
@@ -594,22 +603,45 @@
         <h2 class="section-title">More content doesn’t mean more skill</h2>
         <div class="prose-panel glass-card mt-8 p-6 md:p-8 space-y-4 text-ink-muted leading-relaxed text-base text-left sm:text-center">
           <p>
-            Most learning products care about hours logged and how confident you feel
-            at the end of a module. They rarely ask whether you can still do the work
-            next week — when time, money, and attention are scarce.
-          </p>
-          <p>
-            You already know the pattern: certificates stack up, apps multiply, and a hard day at work
-            still shows fuzzy explanations and missing structure.
+            You know how it goes: the pivot you need to make requires knowing how to do x, y, or z.
+            Your school or certification pathway teaches it. People all around you pass and move along.
+            Real life keeps knocking you off course.
           </p>
           <p class="text-ink font-medium">
-            This is not a “need more videos” problem. It is a
-            <span class="text-ink-muted">how skill is built, checked, and kept alive</span> problem.
+            “Maybe I’m not cut out for this. I’ll just stay in my lane.”
           </p>
           <p class="accent-save font-mono text-xs uppercase tracking-[0.2em] pt-1">
             Recognizing material is not the same as owning it.
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         THE SOLUTION — bridge into How it works
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="solution" class="section-padding relative">
+      <div class="max-w-3xl mx-auto text-center">
+        <div data-reveal>
+          <span class="section-label">The solution</span>
+          <h2 class="section-title">
+            The Cognition Factory exists to make more lanes. And on-ramps. And off-ramps.
+          </h2>
+        </div>
+        <div
+          class="prose-panel prose-panel--ink-border mt-8 md:mt-10 p-6 md:p-8 space-y-5 text-ink-muted leading-relaxed text-base md:text-lg text-left sm:text-center"
+          data-reveal
+        >
+          <p>
+            You have the time — it just exists in chunks, and fits and starts.
+            The Cognition Factory serves up learning in a way that’s meant to work with the flow of your busy life, not against it.
+            No attendance theater. We break down real-world subjects like supply-chain management, physics, and change management
+            into interruptible and resumable learning blocks + situations meant to mirror how the real world uses that information.
+          </p>
+        </div>
+        <p class="pt-6 text-center" data-reveal>
+          <a href="#loop" class="btn-secondary inline-flex">How it works →</a>
+        </p>
       </div>
     </section>
 
@@ -1515,6 +1547,7 @@
           <div class="footer-sitemap" aria-label="Site map">
             <a href="/">Home</a>
             <a href="#enemy">Problem</a>
+            <a href="#solution">Solution</a>
             <a href="#loop">How it works</a>
             <a href="#product">Product</a>
             <a href="#contact">Talk with us</a>
@@ -2512,6 +2545,12 @@
       box-shadow:
         0 8px 28px rgba(45, 50, 60, 0.08),
         0 2px 8px rgba(45, 50, 60, 0.04);
+    }
+    .prose-panel--ink-border {
+      border: 2px solid #2d323c;
+      border-radius: 0.75rem;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(45, 50, 60, 0.08);
     }
   </style>
 <!-- Product gallery lightbox -->
