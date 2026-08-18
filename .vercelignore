@@ -1,0 +1,15 @@
+docs/
+mcps/
+workers/
+scripts/
+terminals/
+.github/
+functions/
+.wranglerignore
+wrangler.jsonc
+CHANGELOG.md
+README.md
+AGENTS.md
+BRAND_EXPERIMENT.md
+index.html.bak-pre-dual-lane
+.tmp-brain-check/
